@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" line="2093" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" line="2161" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/src/js/mxClient.js" line="39668" mnemonic="4" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/src/js/mxClient.js" line="40527" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" line="24" mnemonic="1" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/MX_MANUAL_html_1cc55dd3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/MX_MANUAL_html_ba4bf13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/MX_MANUAL_html_m75de608.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/architecture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/callgraph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/editor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/graph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/logo.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/model.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_architecture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_collapse_swim.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_drill_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_drilling.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_edge_routing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_expand_swim.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_graph_analysis.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_graph_interaction.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_graph_layout.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_graph_vis.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_hello_struct.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_hello_world.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_log_group_struct.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_non_realtive_edge_pos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_non_relative_pos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_overlap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_rel_vert_pos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_simple_graph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_simple_workflow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_stencil_loaded.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_styles.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_top_level.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mx_man_vertex_props.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/mxgraph_logo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/images/images/callgraph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.classpath" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/mxgraph.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ChangeLog" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/css/manual-colors.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/css/manual-styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/editor/mxDefaultKeyHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/editor/mxDefaultPopupMenu-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/editor/mxDefaultToolbar-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/editor/mxEditor-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxCellHighlight-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxCellMarker-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxCellTracker-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxConnectionHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxConstraintHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxEdgeHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxEdgeSegmentHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxElbowEdgeHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxGraphHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxHandle-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxKeyHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxPanningHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxPopupMenuHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxRubberband-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxSelectionCellsHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxTooltipHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/handler/mxVertexHandler-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/index-txt.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxCellCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxChildChangeCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxCodecRegistry-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxDefaultKeyHandlerCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxDefaultPopupMenuCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxDefaultToolbarCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxEditorCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxGenericChangeCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxGraphCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxGraphViewCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxModelCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxObjectCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxRootChangeCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxStylesheetCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/io/mxTerminalChangeCodec-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/model/mxGraphAbstractHierarchyCell-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/model/mxGraphHierarchyEdge-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/model/mxGraphHierarchyModel-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/model/mxGraphHierarchyNode-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/model/mxSwimlaneModel-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/mxHierarchicalLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/mxSwimlaneLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/stage/mxCoordinateAssignment-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/stage/mxHierarchicalLayoutStage-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/stage/mxMedianHybridCrossingReduction-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/stage/mxMinimumCycleRemover-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/hierarchical/stage/mxSwimlaneOrdering-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxCircleLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxCompactTreeLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxCompositeLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxEdgeLabelLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxFastOrganicLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxGraphLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxParallelEdgeLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxPartitionLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxRadialTreeLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/layout/mxStackLayout-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/model/mxCell-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/model/mxCellPath-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/model/mxGeometry-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/model/mxGraphModel-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/mxClient-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxActor-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxArrow-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxArrowConnector-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxCloud-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxConnector-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxCylinder-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxDoubleEllipse-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxEllipse-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxHexagon-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxImageShape-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxLabel-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxLine-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxMarker-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxPolyline-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxRectangleShape-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxRhombus-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxShape-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxStencil-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxStencilRegistry-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxSwimlane-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxText-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/shape/mxTriangle-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxAbstractCanvas2D-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxAnimation-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxAutoSaveManager-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxClipboard-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxConstants-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxDictionary-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxDivResizer-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxDragSource-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxEffects-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxEvent-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxEventObject-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxEventSource-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxForm-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxGuide-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxImage-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxImageBundle-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxImageExport-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxLog-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxMorphing-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxMouseEvent-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxObjectIdentity-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxPanningManager-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxPoint-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxPopupMenu-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxRectangle-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxResources-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxSvgCanvas2D-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxToolbar-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxUndoManager-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxUndoableEdit-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxUrlConverter-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxUtils-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxVmlCanvas2D-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxWindow-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxXmlCanvas2D-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/util/mxXmlRequest-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxCellEditor-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxCellOverlay-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxCellRenderer-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxCellState-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxCellStatePreview-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxConnectionConstraint-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxEdgeStyle-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxGraph-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxGraphSelectionModel-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxGraphView-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxLayoutManager-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxMultiplicity-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxOutline-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxPerimeter-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxPrintPreview-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxStyleRegistry-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxStylesheet-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxSwimlaneManager-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/files/view/mxTemporaryCellStates-js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Classes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Classes2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Cookies.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Events.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Files.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions10.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions11.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions12.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions13.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions14.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions15.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions16.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions17.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions18.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions19.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions8.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Functions9.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General10.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General11.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General12.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General13.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General14.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General15.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General16.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General17.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General18.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General19.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General20.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General8.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/General9.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables10.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables11.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables12.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables13.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables14.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables8.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/index/Variables9.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/javascript/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/javascript/prettify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/javascript/searchdata.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/ClassesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/ClassesW.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/CookiesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsE.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsF.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsG.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsH.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsL.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsN.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsO.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsP.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsR.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsS.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsT.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/EventsU.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FilesA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FilesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsE.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsF.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsG.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsH.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsI.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsJ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsK.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsL.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsN.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsO.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsP.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsQ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsR.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsS.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsT.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsU.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsV.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsW.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/FunctionsZ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralE.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralF.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralG.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralH.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralI.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralJ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralK.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralL.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralN.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralO.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralP.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralQ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralR.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralS.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralT.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralU.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralV.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralW.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralX.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralY.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/GeneralZ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/NoResults.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesE.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesF.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesG.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesH.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesI.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesJ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesK.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesL.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesN.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesO.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesP.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesQ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesR.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesS.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesT.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesU.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesV.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesW.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesX.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesY.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/search/VariablesZ.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js-api/styles/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/js/toc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/known-issues.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/manual.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/manual_javavis.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/canvas/mxGdCanvas-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/canvas/mxHtmlCanvas-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/index-txt.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/io/mxCellCodec-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/io/mxCodec-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/io/mxCodecRegistry-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/io/mxModelCodec-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/io/mxObjectCodec-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/io/mxStylesheetCodec-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/model/mxCell-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/model/mxCellPath-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/model/mxGeometry-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/model/mxGraphModel-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/reader/mxGraphViewHtmlReader-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/reader/mxGraphViewImageReader-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxConstants-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxEvent-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxEventObject-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxEventSource-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxImageBundle-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxLog-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxPoint-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxRectangle-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/util/mxUtils-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxCellState-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxConnectionConstraint-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxEdgeStyle-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxGraph-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxGraphView-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxPerimeter-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxStyleRegistry-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/files/view/mxStylesheet-php.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Classes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Files.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Functions7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General10.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General8.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/General9.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Interfaces.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Variables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Variables2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Variables3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/index/Variables4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/javascript/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/javascript/prettify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/javascript/searchdata.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/ClassesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FilesA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FilesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsE.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsF.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsG.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsI.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsL.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsO.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsP.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsR.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsS.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsT.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsU.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsV.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/FunctionsW.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralE.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralF.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralG.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralH.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralI.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralL.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralN.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralO.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralP.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralR.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralS.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralT.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralU.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralV.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralW.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralX.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/GeneralY.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/InterfacesM.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/NoResults.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/VariablesA.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/VariablesB.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/VariablesC.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/VariablesD.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/php-api/search/VariablesE.html" />
+    </list>
+    <ignored path="mxgraph.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="mxgraph" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditorUi.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Actions.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44072524">
+              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dialogs.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1452" column="42" selection-start-line="1452" selection-start-column="42" selection-end-line="1452" selection-end-column="42" />
+              <folding>
+                <marker date="1461595147586" expanded="true" signature="70333:70354" placeholder="..." />
+                <marker date="1461595147586" expanded="true" signature="71357:71378" placeholder="..." />
+                <marker date="1461595147586" expanded="true" signature="71731:71752" placeholder="..." />
+                <marker date="1461595147586" expanded="true" signature="72661:72682" placeholder="..." />
+                <marker date="1461595147586" expanded="true" signature="73460:73481" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/src/js/mxClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38121" column="9" selection-start-line="38121" selection-start-column="9" selection-end-line="38133" selection-end-column="6" />
+              <folding>
+                <marker date="1461595191840" expanded="true" signature="133022:133033" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="133115:133186" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="133200:133253" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="133947:133958" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="439505:439569" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="610759:610796" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="616517:616654" placeholder="..." />
+                <marker date="1461595191840" expanded="true" signature="1314079:1314093" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" />
+        <option value="$PROJECT_DIR$/javascript/src/js/mxClient.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="JavaScriptLanguageLevel" value="ES6" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="" />
+      <created>1461577810014</created>
+      <option name="number" value="Default" />
+      <updated>1461577810014</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23853868" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27919462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1452" column="42" selection-start-line="1452" selection-start-column="42" selection-end-line="1452" selection-end-column="42" />
+          <folding>
+            <marker date="1461595147586" expanded="true" signature="70333:70354" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71357:71378" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71731:71752" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="72661:72682" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="73460:73481" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38121" column="9" selection-start-line="38121" selection-start-column="9" selection-end-line="38133" selection-end-column="6" />
+          <folding>
+            <marker date="1461595191840" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="439505:439569" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="610759:610796" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="616517:616654" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="1314079:1314093" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="48" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1452" column="42" selection-start-line="1452" selection-start-column="42" selection-end-line="1452" selection-end-column="42" />
+          <folding>
+            <marker date="1461595147586" expanded="true" signature="70333:70354" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71357:71378" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71731:71752" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="72661:72682" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="73460:73481" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38121" column="9" selection-start-line="38121" selection-start-column="9" selection-end-line="38133" selection-end-column="6" />
+          <folding>
+            <marker date="1461595191840" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="439505:439569" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="610759:610796" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="616517:616654" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="1314079:1314093" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="48" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1452" column="42" selection-start-line="1452" selection-start-column="42" selection-end-line="1452" selection-end-column="42" />
+          <folding>
+            <marker date="1461595147586" expanded="true" signature="70333:70354" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71357:71378" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71731:71752" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="72661:72682" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="73460:73481" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38121" column="9" selection-start-line="38121" selection-start-column="9" selection-end-line="38133" selection-end-column="6" />
+          <folding>
+            <marker date="1461595191840" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="439505:439569" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="610759:610796" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="616517:616654" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="1314079:1314093" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/checkmark.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/close.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/collapsed.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/transparent.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/triangle-left.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/triangle-right.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/unlocked.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/arrow.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/cross.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/hs.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/jscolor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/hv.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/images/search.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07112971">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/sanitizer/sanitizer.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2608089">
+          <caret line="0" column="1455" selection-start-line="0" selection-start-column="1455" selection-end-line="0" selection-end-column="1455" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/htmllabel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38509318">
+          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1452" column="42" selection-start-line="1452" selection-start-column="42" selection-end-line="1452" selection-end-column="42" />
+          <folding>
+            <marker date="1461595147586" expanded="true" signature="70333:70354" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71357:71378" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="71731:71752" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="72661:72682" placeholder="..." />
+            <marker date="1461595147586" expanded="true" signature="73460:73481" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38121" column="9" selection-start-line="38121" selection-start-column="9" selection-end-line="38133" selection-end-column="6" />
+          <folding>
+            <marker date="1461595191840" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="439505:439569" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="610759:610796" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="616517:616654" placeholder="..." />
+            <marker date="1461595191840" expanded="true" signature="1314079:1314093" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44072524">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
