@@ -83661,13 +83661,13 @@ var mxCodecRegistry =
  * var codec = new mxCodec(doc);
  * var elt = doc.documentElement.firstChild;
  * var cells = [];
- * 
+ *
  * while (elt != null)
  * {
  *   cells.push(codec.decode(elt));
  *   elt = elt.nextSibling;
  * }
- * 
+ *
  * graph.addCells(cells);
  * (end)
  * 
@@ -86174,7 +86174,8 @@ var mxStylesheetCodec = mxCodecRegistry.register(function()
 		
 		if (type == 'function')
 		{
-			value = mxStyleRegistry.getName(style[j]);
+			//value = mxStyleRegistry.getName(style[j]); - bug
+			value = mxStyleRegistry.getName(value);
 		}
 		else if (type == 'object')
 		{

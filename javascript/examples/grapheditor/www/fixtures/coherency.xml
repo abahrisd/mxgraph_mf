@@ -1,0 +1,25 @@
+<mxGraphModel dx="954" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1"
+              pageScale="1" pageWidth="826" pageHeight="1169" background="#ffffff">
+    <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="13"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.25;entryX=0.5;entryY=0;jettySize=auto;orthogonalLoop=1;"
+                edge="1" parent="1" source="10" target="11">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="50" y="60" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="150" y="120" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="" style="rounded=1;whiteSpace=wrap;html=1;container=1;" vertex="1" parent="1">
+            <mxGeometry x="280" y="60" width="280" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="" style="triangle;whiteSpace=wrap;html=1;" vertex="1" parent="14">
+            <mxGeometry x="101.96078431372547" y="47.36842105263158" width="47.058823529411754"
+                        height="75.78947368421052" as="geometry"/>
+        </mxCell>
+    </root>
+</mxGraphModel>

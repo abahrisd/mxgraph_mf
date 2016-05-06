@@ -1,0 +1,148 @@
+/**
+ * Listen changes of cells, and make equal attributes in cells with same paramName
+ */
+function EqualAttrs(editorUi, paramName)
+{
+    this.editorUi = editorUi;
+    this.graph = this.editorUi.editor.graph;
+    this.paramName = paramName;
+
+    this.globalUsersCellX = 40;
+    this.globalUsersCellY = 40;
+    this.parent = this.graph.getDefaultParent();
+
+    this.init();
+};
+
+/**
+ * Init listen changes
+ */
+EqualAttrs.prototype.init = function() {
+    var graph = this.graph;
+    var _this = this;
+
+    graph.getModel().addListener(mxEvent.CHANGE, function(sender, evt){
+        var changes = evt.getProperty('edit').changes;
+
+        //param to search equal elements
+        var param = _this.paramName;
+
+        changes.forEach(function(el){
+
+            //if changes in vertex with UUID
+            if (el.cell && el.cell.isVertex() && el.cell.getValue() && el.cell.getValue().getAttribute && el.cell.getValue().getAttribute(param)){
+                var cell = el.cell;
+
+                //check is exists dublicates elements with same UUID
+                var cellsSameUUID = _this.findEqualCells(cell, param);
+
+                //copy attrs from cell to each cellsSameUUID
+                if (cellsSameUUID.length > 0) {
+                    _this.setAttributesEqual(cell, cellsSameUUID)
+                }
+            }
+        });
+    });
+
+    //load stylesheeet.xml
+
+    //import styles from xml
+    //var req = mxUtils.load('fixtures/stylesheet.xml');
+    //var root = req.getDocumentElement();
+    //var dec = new mxCodec(root.ownerDocument);
+    //var nodstyle = dec.decode(root, _this.graph.stylesheet);
+    //
+    //console.log('nodstyle',nodstyle);
+    //_this.graph.setStylesheet(nodstyle);
+
+    //FIXME It's wrong to load cells there
+    //this.getCellsByURL('fixtures/testdata.json');
+};
+
+/**
+ * Find cells with same paramName as in provided cell
+ * cell - provided cell
+ * return Array of cells
+ */
+EqualAttrs.prototype.findEqualCells = function(cell, paramName) {
+    var cells = [];
+    var graph = this.graph;
+    var UUID = cell.getValue().getAttribute(paramName);
+    var cellId = cell.getId();
+
+    graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(el){
+        if (el.getValue() && el.getValue().getAttribute && el.getValue().getAttribute(paramName) && el.getValue().getAttribute(paramName) === UUID && cellId != el.getId()){
+            cells.push(el)
+        }
+    });
+
+    return cells;
+};
+
+/**
+ * Set attributes from cell equal to all cells in cellsSameUUID
+ * cell - source cell
+ * cellsToUpdate - array of cells to make attributes equal sourse cell
+ * return boolean
+ */
+EqualAttrs.prototype.setAttributesEqual = function(cell, cellsToUpdate){
+
+    var graph = this.graph;
+    graph.getModel().beginUpdate();
+    try {
+        cellsToUpdate.forEach(function(el){
+
+            for (var i = 0, atts = cell.getValue().attributes, n = atts.length; i < n; i++){
+                el.getValue().setAttribute(atts[i].nodeName, atts[i].nodeValue);
+            }
+        });
+    } finally {
+        graph.getModel().endUpdate();
+    }
+}
+
+
+
+/**
+ * Load cells from provided url
+ * url - string
+ * return void
+ */
+EqualAttrs.prototype.getCellsByURL = function(url){
+
+    var _this = this;
+
+    var onload = function(req){
+        try{
+            var responseData = JSON.parse(req.getText());
+
+            if (responseData !== undefined){
+                responseData.forEach(function(el){
+                    _this.createCellFromUserObject(el);
+                })
+            }
+
+            var encoder = new mxCodec();
+            var styleEncoder = mxCodecRegistry.getCodec('mxStylesheet');
+            var node = styleEncoder.encode(encoder,_this.graph.getStylesheet());
+            console.log('export node',node);
+            console.log('export node xml',mxUtils.getXml(node));
+
+            //TODO send node on server
+
+            //debug stuff
+            //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
+
+
+        } catch (e){
+            console.log('Error while parsing JSON ',e.stack);
+        }
+    };
+
+    var onerror = function(req){
+          mxUtils.alert('Error while getting diagram from server');
+    };
+
+    new mxXmlRequest(url, 'key=value').send(onload, onerror);
+
+};

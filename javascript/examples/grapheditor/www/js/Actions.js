@@ -21,21 +21,6 @@ Actions.prototype.init = function()
 	var graph = editor.graph;
 	var isGraphEnabled = mxUtils.bind(graph, graph.isEnabled);
 
-
-    //TODO delete
-    /*graph.getModel().addListener(mxEvent.CHANGE, function(sender, evt){
-        var changes = evt.getProperty('edit').changes;
-        var nodes = [];
-        var codec = new mxCodec();
-
-        for (var i = 0; i < changes.length; i++){
-            nodes.push(codec.encode(changes[i]));
-        }
-
-        console.log('Change spoted', nodes);
-        // do something with the nodes
-    });*/
-
 	// File actions
 	this.addAction('new...', function() { window.open(ui.getUrl()); });
 	this.addAction('open...', function()
@@ -83,6 +68,8 @@ Actions.prototype.init = function()
 	this.addAction('save', function() { ui.saveFile(false); }, null, null, 'Ctrl+S').isEnabled = isGraphEnabled;
 	this.addAction('saveAs...', function() { ui.saveFile(true); }, null, null, 'Ctrl+Shift+S').isEnabled = isGraphEnabled;
 	this.addAction('export...', function() { ui.showDialog(new ExportDialog(ui).container, 300, 210, true, true); });
+    //export as JSON
+    this.addAction('exportJSON...', function() { ui.exportJSON(); }, null, null).isEnabled = isGraphEnabled;
 	this.addAction('editDiagram...', function()
 	{
 		var dlg = new EditDiagramDialog(ui);

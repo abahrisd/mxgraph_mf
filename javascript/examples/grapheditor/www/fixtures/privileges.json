@@ -1,0 +1,10 @@
+{
+  "allowedMenus": [
+    "file",
+    "edit"
+  ],
+  "allowedPalettes": [
+    "advanced",
+    "bpmn"
+  ]
+}

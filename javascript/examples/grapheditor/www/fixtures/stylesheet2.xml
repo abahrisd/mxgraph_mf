@@ -1,0 +1,7 @@
+<mxStylesheet>
+<add as="custom">
+    <add value="rectangle" as="shape"/>
+    <add value="1" as="rounded"/>
+    <add value="red" as="fillColor"/>
+</add>
+</mxStylesheet>

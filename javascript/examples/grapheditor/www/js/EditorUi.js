@@ -2729,6 +2729,8 @@ EditorUi.prototype.save = function(name)
 		}
 		
 		var xml = mxUtils.getXml(this.editor.getGraphXml());
+		//var style = mxUtils.getXml(this.editor.getGraphXml());
+        console.log('xml',xml);
 		
 		try
 		{
@@ -3333,4 +3335,12 @@ EditorUi.prototype.destroy = function()
 			c[i].parentNode.removeChild(c[i]);
 		}
 	}
+};
+
+/**
+ * Exports all graphs in JSON format
+ */
+EditorUi.prototype.exportJSON = function() {
+    //create JSON oobject from all cells in graph
+    console.log('go export');
 };

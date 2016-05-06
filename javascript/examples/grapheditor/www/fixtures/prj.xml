@@ -1,0 +1,17 @@
+<mxGraphModel dx="1780" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" background="#ffffff">
+    <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <UserNode label="Первичное формирование СБР" UUID="ae$64302" id="2">
+            <mxCell vertex="1" parent="1">
+                <mxGeometry x="40" y="40" width="320" height="270" as="geometry"/>
+            </mxCell>
+        </UserNode>
+        <UserNode label="Первичное формирование СБР" UUID="ae$64302" id="3"><mxCell vertex="1" parent="2"><mxGeometry x="40" y="40" width="280" height="230" as="geometry"/></mxCell></UserNode>
+        <UserNode label="Первичное формирование БР" UUID="ae$66965" id="4"><mxCell vertex="1" parent="3"><mxGeometry x="40" y="40" width="240" height="190" as="geometry"/></mxCell></UserNode>
+        <UserNode label="Внесение изменений в БР при изменении СБР" UUID="ae$66966" id="5"><mxCell vertex="1" parent="4"><mxGeometry x="40" y="40" width="200" height="150" as="geometry"/></mxCell></UserNode>
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;" edge="1" parent="1" source="9" target="10"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="9" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="-760" y="70" width="120" height="60" as="geometry"/></mxCell>
+        <mxCell id="10" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="-420" y="110" width="80" height="80" as="geometry"/></mxCell>
+    </root>
+</mxGraphModel>
