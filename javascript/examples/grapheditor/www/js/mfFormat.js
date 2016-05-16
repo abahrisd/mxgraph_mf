@@ -414,10 +414,8 @@ Format.prototype.refresh = function()
 
 		label.style.backgroundColor = '#d7d7d7';
 		label.style.borderLeftWidth = '1px';
-		//label.style.width = (containsLabel) ? '50%' : '33.3%';
-		//label.style.width = (containsLabel) ? '50%' : '33.3%';
-		label.style.width = (containsLabel) ? '50%' : '25%';
-		label.style.width = (containsLabel) ? '50%' : '25%';
+        label.style.width = (containsLabel) ? '50%' : '33.3%';
+        label.style.width = (containsLabel) ? '50%' : '33.3%';
 		var label2 = label.cloneNode(false);
 		var label3 = label2.cloneNode(false);
 		var label4 = label3.cloneNode(false);
@@ -427,17 +425,27 @@ Format.prototype.refresh = function()
 		label3.style.backgroundColor = '#d7d7d7';
         label4.style.backgroundColor = '#d7d7d7';
 
-        // Attributes
-        label4.style.borderLeftWidth = '0px';
-        mxUtils.write(label4, mxResources.get('attributes'));
-        div.appendChild(label4);
+        if (graph.getSelectionCells().length === 1 && graph.getSelectionCell().vertex) {
 
-        var attributesPanel = div.cloneNode(false);
-        attributesPanel.style.display = 'none';
-        this.panels.push(new AttributePanel(this, ui, attributesPanel));
-        this.container.appendChild(attributesPanel);
+            label.style.width = (containsLabel) ? '50%' : '25%';
+            label.style.width = (containsLabel) ? '50%' : '25%';
 
-        addClickHandler(label4, attributesPanel, idx++);
+            label2 = label.cloneNode(false);
+            label3 = label2.cloneNode(false);
+            label4 = label3.cloneNode(false);
+
+            // Attributes
+            label4.style.borderLeftWidth = '0px';
+            mxUtils.write(label4, mxResources.get('attributes'));
+            div.appendChild(label4);
+
+            var attributesPanel = div.cloneNode(false);
+            attributesPanel.style.display = 'none';
+            this.panels.push(new AttributePanel(this, ui, attributesPanel));
+            this.container.appendChild(attributesPanel);
+
+            addClickHandler(label4, attributesPanel, idx++);
+        }
 
 		// Style
 		if (containsLabel)
@@ -4749,104 +4757,127 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var editor = ui.editor;
     var graph = editor.graph;
     var ss = this.format.getSelectionState();
+    var cell = graph.getSelectionCell();
+    var atributesDirectory = ui.atributesDirectory;
+    var labelDir = {};
 
-    var title = this.createTitle(mxResources.get('attributes'));
-    title.style.paddingLeft = '18px';
-    title.style.paddingTop = '10px';
-    title.style.paddingBottom = '6px';
-    container.appendChild(title);
+
+    var textsCont = document.createElement('div');
+    textsCont.style.whiteSpace = 'nowrap';
+    textsCont.style.marginTop = '6px';
 
     var _this = this;
-    var cells = [1, 2, 3, 4];
 
-    cells.forEach(function(el){
-        // Attribute label
-        var stylePanel = _this.createPanel();
-        /*stylePanel.style.position = 'relative';
-        stylePanel.style.width = '70px';
-        stylePanel.style.marginTop = '0px';
-        stylePanel.style.fontWeight = 'bold';*/
+    var value = graph.getModel().getValue(cell);
 
-        stylePanel.style.paddingTop = '2px';
-        stylePanel.style.paddingBottom = '7px';
-        stylePanel.style.marginTop = '5px';
-        stylePanel.style.position = 'relative';
-        stylePanel.style.marginLeft = '-2px';
-        stylePanel.style.borderWidth = '0px';
-        stylePanel.style.fontWeight = 'bold';
-        stylePanel.className = 'geToolbarContainer';
+    if (atributesDirectory) {
+        labelDir = atributesDirectory.getById(value.getAttribute('_metaClass'))
+    }
 
-        mxUtils.write(stylePanel, mxResources.get('attributes'));
+    // Converts the value to an XML node
+    if (!mxUtils.isNode(value))
+    {
+        var doc = mxUtils.createXmlDocument();
+        var obj = doc.createElement('object');
+        obj.setAttribute('label', value || '');
+        value = obj;
+    }
 
-        //Attribute value
-        var input = document.createElement('input');
+    // Creates the dialog contents
+    var form = new mxForm('properties');
+    form.table.style.width = '100%';
+    form.table.style.textAlign = 'right';
+    form.table.style.paddingRight = '20px';
 
-        input.style.position = 'absolute';
-        //input.style.marginTop = '10px';
-        //stylePanel.style.paddingTop = '4px';
-        //stylePanel.style.paddingBottom = '4px';
-        input.style.right = '12px';
-        //input.style.right = (mxClient.IS_QUIRKS) ? '52px' : '72px';
-        input.style.width = '100px';
-        /*
-         input.style.position = 'absolute';
-         //input.style.textAlign = 'right';
-         input.style.marginTop = '-2px';
-         //input.style.right = (right + 12) + 'px';
-         input.style.width = '100px';*/
+    var attrs = value.attributes;
+    var names = [];
+    var texts = [];
+    var count = 0;
 
-        stylePanel.appendChild(input);
-        container.appendChild(stylePanel);
-    });
+    var updateAttributes = function(){
+        try
+        {
+            // Clones and updates the value
+            value = value.cloneNode(true);
+
+            for (var i = 0; i < names.length; i++)
+            {
+                if (texts[i] == null)
+                {
+                    value.removeAttribute(names[i]);
+                }
+                else
+                {
+                    value.setAttribute(names[i], texts[i].value);
+                    if (names[i] === 'title'){
+                        value.setAttribute('label', texts[i].value);
+                    }
+                }
+            }
+
+            // Updates the value of the cell (undoable)
+            graph.getModel().setValue(cell, value);
+        }
+        catch (e)
+        {
+            mxUtils.alert(e);
+        }
+    }
+
+
+    var addTextInput = function(index, name, value, directory)
+    {
+        names[index] = name;
+        var labelName = directory[names[count]].name || names[count];
+
+        texts[index] = form.addText(labelName + ':', value);
+        texts[index].style.width = '100%';
+        texts[index].oninput = updateAttributes;
+
+        //addRemoveButton(texts[index], name);
+    };
+
+    for (var i = 0; i < attrs.length; i++)
+    {
+        if (attrs[i].nodeName != 'label' && attrs[i].nodeName != 'placeholders' && attrs[i].nodeName.substring(0, 1) !== '_')
+        {
+            addTextInput(count, attrs[i].nodeName, attrs[i].nodeValue, labelDir);
+            count++;
+        }
+    }
+
+    //add combo to attrs list
+    var codeCombo = form.addCombo('Cписок:');
+    codeCombo.style.width = '100%';
+    form.addOption(codeCombo, 'Зелёный', 1)
+    form.addOption(codeCombo, 'Красный', 2)
+    form.addOption(codeCombo, 'Синий', 3)
+
+    //add form with attr:value:x blocks
+    textsCont.appendChild(form.table);
+    container.appendChild(textsCont);
+
+    //callback to change title if lable was changed
+    graph.getModel().valueForCellChanged = function(cell, value){
+
+        //var previous = cell.getValue().getAttribute('label');
+        cell.getValue().setAttribute('label', value.getAttribute('label'));
+        cell.getValue().setAttribute('title', value.getAttribute('label'));
+
+        return cell.valueChanged(value);
+    };
+
+    //overwright for change title attr on change label
+    var graphCellLabelChanged = graph.cellLabelChanged;
+    graph.cellLabelChanged = function(cell, newValue, autoSize) {
+        cell.getValue().setAttribute('title', newValue)
+
+        graphCellLabelChanged.apply(this, arguments);
+    };
+
+    //container.appendChild(form.table);
 
 
     return container;
-/*
-    var span = document.createElement('div');
-    span.style.position = 'absolute';
-    span.style.width = '70px';
-    span.style.marginTop = '0px';
-    span.style.fontWeight = 'bold';
-    mxUtils.write(span, mxResources.get('angle'));
-    div.appendChild(span);
 
-    var update = null;
-    var input = this.addUnitInput(div, '°', 84, 44, function()
-    {
-        update.apply(this, arguments);
-    });
-
-    if (!ss.containsLabel)
-    {
-        var btn = mxUtils.button(mxResources.get('turn'), function(evt)
-        {
-            ui.actions.get('turn').funct();
-        })
-
-        btn.setAttribute('title', 'Ctrl+R');
-        btn.style.position = 'absolute';
-        btn.style.marginTop = '-2px';
-        btn.style.right = '20px';
-        btn.style.width = '61px';
-        div.appendChild(btn);
-    }
-
-    var listener = mxUtils.bind(this, function(sender, evt, force)
-    {
-        if (force || document.activeElement != input)
-        {
-            ss = this.format.getSelectionState();
-            var tmp = parseFloat(mxUtils.getValue(ss.style, mxConstants.STYLE_ROTATION, 0));
-            input.value = (isNaN(tmp)) ? '' : tmp  + '°';
-        }
-    });
-
-    update = this.installInputHandler(input, mxConstants.STYLE_ROTATION, 0, 0, 360, '°', null, true);
-    this.addKeyHandler(input, listener);
-
-    graph.getModel().addListener(mxEvent.CHANGE, listener);
-    this.listeners.push({destroy: function() { graph.getModel().removeListener(listener); }});
-    listener();
-
-    return div;*/
 };

@@ -1,0 +1,118 @@
+<mxStylesheet>
+    <add as="defaultVertex">
+        <add value="label" as="shape"/>
+        <add value="rectanglePerimeter" as="perimeter"/>
+        <add value="12" as="fontSize"/>
+        <add value="Helvetica" as="fontFamily"/>
+        <add value="center" as="align"/>
+        <add value="middle" as="verticalAlign"/>
+        <add value="#ffffff" as="fillColor"/>
+        <add value="#000000" as="strokeColor"/>
+        <add value="#000000" as="fontColor"/>
+    </add>
+    <add as="defaultEdge">
+        <add value="connector" as="shape"/>
+        <add value="#ffffff" as="labelBackgroundColor"/>
+        <add value="classic" as="endArrow"/>
+        <add value="11" as="fontSize"/>
+        <add value="Helvetica" as="fontFamily"/>
+        <add value="center" as="align"/>
+        <add value="middle" as="verticalAlign"/>
+        <add value="1" as="rounded"/>
+        <add value="#000000" as="strokeColor"/>
+        <add value="#000000" as="fontColor"/>
+    </add>
+    <add as="text">
+        <add value="none" as="fillColor"/>
+        <add value="none" as="gradientColor"/>
+        <add value="none" as="strokeColor"/>
+        <add value="left" as="align"/>
+        <add value="top" as="verticalAlign"/>
+    </add>
+    <add as="label">
+        <add value="1" as="fontStyle"/>
+        <add value="left" as="align"/>
+        <add value="middle" as="verticalAlign"/>
+        <add value="2" as="spacing"/>
+        <add value="52" as="spacingLeft"/>
+        <add value="42" as="imageWidth"/>
+        <add value="42" as="imageHeight"/>
+        <add value="1" as="rounded"/>
+    </add>
+    <add as="icon">
+        <add value="0" as="fontStyle"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
+        <add value="0" as="spacing"/>
+        <add value="0" as="spacingLeft"/>
+        <add value="48" as="imageWidth"/>
+        <add value="48" as="imageHeight"/>
+        <add value="1" as="rounded"/>
+        <add value="center" as="imageAlign"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="6" as="spacingTop"/>
+        <add value="#ffffff" as="labelBackgroundColor"/>
+    </add>
+    <add as="swimlane">
+        <add value="swimlane" as="shape"/>
+        <add value="12" as="fontSize"/>
+        <add value="1" as="fontStyle"/>
+        <add value="23" as="startSize"/>
+    </add>
+    <add as="group">
+        <add value="top" as="verticalAlign"/>
+        <add value="none" as="fillColor"/>
+        <add value="none" as="strokeColor"/>
+        <add value="none" as="gradientColor"/>
+        <add value="0" as="pointerEvents"/>
+    </add>
+    <add as="ellipse">
+        <add value="ellipse" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
+    </add>
+    <add as="rhombus">
+        <add value="rhombus" as="shape"/>
+        <add value="rhombusPerimeter" as="perimeter"/>
+    </add>
+    <add as="triangle">
+        <add value="triangle" as="shape"/>
+        <add value="trianglePerimeter" as="perimeter"/>
+    </add>
+    <add as="line">
+        <add value="line" as="shape"/>
+        <add value="4" as="strokeWidth"/>
+        <add value="#ffffff" as="labelBackgroundColor"/>
+        <add value="top" as="verticalAlign"/>
+        <add value="8" as="spacingTop"/>
+    </add>
+    <add as="image">
+        <add value="image" as="shape"/>
+        <add value="white" as="labelBackgroundColor"/>
+        <add value="top" as="verticalAlign"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+    </add>
+    <add as="roundImage">
+        <add value="image" as="shape"/>
+        <add value="white" as="labelBackgroundColor"/>
+        <add value="top" as="verticalAlign"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
+    </add>
+    <add as="rhombusImage">
+        <add value="image" as="shape"/>
+        <add value="white" as="labelBackgroundColor"/>
+        <add value="top" as="verticalAlign"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="rhombusPerimeter" as="perimeter"/>
+    </add>
+    <add as="arrow">
+        <add value="arrow" as="shape"/>
+        <add value="none" as="edgeStyle"/>
+        <add value="#ffffff" as="fillColor"/>
+    </add>
+    <add as="custom">
+        <add value="rectangle" as="shape"/>
+        <add value="1" as="rounded"/>
+        <add value="red" as="fillColor"/>
+    </add>
+</mxStylesheet>

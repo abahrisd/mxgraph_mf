@@ -1,63 +1,186 @@
 /**
- * Load and set privilege
+ * ConstructLoad and set privilege
  */
-function DataLoader(editorUi, styleUrl, cellsUrl)
-{
+function DataLoader(editorUi) {
     this.editorUi = editorUi;
     this.graph = this.editorUi.editor.graph;
     this.parent = this.graph.getDefaultParent();
     this.globalUsersCellX = 40;
     this.globalUsersCellY = 40;
 
-    this.init(styleUrl,cellsUrl);
+    this.stylesheet = '';
+    this.linkTypes = '';
+    this.objectTypes = '';
+
+    //parsing url and get params
+    this.queryStr = function () {
+        // This function is anonymous, is executed immediately and
+        // the return value is assigned to QueryString!
+        var query_string = {};
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            // If first entry with this name
+            if (typeof query_string[pair[0]] === "undefined") {
+                query_string[pair[0]] = decodeURIComponent(pair[1]);
+                // If second entry with this name
+            } else if (typeof query_string[pair[0]] === "string") {
+                var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+                query_string[pair[0]] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[pair[0]].push(decodeURIComponent(pair[1]));
+            }
+        }
+        return query_string;
+    }();
+
+    //this.init(queryStr);
 };
 
 /**
- * Init seting privilege
+ * Init setting privilege
  */
-DataLoader.prototype.init = function(styleUrl,cellsUrl) {
+DataLoader.prototype.init = function(queryStr) {
 
-    this.loadStylesheet(styleUrl);
+    //Nope
 
-    //loading from JSON OR(!) from XML
+    //this.loadStylesheetDoc(styleUrl);
 
-    //this.loadJSONData(cellsUrl);
-    this.loadXMLData('fixtures/testnode.xml');
+    //create url from queryStr
+    //var origin = window.origin;
+    //var pathname = window.pathname;
 
+    //var url = this.generateUrl(queryStr);
+
+    //this.loadXMLData(queryStr);
+    //this.loadXMLData(cellsUrl);
+    //this.loadXMLData('fixtures/testnode.xml');
 };
 
+/**
+ * Generate url from queryStr
+ */
+DataLoader.prototype.generateUrl = function(queryStr) {
+
+    //TODO check is this declaration is correct
+    //var origin = window.origin;
+    //var pathname = window.pathname;
+
+    var origin = 'http://217.74.43.104:8080';
+    var pathname = '/sd/services/rest/get/';
+
+    return (origin + pathname + queryStr.view + '?' + 'accessKey=' + (queryStr.accessKey || '2c26e34c-e9e8-4120-9f76-c4661bb748ae'));
+};
+
+/**
+ * Set styleseet from this.stylesheet
+ */
+DataLoader.prototype.setStylesheet = function(res) {
+
+    var graph = this.graph;
+    if (res.stylesheet){
+        var stylesheet = res.stylesheet;
+        var doc = mxUtils.parseXml(stylesheet);
+        var root = doc.documentElement;
+        var dec = new mxCodec(root.ownerDocument);
+        //var nodstyle =
+        dec.decode(root, graph.stylesheet);
+    }
+};
 
 /**
  * Load stylesheet.xml from server and set it to graph
  */
-DataLoader.prototype.loadJSONData = function(url){
+DataLoader.prototype.loadXMLData = function(){
 
     var _this = this;
+    var url = this.generateUrl(_this.queryStr);
+    var graph = this.graph;
+    var success = false;
+
     var onload = function(req){
         try{
             var responseData = JSON.parse(req.getText());
 
             if (responseData !== undefined){
-                responseData.forEach(function(el){
-                    _this.createCellFromUserObject(el);
-                })
+
+                //load assosiated data, like stylesheet, linkTypes, objectTypes
+                if (responseData.type){
+                    if (responseData.type.UUID){
+                        var metaUrl = _this.generateUrl({view:responseData.type.UUID});
+                        var res = _this.loadTypeData(metaUrl);
+
+                        _this.setStylesheet(res);
+                    } else {
+                        if (DEBUG) {
+                            console.log("Type of view not defined, canot load stylesheet, linkTypes, objectTypes");
+                        }
+                    }
+                }
+
+                //if exits mxGraphModel try to show it
+                if (responseData.mxGraphModel){
+                    try {
+                        var editor = _this.editorUi.editor;
+                        var xml = responseData.mxGraphModel;
+                        var doc = mxUtils.parseXml(xml);
+
+                        editor.setGraphXml(doc.documentElement);
+                        editor.setModified(false);
+                    } catch(e) {
+                        if (DEBUG){
+                            console.log('Error while show mxGraphModel, trying show graph based on relevantData', e.stack);
+                        }
+                    }
+                }
+
+
+                //if no mxGraphModel try to draw graph
+                /*if (!success && responseData.relevantData) {
+                    //debugger;
+                    var objects4Diag = JSON.parse(responseData.relevantData);
+                    if (objects4Diag.objects){
+                        objects4Diag.objects.forEach(function(el){
+                            _this.createCellFromUserObject(el);
+                        })
+                    }
+
+                    if (objects4Diag.links){
+                        objects4Diag.links.forEach(function(el){
+                            //TODO create structure for fast search cell by _metaClass
+                            var source, target;
+
+                            graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
+
+                                if (cell && cell.getValue()){
+
+                                    //console.log("_metaClass", cell.getValue().getAttribute('_metaClass'));
+                                    if (cell.getValue().getAttribute('_UUID') == el.source) {
+                                        source = cell;
+                                    }
+
+                                    if (cell.getValue().getAttribute('_UUID') == el.target) {
+                                        target = cell;
+                                    }
+                                }
+                            });
+
+                            if (source && target){
+                                graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+                            }
+                        });
+                    }
+
+                    _this.arrangeOrganic();
+                }*/
             }
 
-            //export xml node, for debug only
-            var encoder = new mxCodec();
-            var styleEncoder = mxCodecRegistry.getCodec('mxStylesheet');
-            var node = styleEncoder.encode(encoder,_this.graph.getStylesheet());
-            console.log('export node',node);
-            console.log('export node xml',mxUtils.getXml(node));
-
-            //TODO send node on server
-
-            //debug stuff
-            //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
-
-
         } catch (e){
-            console.log('Error while parsing JSON ',e.stack);
+            if (DEBUG) {
+                console.log('Error while parsing JSON ', e.stack);
+            }
         }
     };
 
@@ -65,41 +188,111 @@ DataLoader.prototype.loadJSONData = function(url){
         mxUtils.alert('Error while getting diagram from server');
     };
 
-    new mxXmlRequest(url, 'key=value').send(onload, onerror);
+    new mxXmlRequest(url, 'key=value', 'GET').send(onload, onerror);
 }
 
 
 /**
- * Load stylesheet.xml from server and set it to graph
+ * Load object type data, like stylesheet, linkTypes, objectTypes and store it in local variables
  */
-DataLoader.prototype.loadXMLData = function(url){
+DataLoader.prototype.loadTypeData = function(url) {
+
+    var req = mxUtils.load(url);
+    var responseData = JSON.parse(req.getText());
+    var res = {};
+
+    if (responseData.stylesheet){
+        res.stylesheet = responseData.stylesheet;
+    }
+
+    if (responseData.linkTypes){
+        res.linkTypes = responseData.linkTypes;
+    }
+
+    if (responseData.objectTypes){
+        res.objectTypes = responseData.objectTypes;
+    }
+
+    return res;
+
+};
+
+/**
+ * Load object type data, like stylesheet, linkTypes, objectTypes and store it in local variables
+ */
+DataLoader.prototype.sync = function() {
 
     var _this = this;
+    var url = this.generateUrl(_this.queryStr);
+    var graph = this.graph;
     var editor = this.editorUi.editor;
 
     var onload = function(req){
         try{
-            var xml = req.getText();
+            var responseData = JSON.parse(req.getText());
 
-            var doc = mxUtils.parseXml(xml);
-            editor.setGraphXml(doc.documentElement);
-            editor.setModified(false);
+            if (responseData !== undefined){
 
-            //export xml node, for debug only
-            var encoder = new mxCodec();
-            var styleEncoder = mxCodecRegistry.getCodec('mxStylesheet');
-            var node = styleEncoder.encode(encoder,_this.graph.getStylesheet());
-            console.log('export node from xml load',node);
-            console.log('export node from xml load xml',mxUtils.getXml(node));
+                //load assosiated data, like stylesheet, linkTypes, objectTypes
+                if (responseData.type){
+                    if (responseData.type.UUID){
+                        var metaUrl = _this.generateUrl({view:responseData.type.UUID});
+                        var res = _this.loadTypeData(metaUrl);
 
-            //TODO send node on server
+                        _this.setStylesheet(res);
+                    } else {
+                        if (DEBUG) {
+                            console.log("Type of view not defined, canot load stylesheet, linkTypes, objectTypes");
+                        }
+                    }
+                }
 
-            //debug stuff
-            //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
+                if (responseData.relevantData) {
 
+                    //debugger;
+                    var objects4Diag = JSON.parse(responseData.relevantData);
+                    if (objects4Diag.objects){
+                        objects4Diag.objects.forEach(function(el){
+                            _this.createCellFromUserObject(el);
+                        })
+                    }
+
+                    if (objects4Diag.links){
+                        objects4Diag.links.forEach(function(el){
+                            //TODO create structure for fast search cell by _metaClass
+                            var source, target;
+
+                            graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
+
+                                if (cell && cell.getValue()){
+
+                                    //console.log("_metaClass", cell.getValue().getAttribute('_metaClass'));
+                                    if (cell.getValue().getAttribute('_UUID') == el.source) {
+                                        source = cell;
+                                    }
+
+                                    if (cell.getValue().getAttribute('_UUID') == el.target) {
+                                        target = cell;
+                                    }
+                                }
+                            });
+
+                            if (source && target){
+                                graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+                            }
+                        });
+                    }
+
+                    _this.arrangeOrganic();
+
+                    editor.setModified(false);
+                }
+            }
 
         } catch (e){
-            console.log('Error while parsing JSON ',e.stack);
+            if (DEBUG) {
+                console.log('Error while parsing JSON ', e.stack);
+            }
         }
     };
 
@@ -107,9 +300,8 @@ DataLoader.prototype.loadXMLData = function(url){
         mxUtils.alert('Error while getting diagram from server');
     };
 
-    new mxXmlRequest(url, 'key=value').send(onload, onerror);
-}
-
+    new mxXmlRequest(url, null, 'GET').send(onload, onerror);
+};
 
 /**
  * Create vetecies from object
@@ -120,52 +312,117 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
 
     var doc = mxUtils.createXmlDocument();
     var node = doc.createElement('UserNode');
-    var graph = this.graph;
+    //var graph = this.graph;
+    var graph = EditUI.editor.graph;
     var parent = this.parent;
+
+    var width = '';
+    var height = '';
+    var titleLength = obj.title?obj.title.length:0;
+
     var globalUsersCellX = this.globalUsersCellX;
     var globalUsersCellY = this.globalUsersCellY;
 
     //set title
-    node.setAttribute('label', obj.title?obj.title:'UserLabel');
+    node.setAttribute('label', obj.title?obj.title:'');
 
     //set attributes, except title
     for (var key in obj) {
-        //don't care about obj.hasOwnProperty(key) con obj created from json
-        if (key === 'title') {
-            continue;
+
+        //TODO refactor it!
+        if (key === 'metaClass') {
+            node.setAttribute('_metaClass', obj[key]);
+        } else if (key === 'UUID') {
+            node.setAttribute('_UUID', obj[key]);
+        } else {
+            node.setAttribute(key, obj[key]);
         }
-        node.setAttribute(key, obj[key]);
     }
 
-    //var style = {};
-    //style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_RECTANGLE;
-    //style[mxConstants.STYLE_PERIMETER] = mxPerimeter.RectanglePerimeter;
-    //style[mxConstants.STYLE_ROUNDED] = 1;
-    //style[mxConstants.STYLE_FILLCOLOR] = 'red';
-    //graph.getStylesheet().putCellStyle('custom', style);
-    //EditUI.editor.graph.getStylesheet().putCellStyle('custom', style);
+    var style = '';
 
-    //mxStyleRegistry.putValue('custom', style);
+    //TODO add other styles
+    if (obj.metaClass){
+        switch(obj.metaClass){
+            case 'ae$bpstep':
+                style = 'step';
+                break;
+        }
+    }
 
-    //console.log('node', node);
+    //adjust cell size by label length
+    if (titleLength <= 40){
+        width = 130;
+        height = 50;
+    } else if (titleLength <= 80){
+        width = 140;
+        height = 80;
+    } else if (titleLength <= 120){
+        width = 180;
+        height = 80;
+    } else if (titleLength <= 160){
+        width = 220;
+        height = 100;
+    } else if (titleLength <= 200){
+        width = 220;
+        height = 110;
+    } else {
+        width = 265;
+        height = 115;
+    }
 
-    //var newCell =
-    //place new cell
-    this.parent = graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, 80, 30/*, 'custom'*/);
-    //this.globalUsersCellX += 40;
-    //this.globalUsersCellY += 40;
+    //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
+    graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
+    this.globalUsersCellX += 10;
+    this.globalUsersCellY += 10;
 }
 
 /**
- * Load stylesheet.xml from server and set it to graph
+ * Load stylesheet from server and set it to graph, from server shold came XML!
  */
-DataLoader.prototype.loadStylesheet = function(url){
+DataLoader.prototype.loadStylesheetDoc = function(url){
 
     var _this = this;
     var req = mxUtils.load(url);
     var root = req.getDocumentElement();
     var dec = new mxCodec(root.ownerDocument);
-    var nodstyle = dec.decode(root, _this.graph.stylesheet);
+    dec.decode(root, _this.graph.stylesheet);
 
-    console.log('nodstyle',nodstyle);
+};
+
+/**
+ * Load stylesheet from server and set it to graph, from server shold came XML!
+ */
+DataLoader.prototype.arrangeOrganic = function(){
+
+    var graph = this.graph;
+
+    //TODO call this from menu items
+    var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_NORTH);
+
+    this.editorUi.executeLayout(function(){
+        var selectionCells = graph.getSelectionCells();
+        layout.execute(graph.getDefaultParent(), selectionCells.length == 0 ? null : selectionCells);
+    }, true);
+
+};
+
+/**
+ * Export xml node
+ */
+DataLoader.prototype.exportXMLNode = function(){
+
+    //export xml node, for debug only
+    var graph = this.graph;
+    var encoder = new mxCodec();
+    var styleEncoder = mxCodecRegistry.getCodec('mxStylesheet');
+    var node = styleEncoder.encode(encoder,graph.getStylesheet());
+
+    //console.log('export node',node);
+    //console.log('export node xml',mxUtils.getXml(node));
+
+    //TODO send node on server
+    //debug stuff
+    //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
+
 }

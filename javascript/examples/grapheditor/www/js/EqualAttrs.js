@@ -43,20 +43,6 @@ EqualAttrs.prototype.init = function() {
             }
         });
     });
-
-    //load stylesheeet.xml
-
-    //import styles from xml
-    //var req = mxUtils.load('fixtures/stylesheet.xml');
-    //var root = req.getDocumentElement();
-    //var dec = new mxCodec(root.ownerDocument);
-    //var nodstyle = dec.decode(root, _this.graph.stylesheet);
-    //
-    //console.log('nodstyle',nodstyle);
-    //_this.graph.setStylesheet(nodstyle);
-
-    //FIXME It's wrong to load cells there
-    //this.getCellsByURL('fixtures/testdata.json');
 };
 
 /**

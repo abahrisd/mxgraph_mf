@@ -13,6 +13,9 @@ EditorUi = function(editor, container)
 	this.container = container || document.body;
 	var graph = this.editor.graph;
 
+    //load local list of attributes
+    this.atributesDirectory = new UserStore('fixtures/attributes.json');
+
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
 	{
@@ -56,6 +59,9 @@ EditorUi = function(editor, container)
 	this.createDivs();
 	this.createUi();
 	this.refresh();
+
+    //Create dataLoader
+    this.dataLoader = new DataLoader(this);
 	
 	// Disables HTML and text selection
 	var textEditing =  mxUtils.bind(this, function(evt)
@@ -875,6 +881,7 @@ EditorUi = function(editor, container)
    	this.editor.resetGraph();
    	this.init();
    	this.open();
+    this.dataLoader.loadXMLData();
 };
 
 // Extends mxEventSource
@@ -3338,9 +3345,50 @@ EditorUi.prototype.destroy = function()
 };
 
 /**
+ * Custom
  * Exports all graphs in JSON format
  */
 EditorUi.prototype.exportJSON = function() {
     //create JSON oobject from all cells in graph
     console.log('go export');
+};
+
+/**
+ * Custom
+ * Sync model data with server data
+ */
+EditorUi.prototype.sync = function() {
+    //if call this.dataLoader.sync() new cells don't appear
+    new DataLoader(this).sync();
+};
+
+/**
+ * Custom
+ * Exports all graphs in JSON format
+ */
+EditorUi.prototype.saveXML = function() {
+    var editor = this.editor;
+    var params = 'mxGraphModel=' + encodeURIComponent(mxUtils.getXml(editor.getGraphXml()));
+
+    var onload = function(req){
+        try{
+            var responseData = req.getText();
+            mxUtils.alert(responseData);
+        } catch (e){
+            if (DEBUG){
+                console.log('Error onload XML',e.stack);
+            }
+        }
+    };
+
+    var onerror = function(req){
+        mxUtils.alert('Error while saving XML');
+    };
+
+    var origin = 'http://217.74.43.104:8080';
+    var pathname = '/sd/services/rest/edit/';
+
+    var url = origin + pathname + queryString.view + '?' + 'accessKey=' + (queryString.accessKey || '2c26e34c-e9e8-4120-9f76-c4661bb748ae');
+
+    mxUtils.post(url, params, onload, onerror);
 };

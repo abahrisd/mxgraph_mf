@@ -70,6 +70,14 @@ Actions.prototype.init = function()
 	this.addAction('export...', function() { ui.showDialog(new ExportDialog(ui).container, 300, 210, true, true); });
     //export as JSON
     this.addAction('exportJSON...', function() { ui.exportJSON(); }, null, null).isEnabled = isGraphEnabled;
+    this.addAction('sync...', function () {
+
+        //workaround, coz if delete cells inside method new cells don't appear
+        graph.selectAll();
+        deleteCells(true);
+        ui.sync();
+    }, null, null).isEnabled = isGraphEnabled;
+    this.addAction('saveXML...', function() { ui.saveXML(); }, null, null).isEnabled = isGraphEnabled;
 	this.addAction('editDiagram...', function()
 	{
 		var dlg = new EditDiagramDialog(ui);

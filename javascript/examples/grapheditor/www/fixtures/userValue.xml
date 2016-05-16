@@ -1,0 +1,12 @@
+<mxGraphModel dx="954" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1"
+              pageScale="1" pageWidth="826" pageHeight="1169" background="#ffffff">
+    <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="113" style="shape=ext;rounded=1;html=1;whiteSpace=wrap;fillColor=#66FF66;" vertex="1" parent="1">
+            <Object value="newVal" code="newCode" name="newName" as="value"/>
+            <mxGeometry x="260" y="230" width="140" height="110" as="geometry"/>
+            <Object as="objectType"/>
+        </mxCell>
+    </root>
+</mxGraphModel>

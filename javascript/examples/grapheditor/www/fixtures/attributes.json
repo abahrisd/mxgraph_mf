@@ -1,0 +1,119 @@
+[
+  {
+    "$id": "ae$bpstep",
+    "title" : {
+      "name": "Название",
+      "type": "string"
+    },
+    "version" : {
+      "name": "Версия",
+      "type": "string"
+    },
+    "code" : {
+      "name": "Код",
+      "type": "list",
+      "variables":[
+        {
+          "Code_id": 1,
+          "Code_name": "Код 1"
+        },
+        {
+          "Code_id": 2,
+          "Code_name": "Код 2"
+        },
+        {
+          "Code_id": 3,
+          "Code_name": "Код 3"
+        }
+      ]
+    },
+    "stepNum" : {
+      "name": "Номер шага",
+      "type": "string"
+    },
+    "description" : {
+      "name": "Описание шага",
+      "type": "string"
+    }
+  }, {
+    "$id": "ae$event",
+    "title" : {
+      "name": "Название",
+      "type": "string"
+    },
+    "version" : {
+      "name": "Версия",
+      "type": "string"
+    },
+    "code" : {
+      "name": "Код",
+      "type": "list"
+    },
+    "description" : {
+      "name": "Описание",
+      "type": "string"
+    }
+  }, {
+    "$id": "ae$gateway",
+    "title" : {
+      "name": "Название",
+      "type": "string"
+    },
+    "version" : {
+      "name": "Версия",
+      "type": "string"
+    },
+    "code" : {
+      "name": "Код",
+      "type": "list"
+    },
+    "description" : {
+      "name": "Описание",
+      "type": "string"
+    },
+    "type" : {
+      "name": "Тип шлюза",
+      "type": "string"
+    }
+  }, {
+    "$id": "req$high",
+    "title" : {
+      "name": "Название",
+      "type": "string"
+    },
+    "code" : {
+      "name": "Код",
+      "type": "list"
+    },
+    "npaItem" : {
+      "name": "Пункт НПА",
+      "type": "string"
+    },
+    "npaText" : {
+      "name": "Текст НПА",
+      "type": "string"
+    }
+  }, {
+    "$id": "ae$registry",
+    "title" : {
+      "name": "Название",
+      "type": "string"
+    },
+    "version" : {
+      "name": "Версия",
+      "type": "string"
+    },
+    "code" : {
+      "name": "Код ЭФ",
+      "type": "list"
+    },
+    "description" : {
+      "name": "Описание шага",
+      "type": "string"
+    },
+    "signature" : {
+      "name": "Электронная подпись",
+      "type": "string"
+    }
+  }
+]

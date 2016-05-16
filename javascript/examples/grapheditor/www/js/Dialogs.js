@@ -1325,8 +1325,8 @@ var EditDiagramDialog = function(editorUi)
 	var div = document.createElement('div');
 	div.style.textAlign = 'right';
 	var textarea = document.createElement('textarea');
-	textarea.setAttribute('wrap', 'off');
 	textarea.style.overflow = 'auto';
+    textarea.setAttribute('wrap', 'off');
 	textarea.style.resize = 'none';
 	textarea.style.width = '600px';
 	textarea.style.height = '370px';
