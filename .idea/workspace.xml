@@ -7,57 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/button.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/close.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/collapsed.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/error.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/expanded.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/maximize.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/minimize.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/normalize.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/point.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/resize.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/separator.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/submenu.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/transparent.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/warning.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/warning.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/window-title.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/images/window.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/attributes.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/notes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/presentation.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/userValue.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/css/common.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/css/explorer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/js/mxClient.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/resources/editor.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/resources/editor_de.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/resources/editor_zh.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/resources/graph.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/resources/graph_de.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/src/resources/graph_zh.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/test_data/tmp.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www.zip" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/tmp.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/tmp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EqualAttrs.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EqualAttrs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Menus.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Menus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_ru.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_ru.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/src/js/mxClient.js" afterPath="$PROJECT_DIR$/javascript/src/js/mxClient.js" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,11 +43,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3846154">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.44214877">
+              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grapheditor.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/grapheditor.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/src/js/mxClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="410" column="28" selection-start-line="410" selection-start-column="28" selection-end-line="410" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diagrameditor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/editors/diagrameditor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -104,17 +86,17 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/test_data/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537">
-              <caret line="72" column="72" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EqualAttrs.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EqualAttrs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EqualAttrs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09623431">
+            <state vertical-scroll-proportion="0.0">
               <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
@@ -136,26 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="329" column="26" selection-start-line="329" selection-start-column="26" selection-end-line="329" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tmp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/tmp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Menus.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Menus.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="433" column="8" selection-start-line="433" selection-start-column="8" selection-end-line="433" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -369,6 +331,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grapheditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grapheditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -504,7 +514,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462541500714</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added loading on start, sync func, stancils menu, atributes menu. Sad commit">
+      <created>1463417803268</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1463417803268</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -523,8 +539,9 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.245702" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27785236" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27688172" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -532,7 +549,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -561,7 +577,8 @@
     <MESSAGE value="init commit #1.0.1" />
     <MESSAGE value="start project, not atomic but... just not atomic\&#10;Add loading, equal attr's by param, import from json, import stylesheet classes.&#10; Add right panel attrs tab.&#10; Modify stencils palettes." />
     <MESSAGE value="add rus i18n" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rus i18n" />
+    <MESSAGE value="Added loading on start, sync func, stancils menu, atributes menu. Sad commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added loading on start, sync func, stancils menu, atributes menu. Sad commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -570,20 +587,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/java/src/com/mxgraph/examples/web/GraphEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.862069">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/jscolor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/sanitizer/sanitizer.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.0209497">
@@ -953,34 +956,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/src/js/mxClient.js">
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EqualAttrs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3846154">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/test_data/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="72" column="72" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EqualAttrs.js">
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/grapheditor.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09623431">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="410" column="28" selection-start-line="410" selection-start-column="28" selection-end-line="410" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/editors/diagrameditor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44214877">
+          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
           <folding />
         </state>
       </provider>
