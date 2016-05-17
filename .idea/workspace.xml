@@ -3,40 +3,13 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" line="3287" mnemonic="5" />
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" line="1963" mnemonic="4" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" line="223" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" line="3373" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" line="192" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/css/common.css" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/css/common.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/css/explorer.css" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/css/explorer.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/button.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/button.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/close.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/close.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/collapsed.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/collapsed.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/error.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/error.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/expanded.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/expanded.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/maximize.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/maximize.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/minimize.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/minimize.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/normalize.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/normalize.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/point.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/point.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/resize.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/resize.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/separator.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/separator.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/submenu.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/submenu.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/transparent.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/transparent.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/warning.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/warning.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/warning.png" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/warning.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/window-title.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/window-title.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/images/window.gif" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/images/window.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/js/mxClient.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/resources/editor.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/resources/editor.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/resources/editor_de.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/resources/editor_de.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/resources/editor_zh.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/resources/editor_zh.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/resources/graph.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/resources/graph.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/resources/graph_de.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/resources/graph_de.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/src/resources/graph_zh.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/resources/graph_zh.txt" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -126,21 +99,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditorUi.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EditorUi.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2877095">
-              <caret line="3372" column="0" selection-start-line="3372" selection-start-column="0" selection-end-line="3372" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.724138">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.35614526">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,18 +122,8 @@
       <file leaf-file-name="attributes.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/attributes.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="linkTypes.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/linkTypes.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -237,9 +200,9 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EqualAttrs.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
       </list>
     </option>
   </component>
@@ -600,7 +563,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463418961349</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix error with queryString">
+      <created>1463469039340</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1463469039340</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -617,8 +586,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24928367" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24928367" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -627,7 +597,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -659,7 +628,8 @@
     <MESSAGE value="add rus i18n" />
     <MESSAGE value="Added loading on start, sync func, stancils menu, atributes menu. Sad commit" />
     <MESSAGE value="correct mxBasePath" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct mxBasePath" />
+    <MESSAGE value="fix error with queryString" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix error with queryString" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -972,6 +942,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6322314">
           <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -979,22 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28099173">
           <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/attributes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/linkTypes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,14 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.724138">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.923077">
@@ -1057,10 +1004,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/linkTypes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/attributes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2877095">
-          <caret line="3372" column="0" selection-start-line="3372" selection-start-column="0" selection-end-line="3372" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35614526">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
         </state>
       </provider>

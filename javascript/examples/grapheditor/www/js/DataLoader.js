@@ -12,6 +12,13 @@ function DataLoader(editorUi) {
     this.linkTypes = '';
     this.objectTypes = '';
 
+    //this.origin = window.origin;
+    //this.pathname = window.pathname;
+
+    this.origin = 'http://217.74.43.104:8080';
+    this.pathname = '/sd/services/rest/get/';
+
+
     //parsing url and get params
     this.queryStr = function () {
         // This function is anonymous, is executed immediately and
@@ -68,10 +75,10 @@ DataLoader.prototype.generateUrl = function(queryStr) {
     //var origin = window.origin;
     //var pathname = window.pathname;
 
-    var origin = 'http://217.74.43.104:8080';
-    var pathname = '/sd/services/rest/get/';
+    //var origin = 'http://217.74.43.104:8080';
+    //var pathname = '/sd/services/rest/get/';
 
-    return (origin + pathname + queryStr.view + '?' + 'accessKey=' + (queryStr.accessKey || '2c26e34c-e9e8-4120-9f76-c4661bb748ae'));
+    return (this.origin + this.pathname + queryStr.view + '?' + 'accessKey=' + (queryStr.accessKey || '2c26e34c-e9e8-4120-9f76-c4661bb748ae'));
 };
 
 /**
@@ -98,7 +105,6 @@ DataLoader.prototype.loadXMLData = function(){
     var _this = this;
     var url = this.generateUrl(_this.queryStr);
     var graph = this.graph;
-    var success = false;
 
     var onload = function(req){
         try{
@@ -135,46 +141,6 @@ DataLoader.prototype.loadXMLData = function(){
                         }
                     }
                 }
-
-
-                //if no mxGraphModel try to draw graph
-                /*if (!success && responseData.relevantData) {
-                    //debugger;
-                    var objects4Diag = JSON.parse(responseData.relevantData);
-                    if (objects4Diag.objects){
-                        objects4Diag.objects.forEach(function(el){
-                            _this.createCellFromUserObject(el);
-                        })
-                    }
-
-                    if (objects4Diag.links){
-                        objects4Diag.links.forEach(function(el){
-                            //TODO create structure for fast search cell by _metaClass
-                            var source, target;
-
-                            graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
-
-                                if (cell && cell.getValue()){
-
-                                    //console.log("_metaClass", cell.getValue().getAttribute('_metaClass'));
-                                    if (cell.getValue().getAttribute('_UUID') == el.source) {
-                                        source = cell;
-                                    }
-
-                                    if (cell.getValue().getAttribute('_UUID') == el.target) {
-                                        target = cell;
-                                    }
-                                }
-                            });
-
-                            if (source && target){
-                                graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
-                            }
-                        });
-                    }
-
-                    _this.arrangeOrganic();
-                }*/
             }
 
         } catch (e){
@@ -223,7 +189,11 @@ DataLoader.prototype.loadTypeData = function(url) {
 DataLoader.prototype.sync = function() {
 
     var _this = this;
-    var url = this.generateUrl(_this.queryStr);
+    var funcPath = '/sd/services/rest/exec';
+    var view_id = this.queryStr.view.split('$')[1];
+
+    var url = (this.origin + funcPath + '?accessKey=2c26e34c-e9e8-4120-9f76-c4661bb748ae&func=modules.mxGraph.relevantData&params=' + view_id);
+
     var graph = this.graph;
     var editor = this.editorUi.editor;
 
@@ -233,62 +203,41 @@ DataLoader.prototype.sync = function() {
 
             if (responseData !== undefined){
 
-                //load assosiated data, like stylesheet, linkTypes, objectTypes
-                if (responseData.type){
-                    if (responseData.type.UUID){
-                        var metaUrl = _this.generateUrl({view:responseData.type.UUID});
-                        var res = _this.loadTypeData(metaUrl);
-
-                        _this.setStylesheet(res);
-                    } else {
-                        if (DEBUG) {
-                            console.log("Type of view not defined, canot load stylesheet, linkTypes, objectTypes");
-                        }
-                    }
+                if (responseData.objects){
+                    responseData.objects.forEach(function(el){
+                        _this.createCellFromUserObject(el);
+                    })
                 }
 
-                if (responseData.relevantData) {
+                if (responseData.links){
+                    responseData.links.forEach(function(el){
+                        //TODO create structure for fast search cell by _metaClass
+                        var source, target;
 
-                    //debugger;
-                    var objects4Diag = JSON.parse(responseData.relevantData);
-                    if (objects4Diag.objects){
-                        objects4Diag.objects.forEach(function(el){
-                            _this.createCellFromUserObject(el);
-                        })
-                    }
+                        graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
 
-                    if (objects4Diag.links){
-                        objects4Diag.links.forEach(function(el){
-                            //TODO create structure for fast search cell by _metaClass
-                            var source, target;
+                            if (cell && cell.getValue()){
 
-                            graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
-
-                                if (cell && cell.getValue()){
-
-                                    //console.log("_metaClass", cell.getValue().getAttribute('_metaClass'));
-                                    if (cell.getValue().getAttribute('_UUID') == el.source) {
-                                        source = cell;
-                                    }
-
-                                    if (cell.getValue().getAttribute('_UUID') == el.target) {
-                                        target = cell;
-                                    }
+                                if (cell.getValue().getAttribute('_UUID') == el.source) {
+                                    source = cell;
                                 }
-                            });
 
-                            if (source && target){
-                                graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+                                if (cell.getValue().getAttribute('_UUID') == el.target) {
+                                    target = cell;
+                                }
                             }
                         });
-                    }
 
-                    _this.arrangeOrganic();
-
-                    editor.setModified(false);
+                        if (source && target){
+                            graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+                        }
+                    });
                 }
-            }
 
+                _this.arrangeOrganic();
+
+                editor.setModified(false);
+            }
         } catch (e){
             if (DEBUG) {
                 console.log('Error while parsing JSON ', e.stack);
@@ -373,6 +322,9 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
 
     //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
     graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
+
+    //var cell = graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
+    //console.log("cell", cell);
     this.globalUsersCellX += 10;
     this.globalUsersCellY += 10;
 }
