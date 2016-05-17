@@ -127,11 +127,10 @@
 	
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));
 
-
         //Listen changes in vertex. If exist vertex with same UUID as changed makes it's attributes equal with changed vertex
         new EqualAttrs(EditUI, '_UUID');
 
-        //load linkTypes and and listener on CELL_CONNECTED
+        //load linkTypes and listener on CELL_CONNECTED
         new RelValidator(EditUI, 'fixtures/linkTypes.json');
 
 	</script>

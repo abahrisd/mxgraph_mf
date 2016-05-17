@@ -3369,6 +3369,7 @@ EditorUi.prototype.sync = function() {
 EditorUi.prototype.saveXML = function() {
     var editor = this.editor;
     var params = 'mxGraphModel=' + encodeURIComponent(mxUtils.getXml(editor.getGraphXml()));
+    var queryString = this.dataLoader.queryStr;
 
     var onload = function(req){
         try{
