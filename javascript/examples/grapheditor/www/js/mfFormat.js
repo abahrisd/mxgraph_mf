@@ -620,7 +620,6 @@ BaseFormatPanel.prototype.installInputHandler = function(input, key, defaultValu
 								elts[j].removeAttribute('size');
 								elts[j].style.fontSize = value + 'px';
 							}
-							
 							graph.cellLabelChanged(cell, div.innerHTML)
 						}
 					}
@@ -4796,7 +4795,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var texts = [];
     var count = 0;
 
-    var updateAttributes = function(){
+    /*var updateAttributes = function(){
         try
         {
             // Clones and updates the value
@@ -4810,7 +4809,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 }
                 else
                 {
-                    texts[i].value = texts[i].value.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/& /g,'&amp; ');
+                    //texts[i].value = texts[i].value.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/& /g,'&amp; ');
                     value.setAttribute(names[i], texts[i].value);
                     if (names[i] === 'title'){
                         value.setAttribute('label', texts[i].value);
@@ -4825,7 +4824,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
         {
             mxUtils.alert(e);
         }
-    }
+    }*/
 
 
     var addTextInput = function(index, name, value, directory) {
@@ -4840,10 +4839,92 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
         texts[index] = form.addText(labelName + ':', value);
         texts[index].style.width = '100%';
-        texts[index].oninput = updateAttributes;
 
+        var applyHandler = function() {
+            var newValue = texts[index].value || '';
+            var oldValue = cell.getAttribute(name, '');
+
+            if (newValue != oldValue) {
+                graph.getModel().beginUpdate();
+
+                try {
+                    //console.log("newValue", newValue);
+                    var escapedNewValue = escapeHTML(newValue);
+
+                    var edit = new mxCellAttributeChange(cell, name,newValue);
+                    //var edit = new mxCellAttributeChange(cell, name,escapedNewValue);
+                    graph.getModel().execute(edit);
+
+                    if (name = 'title') {
+                        //var edit2 = new mxCellAttributeChange(cell, 'label',newValue);
+                        var edit2 = new mxCellAttributeChange(cell, 'label',escapedNewValue);
+                        graph.getModel().execute(edit2);
+                    }
+                    //graph.updateCellSize(cell);
+                } finally {
+                    graph.getModel().endUpdate();
+                }
+            }
+        };
+
+        mxEvent.addListener(texts[index], 'keypress', function (evt)
+        {
+            // Needs to take shift into account for textareas
+            if (evt.keyCode == /*enter*/13 &&
+                !mxEvent.isShiftDown(evt))
+            {
+                texts[index].blur();
+            }
+        });
+
+        if (mxClient.IS_IE) {
+            mxEvent.addListener(texts[index], 'focusout', applyHandler);
+        } else {
+            mxEvent.addListener(texts[index], 'blur', applyHandler);
+        }
+
+        //texts[index].oninput = updateAttributes;
         //addRemoveButton(texts[index], name);
     };
+
+    //callback to change title if lable was changed
+    graph.getModel().valueForCellChanged = function(cell, value){
+
+        //var previous = cell.getValue().getAttribute('label');
+        if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute){
+            cell.getValue().setAttribute('label', value.getAttribute('label'));
+            console.log("label", value.getAttribute('label'));
+        }
+
+        return cell.valueChanged(value);
+    };
+
+    //overwright for change title attr on change label
+    var graphCellLabelChanged = graph.cellLabelChanged;
+    graph.cellLabelChanged = function (cell, newValue, autoSize) {
+        if (cell.getValue().setAttribute) {
+
+            var value = newValue;
+
+            //workaround for FF, coz FF adding <br> at the end of label, i don't find where it happened
+            //FIXME: Search and destroy
+            if (mxClient.IS_FF && newValue.substr(-4) === '<br>') {
+                value = newValue.substr(0, newValue.length - 4);
+            }
+            cell.getValue().setAttribute('title', unescapeHTML(value));
+            //cell.getValue().setAttribute('title', unescapeHTML(newValue));
+        }
+
+        graphCellLabelChanged.apply(this, arguments);
+    };
+
+    function unescapeHTML(escapedHTML) {
+        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>')/*.replace(/&amp;/g,'&')*/;
+    }
+
+    function escapeHTML(unescapedHTML) {
+        return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')/*.replace(/&/g,'&amp;')*/;
+    }
 
     var isAttrAvailable = function(attrName) {
         for (var i=0; i < _this.restricteddAttributeList.length; i++){
@@ -4854,8 +4935,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
         return true;
     };
 
-    for (var i = 0; i < attrs.length; i++)
-    {
+    for (var i = 0; i < attrs.length; i++) {
         if (attrs[i].nodeName != 'label' && attrs[i].nodeName != 'placeholders' && isAttrAvailable(attrs[i].nodeName)/*&& attrs[i].nodeName.substring(0, 1) !== '_'*/)
         {
             //console.log("attrs[i]", attrs[i]);
@@ -4867,56 +4947,13 @@ AttributePanel.prototype.addCellAttributes = function(container)
     //add combo to attrs list
     var codeCombo = form.addCombo('Cписок:');
     codeCombo.style.width = '100%';
-    form.addOption(codeCombo, 'Зелёный', 1)
-    form.addOption(codeCombo, 'Красный', 2)
-    form.addOption(codeCombo, 'Синий', 3)
+    form.addOption(codeCombo, 'Зелёный', 1);
+    form.addOption(codeCombo, 'Красный', 2);
+    form.addOption(codeCombo, 'Синий', 3);
 
     //add form with attr:value:x blocks
     textsCont.appendChild(form.table);
     container.appendChild(textsCont);
-
-    //callback to change title if lable was changed
-    graph.getModel().valueForCellChanged = function(cell, value){
-
-        //var previous = cell.getValue().getAttribute('label');
-        if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute){
-            //cell.getValue().setAttribute('label', value.getAttribute('label'));
-            //cell.getValue().setAttribute('label', encodeURIComponent(value.getAttribute('label')));
-            cell.getValue().setAttribute('label', value.getAttribute('label'));
-            //cell.getValue().setAttribute('label', escapeHTML(value.getAttribute('label')));
-            cell.getValue().setAttribute('title', value.getAttribute('label'));
-        }
-
-        return cell.valueChanged(value);
-    };
-
-    //overwright for change title attr on change label
-    var graphCellLabelChanged = graph.cellLabelChanged;
-
-    /*graph.convertValueToString = function(cell) {
-        if (mxUtils.isNode(cell.value)){
-            return cell.getAttribute('label', '');
-            //return cell.getAttribute('label', '').replace(/<[^/>]*>/g, '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, '');
-        }
-    };*/
-
-    graph.cellLabelChanged = function(cell, newValue, autoSize) {
-        if (cell.getValue().setAttribute){
-            cell.getValue().setAttribute('title', newValue);
-            //cell.getValue().setAttribute('title', unescapeHTML(newValue));
-        }
-
-        graphCellLabelChanged.apply(this, arguments);
-    };
-
-    //container.appendChild(form.table);
-
-    function unescapeHTML(escapedHTML) {
-        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
-    }
-    function escapeHTML(unescapedHTML) {
-        return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/&/g,'&amp;');
-    }
 
     return container;
 

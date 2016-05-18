@@ -84,6 +84,7 @@
 	<script type="text/javascript" src="js/Shapes.js"></script>
 	<script type="text/javascript" src="js/Actions.js"></script>
 	<script type="text/javascript" src="js/Menus.js"></script>
+    <!--<script type="text/javascript" src="js/Format.js"></script>-->
 	<script type="text/javascript" src="js/mfFormat.js"></script>
 	<script type="text/javascript" src="js/Toolbar.js"></script>
 	<script type="text/javascript" src="js/Dialogs.js"></script>
@@ -127,7 +128,7 @@
 		})();
         //disallow key enter while label formating on dblclick
 		(function(){
-            mxCellEditor.prototype.getInitialValue = function(state, trigger)
+            /*mxCellEditor.prototype.getInitialValue = function(state, trigger)
             {
                 var result = mxUtils.htmlEntities(this.graph.getEditingValue(state.cell, trigger), false);
 
@@ -141,7 +142,7 @@
                 return result.replace(/\n/g, '<br>');
 //                return result.replace(/\n/g, '<br>');
             };
-            mxCellEditor.prototype.emptyLabelText = '';
+            mxCellEditor.prototype.emptyLabelText = '';*/
             mxCellEditor.prototype.init = function () {
 
                 this.textarea = document.createElement('div');
