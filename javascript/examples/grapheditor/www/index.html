@@ -72,6 +72,7 @@
 		mxLanguage = urlParams['lang'];
 		mxLanguages = ['de'];
 	</script>
+	<!--<script type="text/javascript" src="js/Utils.js"></script>-->
 	<script type="text/javascript" src="jscolor/jscolor.js"></script>
 	<script type="text/javascript" src="sanitizer/sanitizer.min.js"></script>
 	<script type="text/javascript" src="../src/js/mxClient.js"></script>
@@ -128,17 +129,21 @@
         //disallow key enter while label formating on dblclick
 		(function(){
             mxCellEditor.prototype.init = function () {
+
                 this.textarea = document.createElement('div');
                 this.textarea.className = 'mxCellEditor mxPlainTextEditor';
                 this.textarea.contentEditable = true;
-                this.textarea.onkeypress = function(){
-                    return (window.event.keyCode != 13);
-                };
+                var textarea = this.textarea;
+                mxEvent.addListener(textarea, 'keydown', function (evt){
+                    if (evt.keyCode === 13){
+                        mxEvent.consume(evt);
+                    }
+                });
 
                 this.installListeners(this.textarea);
             };
 		})();
-	
+
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));
 
         //Listen changes in vertex. If exist vertex with same UUID as changed makes it's attributes equal with changed vertex

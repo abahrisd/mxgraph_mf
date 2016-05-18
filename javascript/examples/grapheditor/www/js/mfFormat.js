@@ -4810,6 +4810,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 }
                 else
                 {
+                    texts[i].value = texts[i].value.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/& /g,'&amp; ');
                     value.setAttribute(names[i], texts[i].value);
                     if (names[i] === 'title'){
                         value.setAttribute('label', texts[i].value);
@@ -4879,7 +4880,10 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
         //var previous = cell.getValue().getAttribute('label');
         if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute){
-            cell.getValue().setAttribute('label', encodeURIComponent(value.getAttribute('label')));
+            //cell.getValue().setAttribute('label', value.getAttribute('label'));
+            //cell.getValue().setAttribute('label', encodeURIComponent(value.getAttribute('label')));
+            cell.getValue().setAttribute('label', value.getAttribute('label'));
+            //cell.getValue().setAttribute('label', escapeHTML(value.getAttribute('label')));
             cell.getValue().setAttribute('title', value.getAttribute('label'));
         }
 
@@ -4898,7 +4902,8 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
     graph.cellLabelChanged = function(cell, newValue, autoSize) {
         if (cell.getValue().setAttribute){
-            cell.getValue().setAttribute('title', unescapeHTML(newValue));
+            cell.getValue().setAttribute('title', newValue);
+            //cell.getValue().setAttribute('title', unescapeHTML(newValue));
         }
 
         graphCellLabelChanged.apply(this, arguments);
@@ -4908,6 +4913,9 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
     function unescapeHTML(escapedHTML) {
         return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+    }
+    function escapeHTML(unescapedHTML) {
+        return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/&/g,'&amp;');
     }
 
     return container;
