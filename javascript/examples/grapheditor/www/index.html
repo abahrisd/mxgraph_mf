@@ -125,9 +125,23 @@
 				}
 			};
 		})();
-
         //disallow key enter while label formating on dblclick
 		(function(){
+            mxCellEditor.prototype.getInitialValue = function(state, trigger)
+            {
+                var result = mxUtils.htmlEntities(this.graph.getEditingValue(state.cell, trigger), false);
+
+                // Workaround for trailing line breaks being ignored in the editor
+                if (!mxClient.IS_QUIRKS && document.documentMode != 8 && document.documentMode != 9 &&
+                        document.documentMode != 10)
+                {
+                    result = mxUtils.replaceTrailingNewlines(result, '<div><br></div>');
+                }
+
+                return result.replace(/\n/g, '<br>');
+//                return result.replace(/\n/g, '<br>');
+            };
+            mxCellEditor.prototype.emptyLabelText = '';
             mxCellEditor.prototype.init = function () {
 
                 this.textarea = document.createElement('div');

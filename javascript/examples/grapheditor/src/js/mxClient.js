@@ -45440,7 +45440,8 @@ mxCellEditor.prototype.selectText = true;
  * value is only displayed before the first keystroke and is never used as the
  * actual editing value.
  */
-mxCellEditor.prototype.emptyLabelText = (mxClient.IS_FF) ? '<br>' : '';
+mxCellEditor.prototype.emptyLabelText = '';
+//mxCellEditor.prototype.emptyLabelText = (mxClient.IS_FF) ? '<br>' : '';
 
 /**
  * Variable: textNode
@@ -57685,8 +57686,9 @@ mxGraph.prototype.getPreferredSizeForCell = function(cell)
 					value = mxUtils.htmlEntities(value);
 				}
 				
-				value = value.replace(/\n/g, '<br>');
-				
+				//value = value.replace(/\n/g, '<br>');
+				//value = value.replace(/\n/g, '<br>');
+
 				var size = mxUtils.getSizeForString(value, fontSize, style[mxConstants.STYLE_FONTFAMILY]);
 				var width = size.width + dx;
 				var height = size.height + dy;
