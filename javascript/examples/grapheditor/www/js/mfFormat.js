@@ -4795,45 +4795,8 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var texts = [];
     var count = 0;
 
-    /*var updateAttributes = function(){
-        try
-        {
-            // Clones and updates the value
-            value = value.cloneNode(true);
-
-            for (var i = 0; i < names.length; i++)
-            {
-                if (texts[i] == null)
-                {
-                    value.removeAttribute(names[i]);
-                }
-                else
-                {
-                    //texts[i].value = texts[i].value.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/& /g,'&amp; ');
-                    value.setAttribute(names[i], texts[i].value);
-                    if (names[i] === 'title'){
-                        value.setAttribute('label', texts[i].value);
-                    }
-                }
-            }
-
-            // Updates the value of the cell (undoable)
-            graph.getModel().setValue(cell, value);
-        }
-        catch (e)
-        {
-            mxUtils.alert(e);
-        }
-    }*/
-
-
     var addTextInput = function(index, name, value, directory) {
         names[index] = name;
-
-        //по матеклассу мы определяем атрибуты
-        //console.log("directory", directory);
-        //console.log("names[count]", names[count]);
-        //console.log("directory[names[count]]", directory[names[count]]);
 
         var labelName = directory[names[count]].name || names[count];
 
@@ -4893,7 +4856,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
         //var previous = cell.getValue().getAttribute('label');
         if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute){
             cell.getValue().setAttribute('label', value.getAttribute('label'));
-            console.log("label", value.getAttribute('label'));
         }
 
         return cell.valueChanged(value);
@@ -4903,7 +4865,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var graphCellLabelChanged = graph.cellLabelChanged;
     graph.cellLabelChanged = function (cell, newValue, autoSize) {
         if (cell.getValue().setAttribute) {
-
             var value = newValue;
 
             //workaround for FF, coz FF adding <br> at the end of label, i don't find where it happened
@@ -4911,11 +4872,24 @@ AttributePanel.prototype.addCellAttributes = function(container)
             if (mxClient.IS_FF && newValue.substr(-4) === '<br>') {
                 value = newValue.substr(0, newValue.length - 4);
             }
+            var value = value.replace(/<(?:.|\n)*?>/gm, '');
             cell.getValue().setAttribute('title', unescapeHTML(value));
             //cell.getValue().setAttribute('title', unescapeHTML(newValue));
         }
 
         graphCellLabelChanged.apply(this, arguments);
+    };
+
+    // Overrides method to provide a cell label in the display
+    //FIXME fix label value after past formated text
+    graph.convertValueToString = function(cell) {
+        if (mxUtils.isNode(cell.value)) {
+            if (cell.getAttribute('label', '')) {
+                return cell.getAttribute('label', '').replace(/<(?:.|\n)*?>/gm, '');
+            }
+        }
+
+        return '';
     };
 
     function unescapeHTML(escapedHTML) {
