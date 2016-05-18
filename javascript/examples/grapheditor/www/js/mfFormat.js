@@ -4888,13 +4888,22 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
     //overwright for change title attr on change label
     var graphCellLabelChanged = graph.cellLabelChanged;
+
+    graph.convertValueToString = function(cell) {
+        if (mxUtils.isNode(cell.value)){
+            return cell.getAttribute('label', '');
+            //return cell.getAttribute('label', '').replace(/<[^/>]*>/g, '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, '');
+        }
+    };
+
     graph.cellLabelChanged = function(cell, newValue, autoSize) {
         if (cell.getValue().setAttribute){
-            cell.getValue().setAttribute('title', newValue)
+            cell.getValue().setAttribute('title', newValue);
         }
 
         graphCellLabelChanged.apply(this, arguments);
     };
+
 
     //container.appendChild(form.table);
 

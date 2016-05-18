@@ -124,6 +124,20 @@
 				}
 			};
 		})();
+
+        //disallow key enter while label formating on dblclick
+		(function(){
+            mxCellEditor.prototype.init = function () {
+                this.textarea = document.createElement('div');
+                this.textarea.className = 'mxCellEditor mxPlainTextEditor';
+                this.textarea.contentEditable = true;
+                this.textarea.onkeypress = function(){
+                    return (window.event.keyCode != 13);
+                };
+
+                this.installListeners(this.textarea);
+            };
+		})();
 	
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));
 
