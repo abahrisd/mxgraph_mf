@@ -4878,8 +4878,8 @@ AttributePanel.prototype.addCellAttributes = function(container)
     graph.getModel().valueForCellChanged = function(cell, value){
 
         //var previous = cell.getValue().getAttribute('label');
-        if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute ){
-            cell.getValue().setAttribute('label', value.getAttribute('label'));
+        if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute){
+            cell.getValue().setAttribute('label', encodeURIComponent(value.getAttribute('label')));
             cell.getValue().setAttribute('title', value.getAttribute('label'));
         }
 
@@ -4889,24 +4889,26 @@ AttributePanel.prototype.addCellAttributes = function(container)
     //overwright for change title attr on change label
     var graphCellLabelChanged = graph.cellLabelChanged;
 
-    graph.convertValueToString = function(cell) {
+    /*graph.convertValueToString = function(cell) {
         if (mxUtils.isNode(cell.value)){
             return cell.getAttribute('label', '');
             //return cell.getAttribute('label', '').replace(/<[^/>]*>/g, '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, '');
         }
-    };
+    };*/
 
     graph.cellLabelChanged = function(cell, newValue, autoSize) {
         if (cell.getValue().setAttribute){
-            cell.getValue().setAttribute('title', newValue);
+            cell.getValue().setAttribute('title', unescapeHTML(newValue));
         }
 
         graphCellLabelChanged.apply(this, arguments);
     };
 
-
     //container.appendChild(form.table);
 
+    function unescapeHTML(escapedHTML) {
+        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+    }
 
     return container;
 
