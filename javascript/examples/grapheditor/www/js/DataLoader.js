@@ -84,17 +84,27 @@ DataLoader.prototype.generateUrl = function(queryStr) {
 /**
  * Set styleseet from this.stylesheet
  */
-DataLoader.prototype.setStylesheet = function(res) {
+DataLoader.prototype.setStylesheet = function(stylesheet) {
 
     var graph = this.graph;
-    if (res.stylesheet){
-        var stylesheet = res.stylesheet;
-        var doc = mxUtils.parseXml(stylesheet);
-        var root = doc.documentElement;
-        var dec = new mxCodec(root.ownerDocument);
-        //var nodstyle =
-        dec.decode(root, graph.stylesheet);
-    }
+    var doc = mxUtils.parseXml(stylesheet);
+    var root = doc.documentElement;
+    var dec = new mxCodec(root.ownerDocument);
+    dec.decode(root, graph.stylesheet);
+};
+
+/**
+ * Create store for linkTypes
+ */
+DataLoader.prototype.setLinkTypes = function(linkTypes) {
+    this.editorUi.linkTypes = new UserStore(null, linkTypes, 'code');
+};
+
+/**
+ * Create store for objectTypes
+ */
+DataLoader.prototype.setObjectTypes = function(objectTypes) {
+    this.editorUi.objectTypes = new UserStore(null, objectTypes, 'code');
 };
 
 /**
@@ -118,10 +128,36 @@ DataLoader.prototype.loadXMLData = function(){
                         var metaUrl = _this.generateUrl({view:responseData.type.UUID});
                         var res = _this.loadTypeData(metaUrl);
 
-                        _this.setStylesheet(res);
+                        console.log("res", res);
+                        if (res.stylesheet){
+                            _this.setStylesheet(res.stylesheet);
+                        } else {
+                            if (DEBUG){
+                                console.log("Unable to set stylesheet");
+                            }
+                        }
+
+                        if (res.linkTypes){
+                            //var linkTypes = JSON.parse(res.linkTypes);
+                            _this.setLinkTypes(JSON.parse(res.linkTypes));
+                        } else {
+                            if (DEBUG){
+                                console.log("Unable to set linkTypes");
+                            }
+                        }
+
+                        if (res.objectTypes){
+                            //var objectTypes = JSON.parse(res.objectTypes);
+                            _this.setObjectTypes(JSON.parse(res.objectTypes));
+                        } else {
+                            if (DEBUG){
+                                console.log("Unable to set objectTypes");
+                            }
+                        }
+
                     } else {
                         if (DEBUG) {
-                            console.log("Type of view not defined, canot load stylesheet, linkTypes, objectTypes");
+                            console.log("Type of view not defined, cannot load stylesheet, linkTypes, objectTypes");
                         }
                     }
                 }
@@ -200,17 +236,20 @@ DataLoader.prototype.sync = function() {
     var onload = function(req){
         try{
             var responseData = JSON.parse(req.getText());
-
+            console.log("responseData", responseData);
             if (responseData !== undefined){
 
+                //insert objects
                 if (responseData.objects){
                     responseData.objects.forEach(function(el){
                         _this.createCellFromUserObject(el);
                     })
                 }
 
+                //insert links
                 if (responseData.links){
                     responseData.links.forEach(function(el){
+
                         //TODO create structure for fast search cell by _metaClass
                         var source, target;
 
@@ -218,18 +257,37 @@ DataLoader.prototype.sync = function() {
 
                             if (cell && cell.getValue()){
 
-                                if (cell.getValue().getAttribute('_UUID') == el.source) {
+                                if (cell.getValue().getAttribute('UUID') == el.source) {
                                     source = cell;
                                 }
 
-                                if (cell.getValue().getAttribute('_UUID') == el.target) {
+                                if (cell.getValue().getAttribute('UUID') == el.target) {
                                     target = cell;
                                 }
                             }
                         });
 
                         if (source && target){
-                            graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+                            var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+
+                            //TODO move in separate func
+                            //add custom attrs
+                            var val = graph.getModel().getValue(newEdge);
+
+                            // Converts the value to an XML node
+                            if (!mxUtils.isNode(val)) {
+                                var doc = mxUtils.createXmlDocument();
+                                var obj = doc.createElement('object');
+                                obj.setAttribute('label', val || '');
+                                val = obj;
+                            }
+
+                            val.setAttribute("source", el.source);
+                            val.setAttribute("target", el.target);
+                            val.setAttribute("typeCode", el.typeCode);
+
+                            graph.getModel().setValue(newEdge, val);
+
                         }
                     });
                 }
@@ -278,14 +336,16 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
     //set attributes, except title
     for (var key in obj) {
 
+        node.setAttribute(key, obj[key]);
+
         //TODO refactor it!
-        if (key === 'metaClass') {
+        /*if (key === 'metaClass') {
             node.setAttribute('_metaClass', obj[key]);
         } else if (key === 'UUID') {
             node.setAttribute('_UUID', obj[key]);
         } else {
             node.setAttribute(key, obj[key]);
-        }
+        }*/
     }
 
     var style = '';

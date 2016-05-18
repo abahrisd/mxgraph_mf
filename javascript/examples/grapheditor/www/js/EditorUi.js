@@ -14,7 +14,7 @@ EditorUi = function(editor, container)
 	var graph = this.editor.graph;
 
     //load local list of attributes
-    this.atributesDirectory = new UserStore('fixtures/attributes.json');
+    this.atributesDirectory = new UserStore('fixtures/attributes.json', null, 'metaClass');
 
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
@@ -3375,25 +3375,6 @@ EditorUi.prototype.saveXML = function() {
         try{
             var responseData = req.getText();
             mxUtils.alert(responseData);
-
-            /**
-             * Для начала будем обрабатывтаь изменённые объекты сдесь
-             * При сохранении XML надо отправить и изменённые данные объектов.
-             * Объекты определяются по UUID, так?
-             * Т.е. UUID будут уникальные.
-             * Идём по всем объектам и собираем инфу в один большой, его и отправляем! Хэ-хэй, самый простой вариант. А дальше уже разбирайте сами на сервере что там и как. Я же тонкий клиент, нафига мне этим заниматься?
-             * Это раз.
-             *
-             * Двас. Можно сделать хранилище объектов, куда будут записываться объекты из XML диаграммы при старте системы.
-             * Обходим диаграмму и сохраняем атрибуты объектов в стор уникальных объектов.
-             * При изменении какого нибудь объекта, смотрим есть ли у этого объекта UUID, если есть, то обновляем его параметры и проставляем флаг "изменён".
-             *
-             * В итоге, пока делаем так:
-             * собираем состояние системы и отправляем на сервер, тада! Собираем в таком же формате как и в relevantData.
-             *
-             **/
-
-
         } catch (e){
             if (DEBUG){
                 console.log('Error onload XML',e.stack);
@@ -3411,32 +3392,44 @@ EditorUi.prototype.saveXML = function() {
     var url = origin + pathname + queryString.view + '?' + 'accessKey=' + (queryString.accessKey || '2c26e34c-e9e8-4120-9f76-c4661bb748ae');
 
     mxUtils.post(url, params, onload, onerror);
+
+    console.log("this.getSystemState()", this.getSystemState());
 };
 
 /**
  * Custom
- * Exports all graphs in JSON format
+ * Get all cells from graph and create output object
  */
 EditorUi.prototype.getSystemState = function() {
-    var editor = this.editor;
+    var graph = this.editor.graph;
+    var output = {
+        objects:[],
+        links: []
+    };
 
-    /**
-     * Для начала будем обрабатывтаь изменённые объекты сдесь
-     * При сохранении XML надо отправить и изменённые данные объектов.
-     * Объекты определяются по UUID, так?
-     * Т.е. UUID будут уникальные.
-     * Идём по всем объектам и собираем инфу в один большой, его и отправляем! Хэ-хэй, самый простой вариант. А дальше уже разбирайте сами на сервере что там и как. Я же тонкий клиент, нафига мне этим заниматься?
-     * Это раз.
-     *
-     * Двас. Можно сделать хранилище объектов, куда будут записываться объекты из XML диаграммы при старте системы.
-     * Обходим диаграмму и сохраняем атрибуты объектов в стор уникальных объектов.
-     * При изменении какого нибудь объекта, смотрим есть ли у этого объекта UUID, если есть, то обновляем его параметры и проставляем флаг "изменён".
-     *
-     * В итоге, пока делаем так:
-     * собираем состояние системы и отправляем на сервер, тада! Собираем в таком же формате как и в relevantData.
-     *
-     **/
+    //EditUI.editor.graph.getModel().getDescendants(EditUI.editor.graph.getDefaultParent())
+    var allCells = graph.getModel().getDescendants(graph.getDefaultParent());
 
+    allCells.forEach(function(el){
+        if (el.vertex){
+            output.objects.push(createCellObject(el));
+        } else if (el.edge){
+            output.links.push(createCellObject(el));
+        }
+    });
 
+    function createCellObject(cell){
 
+        var attrs = cell.getValue().attributes;
+        var cellObj = {};
+
+        for (var i = 0; i < attrs.length; i++) {
+            if (attrs[i].nodeName != 'label' && attrs[i].nodeName != 'placeholders') {
+                cellObj[attrs[i].nodeName] = attrs[i].nodeValue;
+            }
+        }
+        return cellObj;
+    }
+
+    return output;
 };

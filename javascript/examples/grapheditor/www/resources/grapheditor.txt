@@ -100,6 +100,7 @@ enterValue=Enter Value
 enterName=Enter Name
 enterPropertyName=Enter Property Name
 entityRelation=Entity Relation
+errorBound=Bound not available
 errorBoundSource=Not available to bound with source
 errorBoundTarget=Not available to bound with target
 exitGroup=Exit Group

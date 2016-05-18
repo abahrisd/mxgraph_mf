@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2006-2012, JGraph Ltd
+ * Create right panel
  */
 Format = function(editorUi, container)
 {
@@ -4735,6 +4736,7 @@ DiagramFormatPanel.prototype.destroy = function()
 AttributePanel = function(format, editorUi, container)
 {
     BaseFormatPanel.call(this, format, editorUi, container);
+    this.restricteddAttributeList = ['metaClass', 'UUID'];
     this.init();
 };
 
@@ -4767,13 +4769,13 @@ AttributePanel.prototype.addCellAttributes = function(container)
     textsCont.style.marginTop = '6px';
 
     var _this = this;
-
     var value = graph.getModel().getValue(cell);
 
-    if (atributesDirectory) {
-        labelDir = atributesDirectory.getById(value.getAttribute('_metaClass'))
+    if (atributesDirectory && value && value.getAttribute) {
+        labelDir = atributesDirectory.getById(value.getAttribute('metaClass'))
     }
 
+    //console.log("labelDir", labelDir);
     // Converts the value to an XML node
     if (!mxUtils.isNode(value))
     {
@@ -4825,9 +4827,14 @@ AttributePanel.prototype.addCellAttributes = function(container)
     }
 
 
-    var addTextInput = function(index, name, value, directory)
-    {
+    var addTextInput = function(index, name, value, directory) {
         names[index] = name;
+
+        //по матеклассу мы определяем атрибуты
+        //console.log("directory", directory);
+        //console.log("names[count]", names[count]);
+        //console.log("directory[names[count]]", directory[names[count]]);
+
         var labelName = directory[names[count]].name || names[count];
 
         texts[index] = form.addText(labelName + ':', value);
@@ -4837,10 +4844,20 @@ AttributePanel.prototype.addCellAttributes = function(container)
         //addRemoveButton(texts[index], name);
     };
 
+    var isAttrAvailable = function(attrName) {
+        for (var i=0; i < _this.restricteddAttributeList.length; i++){
+            if(_this.restricteddAttributeList[i] == attrName){
+                return false;
+            }
+        }
+        return true;
+    };
+
     for (var i = 0; i < attrs.length; i++)
     {
-        if (attrs[i].nodeName != 'label' && attrs[i].nodeName != 'placeholders' && attrs[i].nodeName.substring(0, 1) !== '_')
+        if (attrs[i].nodeName != 'label' && attrs[i].nodeName != 'placeholders' && isAttrAvailable(attrs[i].nodeName)/*&& attrs[i].nodeName.substring(0, 1) !== '_'*/)
         {
+            //console.log("attrs[i]", attrs[i]);
             addTextInput(count, attrs[i].nodeName, attrs[i].nodeValue, labelDir);
             count++;
         }
@@ -4861,8 +4878,10 @@ AttributePanel.prototype.addCellAttributes = function(container)
     graph.getModel().valueForCellChanged = function(cell, value){
 
         //var previous = cell.getValue().getAttribute('label');
-        cell.getValue().setAttribute('label', value.getAttribute('label'));
-        cell.getValue().setAttribute('title', value.getAttribute('label'));
+        if (cell.getValue() && cell.vertex && value.getAttribute && value.setAttribute ){
+            cell.getValue().setAttribute('label', value.getAttribute('label'));
+            cell.getValue().setAttribute('title', value.getAttribute('label'));
+        }
 
         return cell.valueChanged(value);
     };
@@ -4870,7 +4889,9 @@ AttributePanel.prototype.addCellAttributes = function(container)
     //overwright for change title attr on change label
     var graphCellLabelChanged = graph.cellLabelChanged;
     graph.cellLabelChanged = function(cell, newValue, autoSize) {
-        cell.getValue().setAttribute('title', newValue)
+        if (cell.getValue().setAttribute){
+            cell.getValue().setAttribute('title', newValue)
+        }
 
         graphCellLabelChanged.apply(this, arguments);
     };

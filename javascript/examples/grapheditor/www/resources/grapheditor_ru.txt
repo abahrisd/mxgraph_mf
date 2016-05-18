@@ -95,6 +95,7 @@ enterValue=Введите значение
 enterName=Введите имя
 enterPropertyName=Название свойства
 entityRelation=ERM
+errorBound=Невозможно создать связь
 errorBoundSource=Невозможно связать с источником
 errorBoundTarget=Невозможно связать с целью
 exitGroup=Выйти из группы

@@ -1,7 +1,7 @@
 /**
  * Load and store attributes values, for further objects/panels construction
  */
-function UserStore(url)
+function UserStore(url, data, idValue)
 {
     //this.editorUi = editorUi;
     //this.graph = this.editorUi.editor.graph;
@@ -11,15 +11,26 @@ function UserStore(url)
 
     //overwright edge validator
     this._items = {};
-    this.init(url);
+    this.idValue = idValue;
+    this.init(url, data);
 };
 
 
 /**
- * Init seting privilege
+ * Init setting privilege
  */
-UserStore.prototype.init = function(url) {
-    this.loadData(url);
+UserStore.prototype.init = function(url, data) {
+    var _this = this;
+
+    if (url){
+        this.loadData(url);
+    } else if (data){
+        data.forEach(function(el){
+            _this._add(el)
+        });
+        //this.setData(data);
+    }
+
     //this.createValidateListener();
 
 };
@@ -33,7 +44,6 @@ UserStore.prototype.loadData = function(url){
     var req = mxUtils.load(url);
 
     try{
-
         var responseData = JSON.parse(req.getText());
 
         if (responseData){
@@ -67,12 +77,19 @@ UserStore.prototype.loadData = function(url){
  * Add attribute object in store
  */
 UserStore.prototype._add = function(item) {
-    this._items[item.$id] = item;
+    this._items[item[this.idValue]] = item;
 };
 
 /**
  * Add attribute object in store
  */
-UserStore.prototype.getById = function($id) {
-    return this._items[$id]
+UserStore.prototype.getById = function(id) {
+    return this._items[id]
+};
+
+/**
+ * Return all items
+ */
+UserStore.prototype.getAll = function() {
+    return this._items
 };

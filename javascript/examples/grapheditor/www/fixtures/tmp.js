@@ -19,6 +19,10 @@ graph.addCell(newCell, graph.getDefaultParent());
 
 //EditUI.editor.graph.addCell(EditUI.editor.graph.cloneCells([EditUI.sidebar.note]), EditUI.editor.graph.getDefaultParent());
 
+
+//get style
+EditUI.editor.graph.getStylesheet();
+
 //set style
 EditUI.editor.graph.getSelectionCells()[0].setStyle('step');EditUI.editor.graph.refresh();
 

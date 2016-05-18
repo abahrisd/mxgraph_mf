@@ -1,6 +1,6 @@
 [
   {
-    "$id": "ae$bpstep",
+    "metaClass": "ae$bpstep",
     "title" : {
       "name": "Название",
       "type": "string"
@@ -36,7 +36,7 @@
       "type": "string"
     }
   }, {
-    "$id": "ae$event",
+    "metaClass": "ae$event",
     "title" : {
       "name": "Название",
       "type": "string"
@@ -54,7 +54,7 @@
       "type": "string"
     }
   }, {
-    "$id": "ae$gateway",
+    "metaClass": "ae$gateway",
     "title" : {
       "name": "Название",
       "type": "string"
@@ -76,7 +76,7 @@
       "type": "string"
     }
   }, {
-    "$id": "req$high",
+    "metaClass": "req$high",
     "title" : {
       "name": "Название",
       "type": "string"
@@ -94,7 +94,7 @@
       "type": "string"
     }
   }, {
-    "$id": "ae$registry",
+    "metaClass": "ae$registry",
     "title" : {
       "name": "Название",
       "type": "string"
