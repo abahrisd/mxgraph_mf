@@ -107,6 +107,24 @@ DataLoader.prototype.setObjectTypes = function(objectTypes) {
 };
 
 /**
+ * Create store for objectTypes
+ */
+DataLoader.prototype.changePageTitle = function(title) {
+
+    document.title = title;
+
+    var menuBar = document.getElementsByClassName('geMenubar')[0];
+    var titleName = document.createElement('span');
+
+    titleName.style.float = 'right';
+    titleName.style.padding = '6px 8px 6px 8px';
+    titleName.style.fontSize = '11pt';
+    titleName.innerHTML = title;
+
+    menuBar.appendChild(titleName)
+};
+
+/**
  * Load stylesheet.xml from server and set it to graph
  */
 DataLoader.prototype.loadXMLData = function(){
@@ -122,7 +140,7 @@ DataLoader.prototype.loadXMLData = function(){
             if (responseData !== undefined){
 
                 if (responseData.title){
-                    document.title = responseData.title;
+                    _this.changePageTitle(responseData.title);
                 }
 
                 //load assosiated data, like stylesheet, linkTypes, objectTypes
