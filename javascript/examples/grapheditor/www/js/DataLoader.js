@@ -119,6 +119,7 @@ DataLoader.prototype.changePageTitle = function(title) {
     titleName.style.float = 'right';
     titleName.style.padding = '6px 8px 6px 8px';
     titleName.style.fontSize = '11pt';
+    titleName.style.color = 'rgb(120,120,120)';
     titleName.innerHTML = title;
 
     menuBar.appendChild(titleName)
