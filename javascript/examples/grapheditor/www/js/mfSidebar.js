@@ -859,22 +859,22 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 {
     var sb = this;
 	var fns = [
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 60, 60, '', 'Событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;', 80, 80, '', 'Событие', null, null, 'circle oval ellipse start end state double', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;html=1;whiteSpace=wrap;fillColor=#66FF66;', 140, 110, '', 'Шаг бизнес-процесса', null, null, 'rect rectangle box', { metaClass: 'ae$bpstep'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;html=1;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Правило', null, null, 'doc', { metaClass: 'req$high'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 60, 60, '', 'Событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
+        this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Событие', null, null, 'circle oval ellipse start end state double', { metaClass: 'ae$event'}),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;whiteSpace=wrap;fillColor=#66FF66;', 140, 110, '', 'Шаг бизнес-процесса', null, null, 'rect rectangle box', { metaClass: 'ae$bpstep'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Правило', null, null, 'doc', { metaClass: 'req$high'}),
         this.addEntry('bpmn data object', function() {
-            var cell = new mxCell('', new mxGeometry(0, 0, 40, 60), 'shape=note;whiteSpace=wrap;size=16;html=1;');
+            var cell = new mxCell('', new mxGeometry(0, 0, 40, 60), 'shape=note;whiteSpace=wrap;size=16;');
             cell.vertex = true;
 
-            var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'html=1;shape=singleArrow;arrowWidth=0.4;arrowSize=0.4;');
+            var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=singleArrow;arrowWidth=0.4;arrowSize=0.4;');
             cell1.vertex = true;
             cell1.geometry.relative = true;
             cell1.geometry.offset = new mxPoint(2, 2);
             cell.insert(cell1);
 
-            var cell2 = new mxCell('', new mxGeometry(0.5, 1, 14, 14), 'html=1;whiteSpace=wrap;shape=parallelMarker;');
+            var cell2 = new mxCell('', new mxGeometry(0.5, 1, 14, 14), 'whiteSpace=wrap;shape=parallelMarker;');
             cell2.vertex = true;
             cell2.geometry.relative = true;
             cell2.geometry.offset = new mxPoint(-7, -14);
@@ -888,16 +888,16 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
             return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Data Object');
         }),
-        this.createVertexTemplateEntry('shape=message;whiteSpace=wrap;html=1;', 40, 30, '', 'Событие', null, null, 'bpmn receive task', { metaClass: 'ae$event'}),
-        //this.createVertexTemplateEntry('swimlane;html=1;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
-        this.createVertexTemplateEntry('shape=orEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;', 80, 80, '', 'Or', null, null, 'or circle oval ellipse', { metaClass: 'ae$gateway'}),
-        this.createVertexTemplateEntry('shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;', 80, 80, '', 'Sum', null, null, 'sum circle oval ellipse', { metaClass: 'ae$gateway'}),
-        this.createVertexTemplateEntry('swimlane;html=1;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
-        this.createVertexTemplateEntry('swimlane;html=1;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Lane', 'Lane', null, null, 'bpmn lane'),
+        this.createVertexTemplateEntry('shape=message;whiteSpace=wrap;', 40, 30, '', 'Событие', null, null, 'bpmn receive task', { metaClass: 'ae$event'}),
+        //this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
+        this.createVertexTemplateEntry('shape=orEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;', 80, 80, '', 'Or', null, null, 'or circle oval ellipse', { metaClass: 'ae$gateway'}),
+        this.createVertexTemplateEntry('shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;', 80, 80, '', 'Sum', null, null, 'sum circle oval ellipse', { metaClass: 'ae$gateway'}),
+        this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
+        this.createVertexTemplateEntry('swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Lane', 'Lane', null, null, 'bpmn lane'),
 
         //2 types of arrows: solid and dashed
-        this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Сплошная', null, null, null, { metaClass: "solidLine"}/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
-        this.createEdgeTemplateEntry('endArrow=classic;html=1;dashed=1;', 50, 50, '', 'Пунктирная', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/)
+        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Сплошная', null, null, null, { metaClass: "solidLine"}/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;', 50, 50, '', 'Пунктирная', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/)
 
         //connections
         /*this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Шаг бизнес-процесса связан с Шагом бизнес-процесса', null, null, null, { metaClass: 'step2step'}/!*{ "sourceType" : "ae$bpstep","targetType" : "ae$bpstep"}*!/ ),

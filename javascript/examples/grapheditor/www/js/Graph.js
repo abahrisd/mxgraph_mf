@@ -1339,7 +1339,8 @@ Graph.prototype.convertValueToString = function(cell)
 {
 	if (cell.value != null && typeof(cell.value) == 'object')
 	{
-		return cell.value.getAttribute('label');
+		//return cell.value.getAttribute('label');
+		return cell.value.getAttribute('label').replace(/\r?\n|\r/gm, '');
 	}
 	
 	return mxGraph.prototype.convertValueToString.apply(this, arguments);

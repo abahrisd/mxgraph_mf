@@ -3369,6 +3369,7 @@ EditorUi.prototype.sync = function() {
 EditorUi.prototype.saveXML = function() {
     var editor = this.editor;
     var params = 'mxGraphModel=' + encodeURIComponent(mxUtils.getXml(editor.getGraphXml()));
+    //encodeURIComponent(mxUtils.getXml(EditUI.getGraphXml()))
     var queryString = this.dataLoader.queryStr;
 
     var onload = function(req){
@@ -3389,11 +3390,13 @@ EditorUi.prototype.saveXML = function() {
     var origin = 'http://217.74.43.104:8080';
     var pathname = '/sd/services/rest/edit/';
 
-    var url = origin + pathname + queryString.view + '?' + 'accessKey=' + (queryString.accessKey || '2c26e34c-e9e8-4120-9f76-c4661bb748ae');
+    var url = origin + pathname + queryString.view + '?' + 'accessKey=' + queryString.accessKey;
+    //var url = origin + pathname + queryString.view;
+    //params +='&accessKey='+queryString.accessKey;
 
     mxUtils.post(url, params, onload, onerror);
 
-    console.log("this.getSystemState()", this.getSystemState());
+    //console.log("this.getSystemState()", this.getSystemState());
 };
 
 /**
@@ -3411,9 +3414,9 @@ EditorUi.prototype.getSystemState = function() {
     var allCells = graph.getModel().getDescendants(graph.getDefaultParent());
 
     allCells.forEach(function(el){
-        if (el.vertex){
+        if (el.vertex && el.getValue().attributes){
             output.objects.push(createCellObject(el));
-        } else if (el.edge){
+        } else if (el.edge && el.getValue().attributes){
             output.links.push(createCellObject(el));
         }
     });

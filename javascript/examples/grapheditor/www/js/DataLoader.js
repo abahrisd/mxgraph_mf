@@ -18,7 +18,6 @@ function DataLoader(editorUi) {
     this.origin = 'http://217.74.43.104:8080';
     this.pathname = '/sd/services/rest/get/';
 
-
     //parsing url and get params
     this.queryStr = function () {
         // This function is anonymous, is executed immediately and
@@ -122,15 +121,20 @@ DataLoader.prototype.loadXMLData = function(){
 
             if (responseData !== undefined){
 
+                if (responseData.title){
+                    document.title = responseData.title;
+                }
+
                 //load assosiated data, like stylesheet, linkTypes, objectTypes
                 if (responseData.type){
                     if (responseData.type.UUID){
-                        var secondQuery =  _this.queryStr;
+                        var secondQuery =  {};
+                        secondQuery.accessKey = _this.queryStr.accessKey;
                         secondQuery.view = responseData.type.UUID;
+
                         var metaUrl = _this.generateUrl(secondQuery);
                         var res = _this.loadTypeData(metaUrl);
 
-                        console.log("res", res);
                         if (res.stylesheet){
                             _this.setStylesheet(res.stylesheet);
                         } else {
@@ -238,7 +242,6 @@ DataLoader.prototype.sync = function() {
     var onload = function(req){
         try{
             var responseData = JSON.parse(req.getText());
-            console.log("responseData", responseData);
             if (responseData !== undefined){
 
                 //insert objects
@@ -439,4 +442,4 @@ DataLoader.prototype.exportXMLNode = function(){
     //debug stuff
     //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
 
-}
+};

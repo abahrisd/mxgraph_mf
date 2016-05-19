@@ -255,6 +255,7 @@ setAsDefaultStyle=Сделать стилем по умолчанию
 shadow=Тень
 shape=Фигура
 sharp=Заострённые
+showSystemState=Показать состояние системы
 simpleArrow=Простая стрелка
 size=Размер
 solid=Сплошной

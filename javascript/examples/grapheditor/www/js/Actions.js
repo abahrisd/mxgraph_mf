@@ -78,6 +78,50 @@ Actions.prototype.init = function()
         ui.sync();
     }, null, null).isEnabled = isGraphEnabled;
     this.addAction('saveXML...', function() { ui.saveXML(); }, null, null).isEnabled = isGraphEnabled;
+    this.addAction('showSystemState...', function() {
+        var newWnd = window.open('', '_blank');
+        var str = JSON.stringify(ui.getSystemState(), undefined, 4);
+
+        //supelocal funcs
+        function output(inp, wnd) {
+            var css = "pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; } .string { color: green; } .number { color: darkorange; } .boolean { color: blue; } .null { color: magenta; } .key { color: red; }";
+            var head = wnd.document.head || wnd.document.getElementsByTagName('head')[0];
+            var style = wnd.document.createElement('style');
+
+            style.type = 'text/css';
+            if (style.styleSheet){
+                style.styleSheet.cssText = css;
+            } else {
+                style.appendChild(wnd.document.createTextNode(css));
+            }
+
+            head.appendChild(style);
+            wnd.document.body.appendChild(document.createElement('pre')).innerHTML = inp;
+        }
+
+        function syntaxHighlight(json) {
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                var cls = 'number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'key';
+                    } else {
+                        cls = 'string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+
+        output(syntaxHighlight(str), newWnd);
+        //newWnd.document.write(JSON.stringify(ui.getSystemState(), null, 2));
+
+    }, null, null).isEnabled = isGraphEnabled;
 	this.addAction('editDiagram...', function()
 	{
 		var dlg = new EditDiagramDialog(ui);
