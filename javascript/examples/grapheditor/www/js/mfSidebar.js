@@ -930,9 +930,9 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
             return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Ручное действие');
         }),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ff9226;whiteSpace=wrap;', 120, 80, 'Текст', 'Измененное действие', null, null, 'bpmn task process','ae$bpstep'),
+        /*this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ff9226;whiteSpace=wrap;', 120, 80, 'Текст', 'Измененное действие', null, null, 'bpmn task process','ae$bpstep'),
         this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ca0000;whiteSpace=wrap;', 120, 80, 'Текст', 'Удаленное действие', null, null, 'bpmn task process','ae$bpstep'),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;dashed=1;strokeWidth=3;strokeColor=#7500ff;whiteSpace=wrap;', 120, 80, 'Текст', 'Новое действие', null, null, 'bpmn task process','ae$bpstep'),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;dashed=1;strokeWidth=3;strokeColor=#7500ff;whiteSpace=wrap;', 120, 80, 'Текст', 'Новое действие', null, null, 'bpmn task process','ae$bpstep'),*/
 
         //Gateway
         this.createVertexTemplateEntry('shape=gatewayExclude;', 40, 40, '', 'Исключающий шлюз', null, null, 'bpmn subprocess sub process sub-process marker','ae$bpstep'),
@@ -945,14 +945,14 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
         //Data objects
         this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных', null, null, null,'ae$registry'),
-        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ff9226;', 80, 100, '', 'Измененный объект данных', null, null, null,'ae$registry'),
+        /*this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ff9226;', 80, 100, '', 'Измененный объект данных', null, null, null,'ae$registry'),
         this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ca0000;', 80, 100, '', 'Удаленный объект данных', null, null, null,'ae$registry'),
-        this.createVertexTemplateEntry('shape=card;strokeWidth=3;dashed=1;whiteSpace=wrap;strokeColor=#7500ff;', 80, 100, '', 'Новый объект данных', null, null, null,'ae$registry'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;dashed=1;whiteSpace=wrap;strokeColor=#7500ff;', 80, 100, '', 'Новый объект данных', null, null, null,'ae$registry'),*/
 
         this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', 'req$high'),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ff9226;strokeWidth=3', 105, 36, '', 'Измененное бизнес-правило', null, null, 'rule', 'req$high'),
+        /*this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ff9226;strokeWidth=3', 105, 36, '', 'Измененное бизнес-правило', null, null, 'rule', 'req$high'),
         this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ca0000;strokeWidth=3', 105, 36, '', 'Удаленное бизнес-правило', null, null, 'rule', 'req$high'),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;dashed=1;fillColor=#FFCCE6;strokeColor=#7500ff;strokeWidth=3', 105, 36, '', 'Новое бизнес-правило', null, null, 'rule', 'req$high'),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;dashed=1;fillColor=#FFCCE6;strokeColor=#7500ff;strokeWidth=3', 105, 36, '', 'Новое бизнес-правило', null, null, 'rule', 'req$high'),*/
 
         //text
         this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;', 40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
