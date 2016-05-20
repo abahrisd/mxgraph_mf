@@ -13,9 +13,6 @@ EditorUi = function(editor, container)
 	this.container = container || document.body;
 	var graph = this.editor.graph;
 
-    //load local list of attributes
-    this.atributesDirectory = new UserStore('fixtures/attributes.json', null, 'metaClass');
-
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
 	{
@@ -1793,7 +1790,7 @@ EditorUi.prototype.canUndo = function()
  */
 EditorUi.prototype.getUrl = function(pathname)
 {
-	var href = (pathname != null) ? pathname : window.location.pathname;
+	var href = (pathname != null) ? pathname : window.location.getPath;
 	var parms = (href.indexOf('?') > 0) ? 1 : 0;
 	
 	// Removes template URL parameter for new blank diagram
@@ -3391,7 +3388,7 @@ EditorUi.prototype.saveXML = function() {
     var pathname = '/sd/services/rest/edit/';
 
     var url = origin + pathname + queryString.view + '?' + 'accessKey=' + queryString.accessKey;
-    //var url = origin + pathname + queryString.view;
+    //var url = origin + getPath + queryString.view;
     //params +='&accessKey='+queryString.accessKey;
 
     mxUtils.post(url, params, onload, onerror);

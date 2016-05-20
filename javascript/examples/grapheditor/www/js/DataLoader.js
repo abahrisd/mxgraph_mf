@@ -12,11 +12,13 @@ function DataLoader(editorUi) {
     this.linkTypes = '';
     this.objectTypes = '';
 
-    //this.origin = window.origin;
-    //this.pathname = window.pathname;
+    //TODO check is this declaration is correct
+    //this.origin = window.location.origin;
+    //this.getPath = window.location.getPath;
 
     this.origin = 'http://217.74.43.104:8080';
-    this.pathname = '/sd/services/rest/get/';
+    this.getPath = '/sd/services/rest/get/';
+    this.funcPath = '/sd/services/rest/exec';
 
     //parsing url and get params
     this.queryStr = function () {
@@ -51,33 +53,13 @@ function DataLoader(editorUi) {
 DataLoader.prototype.init = function(queryStr) {
 
     //Nope
-
-    //this.loadStylesheetDoc(styleUrl);
-
-    //create url from queryStr
-    //var origin = window.origin;
-    //var pathname = window.pathname;
-
-    //var url = this.generateUrl(queryStr);
-
-    //this.loadXMLData(queryStr);
-    //this.loadXMLData(cellsUrl);
-    //this.loadXMLData('fixtures/testnode.xml');
 };
 
 /**
  * Generate url from queryStr
  */
 DataLoader.prototype.generateUrl = function(queryStr) {
-
-    //TODO check is this declaration is correct
-    //var origin = window.origin;
-    //var pathname = window.pathname;
-
-    //var origin = 'http://217.74.43.104:8080';
-    //var pathname = '/sd/services/rest/get/';
-
-    return (this.origin + this.pathname + queryStr.view + '?accessKey=' + queryStr.accessKey );
+    return (this.origin + this.getPath + queryStr.view + '?accessKey=' + queryStr.accessKey );
 };
 
 /**
@@ -109,6 +91,16 @@ DataLoader.prototype.setObjectTypes = function(objectTypes) {
 /**
  * Create store for objectTypes
  */
+DataLoader.prototype.setAttributes = function(queryString) {
+    var url = this.origin + this.funcPath + '?accessKey=' + queryString.accessKey + '&func=modules.mxGraph.getTypeAttributesJson&params=';
+
+    //load local list of attributes
+    this.editorUi.atributesDirectory = new UserStore(url, null, 'metaClass');
+};
+
+/**
+ * Create store for objectTypes
+ */
 DataLoader.prototype.changePageTitle = function(title) {
 
     document.title = title;
@@ -122,7 +114,8 @@ DataLoader.prototype.changePageTitle = function(title) {
     titleName.style.color = 'rgb(120,120,120)';
     titleName.innerHTML = title;
 
-    menuBar.appendChild(titleName)
+    menuBar.insertBefore(titleName, menuBar.firstChild);
+    //menuBar.appendChild(titleName)
 };
 
 /**
@@ -140,13 +133,16 @@ DataLoader.prototype.loadXMLData = function(){
 
             if (responseData !== undefined){
 
+                //set page title and page name on up right corner
                 if (responseData.title){
                     _this.changePageTitle(responseData.title);
                 }
 
+                _this.setAttributes(_this.queryStr);
                 //load assosiated data, like stylesheet, linkTypes, objectTypes
                 if (responseData.type){
                     if (responseData.type.UUID){
+
                         var secondQuery =  {};
                         secondQuery.accessKey = _this.queryStr.accessKey;
                         secondQuery.view = responseData.type.UUID;
@@ -250,10 +246,9 @@ DataLoader.prototype.loadTypeData = function(url) {
 DataLoader.prototype.sync = function() {
 
     var _this = this;
-    var funcPath = '/sd/services/rest/exec';
     var view_id = this.queryStr.view.split('$')[1];
 
-    var url = (this.origin + funcPath + '?accessKey='+this.queryStr.accessKey + '&func=modules.mxGraph.relevantData&params=' + view_id);
+    var url = (this.origin + this.funcPath + '?accessKey='+this.queryStr.accessKey + '&func=modules.mxGraph.relevantData&params=' + view_id);
 
     var graph = this.graph;
     var editor = this.editorUi.editor;

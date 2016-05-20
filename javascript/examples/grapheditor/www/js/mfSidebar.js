@@ -859,48 +859,116 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 {
     var sb = this;
 	var fns = [
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 60, 60, '', 'Событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Событие', null, null, 'circle oval ellipse start end state double', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;whiteSpace=wrap;fillColor=#66FF66;', 140, 110, '', 'Шаг бизнес-процесса', null, null, 'rect rectangle box', { metaClass: 'ae$bpstep'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Правило', null, null, 'doc', { metaClass: 'req$high'}),
-        this.addEntry('bpmn data object', function() {
-            var cell = new mxCell('', new mxGeometry(0, 0, 40, 60), 'shape=note;whiteSpace=wrap;size=16;');
+        //area of responsibility
+        this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Пул', 'Пул', null, null, 'bpmn pool'),
+        this.createVertexTemplateEntry('swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane'),
+
+        //Events
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 60, 60, '', 'Начальное событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Конечное событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
+        this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', { metaClass: 'ae$event'}),
+
+        //Actions
+        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+        {
+            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#33ff33;rounded=1;');
             cell.vertex = true;
 
-            var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=singleArrow;arrowWidth=0.4;arrowSize=0.4;');
+            var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=mxgraph.bpmn.user_task;fillColor=#33ff33;');
             cell1.vertex = true;
             cell1.geometry.relative = true;
-            cell1.geometry.offset = new mxPoint(2, 2);
+            cell1.geometry.offset = new mxPoint(7, 7);
             cell.insert(cell1);
 
-            var cell2 = new mxCell('', new mxGeometry(0.5, 1, 14, 14), 'whiteSpace=wrap;shape=parallelMarker;');
-            cell2.vertex = true;
-            cell2.geometry.relative = true;
-            cell2.geometry.offset = new mxPoint(-7, -14);
-            cell.insert(cell2);
-
-            //add custom attrs
-            sb.addCustomAttrs(cell, {metaClass: 'ae$registry'});
-
-            sb.note = sb.graph.cloneCells([cell]);
-            //sb.note[0].setParent(sb.graph.getDefaultParent());
-
-            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Data Object');
+            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Автоматизированное действие');
         }),
-        this.createVertexTemplateEntry('shape=message;whiteSpace=wrap;', 40, 30, '', 'Событие', null, null, 'bpmn receive task', { metaClass: 'ae$event'}),
-        //this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
-        this.createVertexTemplateEntry('shape=orEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;', 80, 80, '', 'Or', null, null, 'or circle oval ellipse', { metaClass: 'ae$gateway'}),
-        this.createVertexTemplateEntry('shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;', 80, 80, '', 'Sum', null, null, 'sum circle oval ellipse', { metaClass: 'ae$gateway'}),
-        this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
-        this.createVertexTemplateEntry('swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Lane', 'Lane', null, null, 'bpmn lane'),
+        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+        {
+            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#3399ff;rounded=1;');
+            cell.vertex = true;
 
-        //2 types of arrows: solid and dashed
-        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Сплошная', null, null, null, { metaClass: "solidLine"}/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
-        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;', 50, 50, '', 'Пунктирная', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/)
+            var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=mxgraph.bpmn.service_task;fillColor=#3399ff;');
+            cell1.vertex = true;
+            cell1.geometry.relative = true;
+            cell1.geometry.offset = new mxPoint(7, 7);
+            cell.insert(cell1);
+
+            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Автоматическое действие');
+        }),
+        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+        {
+            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#ffff00;rounded=1;');
+            cell.vertex = true;
+
+            var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=mxgraph.bpmn.manual_task;fillColor=#ffff00;');
+            cell1.vertex = true;
+            cell1.geometry.relative = true;
+            cell1.geometry.offset = new mxPoint(7, 7);
+            cell.insert(cell1);
+
+            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Ручное действие');
+        }),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ff9226;whiteSpace=wrap;', 120, 80, 'Текст', 'Измененное действие', null, null, 'bpmn task process'),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ca0000;whiteSpace=wrap;', 120, 80, 'Текст', 'Удаленное действие', null, null, 'bpmn task process'),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;dashed=1;strokeWidth=3;strokeColor=#7500ff;whiteSpace=wrap;', 120, 80, 'Текст', 'Новое действие', null, null, 'bpmn task process'),
+
+        //Gateway
+        this.createVertexTemplateEntry('shape=gatewayExclude;', 40, 40, '', 'Исключающий шлюз', null, null, 'bpmn subprocess sub process sub-process marker'),
+        this.createVertexTemplateEntry('shape=gatewayParallel;', 40, 40, '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker'),
+
+        //Streams
+        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, { metaClass: "solidLine"}/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;', 50, 50, '', 'Поток сообщений', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;', 50, 50, '', 'Поток ассоциация', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
+
+        //Artifacts
+        this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ff9226;', 80, 100, '', 'Измененный объект данных'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ca0000;', 80, 100, '', 'Удаленный объект данных'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;dashed=1;whiteSpace=wrap;strokeColor=#7500ff;', 80, 100, '', 'Новый объект данных'),
+
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ff9226;strokeWidth=3', 105, 36, '', 'Измененное бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ca0000;strokeWidth=3', 105, 36, '', 'Удаленное бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;dashed=1;fillColor=#FFCCE6;strokeColor=#7500ff;strokeWidth=3', 105, 36, '', 'Новое бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
+
+        //text
+        this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;',
+            40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label')
 
         //connections
-        /*this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Шаг бизнес-процесса связан с Шагом бизнес-процесса', null, null, null, { metaClass: 'step2step'}/!*{ "sourceType" : "ae$bpstep","targetType" : "ae$bpstep"}*!/ ),
+        /*this.createVertexTemplateEntry('shape=ext;rounded=1;whiteSpace=wrap;fillColor=#66FF66;', 140, 110, '', 'Шаг бизнес-процесса', null, null, 'rect rectangle box', { metaClass: 'ae$bpstep'}),
+         this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Правило', null, null, 'doc', { metaClass: 'req$high'}),
+         this.addEntry('bpmn data object', function() {
+         var cell = new mxCell('', new mxGeometry(0, 0, 40, 60), 'shape=note;whiteSpace=wrap;size=16;');
+         cell.vertex = true;
+
+         var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=singleArrow;arrowWidth=0.4;arrowSize=0.4;');
+         cell1.vertex = true;
+         cell1.geometry.relative = true;
+         cell1.geometry.offset = new mxPoint(2, 2);
+         cell.insert(cell1);
+
+         var cell2 = new mxCell('', new mxGeometry(0.5, 1, 14, 14), 'whiteSpace=wrap;shape=parallelMarker;');
+         cell2.vertex = true;
+         cell2.geometry.relative = true;
+         cell2.geometry.offset = new mxPoint(-7, -14);
+         cell.insert(cell2);
+
+         //add custom attrs
+         sb.addCustomAttrs(cell, {metaClass: 'ae$registry'});
+
+         sb.note = sb.graph.cloneCells([cell]);
+         //sb.note[0].setParent(sb.graph.getDefaultParent());
+
+         return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Data Object');
+         }),
+         this.createVertexTemplateEntry('shape=message;whiteSpace=wrap;', 40, 30, '', 'Событие', null, null, 'bpmn receive task', { metaClass: 'ae$event'}),
+         //this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Pool', 'Pool', null, null, 'bpmn pool'),
+         this.createVertexTemplateEntry('shape=orEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;', 80, 80, '', 'Or', null, null, 'or circle oval ellipse', { metaClass: 'ae$gateway'}),
+         this.createVertexTemplateEntry('shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;', 80, 80, '', 'Sum', null, null, 'sum circle oval ellipse', { metaClass: 'ae$gateway'}),
+
+         this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Шаг бизнес-процесса связан с Шагом бизнес-процесса', null, null, null, { metaClass: 'step2step'}/!*{ "sourceType" : "ae$bpstep","targetType" : "ae$bpstep"}*!/ ),
         this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Шаг бизнес-процесса связан с Событием', null, null, null, { metaClass: 'step2event'}/!*{"sourceType" : "ae$bpstep","targetType" : "ae$event"}*!/),
         this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Событие связано с Шагом бизнес-процесса', null, null, null, { metaClass: 'event2step'}/!*{"sourceType" : "ae$event","targetType" : "ae$bpstep"}*!/),
         this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Событие связано с Шлюзом', null, null, null, { metaClass: 'event2gateway'}/!*{"sourceType" : "ae$event","targetType" : "ae$gateway"}*!/),
@@ -935,7 +1003,7 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 	 	this.createVertexTemplateEntry('shape=step;whiteSpace=wrap;html=1;', 120, 80, '', 'Step'),
 	 	this.createVertexTemplateEntry('shape=trapezoid;whiteSpace=wrap;html=1;', 120, 60, '', 'Trapezoid'),
 	 	this.createVertexTemplateEntry('shape=tape;whiteSpace=wrap;html=1;', 120, 100, '', 'Tape'),
-	 	this.createVertexTemplateEntry('shape=note;whiteSpace=wrap;html=1;', 80, 100, '', 'Note'),
+	 	this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;html=1;', 80, 100, '', 'Note'),
 	    this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;html=1;', 80, 100, '', 'Card'),
 	 	this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Connection'),
 	 	this.createEdgeTemplateEntry('endArrow=classic;startArrow=classic;html=1;', 50, 50, '', 'Connection')*/

@@ -508,7 +508,69 @@
 	};
 
 	mxCellRenderer.prototype.defaultShapes['plus'] = PlusShape;
-	
+
+	// Gateway exclude shape
+    function GatewayExclude()
+    {
+        mxRectangleShape.call(this);
+        this.rotation = 45;
+    };
+    mxUtils.extend(GatewayExclude, mxRectangleShape);
+    GatewayExclude.prototype.isHtmlAllowed = function()
+    {
+        return false;
+    };
+    GatewayExclude.prototype.paintForeground = function(c, x, y, w, h)
+    {
+        var border = Math.min(w / 7, h / 7) + 1;
+
+        c.setStrokeWidth(3);
+        c.begin();
+        c.moveTo(x + w / 2, y + border);
+        c.lineTo(x + w / 2, y + h - border);
+        c.moveTo(x + border, y + h / 2);
+        c.lineTo(x + w - border, y + h / 2);
+        c.end();
+        c.stroke();
+        mxRectangleShape.prototype.paintForeground.apply(this, arguments);
+    };
+
+	mxCellRenderer.prototype.defaultShapes['gatewayExclude'] = GatewayExclude;
+
+    // Gateway parallel shape
+    function GatewayParallel()
+    {
+        mxRectangleShape.call(this);
+        this.rotation = 45;
+    };
+    mxUtils.extend(GatewayParallel, mxRectangleShape);
+    GatewayParallel.prototype.isHtmlAllowed = function()
+    {
+        return false;
+    };
+    GatewayParallel.prototype.paintForeground = function(c, x, y, w, h)
+    {
+        var s2 = 0.27;
+
+        c.setShadow(false);
+        c.setStrokeWidth(3);
+        c.begin();
+        c.moveTo(x + w * s2, y + h * s2);
+        c.lineTo(x + w * (1 - s2), y + h * (1 - s2));
+        c.end();
+        c.stroke();
+
+        c.begin();
+        c.moveTo(x + w * (1 - s2), y + h * s2);
+        c.lineTo(x + w * s2, y + h * (1 - s2));
+        c.end();
+        c.stroke();
+
+        mxRectangleShape.prototype.paintForeground.apply(this, arguments);
+    };
+
+	mxCellRenderer.prototype.defaultShapes['gatewayParallel'] = GatewayParallel;
+
 	// Overrides painting of rhombus shape to allow for double style
 	var mxRhombusPaintVertexShape = mxRhombus.prototype.paintVertexShape;
 	mxRhombus.prototype.getLabelBounds = function(rect)

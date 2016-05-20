@@ -14146,7 +14146,7 @@ mxUrlConverter.prototype.baseDomain = null;
 mxUrlConverter.prototype.updateBaseUrl = function()
 {
 	this.baseDomain = location.protocol + '//' + location.host;
-	this.baseUrl = this.baseDomain + location.pathname;
+	this.baseUrl = this.baseDomain + location.getPath;
 	var tmp = this.baseUrl.lastIndexOf('/');
 	
 	// Strips filename etc
