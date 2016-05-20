@@ -4735,7 +4735,6 @@ DiagramFormatPanel.prototype.destroy = function()
 AttributePanel = function(format, editorUi, container)
 {
     BaseFormatPanel.call(this, format, editorUi, container);
-    this.restricteddAttributeList = ['metaClass', 'UUID'];
     this.init();
 };
 
@@ -4754,6 +4753,11 @@ AttributePanel.prototype.init = function()
  */
 AttributePanel.prototype.addCellAttributes = function(container)
 {
+    /*var container = document.createElement('div');
+
+    container.style.height = '310px';
+    container.style.overflow = 'auto';*/
+
     var ui = this.editorUi;
     var editor = ui.editor;
     var graph = editor.graph;
@@ -4762,16 +4766,17 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var atributesDirectory = ui.atributesDirectory;
     var labelDir = {};
 
-
     var textsCont = document.createElement('div');
     textsCont.style.whiteSpace = 'nowrap';
     textsCont.style.marginTop = '6px';
 
     var _this = this;
     var value = graph.getModel().getValue(cell);
+    var metaClass;
 
     if (atributesDirectory && value && value.getAttribute) {
-        labelDir = atributesDirectory.getById(value.getAttribute('metaClass'))
+        metaClass = value.getAttribute('metaClass');
+        labelDir = atributesDirectory.getById(metaClass).attributes;
     }
 
     //console.log("labelDir", labelDir);
@@ -4787,7 +4792,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
     // Creates the dialog contents
     var form = new mxForm('properties');
     form.table.style.width = '100%';
-    form.table.style.textAlign = 'right';
+    form.table.style.textAlign = 'left';
     form.table.style.paddingRight = '20px';
 
     var attrs = value.attributes;
@@ -4798,10 +4803,60 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var addTextInput = function(index, name, value, directory) {
         names[index] = name;
 
-        var labelName = directory[names[count]].name || names[count];
+        //console.log("directory", directory);
+        //console.log("names[count]", names[count]);
+        //console.log("directory[names[count]]", directory[names[count]]);
 
-        texts[index] = form.addText(labelName + ':', value);
-        texts[index].style.width = '100%';
+        //rus attrs name, stored in title
+        var labelName = directory[names[count]].title || names[count];
+
+        if (metaClass && directory[name] && directory[name].type){
+
+            switch(directory[name].type){
+                case 'integer':
+                case 'string'://input
+                    texts[index] = form.addFieldColumn(labelName + ':', value);
+                    texts[index].style.width = '100%';
+                    break;
+                case 'list'://combobox
+                    texts[index] = form.addComboColumn(labelName+ ':');
+                    texts[index].style.width = '100%';
+
+                    form.addOption(texts[index], '', '');
+                    if (directory[name].values){
+                        var values = directory[name].values;
+                        for(var i in values){
+                            if (values.hasOwnProperty(i)){
+                                form.addOption(texts[index], values[i], i);
+                            }
+                        }
+                    }
+
+                    texts[index].value = value;
+                    texts[index].style.width = '100%';
+                    break;
+                case 'text'://textarea
+                    texts[index] = form.addTextareaColumn(labelName + ':', value, 4);
+                    texts[index].style.resize = 'vertical';
+                    texts[index].style.width = '100%';
+                    break;
+                case 'bool'://checkbox
+                    texts[index] = form.addCheckboxColumn(labelName + ':', value);
+                    break;
+                default:
+                    texts[index] = form.addFieldColumn(labelName + ':', value);
+                    texts[index].style.width = '100%';
+            }
+        } else {
+            texts[index] = form.addFieldColumn(labelName + ':', value);
+        }
+
+        //texts[index] = form.addFieldColumn(labelName + ':', value);
+
+        var applyHandlerCheck = function(checkbox){
+            var newValue = checkbox.checked?'1':'';
+            cell.setAttribute(name, newValue);
+        };
 
         var applyHandler = function() {
             var newValue = texts[index].value || '';
@@ -4811,16 +4866,11 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 graph.getModel().beginUpdate();
 
                 try {
-                    console.log("applyHandler newValue", newValue);
-                    //var escapedNewValue = escapeHTML(newValue);
-
                     var edit = new mxCellAttributeChange(cell, name, newValue);
-                    //var edit = new mxCellAttributeChange(cell, name,escapedNewValue);
                     graph.getModel().execute(edit);
 
-                    if (name = 'title') {
+                    if (name === 'title') {
                         var edit2 = new mxCellAttributeChange(cell, 'label', newValue);
-                        //var edit2 = new mxCellAttributeChange(cell, 'label', escapedNewValue);
                         graph.getModel().execute(edit2);
                     }
                     //graph.updateCellSize(cell);
@@ -4830,21 +4880,36 @@ AttributePanel.prototype.addCellAttributes = function(container)
             }
         };
 
-        mxEvent.addListener(texts[index], 'keypress', function (evt) {
-            // Needs to take shift into account for textareas
-            if (evt.keyCode == /*enter*/13 && !mxEvent.isShiftDown(evt)) {
-                texts[index].blur();
+        //for checkboxes different listeners
+        if (directory[name].type === 'bool') {
+            if ("onpropertychange" in texts[index]) {
+                // старый IE
+                texts[index].onpropertychange = function() {
+                    //applyHandler();
+                    if (event.propertyName == "checked") {
+                        applyHandlerCheck(texts[index]);
+                    }
+                };
+            } else {
+                // остальные браузеры
+                texts[index].onchange = function() {
+                    applyHandlerCheck(texts[index]);
+                };
             }
-        });
-
-        if (mxClient.IS_IE) {
-            mxEvent.addListener(texts[index], 'focusout', applyHandler);
         } else {
-            mxEvent.addListener(texts[index], 'blur', applyHandler);
-        }
+            mxEvent.addListener(texts[index], 'keypress', function (evt) {
+                // Needs to take shift into account for textareas
+                if (evt.keyCode == /*enter*/13 && !mxEvent.isShiftDown(evt)) {
+                    texts[index].blur();
+                }
+            });
 
-        //texts[index].oninput = updateAttributes;
-        //addRemoveButton(texts[index], name);
+            if (mxClient.IS_IE) {
+                mxEvent.addListener(texts[index], 'focusout', applyHandler);
+            } else {
+                mxEvent.addListener(texts[index], 'blur', applyHandler);
+            }
+        }
     };
 
     //overwright to disable parsing html in label
@@ -4865,7 +4930,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
         if (cell.getValue() && cell.vertex && value.setAttribute && value.getAttribute && value.getAttribute('title') && value.getAttribute('label') ){
             value.setAttribute('title', value.getAttribute('label'))
         }
-        console.log("value", value);
 
         return cell.valueChanged(value);
     };
@@ -4905,23 +4969,18 @@ AttributePanel.prototype.addCellAttributes = function(container)
         //convertValueToString.apply(this, arguments);
     };*/
 
-    function unescapeHTML(escapedHTML) {
+    /*function unescapeHTML(escapedHTML) {
         //return decodeURIComponent(escapedHTML);
-        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ')/*.replace(/&amp;/g,'&')*/;
+        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ')/!*.replace(/&amp;/g,'&')*!/;
     }
 
     function escapeHTML(unescapedHTML) {
         //return encodeURIComponent(unescapedHTML);
-        return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')/*.replace(/&/g,'&amp;')*/;
-    }
+        return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')/!*.replace(/&/g,'&amp;')*!/;
+    }*/
 
     var isAttrAvailable = function(attrName) {
-        for (var i=0; i < _this.restricteddAttributeList.length; i++){
-            if(_this.restricteddAttributeList[i] == attrName){
-                return false;
-            }
-        }
-        return true;
+        return !_this.editorUi.restricteddAttributeList.contains(attrName);
     };
 
     for (var i = 0; i < attrs.length; i++) {
@@ -4934,16 +4993,20 @@ AttributePanel.prototype.addCellAttributes = function(container)
     }
 
     //add combo to attrs list
-    var codeCombo = form.addCombo('Cписок:');
+    /*var codeCombo = form.addCombo('Cписок:');
     codeCombo.style.width = '100%';
     form.addOption(codeCombo, 'Зелёный', 1);
     form.addOption(codeCombo, 'Красный', 2);
-    form.addOption(codeCombo, 'Синий', 3);
+    form.addOption(codeCombo, 'Синий', 3);*/
+    //codeCombo.value = 2;
+
+    //var txtarea = form.addTextarea('Эриа":','много много текста адмвдалпо валп двлади воапд лвадпло итвад повад твдапо тдваопт дваоп твдпта', 3 );
 
     //add form with attr:value:x blocks
     textsCont.appendChild(form.table);
     container.appendChild(textsCont);
 
+    //this.container = container;
     return container;
 
 };

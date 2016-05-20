@@ -36,13 +36,12 @@ UserStore.prototype.init = function(url, data) {
 };
 
 /**
- * Load stylesheet.xml from server and set it to graph
+ * Synchronously load file from server and add it to store
  */
 UserStore.prototype.loadData = function(url){
 
     var _this = this;
     var req = mxUtils.load(url);
-
     try{
         var responseData = JSON.parse(req.getText());
 
@@ -71,7 +70,7 @@ UserStore.prototype.loadData = function(url){
 
     //var nodstyle = dec.decode(root, _this.graph.stylesheet);
 
-}
+};
 
 /**
  * Add attribute object in store

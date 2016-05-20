@@ -44,7 +44,7 @@ function DataLoader(editorUi) {
         return query_string;
     }();
 
-    //this.init(queryStr);
+    //this.init(this.queryStr);
 };
 
 /**
@@ -52,6 +52,7 @@ function DataLoader(editorUi) {
  */
 DataLoader.prototype.init = function(queryStr) {
 
+    //this.setAttributes(queryStr);
     //Nope
 };
 
@@ -91,7 +92,9 @@ DataLoader.prototype.setObjectTypes = function(objectTypes) {
 /**
  * Create store for objectTypes
  */
-DataLoader.prototype.setAttributes = function(queryString) {
+DataLoader.prototype.setAttributes = function() {
+    var queryString = this.queryStr;
+
     var url = this.origin + this.funcPath + '?accessKey=' + queryString.accessKey + '&func=modules.mxGraph.getTypeAttributesJson&params=';
 
     //load local list of attributes
@@ -138,7 +141,6 @@ DataLoader.prototype.loadXMLData = function(){
                     _this.changePageTitle(responseData.title);
                 }
 
-                _this.setAttributes(_this.queryStr);
                 //load assosiated data, like stylesheet, linkTypes, objectTypes
                 if (responseData.type){
                     if (responseData.type.UUID){
@@ -353,24 +355,29 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
     node.setAttribute('label', obj.title?obj.title:'');
 
     //set attributes, except title
-    for (var key in obj) {
-
-        node.setAttribute(key, obj[key]);
-
-        //TODO refactor it!
-        /*if (key === 'metaClass') {
-            node.setAttribute('_metaClass', obj[key]);
-        } else if (key === 'UUID') {
-            node.setAttribute('_UUID', obj[key]);
-        } else {
-            node.setAttribute(key, obj[key]);
-        }*/
-    }
-
-    var style = '';
-
-    //TODO add other styles
     if (obj.metaClass){
+        var attrs = this.editorUi.atributesDirectory.getById(obj.metaClass);
+
+        //идём по атрибутам и добавляем все атрибуты
+        //потом идём по переданным значениям и если есть такой атрибут то
+
+        node.setAttribute('metaClass', obj.metaClass);
+
+        if (obj['UUID']){
+            node.setAttribute('UUID', obj['UUID']);
+        }
+
+        for (var att in attrs.attributes){
+            if (obj[att]){
+                node.setAttribute(att, obj[att]);
+            } else {
+                node.setAttribute(att, '');
+            }
+        }
+
+        var style = '';
+
+        //TODO add other styles
         switch(obj.metaClass){
             case 'ae$bpstep':
                 style = 'step';

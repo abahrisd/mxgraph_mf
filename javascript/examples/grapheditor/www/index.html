@@ -68,7 +68,7 @@
 		// save a GET request. This requires that all resources be present in
 		// each properties file since only one file is loaded.
 		mxLoadResources = false;
-		mxBasePath = '../src';
+		mxBasePath = '/mxgraph/javascript/examples/grapheditor/src';
 		mxLanguage = urlParams['lang'];
 		mxLanguages = ['de'];
 	</script>
@@ -142,6 +142,16 @@
 
                 this.installListeners(this.textarea);
             };
+
+            Array.prototype.contains = function(obj) {
+                var i = this.length;
+                while (i--) {
+                    if (this[i] == obj) {
+                        return true;
+                    }
+                }
+                return false;
+            }
 		})();
 
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));

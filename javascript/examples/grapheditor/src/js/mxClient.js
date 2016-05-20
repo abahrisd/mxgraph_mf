@@ -12156,7 +12156,7 @@ mxForm.prototype.addText = function(name, value)
 	
 	input.setAttribute('type', 'text');
 	input.value = value;
-	
+
 	return this.addField(name, input);
 };
 
@@ -12201,6 +12201,71 @@ mxForm.prototype.addTextarea = function(name, value, rows)
 	return this.addField(name, input);
 };
 
+
+/**
+ * Function: addTextareaColumn
+ *
+ * Adds a textarea for the given name and value and returns the textarea.
+ */
+mxForm.prototype.addTextareaColumn = function(name, value, rows)
+{
+    var input = document.createElement('textarea');
+
+    if (mxClient.IS_NS)
+    {
+        rows--;
+    }
+
+    input.setAttribute('rows', rows || 2);
+    input.value = value;
+
+    //
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    mxUtils.write(td, name);
+    tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    tr = document.createElement('tr');
+    td = document.createElement('td');
+    td.appendChild(input);
+    tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    return input;
+};
+
+
+/**
+ * Function: addCheckboxColumn
+ *
+ * Adds a textarea for the given name and value and returns the textarea.
+ */
+mxForm.prototype.addCheckboxColumn = function(name, value)
+{
+    var input = document.createElement('input');
+
+    input.setAttribute('type', 'checkbox');
+
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    var label = document.createElement('label');
+    mxUtils.write(label, name);
+    label.appendChild(input);
+
+    td.appendChild(label);
+    tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    // IE can only change the checked value if the input is inside the DOM
+    if (value)
+    {
+        input.checked = true;
+    }
+
+    return input;
+};
+
 /**
  * Function: addCombo
  * 
@@ -12221,6 +12286,41 @@ mxForm.prototype.addCombo = function(name, isMultiSelect, size)
 	}
 	
 	return this.addField(name, select);
+};
+
+/**
+ * Function: addCombo
+ *
+ * Adds a combo for the given name and returns the combo.
+ */
+mxForm.prototype.addComboColumn = function(name, isMultiSelect, size)
+{
+	var select = document.createElement('select');
+
+	if (size != null)
+	{
+		select.setAttribute('size', size);
+	}
+
+	if (isMultiSelect)
+	{
+		select.setAttribute('multiple', 'true');
+	}
+
+    //
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    mxUtils.write(td, name);
+    tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    tr = document.createElement('tr');
+    td = document.createElement('td');
+    td.appendChild(select);
+    tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    return select;
 };
 
 /**
@@ -12261,6 +12361,35 @@ mxForm.prototype.addField = function(name, input)
 	tr.appendChild(td);
 	this.body.appendChild(tr);
 	
+	return input;
+};
+
+/**
+ * Function: addFieldColumn
+ *
+ * Adds a new row with the name and the input field one above other and
+ * returns the given input.
+ */
+mxForm.prototype.addFieldColumn = function(name, value)
+{
+    var input = document.createElement('input');
+
+    input.setAttribute('type', 'text');
+    input.value = value;
+
+    //
+	var tr = document.createElement('tr');
+	var td = document.createElement('td');
+	mxUtils.write(td, name);
+	tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    tr = document.createElement('tr');
+	td = document.createElement('td');
+	td.appendChild(input);
+	tr.appendChild(td);
+	this.body.appendChild(tr);
+
 	return input;
 };
 /**

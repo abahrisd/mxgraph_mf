@@ -13,6 +13,11 @@ EditorUi = function(editor, container)
 	this.container = container || document.body;
 	var graph = this.editor.graph;
 
+    //Create dataLoader, we need it in Sedebar and Format
+    this.dataLoader = new DataLoader(this);
+    this.dataLoader.setAttributes();
+    this.restricteddAttributeList = ['metaClass', 'UUID'];
+
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
 	{
@@ -57,8 +62,6 @@ EditorUi = function(editor, container)
 	this.createUi();
 	this.refresh();
 
-    //Create dataLoader
-    this.dataLoader = new DataLoader(this);
 	
 	// Disables HTML and text selection
 	var textEditing =  mxUtils.bind(this, function(evt)
@@ -1581,8 +1584,7 @@ EditorUi.prototype.initCanvas = function()
  */
 EditorUi.prototype.isSelectionAllowed = function(evt)
 {
-	return mxEvent.getSource(evt).nodeName == 'SELECT' || (mxEvent.getSource(evt).nodeName == 'INPUT' &&
-		mxUtils.isAncestorNode(this.formatContainer, mxEvent.getSource(evt)));
+	return mxEvent.getSource(evt).nodeName == 'SELECT' || ((mxEvent.getSource(evt).nodeName == 'INPUT' || mxEvent.getSource(evt).nodeName == 'TEXTAREA') && mxUtils.isAncestorNode(this.formatContainer, mxEvent.getSource(evt)));
 };
 
 /**

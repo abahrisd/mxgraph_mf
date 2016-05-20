@@ -858,15 +858,18 @@ Sidebar.prototype.addSearchPalette = function(expand)
 Sidebar.prototype.addGeneralPalette = function(expand)
 {
     var sb = this;
+
+    this.stencilsStore = {};
+
 	var fns = [
         //area of responsibility
-        this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Пул', 'Пул', null, null, 'bpmn pool'),
-        this.createVertexTemplateEntry('swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane'),
+        this.createVertexTemplateEntry('swimlane;horizontal=0;startSize=20;', 320, 240, 'Пул', 'Пул', null, null, 'bpmn pool', 'nope'),
+        this.createVertexTemplateEntry('swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', 'nope'),
 
         //Events
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 60, 60, '', 'Начальное событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Конечное событие', null, null, 'circle oval ellipse state', { metaClass: 'ae$event'}),
-        this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', { metaClass: 'ae$event'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 60, 60, '', 'Начальное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Конечное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', 'ae$bpstep'),
 
         //Actions
         this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
@@ -880,6 +883,13 @@ Sidebar.prototype.addGeneralPalette = function(expand)
             cell1.geometry.offset = new mxPoint(7, 7);
             cell.insert(cell1);
 
+            //add custom attrs
+            sb.addCustomAttrs(cell, 'ae$bpstep');
+
+            //Save copy of stancil, for situations where we create diagram from JSON, and for complex stensils there is no styles, coz we unable set style for several stancils at once
+            sb.stencilsStore.automated_task = sb.graph.cloneCells([cell]);
+
+            //sb.automated_task_stansil = sb.graph.cloneCells([cell]);
             return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Автоматизированное действие');
         }),
         this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
@@ -892,6 +902,12 @@ Sidebar.prototype.addGeneralPalette = function(expand)
             cell1.geometry.relative = true;
             cell1.geometry.offset = new mxPoint(7, 7);
             cell.insert(cell1);
+
+            //add custom attrs
+            sb.addCustomAttrs(cell, 'ae$bpstep');
+
+            //Save copy of stancil, for situations where we create diagram from JSON, and for complex stensils there is no styles, coz we unable set style for several stancils at once
+            sb.stencilsStore.automatic_task = sb.graph.cloneCells([cell]);
 
             return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Автоматическое действие');
         }),
@@ -906,35 +922,40 @@ Sidebar.prototype.addGeneralPalette = function(expand)
             cell1.geometry.offset = new mxPoint(7, 7);
             cell.insert(cell1);
 
+            //add custom attrs
+            sb.addCustomAttrs(cell, 'ae$bpstep');
+
+            //Save copy of stancil, for situations where we create diagram from JSON, and for complex stensils there is no styles, coz we unable set style for several stancils at once
+            sb.stencilsStore.manual_task = sb.graph.cloneCells([cell]);
+
             return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Ручное действие');
         }),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ff9226;whiteSpace=wrap;', 120, 80, 'Текст', 'Измененное действие', null, null, 'bpmn task process'),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ca0000;whiteSpace=wrap;', 120, 80, 'Текст', 'Удаленное действие', null, null, 'bpmn task process'),
-        this.createVertexTemplateEntry('shape=ext;rounded=1;dashed=1;strokeWidth=3;strokeColor=#7500ff;whiteSpace=wrap;', 120, 80, 'Текст', 'Новое действие', null, null, 'bpmn task process'),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ff9226;whiteSpace=wrap;', 120, 80, 'Текст', 'Измененное действие', null, null, 'bpmn task process','ae$bpstep'),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;strokeWidth=3;strokeColor=#ca0000;whiteSpace=wrap;', 120, 80, 'Текст', 'Удаленное действие', null, null, 'bpmn task process','ae$bpstep'),
+        this.createVertexTemplateEntry('shape=ext;rounded=1;dashed=1;strokeWidth=3;strokeColor=#7500ff;whiteSpace=wrap;', 120, 80, 'Текст', 'Новое действие', null, null, 'bpmn task process','ae$bpstep'),
 
         //Gateway
-        this.createVertexTemplateEntry('shape=gatewayExclude;', 40, 40, '', 'Исключающий шлюз', null, null, 'bpmn subprocess sub process sub-process marker'),
-        this.createVertexTemplateEntry('shape=gatewayParallel;', 40, 40, '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker'),
+        this.createVertexTemplateEntry('shape=gatewayExclude;', 40, 40, '', 'Исключающий шлюз', null, null, 'bpmn subprocess sub process sub-process marker','ae$bpstep'),
+        this.createVertexTemplateEntry('shape=gatewayParallel;', 40, 40, '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker','ae$bpstep'),
 
         //Streams
-        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, { metaClass: "solidLine"}/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
-        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;', 50, 50, '', 'Поток сообщений', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
-        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;', 50, 50, '', 'Поток ассоциация', null, null, null, { metaClass: "dashedLine"}/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, "solidLine"/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;', 50, 50, '', 'Поток сообщений', null, null, null, "dashedLine"/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;', 50, 50, '', 'Поток ассоциация', null, null, null, "dotedLine"/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
 
-        //Artifacts
-        this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных'),
-        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ff9226;', 80, 100, '', 'Измененный объект данных'),
-        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ca0000;', 80, 100, '', 'Удаленный объект данных'),
-        this.createVertexTemplateEntry('shape=card;strokeWidth=3;dashed=1;whiteSpace=wrap;strokeColor=#7500ff;', 80, 100, '', 'Новый объект данных'),
+        //Data objects
+        this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных', null, null, null,'ae$registry'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ff9226;', 80, 100, '', 'Измененный объект данных', null, null, null,'ae$registry'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;whiteSpace=wrap;strokeColor=#ca0000;', 80, 100, '', 'Удаленный объект данных', null, null, null,'ae$registry'),
+        this.createVertexTemplateEntry('shape=card;strokeWidth=3;dashed=1;whiteSpace=wrap;strokeColor=#7500ff;', 80, 100, '', 'Новый объект данных', null, null, null,'ae$registry'),
 
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ff9226;strokeWidth=3', 105, 36, '', 'Измененное бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ca0000;strokeWidth=3', 105, 36, '', 'Удаленное бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;dashed=1;fillColor=#FFCCE6;strokeColor=#7500ff;strokeWidth=3', 105, 36, '', 'Новое бизнес-правило', null, null, 'rule', { metaClass: 'req$high'}),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', 'req$high'),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ff9226;strokeWidth=3', 105, 36, '', 'Измененное бизнес-правило', null, null, 'rule', 'req$high'),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#ca0000;strokeWidth=3', 105, 36, '', 'Удаленное бизнес-правило', null, null, 'rule', 'req$high'),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;dashed=1;fillColor=#FFCCE6;strokeColor=#7500ff;strokeWidth=3', 105, 36, '', 'Новое бизнес-правило', null, null, 'rule', 'req$high'),
 
         //text
-        this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;',
-            40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label')
+        this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;', 40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
 
         //connections
         /*this.createVertexTemplateEntry('shape=ext;rounded=1;whiteSpace=wrap;fillColor=#66FF66;', 140, 110, '', 'Шаг бизнес-процесса', null, null, 'rect rectangle box', { metaClass: 'ae$bpstep'}),
@@ -3101,26 +3122,26 @@ Sidebar.prototype.addClickHandler = function(elt, ds, cells)
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplateEntry = function(style, width, height, value, title, showLabel, showTitle, tags, customAttrs)
+Sidebar.prototype.createVertexTemplateEntry = function(style, width, height, value, title, showLabel, showTitle, tags, metaClass)
 {
 	tags = (tags != null && tags.length > 0) ? tags : title.toLowerCase();
 	
 	return this.addEntry(tags, mxUtils.bind(this, function()
  	{
- 		return this.createVertexTemplate(style, width, height, value, title, showLabel, showTitle, null, customAttrs);
+ 		return this.createVertexTemplate(style, width, height, value, title, showLabel, showTitle, null, metaClass);
  	}));
 }
 
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted, customAttrs)
+Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted, metaClass)
 {
 	var cells = [new mxCell((value != null) ? value : '', new mxGeometry(0, 0, width, height), style)];
 	cells[0].vertex = true;
 
     //add custom attrs
-    this.addCustomAttrs(cells[0], customAttrs);
+    this.addCustomAttrs(cells[0], metaClass);
 
 	return this.createVertexTemplateFromCells(cells, width, height, title, showLabel, showTitle, allowCellsInserted);
 };
@@ -3136,20 +3157,20 @@ Sidebar.prototype.createVertexTemplateFromCells = function(cells, width, height,
 /**
  * 
  */
-Sidebar.prototype.createEdgeTemplateEntry = function(style, width, height, value, title, showLabel, tags, allowCellsInserted, customAttrs)
+Sidebar.prototype.createEdgeTemplateEntry = function(style, width, height, value, title, showLabel, tags, allowCellsInserted, metaClass)
 {
 	tags = (tags != null && tags.length > 0) ? tags : title.toLowerCase();
 	
  	return this.addEntry(tags, mxUtils.bind(this, function()
  	{
- 		return this.createEdgeTemplate(style, width, height, value, title, showLabel, allowCellsInserted, customAttrs);
+ 		return this.createEdgeTemplate(style, width, height, value, title, showLabel, allowCellsInserted, metaClass);
  	}));
 };
 
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createEdgeTemplate = function(style, width, height, value, title, showLabel, allowCellsInserted, customAttrs)
+Sidebar.prototype.createEdgeTemplate = function(style, width, height, value, title, showLabel, allowCellsInserted, metaClass)
 {
 	var cell = new mxCell((value != null) ? value : '', new mxGeometry(0, 0, width, height), style);
 	cell.geometry.setTerminalPoint(new mxPoint(0, height), true);
@@ -3158,7 +3179,7 @@ Sidebar.prototype.createEdgeTemplate = function(style, width, height, value, tit
 	cell.edge = true;
 
     //add custom attrs
-    this.addCustomAttrs(cell, customAttrs);
+    this.addCustomAttrs(cell, metaClass);
 
 	return this.createEdgeTemplateFromCells([cell], width, height, title, showLabel, allowCellsInserted);
 };
@@ -3462,35 +3483,34 @@ Sidebar.prototype.destroy = function()
 /**
  * Adds custom attrs from object to cell
  */
-Sidebar.prototype.addCustomAttrs = function(cell, customAttrs) {
+Sidebar.prototype.addCustomAttrs = function(cell, metaClass) {
 
-    //add custom attrs
-    var val = this.graph.getModel().getValue(cell);
-    var _this = this;
+    //console.log("metaClass", metaClass);
+    if (metaClass){
 
-    // Converts the value to an XML node
-    if (!mxUtils.isNode(val)) {
-        var doc = mxUtils.createXmlDocument();
-        var obj = doc.createElement('object');
-        obj.setAttribute('label', val || '');
-        val = obj;
-    }
+        //add custom attrs
+        var val = this.graph.getModel().getValue(cell);
+        var _this = this;
 
-    if (customAttrs && customAttrs.metaClass){
+        // Converts the value to an XML node
+        if (!mxUtils.isNode(val)) {
+            var doc = mxUtils.createXmlDocument();
+            var obj = doc.createElement('object');
+            obj.setAttribute('label', val || '');
+            val = obj;
+        }
 
-        val.setAttribute('metaClass', customAttrs.metaClass);
-        switch(customAttrs.metaClass){
+        val.setAttribute('metaClass', metaClass);
+
+        switch(metaClass){
             //vertices
             case 'ae$bpstep':
-            case 'ae$event':
-            case 'ae$gateway':
             case 'req$high':
             case 'ae$registry':
                 if (_this.editorUi.atributesDirectory){
-                    var attributes = _this.editorUi.atributesDirectory.getById(customAttrs.metaClass);
-
+                    var attributes = _this.editorUi.atributesDirectory.getById(metaClass).attributes;
                     for (var i in attributes){
-                        if (i && i != 'metaClass') {
+                        if (i) {
                             val.setAttribute(i, '');
                         }
                     }
@@ -3509,7 +3529,7 @@ Sidebar.prototype.addCustomAttrs = function(cell, customAttrs) {
             case 'gateway2event':
             case 'rule2step':
                 if (_this.editorUi.linkTypes){
-                    var linkType = _this.editorUi.linkTypes.getById(customAttrs.metaClass);
+                    var linkType = _this.editorUi.linkTypes.getById(metaClass.metaClass);
 
                     if (linkType.sourceType){
                         val.setAttribute('sourceType', linkType.sourceType);
@@ -3527,14 +3547,15 @@ Sidebar.prototype.addCustomAttrs = function(cell, customAttrs) {
         }
 
         //val.objectType = {
-        //    metaClass: customAttrs.metaClass
+        //    metaClass: metaClass.metaClass
         //};
-        /*for (var key in customAttrs){
-            if (typeof customAttrs[key] !== 'function') {
-                val.setAttribute(key, customAttrs[key])
+        /*for (var key in metaClass){
+            if (typeof metaClass[key] !== 'function') {
+                val.setAttribute(key, metaClass[key])
             }
         }*/
+
+        this.graph.getModel().setValue(cell, val);
     }
 
-    this.graph.getModel().setValue(cell, val);
 }
