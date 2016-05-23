@@ -10,8 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
     </list>
     <ignored path="mxgraph.iws" />
@@ -36,24 +34,24 @@
       <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5551402">
-              <caret line="946" column="22" selection-start-line="946" selection-start-column="22" selection-end-line="946" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.36448598">
+              <caret line="942" column="146" selection-start-line="942" selection-start-column="146" selection-end-line="942" selection-end-column="146" />
               <folding>
-                <marker date="1464020046997" expanded="true" signature="41502:41550" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="41572:41636" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="41750:41775" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="41850:41900" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="41975:42000" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="42075:42125" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="42356:42404" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="42893:42941" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="43446:43494" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="59914:59958" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="60004:60031" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="61259:61329" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="61376:61403" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="61627:61691" placeholder="..." />
-                <marker date="1464020046997" expanded="true" signature="61730:61755" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="41502:41550" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="41572:41636" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="41750:41775" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="41850:41900" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="41975:42000" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="42075:42125" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="42356:42404" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="42893:42941" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="43446:43494" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="59914:59958" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="60004:60031" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="61259:61329" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="61376:61403" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="61627:61691" placeholder="..." />
+                <marker date="1464020251190" expanded="true" signature="61730:61755" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -679,7 +677,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464018128158</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix not able to add dotted line, change styles for dotted and dashed lines">
+      <created>1464020177722</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1464020177722</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -752,7 +756,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="init commit #1.0.1" />
     <MESSAGE value="start project, not atomic but... just not atomic\&#10;Add loading, equal attr's by param, import from json, import stylesheet classes.&#10; Add right panel attrs tab.&#10; Modify stencils palettes." />
     <MESSAGE value="add rus i18n" />
     <MESSAGE value="Added loading on start, sync func, stancils menu, atributes menu. Sad commit" />
@@ -777,7 +780,8 @@
     <MESSAGE value="add datepicker, add case for req$high objects" />
     <MESSAGE value="add global loadmask for save/load operations" />
     <MESSAGE value="add loadMask on start app" />
-    <option name="LAST_COMMIT_MESSAGE" value="add loadMask on start app" />
+    <MESSAGE value="fix not able to add dotted line, change styles for dotted and dashed lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix not able to add dotted line, change styles for dotted and dashed lines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1186,24 +1190,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5551402">
-          <caret line="946" column="22" selection-start-line="946" selection-start-column="22" selection-end-line="946" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.36448598">
+          <caret line="942" column="146" selection-start-line="942" selection-start-column="146" selection-end-line="942" selection-end-column="146" />
           <folding>
-            <marker date="1464020046997" expanded="true" signature="41502:41550" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="41572:41636" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="41750:41775" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="41850:41900" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="41975:42000" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="42075:42125" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="42356:42404" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="42893:42941" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="43446:43494" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="59914:59958" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="60004:60031" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="61259:61329" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="61376:61403" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="61627:61691" placeholder="..." />
-            <marker date="1464020046997" expanded="true" signature="61730:61755" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="41502:41550" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="41572:41636" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="41750:41775" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="41850:41900" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="41975:42000" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="42075:42125" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="42356:42404" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="42893:42941" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="43446:43494" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="59914:59958" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="60004:60031" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="61259:61329" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="61376:61403" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="61627:61691" placeholder="..." />
+            <marker date="1464020251190" expanded="true" signature="61730:61755" placeholder="..." />
           </folding>
         </state>
       </provider>

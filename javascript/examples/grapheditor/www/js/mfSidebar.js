@@ -940,7 +940,7 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
         //Streams
         this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, "solidLine"),
-        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=6 8;', 50, 50, '', 'Поток сообщений', null, null, null, "dashedLine"),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=8 8;', 50, 50, '', 'Поток сообщений', null, null, null, "dashedLine"),
         this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;', 50, 50, '', 'Поток ассоциация', null, null, null, "dotedLine"),
         //this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1;', 50, 50, '', 'Поток ассоциация', null, null, null, "dotedLine"/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
 
