@@ -137,8 +137,11 @@ DataLoader.prototype.loadXMLData = function(){
     var _this = this;
     var url = this.generateUrl(_this.queryStr);
     var graph = this.graph;
+    var loadMask = this.editorUi.loadMask;
+    loadMask.setLoadText('Загрузка...');
 
     var onload = function(req){
+        loadMask.hide();
         try{
             var responseData = JSON.parse(req.getText());
 
@@ -218,9 +221,10 @@ DataLoader.prototype.loadXMLData = function(){
     };
 
     var onerror = function(req){
+        loadMask.hide();
         mxUtils.alert('Error while getting diagram from server');
     };
-
+    loadMask.show();
     new mxXmlRequest(url, 'key=value', 'GET').send(onload, onerror);
 }
 
