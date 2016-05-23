@@ -4817,6 +4817,33 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 case 'string'://input
                     texts[index] = form.addFieldColumn(labelName + ':', value);
                     texts[index].style.width = '100%';
+
+                    if (directory[name].type == 'integer'){
+
+                        //workaround, for prevent pasting non number values
+                        mxEvent.addListener(texts[index], 'change', function (evt){
+                            texts[index].value = texts[index].value.replace(/[^0-9]/g, '');
+                        });
+
+                        mxEvent.addListener(texts[index], 'keydown', function (evt){
+                            console.log("evt", evt);
+                            console.log("evt.keyCode", evt.keyCode);
+                            if (!(evt.keyCode >= 48 && evt.keyCode <= 57) && !(evt.keyCode >= 96 && evt.keyCode <= 105)
+                                    //end, home, esc/tab/left/right/del/backspace
+                                && ![35, 36, 27, 9, 8, 39, 37, 46].contains(evt.keyCode)
+                                    //ctrl+v
+                                && !(evt.keyCode === 86 && evt.ctrlKey)
+                                    //ctrl+x
+                                && !(evt.keyCode === 88 && evt.ctrlKey)
+                                    //ctrl+c
+                                && !(evt.keyCode === 67 && evt.ctrlKey)
+                                    //ctrl+A
+                                && !(evt.keyCode == 65 && evt.ctrlKey)
+                            ) {
+                              mxEvent.consume(evt);
+                            }
+                        });
+                    }
                     break;
                 case 'list'://combobox
                     texts[index] = form.addComboColumn(labelName+ ':');

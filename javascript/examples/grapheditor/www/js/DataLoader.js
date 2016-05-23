@@ -122,9 +122,9 @@ DataLoader.prototype.changePageTitle = function(title) {
     titleName.style.whiteSpace = 'nowrap';
     titleName.style.width = '50%';
     titleName.style.overflow = 'hidden';
+    titleName.style.textAlign = 'right';
     titleName.style.textOverflow = 'ellipsis';
     titleName.style.oTextOverflow = 'ellipsis';
-
 
     menuBar.insertBefore(titleName, menuBar.firstChild);
 };
