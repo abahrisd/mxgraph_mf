@@ -65,7 +65,9 @@ function RelValidator(editorUi, linksUrl)
                 }
 
                 if (error){
-                    return mxResources.get('errorBound');
+                    if (DEBUG){
+                        console.log(mxResources.get('errorBound'));
+                    }
                 }
             }
 
@@ -110,7 +112,7 @@ RelValidator.prototype.createValidateListener = function() {
         var edge = evt.getProperty('edge');
         var src = model.getTerminal(edge, true);
         var trg = model.getTerminal(edge, false);
-
+        console.log("src", src);
         //check for allowing connection
         if ((src === null || src.getValue().getAttribute('code') === edge.getValue().getAttribute('sourceType')) &&
             (trg === null || trg.getValue().getAttribute('code') === edge.getValue().getAttribute('targetType'))

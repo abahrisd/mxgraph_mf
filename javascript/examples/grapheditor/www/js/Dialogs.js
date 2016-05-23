@@ -526,13 +526,6 @@ var LoadMask = function(editorUi) {
     document.body.appendChild(this.bg);
 
     this.loadTextContainer = span;
-
-    //return this;
-
-	//div.appendChild(img);
-
-    //document.body.appendChild(div);
-	//this.container = div;
 };
 
 /**

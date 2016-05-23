@@ -939,9 +939,10 @@ Sidebar.prototype.addGeneralPalette = function(expand)
         this.createVertexTemplateEntry('shape=gatewayParallel;', 40, 40, '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker','ae$bpstep'),
 
         //Streams
-        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, "solidLine"/*{"sourceType" : "ae$gateway","targetType" : "ae$event"}*/),
-        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;', 50, 50, '', 'Поток сообщений', null, null, null, "dashedLine"/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
-        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;', 50, 50, '', 'Поток ассоциация', null, null, null, "dotedLine"/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
+        this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, "solidLine"),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=6 8;', 50, 50, '', 'Поток сообщений', null, null, null, "dashedLine"),
+        this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;', 50, 50, '', 'Поток ассоциация', null, null, null, "dotedLine"),
+        //this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1;', 50, 50, '', 'Поток ассоциация', null, null, null, "dotedLine"/*{"sourceType" : "req$high","targetType" : "ae$bpstep"}*/),
 
         //Data objects
         this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных', null, null, null,'ae$registry'),
