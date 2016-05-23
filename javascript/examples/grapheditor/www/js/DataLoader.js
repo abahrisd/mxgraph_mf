@@ -262,8 +262,11 @@ DataLoader.prototype.sync = function() {
 
     var graph = this.graph;
     var editor = this.editorUi.editor;
+    var loadMask = this.editorUi.loadMask;
+    loadMask.setLoadText('Синхронизация...');
 
     var onload = function(req){
+        loadMask.hide();
         try{
             var responseData = JSON.parse(req.getText());
             if (responseData !== undefined){
@@ -334,9 +337,11 @@ DataLoader.prototype.sync = function() {
     };
 
     var onerror = function(req){
+        loadMask.hide();
         mxUtils.alert('Error while getting diagram from server');
     };
 
+    loadMask.show();
     new mxXmlRequest(url, null, 'GET').send(onload, onerror);
 };
 

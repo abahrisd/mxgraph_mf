@@ -17,6 +17,7 @@ EditorUi = function(editor, container)
     this.dataLoader = new DataLoader(this);
     this.dataLoader.setAttributes();
     this.restricteddAttributeList = ['metaClass', 'UUID'];
+    this.loadMask = new LoadMask(this);
 
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
@@ -3370,11 +3371,14 @@ EditorUi.prototype.saveXML = function() {
     var params = 'mxGraphModel=' + encodeURIComponent(mxUtils.getXml(editor.getGraphXml()));
     //encodeURIComponent(mxUtils.getXml(EditUI.getGraphXml()))
     var queryString = this.dataLoader.queryStr;
+    var loadMask = this.loadMask;
+    loadMask.setLoadText('Сохранение...');
 
     var onload = function(req){
         try{
-            var responseData = req.getText();
-            mxUtils.alert(responseData);
+            //var responseData = req.getText();
+            loadMask.hide();
+            //mxUtils.alert(responseData);
         } catch (e){
             if (DEBUG){
                 console.log('Error onload XML',e.stack);
@@ -3383,6 +3387,7 @@ EditorUi.prototype.saveXML = function() {
     };
 
     var onerror = function(req){
+        loadMask.hide();
         mxUtils.alert('Error while saving XML');
     };
 
@@ -3393,9 +3398,8 @@ EditorUi.prototype.saveXML = function() {
     //var url = origin + getPath + queryString.view;
     //params +='&accessKey='+queryString.accessKey;
 
+    loadMask.show();
     mxUtils.post(url, params, onload, onerror);
-
-    //console.log("this.getSystemState()", this.getSystemState());
 };
 
 /**

@@ -17,7 +17,7 @@ function Dialog(editorUi, elt, w, h, modal, closable, onClose)
 
 	w += dx;
 	h += dx;
-	
+
 	var left = Math.max(0, Math.round((document.body.scrollWidth - w) / 2));
 	var top = Math.max(0, Math.round((Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - h - editorUi.footerHeight) / 3));
 	
@@ -457,6 +457,125 @@ var AboutDialog = function(editorUi)
 	div.appendChild(closeBtn);
 	
 	this.container = div;
+};
+
+/**
+ * Constructs a new about dialog.
+ */
+var LoadMask = function(editorUi) {
+
+    var w = 66;
+    var h = 66;
+    var left = Math.max(0, Math.round((document.body.scrollWidth - w) / 2));
+    var top = Math.max(0, Math.round((Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - editorUi.footerHeight) / 3));
+
+    if (editorUi.dialogs && editorUi.dialogs.length > 0) {
+        this.zIndex += editorUi.dialogs.length * 2;
+    }
+
+    //div.style.width = w + 'px';
+    //div.style.height = h + 'px';
+    var div = document.createElement('div');
+    div.setAttribute('align', 'center');
+
+    div.style.left = left + 'px';
+    div.style.top = top + 'px';
+    div.style.zIndex = this.zIndex;
+    div.style.position = 'absolute';
+    div.style.fontSize = '14pt';
+
+    if (this.bg == null) {
+        this.bg = editorUi.createDiv('background');
+        this.bg.style.position = 'absolute';
+        this.bg.style.background = 'white';
+        this.bg.setAttribute('id', 'supaid');
+        this.bg.style.left = '0px';
+        this.bg.style.top = '0px';
+        this.bg.style.bottom = '0px';
+        this.bg.style.right = '0px';
+        this.bg.style.zIndex = this.zIndex - 2;
+
+        //hidden by default
+        this.bg.style.display = 'none';
+
+        mxUtils.setOpacity(this.bg, this.bgOpacity);
+
+        if (mxClient.IS_QUIRKS)
+        {
+            new mxDivResizer(this.bg);
+        }
+    }
+
+    var img = document.createElement('img');
+    img.style.border = '0px';
+    img.setAttribute('width', w);
+    img.setAttribute('height', h);
+    img.style.left = left + 'px';
+    img.style.top = top + 'px';
+    img.setAttribute('src', IMAGE_PATH + '/ajax-loading.gif');
+
+    div.appendChild(img);
+    mxUtils.br(div);
+
+    var span = document.createElement('span');
+    mxUtils.write(span, this.loadText);
+
+    div.appendChild(span);
+    this.bg.appendChild(div);
+
+    document.body.appendChild(this.bg);
+
+    this.loadTextContainer = span;
+
+    //return this;
+
+	//div.appendChild(img);
+
+    //document.body.appendChild(div);
+	//this.container = div;
+};
+
+/**
+ * LoadMask zIndex
+ */
+LoadMask.prototype.zIndex = mxPopupMenu.prototype.zIndex - 1;
+
+/**
+ * LoadMask opacity
+ */
+LoadMask.prototype.bgOpacity = 80;
+
+/**
+ * loadText
+ */
+LoadMask.prototype.loadText = 'Сохранение...';
+
+/**
+ * Container for loading text
+ */
+LoadMask.prototype.loadTextContainer = '';
+
+/**
+ * Show loadMask
+ */
+LoadMask.prototype.show = function(){
+    this.bg.style.display = 'block';
+};
+
+/**
+ * Show loadMask
+ */
+LoadMask.prototype.setLoadText = function(text){
+    this.loadTextContainer.textContent = text;
+    //mxUtils.write(this.container, text);
+    //this.loadText = text;
+};
+
+/**
+ * Show loadMask
+ */
+LoadMask.prototype.hide = function(){
+    this.bg.style.display = 'none';
 };
 
 /**
