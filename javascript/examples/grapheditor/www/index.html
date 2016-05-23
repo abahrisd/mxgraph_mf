@@ -68,7 +68,7 @@
 		// save a GET request. This requires that all resources be present in
 		// each properties file since only one file is loaded.
 		mxLoadResources = false;
-		mxBasePath = '/mxgraph/javascript/examples/grapheditor/src';
+        mxBasePath = '../src';
 		mxLanguage = urlParams['lang'];
 		mxLanguages = ['de'];
 	</script>
@@ -126,16 +126,22 @@
 				}
 			};
 		})();
-        //disallow key enter while label formating on dblclick
+        
 		(function(){
+
+            //disallow key enter while label formating on dblclick    
             mxCellEditor.prototype.init = function () {
 
+                var _this = this;
                 this.textarea = document.createElement('div');
                 this.textarea.className = 'mxCellEditor mxPlainTextEditor';
                 this.textarea.contentEditable = true;
                 var textarea = this.textarea;
+
                 mxEvent.addListener(textarea, 'keydown', function (evt){
-                    if (evt.keyCode === 13){
+
+                    //workaround, for text comments enter should work properly, e.g. multilining.
+                    if (evt.keyCode === 13 && typeof _this.editingCell.getValue() !== 'string'){
                         mxEvent.consume(evt);
                     }
                 });
@@ -143,6 +149,7 @@
                 this.installListeners(this.textarea);
             };
 
+            //add contains method in array to quick check if array contain value 
             Array.prototype.contains = function(obj) {
                 var i = this.length;
                 while (i--) {

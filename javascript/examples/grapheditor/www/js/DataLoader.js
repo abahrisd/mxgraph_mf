@@ -116,9 +116,17 @@ DataLoader.prototype.changePageTitle = function(title) {
     titleName.style.fontSize = '11pt';
     titleName.style.color = 'rgb(120,120,120)';
     titleName.innerHTML = title;
+    titleName.title = title;
+
+    //add truncating to 50% width to title
+    titleName.style.whiteSpace = 'nowrap';
+    titleName.style.width = '50%';
+    titleName.style.overflow = 'hidden';
+    titleName.style.textOverflow = 'ellipsis';
+    titleName.style.oTextOverflow = 'ellipsis';
+
 
     menuBar.insertBefore(titleName, menuBar.firstChild);
-    //menuBar.appendChild(titleName)
 };
 
 /**
