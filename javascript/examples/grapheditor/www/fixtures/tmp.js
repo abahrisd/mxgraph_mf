@@ -66,3 +66,64 @@ console.log('newCell',newCell);
 
 //Бизнес-правило - розовая плашка - rule req$high
 //Электронный формуляр - Data Object - документ ae$registry
+
+
+//overright input
+
+//overwright for change title attr on change label
+/*var graphCellLabelChanged = graph.cellLabelChanged;
+ graph.cellLabelChanged = function (cell, newValue, autoSize) {
+ console.log("newval", newValue);
+ if (cell.getValue().setAttribute) {
+ var value = newValue;
+
+ //workaround for FF, coz FF adding <br> at the end of label, i don't find where it happened
+ //FIXME: Seek'n'destroy
+ if (mxClient.IS_FF && newValue.substr(-4) === '<br>') {
+ value = newValue.substr(0, newValue.length - 4);
+ }
+
+ var value = value.replace(/<(?:.|\n)*?>/gm, '');
+ var value = value.replace(/\r?\n|\r/gm, '');
+ cell.getValue().setAttribute('title', unescapeHTML(value));
+ }
+
+ graphCellLabelChanged.apply(this, arguments);
+ };*/
+
+// Overrides method to provide a cell label in the display
+//FIXME fix label value after past formated text
+/*graph.convertValueToString = function(cell) {
+ var tmp = mxGraph.prototype.convertValueToString;
+
+ if (mxUtils.isNode(cell.value) && cell.getAttribute('label', '') && cell.getAttribute('title', '')) {
+ //return unescapeHTML(cell.getAttribute('label', '').replace(/<(?:.|\n)*?>/gm, ''));
+ return cell.getAttribute('label', '').replace(/\r?\n|\r/gm, '');
+ }
+
+ return tmp.apply(this, arguments);
+ //convertValueToString.apply(this, arguments);
+ };*/
+
+/*function unescapeHTML(escapedHTML) {
+ //return decodeURIComponent(escapedHTML);
+ return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ')/!*.replace(/&amp;/g,'&')*!/;
+ }
+
+ function escapeHTML(unescapedHTML) {
+ //return encodeURIComponent(unescapedHTML);
+ return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')/!*.replace(/&/g,'&amp;')*!/;
+ }*/
+
+
+//overwright to disable parsing html in label
+//don't need it, coz remove html=1 from styles
+/*graph.isHtmlLabel = function(cell){
+ //var tmp = mxGraph.prototype.isHtmlLabel;
+ return false;
+ //tmp.apply(this, arguments);
+ };
+
+ mxGraph.prototype.isHtmlLabel = function(){
+ return false;
+ };*/

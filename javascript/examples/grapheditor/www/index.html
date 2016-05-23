@@ -6,6 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="styles/grapheditor.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/pikaday.css">
 	<script type="text/javascript">
 		// Public global variables
 		var MAX_REQUEST_SIZE = 10485760;
@@ -76,6 +78,7 @@
 	<script type="text/javascript" src="jscolor/jscolor.js"></script>
 	<script type="text/javascript" src="sanitizer/sanitizer.min.js"></script>
 	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+	<script type="text/javascript" src="../src/js/pikaday.js"></script>
 	<script type="text/javascript" src="js/EditorUi.js"></script>
 	<script type="text/javascript" src="js/Editor.js"></script>
 	<!--<script type="text/javascript" src="js/Sidebar.js"></script>-->
@@ -160,6 +163,7 @@
                 return false;
             }
 		})();
+//        var picker = new Pikaday({ field: document.getElementById('datepicker') });
 
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));
 

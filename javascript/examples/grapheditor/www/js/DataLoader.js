@@ -321,7 +321,8 @@ DataLoader.prototype.sync = function() {
                     });
                 }
 
-                _this.arrangeOrganic();
+                _this.arrangeHorizontal();
+                //_this.arrangeOrganic();
 
                 editor.setModified(false);
             }
@@ -390,6 +391,9 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
             case 'ae$bpstep':
                 style = 'step';
                 break;
+            case 'req$high':
+                style = 'rule';
+                break;
         }
     }
 
@@ -409,11 +413,27 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
     } else if (titleLength <= 200){
         width = 220;
         height = 110;
+    }  else if (titleLength <= 250){
+        width = 280;
+        height = 130;
+    }  else if (titleLength <= 300){
+        width = 320;
+        height = 170;
+    }  else if (titleLength <= 350){
+        width = 370;
+        height = 200;
+    }   else if (titleLength <= 400){
+        width = 400;
+        height = 220;
+    }   else if (titleLength <= 500){
+        width = 410;
+        height = 210;
     } else {
-        width = 265;
-        height = 115;
+        //455x296
+        width = 455;
+        height = 296;
     }
-
+    /*Обеспечение направления Уведомления о бюджетных ассигнованиях на исполнение публичных нормативных обязательств, бюджетных ассигнованиях, лимиты по которым не утверждены, лимитах бюджетных обязательств и бюджетных ассигнованиях по источникам финансирования дефицита федерального бюджета, подлежащих блокировке на финансовый год и на плановый период в течение 3 рабочих дней со дня поступления указанного Уведомления в Федеральное казначейство для осуществления блокировки распределения бюджетных ассигнований на исполнение публичных нормативных обязательств, бюджетных ассигнований, лимиты по которым не утверждены, лимитов бюджетных обязательств и источников финансирования дефицита федерального бюджета в пределах свободных остатков бюджетных ассигнований и лимитов бюджетных обязательств по кодам классификации расходов бюджетов (источников финансирования дефицитов бюджетов)*/
     //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
     graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
 
@@ -447,6 +467,22 @@ DataLoader.prototype.arrangeOrganic = function(){
     var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_NORTH);
 
     this.editorUi.executeLayout(function(){
+        var selectionCells = graph.getSelectionCells();
+        layout.execute(graph.getDefaultParent(), selectionCells.length == 0 ? null : selectionCells);
+    }, true);
+
+};
+
+/**
+ * Load stylesheet from server and set it to graph, from server shold came XML!
+ */
+DataLoader.prototype.arrangeHorizontal = function(){
+    var graph = this.graph;
+
+    //TODO call this from menu items
+    var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+    this.editorUi.executeLayout(function()
+    {
         var selectionCells = graph.getSelectionCells();
         layout.execute(graph.getDefaultParent(), selectionCells.length == 0 ? null : selectionCells);
     }, true);

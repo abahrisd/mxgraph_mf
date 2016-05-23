@@ -12392,6 +12392,63 @@ mxForm.prototype.addFieldColumn = function(name, value)
 
 	return input;
 };
+
+/**
+ * Function: addFieldColumn
+ *
+ * Adds a new row with the name and the input field one above other and
+ * returns the given input.
+ */
+mxForm.prototype.addDateColumn = function(name, value)
+{
+
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+
+	var tr = document.createElement('tr');
+	var td = document.createElement('td');
+	mxUtils.write(td, name);
+	tr.appendChild(td);
+    this.body.appendChild(tr);
+
+    tr = document.createElement('tr');
+	td = document.createElement('td');
+	td.appendChild(input);
+	tr.appendChild(td);
+
+    var picker = new Pikaday({
+        field: input
+        /*onSelect: function() {
+            var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+            document.getElementById('selected').appendChild(date);
+        }*/
+    });
+
+    mxEvent.addListener(input, 'keydown', function (evt){
+        if (
+            !(evt.keyCode >= 48 && evt.keyCode <= 57) && !(evt.keyCode >= 96 && evt.keyCode <= 105) &&
+                //end, home, esc/tab/left/right/del/backspace/dash
+            ![35, 36, 27, 9, 8, 39, 37, 46, 189].contains(evt.keyCode) &&
+                //ctrl+v
+            !(evt.keyCode === 86 && evt.ctrlKey) &&
+                //ctrl+x
+            !(evt.keyCode === 88 && evt.ctrlKey) &&
+                //ctrl+c
+            !(evt.keyCode === 67 && evt.ctrlKey) &&
+                //ctrl+A
+            !(evt.keyCode == 65 && evt.ctrlKey)
+        ) {
+            mxEvent.consume(evt);
+        }
+    });
+
+    picker.setMoment(value);
+    //picker.setMoment(moment().dayOfYear(366));
+
+	this.body.appendChild(tr);
+
+	return input;
+};
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder

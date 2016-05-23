@@ -4826,8 +4826,8 @@ AttributePanel.prototype.addCellAttributes = function(container)
                         });
 
                         mxEvent.addListener(texts[index], 'keydown', function (evt){
-                            console.log("evt", evt);
-                            console.log("evt.keyCode", evt.keyCode);
+                            //console.log("evt", evt);
+                            //console.log("evt.keyCode", evt.keyCode);
                             if (!(evt.keyCode >= 48 && evt.keyCode <= 57) && !(evt.keyCode >= 96 && evt.keyCode <= 105)
                                     //end, home, esc/tab/left/right/del/backspace
                                 && ![35, 36, 27, 9, 8, 39, 37, 46].contains(evt.keyCode)
@@ -4844,6 +4844,10 @@ AttributePanel.prototype.addCellAttributes = function(container)
                             }
                         });
                     }
+                    break;
+                case 'date':
+                    texts[index] = form.addDateColumn(labelName+':', value);
+                    texts[index].style.width = '100%';
                     break;
                 case 'list'://combobox
                     texts[index] = form.addComboColumn(labelName+ ':');
@@ -4939,18 +4943,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
         }
     };
 
-    //overwright to disable parsing html in label
-    //don't need it, coz remove html=1 from styles
-    /*graph.isHtmlLabel = function(cell){
-        //var tmp = mxGraph.prototype.isHtmlLabel;
-        return false;
-        //tmp.apply(this, arguments);
-    };
-
-    mxGraph.prototype.isHtmlLabel = function(){
-        return false;
-    };*/
-
     //callback to change title if lable was changed
     graph.getModel().valueForCellChanged = function(cell, value){
 
@@ -4960,51 +4952,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
         return cell.valueChanged(value);
     };
-
-    //overwright for change title attr on change label
-    /*var graphCellLabelChanged = graph.cellLabelChanged;
-    graph.cellLabelChanged = function (cell, newValue, autoSize) {
-        console.log("newval", newValue);
-        if (cell.getValue().setAttribute) {
-            var value = newValue;
-
-            //workaround for FF, coz FF adding <br> at the end of label, i don't find where it happened
-            //FIXME: Seek'n'destroy
-            if (mxClient.IS_FF && newValue.substr(-4) === '<br>') {
-                value = newValue.substr(0, newValue.length - 4);
-            }
-
-            var value = value.replace(/<(?:.|\n)*?>/gm, '');
-            var value = value.replace(/\r?\n|\r/gm, '');
-            cell.getValue().setAttribute('title', unescapeHTML(value));
-        }
-
-        graphCellLabelChanged.apply(this, arguments);
-    };*/
-
-    // Overrides method to provide a cell label in the display
-    //FIXME fix label value after past formated text
-    /*graph.convertValueToString = function(cell) {
-        var tmp = mxGraph.prototype.convertValueToString;
-
-        if (mxUtils.isNode(cell.value) && cell.getAttribute('label', '') && cell.getAttribute('title', '')) {
-            //return unescapeHTML(cell.getAttribute('label', '').replace(/<(?:.|\n)*?>/gm, ''));
-            return cell.getAttribute('label', '').replace(/\r?\n|\r/gm, '');
-        }
-
-        return tmp.apply(this, arguments);
-        //convertValueToString.apply(this, arguments);
-    };*/
-
-    /*function unescapeHTML(escapedHTML) {
-        //return decodeURIComponent(escapedHTML);
-        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ')/!*.replace(/&amp;/g,'&')*!/;
-    }
-
-    function escapeHTML(unescapedHTML) {
-        //return encodeURIComponent(unescapedHTML);
-        return unescapedHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')/!*.replace(/&/g,'&amp;')*!/;
-    }*/
 
     var isAttrAvailable = function(attrName) {
         return !_this.editorUi.restricteddAttributeList.contains(attrName);
@@ -5019,15 +4966,9 @@ AttributePanel.prototype.addCellAttributes = function(container)
         }
     }
 
-    //add combo to attrs list
-    /*var codeCombo = form.addCombo('Cписок:');
-    codeCombo.style.width = '100%';
-    form.addOption(codeCombo, 'Зелёный', 1);
-    form.addOption(codeCombo, 'Красный', 2);
-    form.addOption(codeCombo, 'Синий', 3);*/
-    //codeCombo.value = 2;
-
-    //var txtarea = form.addTextarea('Эриа":','много много текста адмвдалпо валп двлади воапд лвадпло итвад повад твдапо тдваопт дваоп твдпта', 3 );
+    //test datepicker
+    //var dateField = form.addDateColumn('Дата:', new Date());
+    //dateField.style.width = '100%';
 
     //add form with attr:value:x blocks
     textsCont.appendChild(form.table);
