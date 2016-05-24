@@ -65,9 +65,10 @@ function RelValidator(editorUi, linksUrl)
                 }
 
                 if (error){
-                    if (DEBUG){
+                    return mxResources.get('errorBound')
+                    /*if (DEBUG){
                         console.log(mxResources.get('errorBound'));
-                    }
+                    }*/
                 }
             }
 

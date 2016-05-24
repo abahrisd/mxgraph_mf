@@ -41,8 +41,8 @@ UserStore.prototype.init = function(url, data) {
 UserStore.prototype.loadData = function(url){
 
     var _this = this;
-    var req = mxUtils.load(url);
     try{
+        var req = mxUtils.load(url);
         var responseData = JSON.parse(req.getText());
 
         if (responseData){
@@ -52,24 +52,8 @@ UserStore.prototype.loadData = function(url){
         }
 
     } catch (e){
-        console.log('Error while parsing JSON ',e.stack);
+        console.log('Error on load store',e.stack);
     }
-
-    /*for (var i in responseData){
-
-        console.log("i", i);
-        //var tmp_obj = {};
-        //tmp_obj[i] = responseData;
-        //_this._items.push({i:responseData[i]})
-    }*/
-    //var resp = req.getText();
-    //var root = req.getDocumentElement();
-    //var dec = new mxCodec(root.ownerDocument);
-    //console.log("attrs", responseData);
-    //console.log("this._items", _this._items);
-
-    //var nodstyle = dec.decode(root, _this.graph.stylesheet);
-
 };
 
 /**

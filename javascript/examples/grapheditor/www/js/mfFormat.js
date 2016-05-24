@@ -4776,7 +4776,9 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
     if (atributesDirectory && value && value.getAttribute) {
         metaClass = value.getAttribute('metaClass');
-        labelDir = atributesDirectory.getById(metaClass).attributes;
+        if (atributesDirectory.getById(metaClass)){
+            labelDir = atributesDirectory.getById(metaClass).attributes;
+        }
     }
 
     //console.log("labelDir", labelDir);

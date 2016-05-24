@@ -224,6 +224,7 @@ DataLoader.prototype.loadXMLData = function(){
         loadMask.hide();
         mxUtils.alert('Error while getting diagram from server');
     };
+
     loadMask.show();
     new mxXmlRequest(url, 'key=value', 'GET').send(onload, onerror);
 }

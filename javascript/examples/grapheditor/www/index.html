@@ -3,12 +3,18 @@
 <html>
 <head>
     <title>Modeller</title>
+    <BASE href="/mxgraph/javascript/examples/grapheditor/www/index.html">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="styles/grapheditor.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../src/css/pikaday.css">
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="../src/css/pikaday.css">-->
 	<script type="text/javascript">
+        mxBasePath = window.location.pathname.replace(/index.html/g, '');
+//        mxBasePath = '/mxgraph/javascript/examples/grapheditor/www/index.html';
+
+        //        mxBasePath = '../../../../';
+
 		// Public global variables
 		var MAX_REQUEST_SIZE = 10485760;
 		var MAX_AREA = 10000 * 10000;
@@ -20,7 +26,8 @@
 		var RESOURCES_PATH = 'resources';
 		var RESOURCE_BASE = RESOURCES_PATH + '/grapheditor_ru';
 //		var RESOURCE_BASE = RESOURCES_PATH + '/grapheditor';
-		var STENCIL_PATH = 'stencils';
+//		var STENCIL_PATH = 'stencils';
+		var STENCIL_PATH = mxBasePath + 'stencils';
 		var IMAGE_PATH = 'images';
 		var STYLE_PATH = 'styles';
 		var CSS_PATH = 'styles';
@@ -70,7 +77,6 @@
 		// save a GET request. This requires that all resources be present in
 		// each properties file since only one file is loaded.
 		mxLoadResources = false;
-        mxBasePath = '../src';
 		mxLanguage = urlParams['lang'];
 		mxLanguages = ['de'];
 	</script>

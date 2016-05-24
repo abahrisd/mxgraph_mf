@@ -1,0 +1,152 @@
+{
+  "objectTypes" : [{
+    "code" : "ae$bpstep",
+    "multiple" : false,
+    "templateAttribute" : "type",
+    "templateGroups" : [{
+      "code" : "event",
+      "name" : "\u0422\u0438\u043f \u0441\u043e\u0431\u044b\u0442\u0438\u044f"
+    }, {
+      "code" : "action",
+      "name" : "\u0422\u0438\u043f \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f"
+    }, {
+      "code" : "gateway",
+      "name" : "\u0422\u0438\u043f \u0448\u043b\u044e\u0437\u0430"
+    }
+    ],
+    "templates" : [{
+      "code" : "startEvent",
+      "templateAttributeValue" : "bpsTypes$108620",
+      "name" : "\u041d\u0430\u0447\u0430\u043b\u044c\u043d\u043e\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u0435",
+      "style" : "startEvent;"
+    }, {
+      "code" : "endEvent",
+      "templateAttributeValue" : "bpsTypes$108621",
+      "name" : "\u041a\u043e\u043d\u0435\u0447\u043d\u043e\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u0435",
+      "style" : "endEvent;"
+    }, {
+      "code" : "intermediateEvent",
+      "templateAttributeValue" : "bpsTypes$108622",
+      "name" : "\u041f\u0440\u043e\u043c\u0435\u0436\u0443\u0442\u043e\u0447\u043d\u043e\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u0435",
+      "style" : "intermediateEvent;"
+    }, {
+      "code" : "automatedAction",
+      "templateAttributeValue" : "bpsTypes$108623",
+      "name" : "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435",
+      "style" : "automatedAction;"
+    }, {
+      "code" : "automaticAction",
+      "templateAttributeValue" : "bpsTypes$108624",
+      "name" : "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435",
+      "style" : "automaticAction;"
+    }, {
+      "code" : "manualAction",
+      "templateAttributeValue" : "bpsTypes$108625",
+      "name" : "\u0420\u0443\u0447\u043d\u043e\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435",
+      "style" : "manualAction;"
+    }, {
+      "code" : "excludingGateway",
+      "templateAttributeValue" : "bpsTypes$108626",
+      "name" : "\u0418\u0441\u043a\u043b\u044e\u0447\u0430\u044e\u0449\u0438\u0439 \u0448\u043b\u044e\u0437",
+      "style" : "excludingGateway;"
+    }, {
+      "code" : "parallelGateway",
+      "templateAttributeValue" : "bpsTypes$108627",
+      "name" : "\u041f\u0430\u0440\u0430\u043b\u043b\u0435\u043b\u044c\u043d\u044b\u0439 \u0448\u043b\u044e\u0437",
+      "style" : "parallelGateway;"
+    }
+    ]
+  }, {
+    "code" : "ae$registry",
+    "multiple" : true,
+    "templateAttribute" : null,
+    "templateGroups" : [],
+    "templates" : [{
+      "code" : "registry",
+      "templateAttributeValue" : null,
+      "name" : "\u042d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u044b\u0439 \u0444\u043e\u0440\u043c\u0443\u043b\u044f\u0440",
+      "style" : "dataObject;"
+    }
+    ]
+  }, {
+    "code" : "req$high",
+    "multiple" : true,
+    "templateAttribute" : null,
+    "templateGroups" : [],
+    "templates" : [{
+      "code" : "rule",
+      "templateAttributeValue" : null,
+      "name" : "\u0411\u0438\u0437\u043d\u0435\u0441-\u043f\u0440\u0430\u0432\u0438\u043b\u043e",
+      "style" : "rule;"
+    }
+    ]
+  }
+  ],
+  "connectionTypes" : [{
+    "code" : "controlFlow",
+    "name" : "\u041f\u043e\u0442\u043e\u043a \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f",
+    "style" : "solidLine;"
+  }, {
+    "code" : "associationFlow",
+    "name" : "\u041f\u043e\u0442\u043e\u043a \u0430\u0441\u0441\u043e\u0446\u0438\u0430\u0446\u0438\u0438",
+    "style" : "dashedLine;"
+  }
+  ],
+  "linkTypes" : [{
+    "code" : "bp2step",
+    "behaviour" : "implied",
+    "sourceType" : "ae$bp",
+    "targetType" : "ae$bpstep",
+    "sourceUnique" : false,
+    "targetUnique" : true,
+    "attributive" : false,
+    "linkTypeUUID" : "archLinkType$39224",
+    "reverseDisplayDirection" : false
+  }, {
+    "code" : "step2step",
+    "behaviour" : "connection",
+    "connectionType" : "controlFlow",
+    "sourceType" : "ae$bpstep",
+    "targetType" : "ae$bpstep",
+    "sourceUnique" : false,
+    "targetUnique" : false,
+    "attributive" : false,
+    "linkTypeUUID" : "archLinkType$72301",
+    "reverseDisplayDirection" : false
+  }, {
+    "code" : "registry2step",
+    "behaviour" : "connection",
+    "connectionType" : "associationFlow",
+    "sourceType" : "ae$registry",
+    "targetType" : "ae$bpstep",
+    "sourceUnique" : false,
+    "targetUnique" : false,
+    "attributive" : false,
+    "linkTypeUUID" : "archLinkType$39293",
+    "reverseDisplayDirection" : false
+  }, {
+    "code" : "rule2step",
+    "behaviour" : "connection",
+    "connectionType" : "associationFlow",
+    "sourceType" : "req$high",
+    "targetType" : "ae$bpstep",
+    "sourceUnique" : false,
+    "targetUnique" : false,
+    "attributive" : true,
+    "attribute" : "aes",
+    "backAttribute" : "br"
+  }
+  ],
+  "forbiddenConnections" : [{
+    "restrictionType" : "byTemplates",
+    "sourceTemplate" : "endEvent",
+    "targetTemplate" : null,
+    "connectionType" : "controlFlow"
+  }, {
+    "restrictionType" : "byTemplates",
+    "sourceTemplate" : null,
+    "targetTemplate" : "startEvent",
+    "connectionType" : "controlFlow"
+  }
+  ]
+}
