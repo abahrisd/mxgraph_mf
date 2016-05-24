@@ -4765,6 +4765,8 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var cell = graph.getSelectionCell();
     var atributesDirectory = ui.atributesDirectory;
     var labelDir = {};
+    var attributeItem = {};
+    var attrToShow = 'title';
 
     var textsCont = document.createElement('div');
     textsCont.style.whiteSpace = 'nowrap';
@@ -4776,8 +4778,13 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
     if (atributesDirectory && value && value.getAttribute) {
         metaClass = value.getAttribute('metaClass');
+
         if (atributesDirectory.getById(metaClass)){
-            labelDir = atributesDirectory.getById(metaClass).attributes;
+            attributeItem = atributesDirectory.getById(metaClass);
+            if (attributeItem.nameAttribute){
+                attrToShow = attributeItem.nameAttribute;
+            }
+            labelDir = attributeItem.attributes;
         }
     }
 
@@ -4902,7 +4909,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
                     var edit = new mxCellAttributeChange(cell, name, newValue);
                     graph.getModel().execute(edit);
 
-                    if (name === 'title') {
+                    if (name === attrToShow) {
                         var edit2 = new mxCellAttributeChange(cell, 'label', newValue);
                         graph.getModel().execute(edit2);
                     }
@@ -4948,8 +4955,8 @@ AttributePanel.prototype.addCellAttributes = function(container)
     //callback to change title if lable was changed
     graph.getModel().valueForCellChanged = function(cell, value){
 
-        if (cell.getValue() && cell.vertex && value.setAttribute && value.getAttribute && value.getAttribute('title') && value.getAttribute('label') ){
-            value.setAttribute('title', value.getAttribute('label'))
+        if (cell.getValue() && cell.vertex && value.setAttribute && value.getAttribute && value.getAttribute(attrToShow) && value.getAttribute('label') ){
+            value.setAttribute(attrToShow, value.getAttribute('label'))
         }
 
         return cell.valueChanged(value);

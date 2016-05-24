@@ -371,16 +371,30 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
     var globalUsersCellY = this.globalUsersCellY;
 
     //set title
-    node.setAttribute('label', obj.title?obj.title:'');
+
 
     //set attributes, except title
     if (obj.metaClass){
-        var attrs = this.editorUi.atributesDirectory.getById(obj.metaClass);
+
+        var metaClass = obj.metaClass;
+        var attrToShow = 'title';
+        var atributesDirectory = this.editorUi.atributesDirectory;
+        var attrs = atributesDirectory.getById(metaClass);
+
+        if (attrs){
+            if (attrs.nameAttribute){
+                attrToShow = attrs.nameAttribute;
+            }
+        }
+
+        node.setAttribute('label', obj[attrToShow]);
+        titleLength = obj[attrToShow].length;
+
+        //var attrs = this.editorUi.atributesDirectory.getById(metaClass);
 
         //идём по атрибутам и добавляем все атрибуты
         //потом идём по переданным значениям и если есть такой атрибут то
-
-        node.setAttribute('metaClass', obj.metaClass);
+        node.setAttribute('metaClass', metaClass);
 
         if (obj['UUID']){
             node.setAttribute('UUID', obj['UUID']);
@@ -439,11 +453,10 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
         width = 410;
         height = 210;
     } else {
-        //455x296
         width = 455;
         height = 296;
     }
-    /*Обеспечение направления Уведомления о бюджетных ассигнованиях на исполнение публичных нормативных обязательств, бюджетных ассигнованиях, лимиты по которым не утверждены, лимитах бюджетных обязательств и бюджетных ассигнованиях по источникам финансирования дефицита федерального бюджета, подлежащих блокировке на финансовый год и на плановый период в течение 3 рабочих дней со дня поступления указанного Уведомления в Федеральное казначейство для осуществления блокировки распределения бюджетных ассигнований на исполнение публичных нормативных обязательств, бюджетных ассигнований, лимиты по которым не утверждены, лимитов бюджетных обязательств и источников финансирования дефицита федерального бюджета в пределах свободных остатков бюджетных ассигнований и лимитов бюджетных обязательств по кодам классификации расходов бюджетов (источников финансирования дефицитов бюджетов)*/
+
     //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
     graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
 
