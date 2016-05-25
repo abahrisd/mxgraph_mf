@@ -52,7 +52,8 @@ function RelValidator(editorUi, linksUrl)
                         }*/
                         if ( (sourceCode === undefined || (linkTypes[i].sourceType && linkTypes[i].sourceType === sourceCode)) &&
                             (targetCode === undefined || (linkTypes[i].targetType && linkTypes[i].targetType === targetCode)) &&
-                            linkTypes[i].style && linkTypes[i].style === edgeCode
+                            //TODO refactor ifelse
+                            ((sourceCode === undefined && targetCode === undefined ) || (linkTypes[i].style && linkTypes[i].style === edgeCode))
                         ){
                             error = false;
                             if (sourceCode && targetCode) {
