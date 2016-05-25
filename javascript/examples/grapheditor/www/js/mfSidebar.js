@@ -868,79 +868,15 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
         //Events
         this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 80, 80, '', 'Начальное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
-        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
-        {
-            var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
-            cell.vertex = true;
-
-            var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;html=1;');
-            cell1.vertex = true;
-            cell1.geometry.relative = true;
-            cell1.geometry.offset = new mxPoint(15, 20);
-            cell.insert(cell1);
-
-            //add custom attrs
-            sb.addCustomAttrs(cell, 'ae$bpstep');
-
-            sb.stencilsStore.start_event_msg = sb.graph.cloneCells([cell]);
-            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Начальное событие с сообщением');
-        }),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_start_msg;', 80, 80, '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Конечное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
-        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
-        {
-            var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9');
-            cell.vertex = true;
-
-            var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;fillColor=#000000;strokeColor=#ffffff;strokeWidth=2;');
-            cell1.vertex = true;
-            cell1.geometry.relative = true;
-            cell1.geometry.offset = new mxPoint(15, 20);
-            cell.insert(cell1);
-
-            //add custom attrs
-            sb.addCustomAttrs(cell, 'ae$bpstep');
-
-            sb.stencilsStore.end_event_msg = sb.graph.cloneCells([cell]);
-            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Конечное событие с сообщением');
-        }),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_end_msg;fillColor=#000000;', 80, 80, '', 'Конечное событие с сообщением', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('ellipse;shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', 'ae$bpstep'),
-        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
-        {
-            var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'ellipse;shape=doubleEllipse;whiteSpace=wrap;');
-            cell.vertex = true;
-
-            var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;');
-            cell1.vertex = true;
-            cell1.geometry.relative = true;
-            cell1.geometry.offset = new mxPoint(15, 20);
-            cell.insert(cell1);
-
-            //add custom attrs
-            sb.addCustomAttrs(cell, 'ae$bpstep');
-
-            sb.stencilsStore.mid_event_msg_receive = sb.graph.cloneCells([cell]);
-            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Промежуточное событие с сообщением (получение)');
-        }),
-        this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
-        {
-            var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'ellipse;shape=doubleEllipse;whiteSpace=wrap;');
-            cell.vertex = true;
-
-            var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;fillColor=#000000;strokeColor=#ffffff;strokeWidth=2;');
-            cell1.vertex = true;
-            cell1.geometry.relative = true;
-            cell1.geometry.offset = new mxPoint(15, 20);
-            cell.insert(cell1);
-
-            //add custom attrs
-            sb.addCustomAttrs(cell, 'ae$bpstep');
-
-            sb.stencilsStore.mid_event_msg_receive = sb.graph.cloneCells([cell]);
-            return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Промежуточное событие с сообщением (отправление)');
-        }),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mailfill;fillColor=#000000;', 80, 80, '', 'Промежуточное событие с сообщением (отправление)', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mail;', 80, 80, '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_timer;', 80, 80, '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', 'ae$bpstep'),
-        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
-        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;fillColor=#000;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;fillColor=#000000;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', 'ae$bpstep'),
 
         //Actions
         this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()

@@ -127,3 +127,73 @@ console.log('newCell',newCell);
  mxGraph.prototype.isHtmlLabel = function(){
  return false;
  };*/
+
+
+/*this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+ {
+ var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
+ cell.vertex = true;
+
+ var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;html=1;');
+ cell1.vertex = true;
+ cell1.geometry.relative = true;
+ cell1.geometry.offset = new mxPoint(15, 20);
+ cell.insert(cell1);
+
+ //add custom attrs
+ sb.addCustomAttrs(cell, 'ae$bpstep');
+
+ sb.stencilsStore.start_event_msg = sb.graph.cloneCells([cell]);
+ return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Начальное событие с сообщением');
+ }),*/
+/*this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+ {
+ var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9');
+ cell.vertex = true;
+
+ var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;fillColor=#000000;strokeColor=#ffffff;strokeWidth=2;');
+ cell1.vertex = true;
+ cell1.geometry.relative = true;
+ cell1.geometry.offset = new mxPoint(15, 20);
+ cell.insert(cell1);
+
+ //add custom attrs
+ sb.addCustomAttrs(cell, 'ae$bpstep');
+
+ sb.stencilsStore.end_event_msg = sb.graph.cloneCells([cell]);
+ return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Конечное событие с сообщением');
+ }),*/
+/*this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+ {
+ var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'ellipse;shape=doubleEllipse;whiteSpace=wrap;');
+ cell.vertex = true;
+
+ var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;');
+ cell1.vertex = true;
+ cell1.geometry.relative = true;
+ cell1.geometry.offset = new mxPoint(15, 20);
+ cell.insert(cell1);
+
+ //add custom attrs
+ sb.addCustomAttrs(cell, 'ae$bpstep');
+
+ sb.stencilsStore.mid_event_msg_receive = sb.graph.cloneCells([cell]);
+ return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Промежуточное событие с сообщением (получение)');
+ }),
+ this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
+ {
+ var cell = new mxCell('', new mxGeometry(0, 0, 80, 80), 'ellipse;shape=doubleEllipse;whiteSpace=wrap;');
+ cell.vertex = true;
+
+ var cell1 = new mxCell('', new mxGeometry(0, 0, 50, 40), 'shape=message;whiteSpace=wrap;fillColor=#000000;strokeColor=#ffffff;strokeWidth=2;');
+ cell1.vertex = true;
+ cell1.geometry.relative = true;
+ cell1.geometry.offset = new mxPoint(15, 20);
+ cell.insert(cell1);
+
+ //add custom attrs
+ sb.addCustomAttrs(cell, 'ae$bpstep');
+
+ sb.stencilsStore.mid_event_msg_receive = sb.graph.cloneCells([cell]);
+ return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Промежуточное событие с сообщением (отправление)');
+ }),*/
