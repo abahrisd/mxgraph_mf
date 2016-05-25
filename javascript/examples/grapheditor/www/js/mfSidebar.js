@@ -867,7 +867,7 @@ Sidebar.prototype.addGeneralPalette = function(expand)
         this.createVertexTemplateEntry('swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', 'nope'),
 
         //Events
-        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2', 80, 80, '', 'Начальное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000', 80, 80, '', 'Начальное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_start_msg;', 80, 80, '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Конечное событие', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_end_msg;fillColor=#000000;', 80, 80, '', 'Конечное событие с сообщением', null, null, 'circle oval ellipse state', 'ae$bpstep'),
@@ -876,7 +876,7 @@ Sidebar.prototype.addGeneralPalette = function(expand)
         this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mail;', 80, 80, '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_timer;', 80, 80, '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', 'ae$bpstep'),
         this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', 'ae$bpstep'),
-        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;fillColor=#000000;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', 'ae$bpstep'),
+        this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow_fill;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', 'ae$bpstep'),
 
         //Actions
         this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
