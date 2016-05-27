@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" line="68" mnemonic="3" />
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" line="954" mnemonic="4" />
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="57054" mnemonic="5" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" line="512" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" line="515" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" line="70" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="add change object on the fly">
+    <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2849162">
-              <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <marker date="1464278692546" expanded="true" signature="41901:41949" placeholder="..." />
                 <marker date="1464278692546" expanded="true" signature="41971:42035" placeholder="..." />
@@ -55,11 +60,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserStore.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserStore.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="174" column="35" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.47765362">
+              <caret line="228" column="2" selection-start-line="228" selection-start-column="2" selection-end-line="228" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.1034484">
+              <caret line="463" column="27" selection-start-line="463" selection-start-column="27" selection-end-line="463" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="specification.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/specification.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.692307">
+              <caret line="99" column="16" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -69,30 +94,20 @@
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4876" column="0" selection-start-line="4876" selection-start-column="0" selection-end-line="4876" selection-end-column="0" />
+              <caret line="5135" column="0" selection-start-line="5135" selection-start-column="0" selection-end-line="5135" selection-end-column="0" />
               <folding>
-                <marker date="1464345567947" expanded="true" signature="23681:23883" placeholder="..." />
-                <marker date="1464345567947" expanded="false" signature="28160:28178" placeholder="..." />
+                <marker date="1464348434925" expanded="true" signature="23681:23883" placeholder="..." />
+                <marker date="1464348434925" expanded="false" signature="28160:28178" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="specification.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/specification.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state vertical-scroll-proportion="-12.423077">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -111,8 +126,8 @@
       <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="167.96552">
-              <caret line="41726" column="20" selection-start-line="41726" selection-start-column="10" selection-end-line="41726" selection-end-column="20" />
+            <state vertical-scroll-proportion="-0.27586207">
+              <caret line="12418" column="30" selection-start-line="12418" selection-start-column="30" selection-end-line="12418" selection-end-column="30" />
               <folding>
                 <marker date="1464269188240" expanded="true" signature="133022:133033" placeholder="..." />
                 <marker date="1464269188240" expanded="true" signature="133115:133186" placeholder="..." />
@@ -140,8 +155,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.884615">
-              <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+            <state vertical-scroll-proportion="-6.4545455">
+              <caret line="206" column="85" selection-start-line="206" selection-start-column="85" selection-end-line="206" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -200,20 +215,20 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Shapes.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/bpmn.xml" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Menus.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html" />
         <option value="$PROJECT_DIR$/javascript/src/js/mxClient.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/specification.json" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet_old.xml" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
       </list>
     </option>
   </component>
@@ -408,11 +423,93 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grapheditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grapheditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grapheditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -720,7 +817,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464347745777</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="add change object on the fly">
+      <created>1464347769374</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1464347769374</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1096,14 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65507245">
-          <caret line="177" column="32" selection-start-line="177" selection-start-column="32" selection-end-line="177" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/linkTypes.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24637681">
@@ -1155,31 +1250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.884615">
-          <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="167.96552">
-          <caret line="41726" column="20" selection-start-line="41726" selection-start-column="10" selection-end-line="41726" selection-end-column="20" />
-          <folding>
-            <marker date="1464269188240" expanded="true" signature="133022:133033" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="133115:133186" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="133200:133253" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="133947:133958" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="443930:443994" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="615184:615221" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="620942:621079" placeholder="..." />
-            <marker date="1464269188240" expanded="true" signature="1318506:1318520" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1188,53 +1258,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/specification.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4876" column="0" selection-start-line="4876" selection-start-column="0" selection-end-line="4876" selection-end-column="0" />
-          <folding>
-            <marker date="1464345567947" expanded="true" signature="23681:23883" placeholder="..." />
-            <marker date="1464345567947" expanded="false" signature="28160:28178" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="174" column="35" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2849162">
-          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <marker date="1464278692546" expanded="true" signature="41901:41949" placeholder="..." />
             <marker date="1464278692546" expanded="true" signature="41971:42035" placeholder="..." />
@@ -1252,6 +1279,82 @@
             <marker date="1464278692546" expanded="true" signature="62026:62090" placeholder="..." />
             <marker date="1464278692546" expanded="true" signature="62129:62154" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.4545455">
+          <caret line="206" column="85" selection-start-line="206" selection-start-column="85" selection-end-line="206" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.27586207">
+          <caret line="12418" column="30" selection-start-line="12418" selection-start-column="30" selection-end-line="12418" selection-end-column="30" />
+          <folding>
+            <marker date="1464269188240" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="443930:443994" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="615184:615221" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="620942:621079" placeholder="..." />
+            <marker date="1464269188240" expanded="true" signature="1318506:1318520" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5135" column="0" selection-start-line="5135" selection-start-column="0" selection-end-line="5135" selection-end-column="0" />
+          <folding>
+            <marker date="1464348434925" expanded="true" signature="23681:23883" placeholder="..." />
+            <marker date="1464348434925" expanded="false" signature="28160:28178" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1034484">
+          <caret line="463" column="27" selection-start-line="463" selection-start-column="27" selection-end-line="463" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/specification.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.692307">
+          <caret line="99" column="16" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47765362">
+          <caret line="228" column="2" selection-start-line="228" selection-start-column="2" selection-end-line="228" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

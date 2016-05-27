@@ -463,6 +463,9 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
 
     if (templateAttribute){
         newValue = obj[templateAttribute];
+    } else {
+        var baseStyle = editor.objectTypes.getBaseStyle(metaClass);
+        style = baseStyle?baseStyle:style;
     }
 
     if (newValue) {

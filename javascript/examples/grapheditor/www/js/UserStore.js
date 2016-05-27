@@ -212,6 +212,7 @@ UserStore.prototype.getGroup = function(metaClass, value) {
 
     return group;
 };
+
 /**
  * Return templates fom store, which exists in stencils object
  */
@@ -221,6 +222,22 @@ UserStore.prototype.getTemplateAttribute = function(metaClass) {
 
     if (item){
         return item.templateAttribute;
+    }
+
+    return null;
+
+};
+
+/**
+ * Get style, when templateAttribute is null
+ */
+UserStore.prototype.getBaseStyle = function(metaClass) {
+
+    var item = this.getById(metaClass);
+
+    if (item && item.templates){
+
+        return item.templates[0].style;
     }
 
     return '';

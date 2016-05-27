@@ -7,8 +7,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="styles/grapheditor.css">
-    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="../src/css/pikaday.css">-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/pikaday.css">
 	<script type="text/javascript">
         var pathName = window.location.pathname.replace(/index.html/g, '');
 //        mxBasePath = '/mxgraph/javascript/examples/grapheditor/www/index.html';
@@ -209,7 +209,6 @@
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));
 
         //Listen changes in vertex. If exist vertex with same UUID as changed makes it's attributes equal with changed vertex
-        new EqualAttrs(EditUI, 'UUID');
 
         //load linkTypes and listener on CELL_CONNECTED
 //        new RelValidator(EditUI, 'fixtures/linkTypes.json');

@@ -25,6 +25,9 @@ EditorUi = function(editor, container)
     //TODO add interaction
     new RelValidator(this);
 
+    //when exist two object with same UUID, when we change first - second changed too
+    new EqualAttrs(this, 'UUID');
+
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
 	{
@@ -40,7 +43,7 @@ EditorUi = function(editor, container)
 	{
 		new Image().src = mxConnectionHandler.prototype.connectImage.src;
 	}
-	
+
 	// Disables graph and forced panning in chromeless mode
 	if (this.editor.chromeless)
 	{
@@ -52,7 +55,7 @@ EditorUi = function(editor, container)
 		graph.cellRenderer.createControlClickHandler = function(state)
 		{
 			var graph = state.view.graph;
-			
+
 			return function (evt)
 			{
 				var collapse = !graph.isCellCollapsed(state.cell);
@@ -61,7 +64,7 @@ EditorUi = function(editor, container)
 			};
 		};
 	}
-	
+
     // Creates the user interface
 	this.actions = new Actions(this);
 	this.menus = new Menus(this);
@@ -69,7 +72,7 @@ EditorUi = function(editor, container)
 	this.createUi();
 	this.refresh();
 
-	
+
 	// Disables HTML and text selection
 	var textEditing =  mxUtils.bind(this, function(evt)
 	{
@@ -77,12 +80,12 @@ EditorUi = function(editor, container)
 		{
 			evt = window.event;
 		}
-		
+
 		if (this.isSelectionAllowed(evt))
 		{
 			return true;
 		}
-		
+
 		return graph.isEditing();
 	});
 
@@ -101,14 +104,14 @@ EditorUi = function(editor, container)
 		this.formatContainer.onmousedown = textEditing;
 		this.footerContainer.onselectstart = textEditing;
 		this.footerContainer.onmousedown = textEditing;
-		
+
 		if (this.tabContainer != null)
 		{
 			// Mouse down is needed for drag and drop
 			this.tabContainer.onselectstart = textEditing;
 		}
 	}
-	
+
 	// And uses built-in context menu while editing
 	if (mxClient.IS_IE && (typeof(document.documentMode) === 'undefined' || document.documentMode < 9))
 	{
@@ -127,11 +130,11 @@ EditorUi = function(editor, container)
 	graph.cellRenderer.initializeLabel = function(state, shape)
 	{
 		mxCellRenderer.prototype.initializeLabel.apply(this, arguments);
-		
+
 		mxEvent.addListener(shape.node, 'click', function(evt)
 		{
 			var elt = mxEvent.getSource(evt)
-			
+
 			while (elt != null && elt != shape.node)
 			{
 				if (elt.nodeName == 'A')
@@ -144,20 +147,20 @@ EditorUi = function(editor, container)
 
 					break;
 				}
-				
+
 				elt = elt.parentNode;
 			}
 		});
 	};
-	
+
 	// Creates hover icons
 	this.hoverIcons = this.createHoverIcons();
-	
+
 	// Adds tooltip when mouse is over scrollbars to show space-drag panning option
 	mxEvent.addListener(this.diagramContainer, 'mousemove', mxUtils.bind(this, function(evt)
 	{
 		var off = mxUtils.getOffset(this.diagramContainer);
-		
+
 		if (mxEvent.getClientX(evt) - off.x - this.diagramContainer.clientWidth > 0 ||
 			mxEvent.getClientY(evt) - off.y - this.diagramContainer.clientHeight > 0)
 		{
@@ -171,14 +174,14 @@ EditorUi = function(editor, container)
 
    	// Escape key hides dialogs, adds space+drag panning
 	var spaceKeyPressed = false;
-	
+
 	this.keydownHandler = mxUtils.bind(this, function(evt)
 	{
 		if (evt.which == 32 /* Space */)
 		{
 			spaceKeyPressed = true;
 			graph.container.style.cursor = 'move';
-			
+
 			// Disables scroll after space keystroke with scrollbars
 			if (!graph.isEditing() && mxEvent.getSource(evt) == graph.container)
 			{
@@ -190,9 +193,9 @@ EditorUi = function(editor, container)
 			this.hideDialog();
 		}
 	});
-   	
+
 	mxEvent.addListener(document, 'keydown', this.keydownHandler);
-	
+
 	this.keyupHandler = mxUtils.bind(this, function(evt)
 	{
 		graph.container.style.cursor = '';
@@ -200,7 +203,7 @@ EditorUi = function(editor, container)
 	});
 
 	mxEvent.addListener(document, 'keyup', this.keyupHandler);
-    
+
     // Forces panning for middle and right mouse buttons
 	var panningHandlerIsForcePanningEvent = graph.panningHandler.isForcePanningEvent;
 	graph.panningHandler.isForcePanningEvent = function(me)
@@ -221,37 +224,37 @@ EditorUi = function(editor, container)
 		return cellEditorIsStopEditingEvent.apply(this, arguments) ||
 			(evt.keyCode == 13 && mxEvent.isControlDown(evt));
 	};
-	
+
 	// Switches toolbar for text editing
 	var textMode = false;
 	var fontMenu = null;
 	var sizeMenu = null;
 	var nodes = null;
-	
+
 	var updateToolbar = mxUtils.bind(this, function()
 	{
 		if (textMode != graph.cellEditor.isContentEditing())
 		{
 			var node = this.toolbar.container.firstChild;
 			var newNodes = [];
-			
+
 			while (node != null)
 			{
 				var tmp = node.nextSibling;
-				
+
 				if (mxUtils.indexOf(this.toolbar.staticElements, node) < 0)
 				{
 					node.parentNode.removeChild(node);
 					newNodes.push(node);
 				}
-				
+
 				node = tmp;
 			}
-			
+
 			// Saves references to special items
 			var tmp1 = this.toolbar.fontMenu;
 			var tmp2 = this.toolbar.sizeMenu;
-			
+
 			if (nodes == null)
 			{
 				this.toolbar.createTextToolbar();
@@ -262,12 +265,12 @@ EditorUi = function(editor, container)
 				{
 					this.toolbar.container.appendChild(nodes[i]);
 				}
-				
+
 				// Restores references to special items
 				this.toolbar.fontMenu = fontMenu;
 				this.toolbar.sizeMenu = sizeMenu;
 			}
-			
+
 			textMode = graph.cellEditor.isContentEditing();
 			fontMenu = tmp1;
 			sizeMenu = tmp2;
@@ -276,65 +279,65 @@ EditorUi = function(editor, container)
 	});
 
 	var ui = this;
-	
+
 	// Overrides cell editor to update toolbar
 	var cellEditorStartEditing = graph.cellEditor.startEditing;
 	graph.cellEditor.startEditing = function()
 	{
 		cellEditorStartEditing.apply(this, arguments);
 		updateToolbar();
-		
+
 		if (graph.cellEditor.isContentEditing())
 		{
 			var updating = false;
-			
+
 			var updateCssHandler = function()
 			{
 				if (!updating)
 				{
 					updating = true;
-				
+
 					window.setTimeout(function()
 					{
 						var selectedElement = graph.getSelectedElement();
 						var node = selectedElement;
-						
+
 						while (node != null && node.nodeType != mxConstants.NODETYPE_ELEMENT)
 						{
 							node = node.parentNode;
 						}
-						
+
 						if (node != null)
 						{
 							var css = mxUtils.getCurrentStyle(node);
-	
+
 							// Workaround for firstChild is null or not an object
 							// in the log which seems to be IE8- only / 29.01.15
 							if (ui.toolbar != null)
 							{
 								// Strips leading and trailing quotes
 								var ff = css.fontFamily;
-								
+
 								if (ff.charAt(0) == '\'')
 								{
 									ff = ff.substring(1);
 								}
-								
+
 								if (ff.charAt(ff.length - 1) == '\'')
 								{
 									ff = ff.substring(0, ff.length - 1);
 								}
-								
+
 								ui.toolbar.setFontName(ff);
 								ui.toolbar.setFontSize(parseInt(css.fontSize));
 							}
 						}
-						
+
 						updating = false;
 					}, 0);
 				}
 			};
-			
+
 			mxEvent.addListener(graph.cellEditor.textarea, 'input', updateCssHandler)
 			mxEvent.addListener(graph.cellEditor.textarea, 'touchend', updateCssHandler);
 			mxEvent.addListener(graph.cellEditor.textarea, 'mouseup', updateCssHandler);
@@ -342,14 +345,14 @@ EditorUi = function(editor, container)
 			updateCssHandler();
 		}
 	};
-	
+
 	var cellEditorStopEditing = graph.cellEditor.stopEditing;
 	graph.cellEditor.stopEditing = function(cell, trigger)
 	{
 		cellEditorStopEditing.apply(this, arguments);
 		updateToolbar();
 	};
-	
+
     // Enables scrollbars and sets cursor style for the container
 	graph.container.setAttribute('tabindex', '0');
    	graph.container.style.cursor = 'default';
@@ -359,7 +362,7 @@ EditorUi = function(editor, container)
 	var noBackground = (mxClient.IS_IE && document.documentMode >= 9) ? 'url(' + this.editor.transparentImage + ')' : 'none';
 	graph.container.style.backgroundImage = noBackground;
 	var bgImg = (!graph.pageVisible && graph.isGridEnabled()) ? 'url(' + this.editor.gridImage + ')' : noBackground;
-	
+
 	if (graph.view.canvas.ownerSVGElement != null)
 	{
 		graph.view.canvas.ownerSVGElement.style.backgroundImage = bgImg;
@@ -368,7 +371,7 @@ EditorUi = function(editor, container)
 	{
 		graph.view.canvas.style.backgroundImage = bgImg;
 	}
-    
+
 	// Workaround for page scroll if embedded via iframe
 	if (window.self === window.top)
 	{
@@ -383,7 +386,7 @@ EditorUi = function(editor, container)
    		{
    			this.container.focus();
    		}
-   		
+
    		graphFireMouseEvent.apply(this, arguments);
    	};
 
@@ -395,7 +398,7 @@ EditorUi = function(editor, container)
 	{
 		this.menus.createPopupMenu(menu, cell, evt);
 	});
-	
+
 	// Hides context menu
 	mxEvent.addGestureListeners(document, mxUtils.bind(this, function(evt)
 	{
@@ -404,22 +407,22 @@ EditorUi = function(editor, container)
 
     // Create handler for key events
 	this.keyHandler = this.createKeyHandler(editor);
-    
+
 	// Getter for key handler
 	this.getKeyHandler = function()
 	{
 		return keyHandler;
 	};
-	
+
 	// Stores the current style and assigns it to new cells
 	var styles = ['rounded', 'shadow', 'glass', 'dashed', 'dashPattern'];
 	var connectStyles = ['shape', 'edgeStyle', 'curved', 'rounded', 'elbow'];
-	
+
 	// Note: Everything that is not in styles is ignored (styles is augmented below)
 	this.setDefaultStyle = function(cell)
 	{
 		var state = graph.view.getState(cell);
-		
+
 		if (state != null)
 		{
 			// Ignores default styles
@@ -437,21 +440,21 @@ EditorUi = function(editor, container)
 					keys.push(key);
 				}
 			}
-			
+
 			// Handles special case for value "none"
 			var cellStyle = graph.getModel().getStyle(state.cell);
 			var tokens = (cellStyle != null) ? cellStyle.split(';') : [];
-			
+
 			for (var i = 0; i < tokens.length; i++)
 			{
 				var tmp = tokens[i];
 		 		var pos = tmp.indexOf('=');
-		 					 		
+
 		 		if (pos >= 0)
 		 		{
 		 			var key = tmp.substring(0, pos);
 		 			var value = tmp.substring(pos + 1);
-		 			
+
 		 			if (defaultStyle[key] != null && value == 'none')
 		 			{
 		 				values.push(value);
@@ -473,12 +476,12 @@ EditorUi = function(editor, container)
 			this.fireEvent(new mxEventObject('styleChanged', 'keys', keys, 'values', values, 'cells', [state.cell]));
 		}
 	};
-	
+
 	this.clearDefaultStyle = function()
 	{
 		graph.currentEdgeStyle = graph.defaultEdgeStyle;
 		graph.currentVertexStyle = {};
-		
+
 		// Updates UI
 		this.fireEvent(new mxEventObject('styleChanged', 'keys', [], 'values', [], 'cells', []));
 	};
@@ -486,10 +489,10 @@ EditorUi = function(editor, container)
 	// Keys that should be ignored if the cell has a value (known: new default for all cells is html=1 so
     // for the html key this effecticely only works for edges inserted via the connection handler)
 	var valueStyles = ['fontFamily', 'fontSize', 'fontColor'];
-	
+
 	// Keys that always update the current edge style regardless of selection
 	var alwaysEdgeStyles = ['edgeStyle', 'startArrow', 'startFill', 'startSize', 'endArrow', 'endFill', 'endSize', 'jettySize', 'orthogonalLoop'];
-	
+
 	// Keys that are ignored together (if one appears all are ignored)
 	var keyGroups = [['startArrow', 'startFill', 'startSize', 'endArrow', 'endFill', 'endSize', 'jettySize', 'orthogonalLoop'],
 	                 ['strokeColor', 'strokeWidth'],
@@ -497,7 +500,7 @@ EditorUi = function(editor, container)
 	                 valueStyles,
 	                 ['align'],
 	                 ['html']];
-	
+
 	// Adds all keys used above to the styles array
 	for (var i = 0; i < keyGroups.length; i++)
 	{
@@ -506,7 +509,7 @@ EditorUi = function(editor, container)
 			styles.push(keyGroups[i][j]);
 		}
 	}
-	
+
 	for (var i = 0; i < connectStyles.length; i++)
 	{
 		styles.push(connectStyles[i]);
@@ -524,11 +527,11 @@ EditorUi = function(editor, container)
 				var edge = graph.getModel().isEdge(cell);
 				var current = (edge) ? graph.currentEdgeStyle : graph.currentVertexStyle;
 				var textStyles = ['fontSize', 'fontFamily', 'fontColor'];
-				
+
 				for (var j = 0; j < textStyles.length; j++)
 				{
 					var value = current[textStyles[j]];
-					
+
 					if (value != null)
 					{
 						graph.setCellStyles(textStyles[j], value, cells);
@@ -545,33 +548,33 @@ EditorUi = function(editor, container)
 					var cellStyle = graph.getModel().getStyle(cell);
 					var tokens = (cellStyle != null) ? cellStyle.split(';') : [];
 					var appliedStyles = styles.slice();
-					
+
 					for (var j = 0; j < tokens.length; j++)
 					{
 						var tmp = tokens[j];
 				 		var pos = tmp.indexOf('=');
-				 					 		
+
 				 		if (pos >= 0)
 				 		{
 				 			var key = tmp.substring(0, pos);
 				 			var index = mxUtils.indexOf(appliedStyles, key);
-				 			
+
 				 			if (index >= 0)
 				 			{
 				 				appliedStyles.splice(index, 1);
 				 			}
-				 			
+
 				 			// Handles special cases where one defined style ignores other styles
 				 			for (var k = 0; k < keyGroups.length; k++)
 				 			{
 				 				var group = keyGroups[k];
-				 				
+
 				 				if (mxUtils.indexOf(group, key) >= 0)
 				 				{
 				 					for (var l = 0; l < group.length; l++)
 				 					{
 							 			var index2 = mxUtils.indexOf(appliedStyles, group[l]);
-							 			
+
 							 			if (index2 >= 0)
 							 			{
 							 				appliedStyles.splice(index2, 1);
@@ -581,16 +584,16 @@ EditorUi = function(editor, container)
 				 			}
 				 		}
 					}
-	
+
 					// Applies the current style to the cell
 					var edge = graph.getModel().isEdge(cell);
 					var current = (edge) ? graph.currentEdgeStyle : graph.currentVertexStyle;
-					
+
 					for (var j = 0; j < appliedStyles.length; j++)
 					{
 						var key = appliedStyles[j];
 						var styleValue = current[key];
-	
+
 						if (styleValue != null && (key != 'shape' || edge))
 						{
 							// Special case: Connect styles are not applied here but in the connection handler
@@ -613,21 +616,21 @@ EditorUi = function(editor, container)
 	{
 		insertHandler(evt.getProperty('cells'));
 	});
-	
+
 	graph.addListener('textInserted', function(sender, evt)
 	{
 		insertHandler(evt.getProperty('cells'), true);
 	});
-	
+
 	graph.connectionHandler.addListener(mxEvent.CONNECT, function(sender, evt)
 	{
 		var cells = [evt.getProperty('cell')];
-		
+
 		if (evt.getProperty('terminalInserted'))
 		{
 			cells.push(evt.getProperty('terminal'));
 		}
-		
+
 		insertHandler(cells);
 	});
 
@@ -637,14 +640,14 @@ EditorUi = function(editor, container)
 		var cells = evt.getProperty('cells');
 		var vertex = false;
 		var edge = false;
-		
+
 		if (cells.length > 0)
 		{
 			for (var i = 0; i < cells.length; i++)
 			{
 				vertex = graph.getModel().isVertex(cells[i]) || vertex;
 				edge = graph.getModel().isEdge(cells[i]) || edge;
-				
+
 				if (edge && vertex)
 				{
 					break;
@@ -656,14 +659,14 @@ EditorUi = function(editor, container)
 			vertex = true;
 			edge = true;
 		}
-		
+
 		var keys = evt.getProperty('keys');
 		var values = evt.getProperty('values');
 
 		for (var i = 0; i < keys.length; i++)
 		{
 			var common = mxUtils.indexOf(valueStyles, keys[i]) >= 0;
-			
+
 			// Special case: Edge style and shape
 			if (mxUtils.indexOf(connectStyles, keys[i]) >= 0)
 			{
@@ -704,7 +707,7 @@ EditorUi = function(editor, container)
 						graph.currentVertexStyle[keys[i]] = values[i];
 					}
 				}
-				
+
 				if (edge || common || mxUtils.indexOf(alwaysEdgeStyles, keys[i]) >= 0)
 				{
 					if (values[i] == null)
@@ -718,12 +721,12 @@ EditorUi = function(editor, container)
 				}
 			}
 		}
-		
+
 		if (this.toolbar != null)
 		{
 			this.toolbar.setFontName(graph.currentVertexStyle['fontFamily'] || Menus.prototype.defaultFont);
 			this.toolbar.setFontSize(graph.currentVertexStyle['fontSize'] || Menus.prototype.defaultFontSize);
-			
+
 			if (this.toolbar.edgeStyleMenu != null)
 			{
 				// Updates toolbar icon for edge style
@@ -747,12 +750,12 @@ EditorUi = function(editor, container)
 					edgeStyleDiv.className = 'geSprite geSprite-orthogonal';
 				}
 			}
-			
+
 			if (this.toolbar.edgeShapeMenu != null)
 			{
 				// Updates icon for edge shape
 				var edgeShapeDiv = this.toolbar.edgeShapeMenu.getElementsByTagName('div')[0];
-				
+
 				if (graph.currentEdgeStyle['shape'] == 'link')
 				{
 					edgeShapeDiv.className = 'geSprite geSprite-linkedge';
@@ -770,12 +773,12 @@ EditorUi = function(editor, container)
 					edgeShapeDiv.className = 'geSprite geSprite-connection';
 				}
 			}
-			
+
 			// Updates icon for optinal line start shape
 			if (this.toolbar.lineStartMenu != null)
 			{
 				var lineStartDiv = this.toolbar.lineStartMenu.getElementsByTagName('div')[0];
-				
+
 				lineStartDiv.className = this.getCssClassForMarker('start',
 						graph.currentEdgeStyle['shape'], graph.currentEdgeStyle[mxConstants.STYLE_STARTARROW],
 						mxUtils.getValue(graph.currentEdgeStyle, 'startFill', '1'));
@@ -785,14 +788,14 @@ EditorUi = function(editor, container)
 			if (this.toolbar.lineEndMenu != null)
 			{
 				var lineEndDiv = this.toolbar.lineEndMenu.getElementsByTagName('div')[0];
-				
+
 				lineEndDiv.className = this.getCssClassForMarker('end',
 						graph.currentEdgeStyle['shape'], graph.currentEdgeStyle[mxConstants.STYLE_ENDARROW],
 						mxUtils.getValue(graph.currentEdgeStyle, 'endFill', '1'));
 			}
 		}
 	}));
-	
+
 	// Update font size and font family labels
 	if (this.toolbar != null)
 	{
@@ -801,38 +804,38 @@ EditorUi = function(editor, container)
 			var ff = graph.currentVertexStyle['fontFamily'] || 'Helvetica';
 			var fs = String(graph.currentVertexStyle['fontSize'] || '12');
 	    	var state = graph.getView().getState(graph.getSelectionCell());
-	    	
+
 	    	if (state != null)
 	    	{
 	    		ff = state.style[mxConstants.STYLE_FONTFAMILY] || ff;
 	    		fs = state.style[mxConstants.STYLE_FONTSIZE] || fs;
-	    		
+
 	    		if (ff.length > 10)
 	    		{
 	    			ff = ff.substring(0, 8) + '...';
 	    		}
 	    	}
-	    	
+
 	    	this.toolbar.setFontName(ff);
 	    	this.toolbar.setFontSize(fs);
 		});
-		
+
 	    graph.getSelectionModel().addListener(mxEvent.CHANGE, update);
 	    graph.getModel().addListener(mxEvent.CHANGE, update);
 	}
-	
+
 	// Makes sure the current layer is visible when cells are added
 	graph.addListener(mxEvent.CELLS_ADDED, function(sender, evt)
 	{
 		var cells = evt.getProperty('cells');
 		var parent = evt.getProperty('parent');
-		
+
 		if (graph.getModel().isLayer(parent) && !graph.isCellVisible(parent) && cells != null && cells.length > 0)
 		{
 			graph.getModel().setVisible(parent, true);
 		}
 	});
-	
+
 	// Global handler to hide the current menu
 	this.gestureHandler = mxUtils.bind(this, function(evt)
 	{
@@ -841,7 +844,7 @@ EditorUi = function(editor, container)
 			this.hideCurrentMenu();
 		}
 	});
-	
+
 	mxEvent.addGestureListeners(document, this.gestureHandler);
 
 	// Updates the editor UI after the window has been resized or the orientation changes
@@ -854,16 +857,16 @@ EditorUi = function(editor, container)
    			this.refresh();
    		}), 0);
    	});
-	
+
    	mxEvent.addListener(window, 'resize', this.resizeHandler);
-   	
+
    	this.orientationChangeHandler = mxUtils.bind(this, function()
    	{
    		this.refresh();
    	});
-   	
+
    	mxEvent.addListener(window, 'orientationchange', this.orientationChangeHandler);
-   	
+
 	// Workaround for bug on iOS see
 	// http://stackoverflow.com/questions/19012135/ios-7-ipad-safari-landscape-innerheight-outerheight-layout-issue
 	if (mxClient.IS_IOS && !window.navigator.standalone)
@@ -872,7 +875,7 @@ EditorUi = function(editor, container)
 	   	{
 	   		window.scrollTo(0, 0);
 	   	});
-		
+
 	   	mxEvent.addListener(window, 'scroll', this.scrollHandler);
 	}
 
