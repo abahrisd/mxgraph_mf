@@ -299,6 +299,7 @@ underline=Underline
 undo=Undo
 ungroup=Ungroup
 url=URL
+unableCopyCell=Unable to copy this object
 untitledLayer=Untitled Layer
 vertical=Vertical
 verticalFlow=Vertical Flow

@@ -972,9 +972,19 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
 	{
 		this.addMenuItems(menu, ['undo', 'redo', '-', 'pasteHere'], null, evt);
 	}
-	else
+
+    //if in selection all cells comply multiple in objectTypes
+	/*else if(){
+
+    }*/ else
 	{
-		this.addMenuItems(menu, ['delete', '-', 'cut', 'copy', '-', 'duplicate'], null, evt);
+        var noMultiple = this.editorUi.isNoMultiple();
+
+        if (noMultiple){
+            this.addMenuItems(menu, ['delete', '-', 'cut'], null, evt);
+        } else {
+            this.addMenuItems(menu, ['delete', '-', 'cut', 'copy', '-', 'duplicate'], null, evt);
+        }
 
 	}
 

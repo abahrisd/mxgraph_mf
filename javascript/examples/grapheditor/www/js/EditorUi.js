@@ -3453,3 +3453,18 @@ EditorUi.prototype.getSystemState = function() {
 
     return output;
 };
+
+/**
+ * Custom
+ * Get all cells from graph and create output object
+ */
+EditorUi.prototype.isNoMultiple = function() {
+    var graph = this.editor.graph;
+    var selectedCells = graph.getSelectionCells();
+    var editor = this;
+
+    return selectedCells.some(function(el){
+        var metaClass = el.getValue().getAttribute('metaClass');
+        return !(editor.objectTypes.getById(metaClass) && editor.objectTypes.getById(metaClass).multiple);
+    });
+};

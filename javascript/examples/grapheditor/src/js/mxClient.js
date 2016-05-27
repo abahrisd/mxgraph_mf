@@ -5906,10 +5906,11 @@ var mxUtils =
 	 * close - Optional boolean indicating whether to add a close button.
 	 * icon - Optional icon for the window decoration.
 	 */
-	error: function(message, width, close, icon)
+	error: function(message, width, close, icon, replaceNode)
 	{
 		var div = document.createElement('div');
 		div.style.padding = '20px';
+        replaceNode = replaceNode || null;
 
 		var img = document.createElement('img');
 		img.setAttribute('src', icon || mxUtils.errorImage);
@@ -5926,7 +5927,7 @@ var mxUtils =
 		var h = (document.body.clientHeight || document.documentElement.clientHeight);
 		var warn = new mxWindow(mxResources.get(mxUtils.errorResource) ||
 			mxUtils.errorResource, div, (w-width)/2, h/4, width, null,
-			false, true);
+			false, true, replaceNode);
 
 		if (close)
 		{

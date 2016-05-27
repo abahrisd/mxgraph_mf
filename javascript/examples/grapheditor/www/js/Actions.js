@@ -136,7 +136,17 @@ Actions.prototype.init = function()
 	this.addAction('undo', function() { ui.undo(); }, null, 'sprite-undo', 'Ctrl+Z');
 	this.addAction('redo', function() { ui.redo(); }, null, 'sprite-redo', (mxClient.IS_MAC) ? 'Ctrl+Shift+Z' : 'Ctrl+Y');
 	this.addAction('cut', function() { mxClipboard.cut(graph); }, null, 'sprite-cut', 'Ctrl+X');
-	this.addAction('copy', function() { mxClipboard.copy(graph); }, null, 'sprite-copy', 'Ctrl+C');
+    this.addAction('copy', function () {
+        if (!ui.isNoMultiple()){
+            mxClipboard.copy(graph);
+        } else {
+            mxClipboard.setCells(null);
+            var node = ui.unableCopyWarn;
+            if (!node || (node && node.div === null)){
+                ui.unableCopyWarn = mxUtils.error(mxResources.get('unableCopyCell'), 200, true);
+            }
+        }
+    }, null, 'sprite-copy', 'Ctrl+C');
 	this.addAction('paste', function()
 	{
 		if (graph.isEnabled() && !graph.isCellLocked(graph.getDefaultParent()))
