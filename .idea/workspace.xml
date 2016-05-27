@@ -7,20 +7,8 @@
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" line="512" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/specification.json" />
+    <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="add change object on the fly">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet_2.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet_old.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/LoadCustomCells.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/LoadCustomCells.js" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,8 +32,8 @@
       <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09497207">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2849162">
+              <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
               <folding>
                 <marker date="1464278692546" expanded="true" signature="41901:41949" placeholder="..." />
                 <marker date="1464278692546" expanded="true" signature="41971:42035" placeholder="..." />
@@ -726,7 +714,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464167614439</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add change object on the fly">
+      <created>1464347745777</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1464347745777</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -745,6 +739,7 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23638968" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -753,7 +748,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -799,7 +793,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="change src for sync func" />
     <MESSAGE value="add auto set arrow attrs" />
     <MESSAGE value="disallow key enter while label formating on dblclick" />
     <MESSAGE value="add encodinag and unescaping on title change" />
@@ -824,7 +817,8 @@
     <MESSAGE value="add new stencils" />
     <MESSAGE value="change background color for stencils from transparent to wight" />
     <MESSAGE value="fix validation condition" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix validation condition" />
+    <MESSAGE value="add change object on the fly" />
+    <option name="LAST_COMMIT_MESSAGE" value="add change object on the fly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1239,8 +1233,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09497207">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2849162">
+          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
           <folding>
             <marker date="1464278692546" expanded="true" signature="41901:41949" placeholder="..." />
             <marker date="1464278692546" expanded="true" signature="41971:42035" placeholder="..." />
