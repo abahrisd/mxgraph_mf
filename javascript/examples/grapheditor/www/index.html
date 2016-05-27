@@ -137,12 +137,11 @@
 				}
 			};
 		})();
-        
-		(function(){
 
-            //disallow key enter while label formating on dblclick    
+        (function(){
+
+            //disallow key enter while label formating on dblclick
             mxCellEditor.prototype.init = function () {
-
                 var _this = this;
                 this.textarea = document.createElement('div');
                 this.textarea.className = 'mxCellEditor mxPlainTextEditor';
@@ -160,7 +159,39 @@
                 this.installListeners(this.textarea);
             };
 
-            //add contains method in array to quick check if array contain value 
+        })();
+
+        //polyfils
+        (function(){
+            // Production steps of ECMA-262, Edition 5, 15.4.4.17
+            // Reference: http://es5.github.io/#x15.4.4.17
+            if (!Array.prototype.some) {
+                Array.prototype.some = function(fun/*, thisArg*/) {
+                    'use strict';
+
+                    if (this == null) {
+                        throw new TypeError('Array.prototype.some called on null or undefined');
+                    }
+
+                    if (typeof fun !== 'function') {
+                        throw new TypeError();
+                    }
+
+                    var t = Object(this);
+                    var len = t.length >>> 0;
+
+                    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+                    for (var i = 0; i < len; i++) {
+                        if (i in t && fun.call(thisArg, t[i], i, t)) {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                };
+            }
+
+            //add contains method in array to quick check if array contain value
             Array.prototype.contains = function(obj) {
                 var i = this.length;
                 while (i--) {
@@ -170,7 +201,9 @@
                 }
                 return false;
             }
-		})();
+
+        })();
+
 //        var picker = new Pikaday({ field: document.getElementById('datepicker') });
 
 		var EditUI = new EditorUi(new Editor(urlParams['chrome'] == '0'));
@@ -179,7 +212,7 @@
         new EqualAttrs(EditUI, 'UUID');
 
         //load linkTypes and listener on CELL_CONNECTED
-        new RelValidator(EditUI, 'fixtures/linkTypes.json');
+//        new RelValidator(EditUI, 'fixtures/linkTypes.json');
 
 	</script>
 </body>

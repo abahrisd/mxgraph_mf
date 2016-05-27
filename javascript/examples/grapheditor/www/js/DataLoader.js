@@ -7,6 +7,8 @@ function DataLoader(editorUi) {
     this.parent = this.graph.getDefaultParent();
     this.globalUsersCellX = 40;
     this.globalUsersCellY = 40;
+    this.title = '';
+    this.mxGraphModelData = '';
 
     this.stylesheet = '';
     this.linkTypes = '';
@@ -80,6 +82,9 @@ DataLoader.prototype.setStylesheet = function(stylesheet) {
  */
 DataLoader.prototype.setLinkTypes = function(linkTypes) {
     this.editorUi.linkTypes = new UserStore(null, linkTypes, 'code');
+
+    //init edge validation
+    new RelValidator(this.editorUi);
 };
 
 /**
@@ -87,6 +92,20 @@ DataLoader.prototype.setLinkTypes = function(linkTypes) {
  */
 DataLoader.prototype.setObjectTypes = function(objectTypes) {
     this.editorUi.objectTypes = new UserStore(null, objectTypes, 'code');
+};
+
+/**
+ * Create store for connectionTypes
+ */
+DataLoader.prototype.setConnectionTypes = function(objectTypes) {
+    this.editorUi.connectionTypes = new UserStore(null, objectTypes, 'code');
+};
+
+/**
+ * Create store for forbiddenConnections
+ */
+DataLoader.prototype.setForbiddenConnections = function(objectTypes) {
+    this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
 };
 
 /**
@@ -104,12 +123,13 @@ DataLoader.prototype.setAttributes = function() {
 /**
  * Create store for objectTypes
  */
-DataLoader.prototype.changePageTitle = function(title) {
+DataLoader.prototype.changePageTitle = function() {
 
-    document.title = title;
-
+    var title = this.title;
     var menuBar = document.getElementsByClassName('geMenubar')[0];
     var titleName = document.createElement('span');
+
+    document.title = title;
 
     titleName.style.float = 'right';
     titleName.style.padding = '6px 8px 6px 8px';
@@ -149,7 +169,12 @@ DataLoader.prototype.loadXMLData = function(){
 
                 //set page title and page name on up right corner
                 if (responseData.title){
-                    _this.changePageTitle(responseData.title);
+                    _this.title = responseData.title;
+                }
+
+                //if exits mxGraphModel save it in editor param
+                if (responseData.mxGraphModel){
+                    _this.mxGraphModelData = responseData.mxGraphModel;
                 }
 
                 //load assosiated data, like stylesheet, linkTypes, objectTypes
@@ -171,23 +196,48 @@ DataLoader.prototype.loadXMLData = function(){
                             }
                         }
 
-                        if (res.linkTypes){
-                            //var linkTypes = JSON.parse(res.linkTypes);
-                            _this.setLinkTypes(JSON.parse(res.linkTypes));
-                        } else {
-                            if (DEBUG){
-                                console.log("Unable to set linkTypes");
+                        //console.log("res", res);
+                        if (res.specification){
+                            var spec = JSON.parse(res.specification);
+                            //console.log("spec", spec);
+
+                            if (spec.linkTypes){
+                                //var linkTypes = JSON.parse(res.linkTypes);
+                                _this.setLinkTypes(spec.linkTypes);
+                            } else {
+                                if (DEBUG){
+                                    console.log("Unable to set linkTypes");
+                                }
+                            }
+
+                            if (spec.objectTypes){
+                                //var objectTypes = JSON.parse(res.objectTypes);
+                                _this.setObjectTypes(spec.objectTypes);
+                            } else {
+                                if (DEBUG){
+                                    console.log("Unable to set objectTypes");
+                                }
+                            }
+
+                            if (spec.connectionTypes){
+                                //var objectTypes = JSON.parse(res.objectTypes);
+                                _this.setConnectionTypes(spec.connectionTypes);
+                            } else {
+                                if (DEBUG){
+                                    console.log("Unable to set connectionTypes");
+                                }
+                            }
+
+                            if (spec.forbiddenConnections){
+                                //var objectTypes = JSON.parse(res.objectTypes);
+                                _this.setForbiddenConnections(spec.forbiddenConnections);
+                            } else {
+                                if (DEBUG){
+                                    console.log("Unable to set forbiddenConnections");
+                                }
                             }
                         }
 
-                        if (res.objectTypes){
-                            //var objectTypes = JSON.parse(res.objectTypes);
-                            _this.setObjectTypes(JSON.parse(res.objectTypes));
-                        } else {
-                            if (DEBUG){
-                                console.log("Unable to set objectTypes");
-                            }
-                        }
 
                     } else {
                         if (DEBUG) {
@@ -195,22 +245,7 @@ DataLoader.prototype.loadXMLData = function(){
                         }
                     }
                 }
-
-                //if exits mxGraphModel try to show it
-                if (responseData.mxGraphModel){
-                    try {
-                        var editor = _this.editorUi.editor;
-                        var xml = responseData.mxGraphModel;
-                        var doc = mxUtils.parseXml(xml);
-
-                        editor.setGraphXml(doc.documentElement);
-                        editor.setModified(false);
-                    } catch(e) {
-                        if (DEBUG){
-                            console.log('Error while show mxGraphModel, trying show graph based on relevantData', e.stack);
-                        }
-                    }
-                }
+//debugger;
             }
 
         } catch (e){
@@ -226,7 +261,7 @@ DataLoader.prototype.loadXMLData = function(){
     };
 
     loadMask.show();
-    new mxXmlRequest(url, 'key=value', 'GET').send(onload, onerror);
+    new mxXmlRequest(url, 'key=value', 'GET', false).send(onload, onerror);
 }
 
 
@@ -243,13 +278,17 @@ DataLoader.prototype.loadTypeData = function(url) {
         res.stylesheet = responseData.stylesheet;
     }
 
+    if (responseData.specification){
+        res.specification = responseData.specification;
+    }
+/*
     if (responseData.linkTypes){
         res.linkTypes = responseData.linkTypes;
     }
 
     if (responseData.objectTypes){
         res.objectTypes = responseData.objectTypes;
-    }
+    }*/
 
     return res;
 
@@ -274,13 +313,15 @@ DataLoader.prototype.sync = function() {
         loadMask.hide();
         try{
             var responseData = JSON.parse(req.getText());
+            console.log("responseData", responseData);
             if (responseData !== undefined){
 
                 //insert objects
                 if (responseData.objects){
                     responseData.objects.forEach(function(el){
                         _this.createCellFromUserObject(el);
-                    })
+                    });
+                    graph.refresh();
                 }
 
                 //insert links
@@ -360,12 +401,15 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
     var doc = mxUtils.createXmlDocument();
     var node = doc.createElement('UserNode');
     //var graph = this.graph;
-    var graph = EditUI.editor.graph;
+    var editor = this.editorUi;
+    var graph = editor.editor.graph;
     var parent = this.parent;
 
     var width = '';
     var height = '';
+    var style = 'whiteSpace=wrap;';
     var titleLength = obj.title?obj.title.length:0;
+    var newValue = null;
 
     var globalUsersCellX = this.globalUsersCellX;
     var globalUsersCellY = this.globalUsersCellY;
@@ -400,6 +444,7 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
             node.setAttribute('UUID', obj['UUID']);
         }
 
+        //console.log("attrs.attributes", attrs.attributes);
         for (var att in attrs.attributes){
             if (obj[att]){
                 node.setAttribute(att, obj[att]);
@@ -407,21 +452,68 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
                 node.setAttribute(att, '');
             }
         }
-
-        var style = '';
-
-        //TODO add other styles
-        switch(obj.metaClass){
-            case 'ae$bpstep':
-                style = 'step';
-                break;
-            case 'req$high':
-                style = 'rule';
-                break;
-        }
     }
 
     //adjust cell size by label length
+    var widthHeight = this.getWidthHeight(titleLength);
+    width = widthHeight.width;
+    height = widthHeight.height;
+
+    var templateAttribute = editor.objectTypes.getTemplateAttribute(metaClass);
+
+    if (templateAttribute){
+        newValue = obj[templateAttribute];
+    }
+
+    if (newValue) {
+        var group = editor.objectTypes.getGroup(metaClass, newValue);
+        style = editor.objectTypes.getElementStyle(metaClass, newValue);
+    }
+
+    //if it's group = action, get cell from stencilsStore
+    if (group === 'action'){
+        var newStyle = editor.objectTypes.getElementStyle(metaClass, newValue);
+        var protoCell = editor.stencilsStore.getById(newStyle);
+
+        if (protoCell.cell){
+            protoCell = protoCell.cell;
+
+            var newProtoCell = graph.moveCells(protoCell, null, null, true, parent)[0];
+
+            newProtoCell.setValue(node);
+            newProtoCell.getGeometry().width = width;
+            newProtoCell.getGeometry().height = height;
+        }
+    } else {
+        graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
+    }
+
+    this.globalUsersCellX += 10;
+    this.globalUsersCellY += 10;
+}
+
+/**
+ * Load stylesheet from server and set it to graph, from server shold came XML!
+ */
+DataLoader.prototype.loadStylesheetDoc = function(url){
+
+    var _this = this;
+    var req = mxUtils.load(url);
+    var root = req.getDocumentElement();
+    var dec = new mxCodec(root.ownerDocument);
+    dec.decode(root, _this.graph.stylesheet);
+
+};
+
+
+/**
+ * get width and height based on title length
+ */
+DataLoader.prototype.getWidthHeight = function(titleLength){
+
+    var width='';
+    var height='';
+
     if (titleLength <= 40){
         width = 130;
         height = 50;
@@ -457,25 +549,7 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
         height = 296;
     }
 
-    //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
-    graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
-
-    //var cell = graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
-    //console.log("cell", cell);
-    this.globalUsersCellX += 10;
-    this.globalUsersCellY += 10;
-}
-
-/**
- * Load stylesheet from server and set it to graph, from server shold came XML!
- */
-DataLoader.prototype.loadStylesheetDoc = function(url){
-
-    var _this = this;
-    var req = mxUtils.load(url);
-    var root = req.getDocumentElement();
-    var dec = new mxCodec(root.ownerDocument);
-    dec.decode(root, _this.graph.stylesheet);
+    return {width:width, height:height};
 
 };
 
@@ -530,4 +604,22 @@ DataLoader.prototype.exportXMLNode = function(){
     //debug stuff
     //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
 
+};
+
+/**
+ * Export xml node
+ */
+DataLoader.prototype.setMxGraphModel = function(){
+    try{
+        var editor = this.editorUi.editor;
+        var xml = this.mxGraphModelData;
+        var doc = mxUtils.parseXml(xml);
+
+        editor.setGraphXml(doc.documentElement);
+        editor.setModified(false);
+    } catch(e){
+        if(DEBUG){
+            console.log("Error while setting mxGraphModel", e.stack);
+        }
+    }
 };

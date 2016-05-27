@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2006-2012, JGraph Ltd
- * Create right panel
+ * Create right panel. This one should be user for minfin prj.
  */
 Format = function(editorUi, container)
 {
@@ -4818,6 +4818,114 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
         //rus attrs name, stored in title
         var labelName = directory[names[count]].title || names[count];
+        var filter = ui.objectTypes.getById(metaClass).templateAttribute === name/* && value*/;
+
+        var filterCombo = function(newValue){
+            //console.log("metaClass", metaClass);
+            //console.log("value", value);
+
+            if (newValue){
+                value = newValue;
+            }
+
+            var allowVals = ui.objectTypes.getAllowedValues(metaClass, value);
+
+            //console.log("allowVals", allowVals);
+
+            if (directory[name].values){
+                var values = directory[name].values;
+
+                //remove all options
+                for ( var j = texts[index].options.length - 1; j >= 0; j-- ) {
+                    texts[index].remove(j);
+                }
+
+                for(var i in values){
+                    if (values.hasOwnProperty(i) && (allowVals.length === 0 || (allowVals.contains(i) || !filter))){
+                        form.addOption(texts[index], values[i], i);
+                    }
+                }
+                //console.log("texts[index]", texts[index]);
+            }
+        };
+
+        var applyHandlerCheck = function(checkbox){
+            var newValue = checkbox.checked?'1':'';
+            cell.setAttribute(name, newValue);
+        };
+
+        var changeCell = function(newValue){
+            var newStyle = ui.objectTypes.getElementStyle(metaClass, newValue);
+            var group = ui.objectTypes.getGroup(metaClass, newValue);
+
+            if (group === 'action'){
+                //console.log("ACTION!!!!");
+                //console.log("metaClass", metaClass);
+                //console.log("newStyle", newStyle);
+
+                var geometry = graph.getModel().getGeometry(cell);
+                var incomeConnect = graph.getModel().getIncomingEdges(cell);
+                var outcomeConnect = graph.getModel().getOutgoingEdges(cell);
+                var val = cell.getValue();
+                var newParent = graph.getModel().getParent(cell);
+                var protoCell = ui.stencilsStore.getById(newStyle);
+
+                if (protoCell.cell){
+                    protoCell = protoCell.cell;
+
+                    var newCell = graph.moveCells(protoCell, geometry.x, geometry.y, true, newParent)[0];
+
+                    newCell.setValue(val);
+                    newCell.setGeometry(geometry);
+
+                    //reconnect edges
+                    incomeConnect.forEach(function(el){
+                        graph.cellConnected(el, newCell, false);
+                    });
+
+                    outcomeConnect.forEach(function(el){
+                        graph.cellConnected(el, newCell, true);
+                    });
+
+                    graph.addSelectionCell(newCell);
+                    graph.removeCells([cell], false);
+                }
+            } else if (newStyle){
+                graph.getModel().setStyle(cell, newStyle);
+                filterCombo(newValue);
+            }
+        };
+
+        var applyHandler = function() {
+            var newValue = texts[index].value || '';
+            var oldValue = cell.getAttribute(name, '');
+
+            if (newValue != oldValue) {
+                graph.getModel().beginUpdate();
+
+                try {
+                    var edit = new mxCellAttributeChange(cell, name, newValue);
+                    graph.getModel().execute(edit);
+
+                    if (name === attrToShow) {
+                        var edit2 = new mxCellAttributeChange(cell, 'label', newValue);
+                        graph.getModel().execute(edit2);
+                    }
+
+                    //change style
+                    if (metaClass && directory[name].type === 'list' && filter) {
+                        //filter combo list
+                        //values
+
+                        changeCell(newValue);
+                    }
+
+                    //graph.updateCellSize(cell);
+                } finally {
+                    graph.getModel().endUpdate();
+                }
+            }
+        };
 
         if (metaClass && directory[name] && directory[name].type){
 
@@ -4847,7 +4955,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
                                     //ctrl+c
                                 && !(evt.keyCode === 67 && evt.ctrlKey)
                                     //ctrl+A
-                                && !(evt.keyCode == 65 && evt.ctrlKey)
+                                && !(evt.keyCode === 65 && evt.ctrlKey)
                             ) {
                               mxEvent.consume(evt);
                             }
@@ -4859,18 +4967,14 @@ AttributePanel.prototype.addCellAttributes = function(container)
                     texts[index].style.width = '100%';
                     break;
                 case 'list'://combobox
+                    var lablNameByGroup = ui.objectTypes.getLabel(metaClass, value);
+                    labelName = lablNameByGroup?lablNameByGroup:labelName;
+
                     texts[index] = form.addComboColumn(labelName+ ':');
                     texts[index].style.width = '100%';
 
-                    form.addOption(texts[index], '', '');
-                    if (directory[name].values){
-                        var values = directory[name].values;
-                        for(var i in values){
-                            if (values.hasOwnProperty(i)){
-                                form.addOption(texts[index], values[i], i);
-                            }
-                        }
-                    }
+                    //form.addOption(texts[index], '', '');
+                    filterCombo();
 
                     texts[index].value = value;
                     texts[index].style.width = '100%';
@@ -4893,12 +4997,54 @@ AttributePanel.prototype.addCellAttributes = function(container)
 
         //texts[index] = form.addFieldColumn(labelName + ':', value);
 
-        var applyHandlerCheck = function(checkbox){
+        /*var applyHandlerCheck = function(checkbox){
             var newValue = checkbox.checked?'1':'';
             cell.setAttribute(name, newValue);
-        };
+        };*/
 
-        var applyHandler = function() {
+        //using for cells with childs
+        /*var changeCell = function(newValue){
+            var newStyle = ui.objectTypes.getElementStyle(metaClass, newValue);
+            var group = ui.objectTypes.getGroup(metaClass, newValue);
+
+            if (group === 'action'){
+                //console.log("ACTION!!!!");
+                //console.log("metaClass", metaClass);
+                //console.log("newStyle", newStyle);
+
+                var geometry = graph.getModel().getGeometry(cell);
+                var incomeConnect = graph.getModel().getIncomingEdges(cell);
+                var outcomeConnect = graph.getModel().getOutgoingEdges(cell);
+                var val = cell.getValue();
+                var newParent = graph.getModel().getParent(cell);
+                var protoCell = ui.stencilsStore.getById(newStyle);
+
+                if (protoCell.cell){
+                    protoCell = protoCell.cell;
+
+                    var newCell = graph.moveCells(protoCell, geometry.x, geometry.y, true, newParent)[0];
+
+                    newCell.setValue(val);
+                    newCell.setGeometry(geometry);
+
+                    //reconnect edges
+                    incomeConnect.forEach(function(el){
+                        graph.cellConnected(el, newCell, false);
+                    });
+
+                    outcomeConnect.forEach(function(el){
+                        graph.cellConnected(el, newCell, true);
+                    });
+
+                    graph.addSelectionCell(newCell);
+                    graph.removeCells([cell], false);
+                }
+            } else if (newStyle){
+                graph.getModel().setStyle(cell, newStyle);
+            }
+        };*/
+
+        /*var applyHandler = function() {
             var newValue = texts[index].value || '';
             var oldValue = cell.getAttribute(name, '');
 
@@ -4913,12 +5059,21 @@ AttributePanel.prototype.addCellAttributes = function(container)
                         var edit2 = new mxCellAttributeChange(cell, 'label', newValue);
                         graph.getModel().execute(edit2);
                     }
+
+                    //change style
+                    if (metaClass && directory[name].type === 'list' && filter) {
+                        //filter combo list
+                        //values
+
+                        changeCell(newValue);
+                    }
+
                     //graph.updateCellSize(cell);
                 } finally {
                     graph.getModel().endUpdate();
                 }
             }
-        };
+        };*/
 
         //for checkboxes different listeners
         if (directory[name].type === 'bool') {
@@ -4948,6 +5103,10 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 mxEvent.addListener(texts[index], 'focusout', applyHandler);
             } else {
                 mxEvent.addListener(texts[index], 'blur', applyHandler);
+            }
+
+            if (directory[name].type === 'list'){
+                mxEvent.addListener(texts[index], 'input', applyHandler);
             }
         }
     };

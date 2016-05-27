@@ -13,11 +13,17 @@ EditorUi = function(editor, container)
 	this.container = container || document.body;
 	var graph = this.editor.graph;
 
+    this.loadMask = new LoadMask(this);
+
     //Create dataLoader, we need it in Sedebar and Format
     this.dataLoader = new DataLoader(this);
     this.dataLoader.setAttributes();
-    this.restricteddAttributeList = ['metaClass', 'UUID'];
-    this.loadMask = new LoadMask(this);
+    this.restricteddAttributeList = ['metaClass', 'UUID', 'templateCode', 'group'];
+    this.dataLoader.loadXMLData();
+
+    //invoke edge validation
+    //TODO add interaction
+    new RelValidator(this);
 
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
@@ -882,7 +888,12 @@ EditorUi = function(editor, container)
    	this.editor.resetGraph();
    	this.init();
    	this.open();
-    this.dataLoader.loadXMLData();
+
+    //Set data to diagram
+    this.dataLoader.setMxGraphModel();
+
+    //Change title of page
+    this.dataLoader.changePageTitle();
 };
 
 // Extends mxEventSource

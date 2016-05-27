@@ -460,7 +460,7 @@ var AboutDialog = function(editorUi)
 };
 
 /**
- * Constructs a new about dialog.
+ * Constructs load mask
  */
 var LoadMask = function(editorUi) {
 

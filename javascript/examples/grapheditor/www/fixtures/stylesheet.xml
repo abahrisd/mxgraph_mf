@@ -4,89 +4,121 @@
         <add value="1" as="rounded"/>
         <add value="red" as="fillColor"/>
     </add>
-
     <add as="step">
         <add value="ext" as="shape"/>
         <add value="1" as="rounded"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#66FF66" as="fillColor"/>
     </add>
-
     <add as="event">
         <add value="message" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
-
     <add as="directionEvent">
         <add value="message" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
-
     <add as="startEvent">
         <add value="mxgraph.flowchart.on-page_reference" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
         <add value="2" as="strokeWidth"/>
     </add>
-
+    <add as="startMsgEvent">
+        <add value="mxgraph.bpmn.event_start_msg" as="shape"/>
+    </add>
     <add as="intermediateEvent">
         <add value="doubleEllipse" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
-
+    <add as="intermediateSendEvent">
+        <add value="mxgraph.bpmn.event_mailfill" as="shape"/>
+        <add value="#000000" as="fillColor"/>
+        <add value="wrap" as="whiteSpace"/>
+    </add>
+    <add as="intermediateReceiveEvent">
+        <add value="mxgraph.bpmn.event_mail" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
+    </add>
+    <add as="intermediateTimerEvent">
+        <add value="mxgraph.bpmn.event_timer" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
+    </add>
+    <add as="intermediateLink1Event">
+        <add value="mxgraph.bpmn.event_arrow" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
+    </add>
+    <add as="intermediateLink2Event">
+        <add value="mxgraph.bpmn.event_arrow_fill" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
+    </add>
     <add as="endEvent">
         <add value="mxgraph.flowchart.on-page_reference" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
         <add value="9" as="strokeWidth"/>
     </add>
-
+    <add as="endMsgEvent">
+        <add value="mxgraph.bpmn.event_end_msg" as="shape"/>
+        <add value="#000000" as="fillColor"/>
+    </add>
     <add as="parallelGateway">
-        <add value="orEllipse" as="shape"/>
-        <add value="1" as="html"/>
+        <add value="gatewayParallel" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
-        <add value="ellipsePerimeter" as="perimeter"/>
-        <add value="2" as="strokeWidth"/>
     </add>
-
     <add as="excludingGateway">
-        <add value="sumEllipse" as="shape"/>
-        <add value="1" as="html"/>
+        <add value="gatewayExclude" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
-        <add value="ellipsePerimeter" as="perimeter"/>
-        <add value="2" as="strokeWidth"/>
     </add>
-
     <add as="rule">
         <add value="mxgraph.flowchart.document" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#FFCCE6" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
-        <add value="2" as="strokeWidth"/>
+        <add value="1" as="strokeWidth"/>
     </add>
-
+    <add as="registry">
+        <add value="card" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
+    </add>
     <add as="dataObject">
         <add value="note" as="shape"/>
-        <add value="1" as="html"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="16" as="size"/>
         <add value="2" as="strokeWidth"/>
     </add>
-
+    <add as="pool">
+        <add value="swimlane" as="shape"/>
+        <add value="0" as="horizontal"/>
+        <add value="20" as="startSize"/>
+    </add>
+    <add as="swimlane">
+        <add value="swimlane" as="shape"/>
+        <add value="0" as="horizontal"/>
+        <add value="white" as="swimlaneFillColor"/>
+        <add value="0" as="swimlaneLine"/>
+    </add>
+    <add as="swimlane">
+        <add value="swimlane" as="shape"/>
+        <add value="0" as="horizontal"/>
+        <add value="white" as="swimlaneFillColor"/>
+        <add value="0" as="swimlaneLine"/>
+    </add>
     <add as="solidLine">
         <add value="0" as="dashed"/>
+        <add value="classic" as="endArrow"/>
     </add>
-
     <add as="dashedLine">
         <add value="1" as="dashed"/>
+        <add value="8 8" as="dashPattern"/>
+        <add value="classic" as="endArrow"/>
+    </add>
+    <add as="dottedLine">
+        <add value="1" as="dashed"/>
+        <add value="1 4" as="dashPattern"/>
+        <add value="2" as="strokeWidth"/>
+        <add value="classic" as="endArrow"/>
     </add>
 </mxStylesheet>

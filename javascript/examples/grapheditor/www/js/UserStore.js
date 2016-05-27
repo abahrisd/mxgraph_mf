@@ -76,3 +76,153 @@ UserStore.prototype.getById = function(id) {
 UserStore.prototype.getAll = function() {
     return this._items
 };
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getTemplatesByStencils = function(stencils) {
+
+    var res = [];
+    var objectTypesItems = this.getAll();
+
+    for (var i in objectTypesItems){
+        var templates = objectTypesItems[i].templates;
+
+        if (templates){
+            templates.forEach(function(el){
+                if (el.code && stencils[el.code]){
+                    res.push(stencils[el.code]);
+                }
+            });
+        } else {
+            if (objectTypesItems[i].style && stencils[objectTypesItems[i].style]){
+                res.push(stencils[objectTypesItems[i].style]);
+            }
+        }
+    }
+
+    return res;
+};
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getAllowedValues = function(metaClass, value) {
+
+    //Берём итам по метаклассу, берём группу по value и собираем все темплейты с такой группой. название делаем по templateGroups.name
+    var res = [];
+
+    var item = this.getById(metaClass);
+    var group = '';
+
+    if (item.templates){
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue === value && el.group){
+                group = el.group;
+                return true;
+            }
+            return false;
+        });
+
+        item.templates.forEach(function(el){
+            if (el.group === group && el.templateAttributeValue){
+                res.push(el.templateAttributeValue);
+            }
+        });
+    }
+
+    return res;
+};
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getLabel = function(metaClass, value) {
+
+    //Берём итам по метаклассу, берём группу по value и собираем все темплейты с такой группой. название делаем по templateGroups.name
+    var label = '';
+    var group = '';
+    var item = this.getById(metaClass);
+
+    if (item.templates){
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue && el.templateAttributeValue === value && el.group){
+                group = el.group;
+                return true;
+            }
+            return false;
+        });
+
+        if (item.templateGroups){
+            item.templateGroups.some(function(el){
+                if (el.code === group){
+                    label = el.name;
+                    return true;
+                }
+                return false;
+            })
+        }
+    }
+
+    return label;
+};
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getElementStyle = function(metaClass, value) {
+
+    var style = '';
+    var item = this.getById(metaClass);
+
+    if (item.templates){
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue && el.templateAttributeValue === value && el.style){
+                style = el.style;
+                return true;
+            }
+            return false;
+        });
+    }
+
+    return style;
+};
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getGroup = function(metaClass, value) {
+
+    var group = '';
+    var item = this.getById(metaClass);
+
+    if (item.templates){
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue && el.templateAttributeValue === value && el.group){
+                group = el.group;
+                return true;
+            }
+            return false;
+        });
+    }
+
+    return group;
+};
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getTemplateAttribute = function(metaClass) {
+
+    var item = this.getById(metaClass);
+
+    if (item){
+        return item.templateAttribute;
+    }
+
+    return '';
+
+};
