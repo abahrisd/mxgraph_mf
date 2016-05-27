@@ -855,6 +855,21 @@ Sidebar.prototype.addSearchPalette = function(expand)
 };
 
 /**
+ * Get stencil label
+ */
+Sidebar.prototype.getConnectionTitle = function(code, baseValue){
+
+    var connectionTypesItems = this.editorUi.connectionTypes.getAll();
+
+    for (var i in connectionTypesItems){
+        if (connectionTypesItems[i].code && connectionTypesItems[i].code === code){
+            return connectionTypesItems[i].name
+        }
+    }
+    return baseValue;
+};
+
+/**
  * Adds the general palette to the sidebar.
  */
 Sidebar.prototype.addGeneralPalette = function(expand)
@@ -863,8 +878,8 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
     //TODO: move names to resources files
     var stencils = {
-        pool: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;startSize=20;', 320, 240, 'Пул', 'Пул', null, null, 'bpmn pool', {metaClass: 'pool'}),
-        swimlane: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline'}),
+        pool: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;startSize=20;', 320, 240, 'Пул', 'Пул', null, null, 'bpmn pool', {metaClass: 'pool', type:'pool'}),
+        swimlane: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}),
 
         startEvent: this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000', 80, 80, '', 'Начальное событие', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'startEvent'}),
         startMsgEvent: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_start_msg;', 80, 80, '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep',type:'startMsgEvent'}),
@@ -945,9 +960,9 @@ Sidebar.prototype.addGeneralPalette = function(expand)
         registry: this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных', null, null, null,{metaClass:'ae$registry', type: 'registry'}),
         rule: this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', {metaClass:'req$high', type: 'rule'}),
 
-        solidLine: this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', 'Поток управления', null, null, null, {metaClass: "controlFlow", type: 'controlFlow'}),
-        dashedLine: this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=8 8;', 50, 50, '', 'Поток сообщений', null, null, null, {metaClass: "messageFlow", type: 'messageFlow'}),
-        dottedLine: this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;', 50, 50, '', 'Поток ассоциация', null, null, null, {metaClass:"associationFlow", type: 'associationFlow'}),
+        solidLine: this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', sb.getConnectionTitle('controlFlow', 'Поток управления'), null, null, null, {metaClass: "controlFlow", type: 'controlFlow'}),
+        dashedLine: this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=8 8;', 50, 50, '', sb.getConnectionTitle('messageFlow','Поток сообщений'), null, null, null, {metaClass: "messageFlow", type: 'messageFlow'}),
+        dottedLine: this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;', 50, 50, '', sb.getConnectionTitle('associationFlow','Поток ассоциация'), null, null, null, {metaClass:"associationFlow", type: 'associationFlow'}),
 
         text: this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;', 40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
     };
