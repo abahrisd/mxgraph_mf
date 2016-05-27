@@ -140,11 +140,7 @@ Actions.prototype.init = function()
         if (!ui.isNoMultiple()){
             mxClipboard.copy(graph);
         } else {
-            mxClipboard.setCells(null);
-            var node = ui.unableCopyWarn;
-            if (!node || (node && node.div === null)){
-                ui.unableCopyWarn = mxUtils.error(mxResources.get('unableCopyCell'), 200, true);
-            }
+            ui.cleanClipboardAndShowError(mxResources.get('unableCopyCell'));
         }
     }, null, 'sprite-copy', 'Ctrl+C');
 	this.addAction('paste', function()
@@ -227,7 +223,11 @@ Actions.prototype.init = function()
 	}, null, null, 'Ctrl+Delete');
 	this.addAction('duplicate', function()
 	{
-		graph.setSelectionCells(graph.duplicateCells());
+        if (!ui.isNoMultiple()){
+            graph.setSelectionCells(graph.duplicateCells());
+        } else {
+            ui.cleanClipboardAndShowError(mxResources.get('unableCloneCell'));
+        }
 	}, null, null, 'Ctrl+D');
 	this.addAction('turn', function()
 	{

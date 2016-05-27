@@ -6,6 +6,7 @@ function EqualAttrs(editorUi, paramName)
     this.editorUi = editorUi;
     this.graph = this.editorUi.editor.graph;
     this.paramName = paramName;
+    this.refreshGraph = false;
 
     this.globalUsersCellX = 40;
     this.globalUsersCellY = 40;
@@ -14,6 +15,10 @@ function EqualAttrs(editorUi, paramName)
     this.init();
 };
 
+/**
+ * Show that lable is changed and we need to refresh graph
+ */
+//EqualAttrs.prototype.refreshGraph = false;
 /**
  * Init listen changes
  */
@@ -42,6 +47,11 @@ EqualAttrs.prototype.init = function() {
                 }
             }
         });
+
+        if (_this.refreshGraph){
+            graph.refresh();
+            _this.refreshGraph = false;
+        }
     });
 };
 
@@ -74,12 +84,36 @@ EqualAttrs.prototype.findEqualCells = function(cell, paramName) {
 EqualAttrs.prototype.setAttributesEqual = function(cell, cellsToUpdate){
 
     var graph = this.graph;
+    var _this = this;
     graph.getModel().beginUpdate();
+    var attrToShow = '';
+
+
+    //TODO refactor it. Need event for change label
+    var atributesDirectory = this.editorUi.atributesDirectory;
+    if (atributesDirectory) {
+        var metaClass = cell.getValue().getAttribute('metaClass');
+
+        if (atributesDirectory.getById(metaClass)){
+            var attributeItem = atributesDirectory.getById(metaClass);
+            if (attributeItem.nameAttribute){
+                attrToShow = attributeItem.nameAttribute;
+            }
+        }
+    }
+
     try {
         cellsToUpdate.forEach(function(el){
-
             for (var i = 0, atts = cell.getValue().attributes, n = atts.length; i < n; i++){
-                el.getValue().setAttribute(atts[i].nodeName, atts[i].nodeValue);
+
+                var attrValue = el.getValue().getAttribute(atts[i].nodeName);
+                if (attrValue !== atts[i].nodeValue){
+                    el.getValue().setAttribute(atts[i].nodeName, atts[i].nodeValue);
+                    if (atts[i].nodeName === attrToShow){
+                        el.getValue().setAttribute('label', atts[i].nodeValue);
+                        _this.refreshGraph = true;
+                    }
+                }
             }
         });
     } finally {

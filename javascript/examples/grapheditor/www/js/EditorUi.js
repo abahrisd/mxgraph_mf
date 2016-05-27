@@ -26,7 +26,7 @@ EditorUi = function(editor, container)
     new RelValidator(this);
 
     //when exist two object with same UUID, when we change first - second changed too
-    new EqualAttrs(this, 'UUID');
+    this.equals = new EqualAttrs(this, 'UUID');
 
 	// Pre-fetches submenu image or replaces with embedded image if supported
 	if (mxClient.IS_SVG)
@@ -3467,4 +3467,19 @@ EditorUi.prototype.isNoMultiple = function() {
         var metaClass = el.getValue().getAttribute('metaClass');
         return !(editor.objectTypes.getById(metaClass) && editor.objectTypes.getById(metaClass).multiple);
     });
+};
+
+
+/**
+ * Sets the enabled state of the action and fires a stateChanged event.
+ */
+EditorUi.prototype.cleanClipboardAndShowError = function(msg) {
+    var ui = this;
+
+    mxClipboard.setCells(null);
+    var node = ui.unableCopyWarn;
+    if (!node || (node && node.div === null)){
+
+        ui.unableCopyWarn = mxUtils.error(msg, 200, true);
+    }
 };

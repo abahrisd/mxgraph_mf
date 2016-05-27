@@ -300,6 +300,7 @@ undo=Undo
 ungroup=Ungroup
 url=URL
 unableCopyCell=Unable to copy this object
+unableCloneCell=Unable to clone this object
 untitledLayer=Untitled Layer
 vertical=Vertical
 verticalFlow=Vertical Flow

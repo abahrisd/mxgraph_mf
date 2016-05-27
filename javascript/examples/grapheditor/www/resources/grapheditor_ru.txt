@@ -282,6 +282,7 @@ transparent=Прозрачный
 turn=Вращать
 uml=UML
 unableCopyCell=Копирование невозможно
+unableCloneCell=Клонирование невозможно
 underline=Подчеркивание
 undo=Отменить
 ungroup=Разгруппировать
