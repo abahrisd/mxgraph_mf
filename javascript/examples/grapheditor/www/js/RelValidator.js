@@ -72,40 +72,32 @@ RelValidator.prototype.addEdgeValidation = function() {
                 }
 
                 var linkTypes = _this._linkTypes.getAll();
-                var error = true;
 
+                //TODO Refactor this block about errors
+                var error = false;
+
+                //смотрим forbiddenConnections, если нашли наш случай - то выбрасываем ошибк
+                //если не нашли ограничений, смотрим разрешения
+                //если не нашлиразрешения - то выбрасываем ошибку
+                if (edge && (source || target)){
+                    error = _this.checkForbiddenConnections(edge, source, target);
+                }
+
+                if (error){
+                    if (DEBUG){
+                        console.log(mxResources.get('errorForbiddenConnection'));
+                    }
+                    return mxResources.get('errorForbiddenConnection')
+                }
+
+                error = true;
                 for (var i in linkTypes){
                     if (i){
-
-                        /*if (i == 'rule2step'){
-                             console.log("linkTypes[i].sourceType", linkTypes[i].sourceType);
-                             console.log("sourceCode", sourceCode);
-                             console.log("linkTypes[i].targetType", linkTypes[i].targetType);
-                             console.log("targetCode", targetCode);
-                             console.log("edgeCode", edgeCode);
-                             console.log("linkTypes[i].style", linkTypes[i].style);
-                         }*/
-
-                        if (
-                            (sourceCode === undefined && targetCode === undefined ) ||
-                            (
-                                (
-                                    (sourceCode !== undefined && linkTypes[i].sourceType && linkTypes[i].sourceType === sourceCode) ||
-                                    (targetCode !== undefined && linkTypes[i].targetType && linkTypes[i].targetType === targetCode)
-                                ) &&
-
-                                //TODO Check, we really need it?
-                                (linkTypes[i].connectionType && linkTypes[i].connectionType === edgeCode)
-                            )
+                        if ( (sourceCode === undefined || (linkTypes[i].sourceType && linkTypes[i].sourceType === sourceCode)) &&
+                            (targetCode === undefined || (linkTypes[i].targetType && linkTypes[i].targetType === targetCode)) &&
+                                //TODO refactor ifelse
+                            ((sourceCode === undefined && targetCode === undefined ) || (linkTypes[i].connectionType && linkTypes[i].connectionType === edgeCode))
                         ){
-
-                            //mxConstants.HIGHLIGHT_COLOR = '#00FF00';
-                            //mxConstants.CONNECT_TARGET_COLOR = '#00FF00';
-
-                            //var graph = _this.graph;
-                            //var highlight = new mxCellHighlight(graph, '#00ff00', 2);
-                            //highlight.highlight(graph.view.getState(target));
-
                             error = false;
                             if (sourceCode && targetCode) {
                                 edge.setAttribute('typeCode', i);
@@ -164,5 +156,45 @@ RelValidator.prototype.createValidateListener = function() {
             //ui.undo();
         }
     });
-}
+};
+
+/**
+ * checkForbiddenConnections
+ */
+RelValidator.prototype.checkForbiddenConnections = function(edge, source, target) {
+
+    var ui = this.editorUi;
+    var objectTypes = ui.objectTypes;
+    var forbiddenConnections = ui.forbiddenConnections;
+    var error = false;
+
+    forbiddenConnections.some(function(el){
+        if (el.restrictionType === 'byTemplates'){
+
+            if ((!el.sourceTemplate && !el.targetTemplate) || !el.connectionType){
+                return false;
+            }
+
+            if (el.connectionType === edge.getValue().getAttribute('metaClass')){
+
+                //запрещаются любые входящие связи connectionType для шаблонов targetTemplate
+                if (el.sourceTemplate === null && el.targetTemplate === objectTypes.getCellTmp(target) ){
+                    error = true;
+                    return true;
+
+                //запрещаются любые исходящие связи connectionType на шаблоны sourceTemplate
+                } else if (el.targetTemplate === null && el.sourceTemplate === objectTypes.getCellTmp(source) ){
+                    error = true;
+                    return true;
+                } else if ( el.targetTemplate === objectTypes.getCellTmp(target) && el.sourceTemplate === objectTypes.getCellTmp(source) ) {
+                    error = true;
+                    return true;
+                }
+            }
+        }
+        return false;
+    });
+
+    return error;
+};
 

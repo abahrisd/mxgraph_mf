@@ -105,7 +105,8 @@ DataLoader.prototype.setConnectionTypes = function(objectTypes) {
  * Create store for forbiddenConnections
  */
 DataLoader.prototype.setForbiddenConnections = function(objectTypes) {
-    this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
+    this.editorUi.forbiddenConnections = objectTypes;
+    //this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
 };
 
 /**

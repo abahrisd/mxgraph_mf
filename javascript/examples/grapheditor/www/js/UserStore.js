@@ -243,3 +243,33 @@ UserStore.prototype.getBaseStyle = function(metaClass) {
     return '';
 
 };
+
+/**
+ * Get style, when templateAttribute is null
+ */
+UserStore.prototype.getCellTmp = function(cell) {
+
+    if (!cell){
+        return '';
+    }
+
+    var metaClass = cell.getValue().getAttribute('metaClass');
+    var item = this.getById(metaClass);
+    var tempAttr = item.templateAttribute;
+    var tempAttrValue = cell.getValue().getAttribute(tempAttr);
+    var tmp = '';
+
+    if (item && item.templates){
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue && el.templateAttributeValue === tempAttrValue && el.code){
+                tmp = el.code;
+                return true;
+            }
+            return false;
+        });
+    }
+
+    return tmp;
+
+};

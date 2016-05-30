@@ -96,6 +96,7 @@ enterName=Введите имя
 enterPropertyName=Название свойства
 entityRelation=ERM
 errorBound=Невозможно создать связь
+errorForbiddenConnection=Данный тип связи запрещён
 errorBoundSource=Невозможно связать с источником
 errorBoundTarget=Невозможно связать с целью
 exitGroup=Выйти из группы

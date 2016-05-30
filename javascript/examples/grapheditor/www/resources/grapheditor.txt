@@ -101,6 +101,7 @@ enterName=Enter Name
 enterPropertyName=Enter Property Name
 entityRelation=Entity Relation
 errorBound=Bound not available
+errorForbiddenConnection=This type of connection is forbidden
 errorBoundSource=Not available to bound with source
 errorBoundTarget=Not available to bound with target
 exitGroup=Exit Group
