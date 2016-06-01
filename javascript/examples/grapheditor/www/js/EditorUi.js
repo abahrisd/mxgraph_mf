@@ -3431,9 +3431,6 @@ EditorUi.prototype.getSystemState = function() {
     //EditUI.editor.graph.getModel().getDescendants(EditUI.editor.graph.getDefaultParent())
     var allCells = graph.getModel().getDescendants(graph.getDefaultParent());
 
-
-    //вот теперь нужна рекурсия
-
     allCells.forEach(function(el){
         if (el.vertex && el.getValue().attributes){
             output.objects.push(createCellObject(el));
@@ -3441,7 +3438,6 @@ EditorUi.prototype.getSystemState = function() {
             output.links.push(createCellObject(el));
         }
     });
-
 
     allCells.forEach(function(el){
         createPartitionLink(el);
@@ -3469,6 +3465,7 @@ EditorUi.prototype.getSystemState = function() {
                         if (parentMetaClass && childMetaClass &&
                             links[link].sourceType && links[link].sourceType === parentMetaClass
                             && links[link].targetType && links[link].targetType === childMetaClass) {
+
                             //TODO may be conflicts with createCellObject format, need uniq format
                             output.links.push({
                                 source: cell.getValue().getAttribute('UUID'),
@@ -3478,9 +3475,6 @@ EditorUi.prototype.getSystemState = function() {
                         }
                     }
                 }
-                /*.forEach(function(link){
-
-                });*/
 
                 //and for child's childs
                 createPartitionLink(el);

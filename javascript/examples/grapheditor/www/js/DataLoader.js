@@ -31,23 +31,22 @@ function DataLoader(editorUi) {
 /**
  * Init setting privilege
  */
-DataLoader.prototype.init = function(queryStr) {
+/*DataLoader.prototype.init = function (queryStr) {
 
-    //this.setAttributes(queryStr);
     //Nope
-};
+};*/
 
 /**
  * Generate url from queryStr
  */
-DataLoader.prototype.generateUrl = function(queryStr) {
+DataLoader.prototype.generateUrl = function (queryStr) {
     return (this.origin + this.getPath + queryStr.view + '?accessKey=' + queryStr.accessKey );
 };
 
 /**
  * Set styleseet from this.stylesheet
  */
-DataLoader.prototype.setStylesheet = function(stylesheet) {
+DataLoader.prototype.setStylesheet = function (stylesheet) {
 
     var graph = this.graph;
     var doc = mxUtils.parseXml(stylesheet);
@@ -59,7 +58,7 @@ DataLoader.prototype.setStylesheet = function(stylesheet) {
 /**
  * Create store for linkTypes
  */
-DataLoader.prototype.setLinkTypes = function(linkTypes) {
+DataLoader.prototype.setLinkTypes = function (linkTypes) {
     this.editorUi.linkTypes = new UserStore(null, linkTypes, 'code');
 
     //init edge validation
@@ -69,21 +68,21 @@ DataLoader.prototype.setLinkTypes = function(linkTypes) {
 /**
  * Create store for objectTypes
  */
-DataLoader.prototype.setObjectTypes = function(objectTypes) {
+DataLoader.prototype.setObjectTypes = function (objectTypes) {
     this.editorUi.objectTypes = new UserStore(null, objectTypes, 'code');
 };
 
 /**
  * Create store for connectionTypes
  */
-DataLoader.prototype.setConnectionTypes = function(objectTypes) {
+DataLoader.prototype.setConnectionTypes = function (objectTypes) {
     this.editorUi.connectionTypes = new UserStore(null, objectTypes, 'code');
 };
 
 /**
  * Create store for forbiddenConnections
  */
-DataLoader.prototype.setForbiddenConnections = function(objectTypes) {
+DataLoader.prototype.setForbiddenConnections = function (objectTypes) {
     this.editorUi.forbiddenConnections = objectTypes;
     //this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
 };
@@ -91,7 +90,7 @@ DataLoader.prototype.setForbiddenConnections = function(objectTypes) {
 /**
  * Create store for forbiddenConnections
  */
-DataLoader.prototype.setImpliedContainment = function(objectTypes) {
+DataLoader.prototype.setImpliedContainment = function (objectTypes) {
     this.editorUi.impliedContainment = new UserStore(null, objectTypes, 'type');
     //this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
 };
@@ -99,7 +98,7 @@ DataLoader.prototype.setImpliedContainment = function(objectTypes) {
 /**
  * Create store for objectTypes
  */
-DataLoader.prototype.setAttributes = function() {
+DataLoader.prototype.setAttributes = function () {
     var queryString = this.queryStr;
 
     var url = this.origin + this.funcPath + '?accessKey=' + queryString.accessKey + '&func=modules.mxGraph.getTypeAttributesJson&params=';
@@ -111,7 +110,7 @@ DataLoader.prototype.setAttributes = function() {
 /**
  * Create store for objectTypes
  */
-DataLoader.prototype.changePageTitle = function() {
+DataLoader.prototype.changePageTitle = function () {
 
     var title = this.title;
     var menuBar = document.getElementsByClassName('geMenubar')[0];
@@ -140,7 +139,7 @@ DataLoader.prototype.changePageTitle = function() {
 /**
  * Load stylesheet.xml from server and set it to graph
  */
-DataLoader.prototype.loadXMLData = function(){
+DataLoader.prototype.loadXMLData = function () {
 
     var _this = this;
     var url = this.generateUrl(_this.queryStr);
@@ -148,20 +147,20 @@ DataLoader.prototype.loadXMLData = function(){
     var loadMask = this.editorUi.loadMask;
     loadMask.setLoadText('Загрузка...');
 
-    var onload = function(req){
+    var onload = function (req) {
         loadMask.hide();
-        try{
+        try {
             var responseData = JSON.parse(req.getText());
 
-            if (responseData !== undefined){
+            if (responseData !== undefined) {
 
                 //set page title and page name on up right corner
-                if (responseData.title){
+                if (responseData.title) {
                     _this.title = responseData.title;
                 }
 
                 //if exits mxGraphModel save it in editor param
-                if (responseData.mxGraphModel){
+                if (responseData.mxGraphModel) {
                     _this.mxGraphModelData = responseData.mxGraphModel;
                 }
 
@@ -193,7 +192,7 @@ DataLoader.prototype.loadXMLData = function(){
                                 //var linkTypes = JSON.parse(res.linkTypes);
                                 _this.setLinkTypes(spec.linkTypes);
                             } else {
-                                if (DEBUG){
+                                if (DEBUG) {
                                     console.log("Unable to set linkTypes");
                                 }
                             }
@@ -202,7 +201,7 @@ DataLoader.prototype.loadXMLData = function(){
                                 //var objectTypes = JSON.parse(res.objectTypes);
                                 _this.setObjectTypes(spec.objectTypes);
                             } else {
-                                if (DEBUG){
+                                if (DEBUG) {
                                     console.log("Unable to set objectTypes");
                                 }
                             }
@@ -211,7 +210,7 @@ DataLoader.prototype.loadXMLData = function(){
                                 //var objectTypes = JSON.parse(res.objectTypes);
                                 _this.setConnectionTypes(spec.connectionTypes);
                             } else {
-                                if (DEBUG){
+                                if (DEBUG) {
                                     console.log("Unable to set connectionTypes");
                                 }
                             }
@@ -220,7 +219,7 @@ DataLoader.prototype.loadXMLData = function(){
                                 //var objectTypes = JSON.parse(res.objectTypes);
                                 _this.setForbiddenConnections(spec.forbiddenConnections);
                             } else {
-                                if (DEBUG){
+                                if (DEBUG) {
                                     console.log("Unable to set forbiddenConnections");
                                 }
                             }
@@ -230,7 +229,7 @@ DataLoader.prototype.loadXMLData = function(){
                                 //console.log("impliedContainment", spec.impliedContainment);
                                 _this.setImpliedContainment(spec.impliedContainment);
                             } else {
-                                if (DEBUG){
+                                if (DEBUG) {
                                     console.log("Unable to set impliedContainment");
                                 }
                             }
@@ -376,23 +375,23 @@ DataLoader.prototype.sync = function() {
 
                     //insert participant links (child-parent)
                     responseData.links.forEach(function(el){
+                        if (el.typeCode === 'participant2step'){
 
-                        //TODO create structure for fast search cell by _metaClass
-                        var source, target;
+                            //TODO create structure for fast search cell by _metaClass
+                            var source, target;
 
-                        graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
-                            if (cell && cell.getValue()){
-                                if (cell.getValue().getAttribute('UUID') == el.source) {
-                                    source = cell;
+                            graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
+                                if (cell && cell.getValue()){
+                                    if (cell.getValue().getAttribute('UUID') == el.source) {
+                                        source = cell;
+                                    }
+                                    if (cell.getValue().getAttribute('UUID') == el.target) {
+                                        target = cell;
+                                    }
                                 }
-                                if (cell.getValue().getAttribute('UUID') == el.target) {
-                                    target = cell;
-                                }
-                            }
-                        });
+                            });
 
-                        if (source && target){
-                            if (el.typeCode === 'participant2step'){
+                            if (source && target){
                                 var newTarget = graph.cloneCells([target])[0];
                                 targetsToDel.push(target);
                                 graph.groupCells(source, 10, [newTarget]);
@@ -405,25 +404,30 @@ DataLoader.prototype.sync = function() {
                         }
                     });
 
-
                     //insert connection links (arrows)
-                    responseData.links.forEach(function(el){
+                    /*responseData.links.forEach(function(el){
 
                         //TODO create structure for fast search cell by _metaClass
                         var source, target;
 
                         graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
                             if (cell && cell.getValue()){
-                                if (cell.getValue().getAttribute('UUID') == el.source) {
+                                if (cell.getValue().getAttribute('UUID') === el.source) {
                                     source = cell;
                                 }
-                                if (cell.getValue().getAttribute('UUID') == el.target) {
+                                if (cell.getValue().getAttribute('UUID') === el.target) {
                                     target = cell;
                                 }
                             }
                         });
 
                         if (source && target){
+
+                            /!*if (el.source === 'ae$78454'){
+                                debugger;
+                                console.log("el", el);
+                                _this.editorUi.ne = newEdge;
+                            }*!/
 
                             if (el.typeCode !== 'participant2step'){
                                 var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
@@ -447,12 +451,60 @@ DataLoader.prototype.sync = function() {
                                 graph.getModel().setValue(newEdge, val);
                             }
                         }
-                    });
+                    });*/
 
                     targetsToDel.forEach(function(trg){
                        graph.getModel().remove(trg);
                     });
                 }
+
+                responseData.links.forEach(function(el){
+
+                    if (el.typeCode !== 'participant2step'){
+                        //TODO create structure for fast search cell by _metaClass
+                        var source, target;
+
+                        graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
+                            if (cell && cell.getValue()){
+                                if (cell.getValue().getAttribute('UUID') === el.source) {
+                                    source = cell;
+                                }
+                                if (cell.getValue().getAttribute('UUID') === el.target) {
+                                    target = cell;
+                                }
+                            }
+                        });
+
+                        if (source && target){
+
+                            /*if (el.source === 'ae$78454'){
+                             debugger;
+                             console.log("el", el);
+                             _this.editorUi.ne = newEdge;
+                             }*/
+
+                            var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+
+                            //TODO move in separate func
+                            //add custom attrs
+                            var val = graph.getModel().getValue(newEdge);
+
+                            // Converts the value to an XML node
+                            if (!mxUtils.isNode(val)) {
+                                var doc = mxUtils.createXmlDocument();
+                                var obj = doc.createElement('object');
+                                obj.setAttribute('label', val || '');
+                                val = obj;
+                            }
+
+                            val.setAttribute("source", el.source);
+                            val.setAttribute("target", el.target);
+                            val.setAttribute("typeCode", el.typeCode);
+
+                            graph.getModel().setValue(newEdge, val);
+                        }
+                    }
+                });
 
                 if (parents.length > 0){
                     //arrange obj inside pools
@@ -500,7 +552,6 @@ DataLoader.prototype.sync = function() {
                 } else {
                     _this.arrangeHorizontal();
                 }
-
 
 
                 editor.setModified(false);
