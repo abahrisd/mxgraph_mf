@@ -9,26 +9,80 @@ function UserStore(url, data, idValue)
     //object for storing link types
     //this.__linkTypes = [];
 
+    //this.origin = window.location.origin;
+    //this.getPath = window.location.getPath;
+
+    this.origin = 'http://217.74.43.104:8080';
+    this.queryStr = globalQueryString;
+
     //overwright edge validator
     this._items = {};
     this.idValue = idValue;
     this.init(url, data);
 };
 
+/**
+ * Find path for REST request
+ */
+UserStore.prototype.findPath = '/sd/services/rest/find/';
 
 /**
  * Init setting privilege
  */
 UserStore.prototype.init = function(url, data) {
     var _this = this;
+    var responseData;
+
+    if (url && data){
+        console.log("Нельзя указать url и data одновременно");
+        return;
+    }
 
     if (url){
-        this.loadData(url);
+        responseData = this.loadData(url);
     } else if (data){
-        data.forEach(function(el){
-            _this._add(el)
+        responseData = data;
+    }
+
+    if (responseData){
+        responseData.forEach(function(el){
+            if (el.imported && el.code){
+
+                var importUrl = _this.origin + _this.findPath + el.code + '?accessKey=' + _this.queryStr.accessKey;
+                var req = mxUtils.load(importUrl);
+                var importResponse = JSON.parse(req.getText());
+                el.importedObjects = [];
+
+                importResponse.forEach(function(item){
+                    var importItem = {};
+
+                    if (item.code){
+                        importItem.code = item.code
+                    }
+
+                    if (item.metaClass){
+                        importItem.metaClass = item.metaClass
+                    }
+
+                    if (item.description){
+                        importItem.description = item.description
+                    }
+
+                    if (item.title){
+                        importItem.title = item.title
+                    }
+
+                    if (item.UUID){
+                        importItem.UUID = item.UUID
+                    }
+
+                    el.importedObjects.push(importItem);
+
+                });
+             }
+
+            _this._add(el);
         });
-        //this.setData(data);
     }
 
     //this.createValidateListener();
@@ -43,14 +97,7 @@ UserStore.prototype.loadData = function(url){
     var _this = this;
     try{
         var req = mxUtils.load(url);
-        var responseData = JSON.parse(req.getText());
-
-        if (responseData){
-            responseData.forEach(function(el){
-                _this._add(el)
-            });
-        }
-
+        return JSON.parse(req.getText());
     } catch (e){
         console.log('Error on load store',e.stack);
     }

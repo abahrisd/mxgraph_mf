@@ -91,14 +91,133 @@ function Sidebar(editorUi, container)
 };
 
 /**
+ * Clicking on first panel
+ */
+Sidebar.prototype.clickPanel = function(panel) {
+    var clickEvent = new MouseEvent("click", {
+        "view": window,
+        "bubbles": true,
+        "cancelable": false
+    });
+
+    panel.dispatchEvent(clickEvent);
+}
+
+/**
  * Adds all palettes to the sidebar.
  */
 Sidebar.prototype.init = function()
 {
-	var dir = STENCIL_PATH;
+	//var dir = STENCIL_PATH;
 
-	this.addSearchPalette(true);
-	this.addGeneralPalette(true);
+    var ui = this.editorUi;
+    var graph = ui.editor.graph;
+
+    var div = document.createElement('div');
+    div.style.whiteSpace = 'nowrap';
+    div.style.color = 'rgb(112, 112, 112)';
+    div.style.textAlign = 'left';
+    div.style.cursor = 'default';
+
+    var label = document.createElement('div');
+    label.style.border = '1px solid #c0c0c0';
+    label.style.borderWidth = '0px 0px 1px 0px';
+    label.style.textAlign = 'center';
+    label.style.fontWeight = 'bold';
+    label.style.overflow = 'hidden';
+    label.style.display = (mxClient.IS_QUIRKS) ? 'inline' : 'inline-block';
+    label.style.paddingTop = '8px';
+    label.style.height = (mxClient.IS_QUIRKS) ? '34px' : '25px';
+    label.style.width = '100%';
+    this.container.appendChild(div);
+
+    var containsLabel = false;//true; //this.getSelectionState().containsLabel;
+    var currentLabel = null;
+    var currentPanel = null;
+
+    var addClickHandler = mxUtils.bind(this, function(elt, panel, index)
+    {
+        var clickHandler = mxUtils.bind(this, function(evt)
+        {
+            if (currentLabel != elt)
+            {
+                if (containsLabel)
+                {
+                    this.labelIndex = index;
+                }
+                else
+                {
+                    this.currentIndex = index;
+                }
+
+                if (currentLabel != null)
+                {
+                    currentLabel.style.backgroundColor = '#d7d7d7';
+                    currentLabel.style.borderBottomWidth = '1px';
+                }
+
+                currentLabel = elt;
+                currentLabel.style.backgroundColor = '';
+                currentLabel.style.borderBottomWidth = '0px';
+
+                if (currentPanel != panel)
+                {
+                    if (currentPanel != null)
+                    {
+                        currentPanel.style.display = 'none';
+                    }
+
+                    currentPanel = panel;
+                    currentPanel.style.display = '';
+                }
+            }
+        });
+
+        mxEvent.addListener(elt, 'click', clickHandler);
+
+        if (index == ((containsLabel) ? this.labelIndex : this.currentIndex))
+        {
+            // Invokes handler directly as a workaround for no click on DIV in KHTML.
+            clickHandler();
+        }
+    });
+
+    var idx = 0;
+
+    //label.style.backgroundColor = '';
+    label.style.backgroundColor = '#d7d7d7';
+    //no left border in left label
+    label.style.borderLeftWidth = '0px';
+    label.style.width = '50%';
+    var label2 = label.cloneNode(false);
+
+    // Workaround for ignored background in IE
+    label2.style.backgroundColor = '#d7d7d7';
+
+    mxUtils.write(label, mxResources.get('create'));
+    div.appendChild(label);
+
+    mxUtils.write(label2, mxResources.get('copy'));
+    div.appendChild(label2);
+
+    var createPanel = document.createElement('div');
+    this.addSearchPalette(true, createPanel);
+    this.addGeneralPalette(true, createPanel);
+    this.container.appendChild(createPanel);
+
+    var copyPanel = document.createElement('div');
+    copyPanel.style.display = 'none';
+    this.container.appendChild(copyPanel);
+
+    addClickHandler(label, createPanel, idx++);
+    addClickHandler(label2, copyPanel, idx++);
+
+    //coz we rendering sidebar after adding click events
+    this.clickPanel(label);
+
+    this.addPaletteFunctions('Copy', mxResources.get('copy'), true, [this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;', 40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label', null/*{metaClass: ''}*/)], copyPanel);
+
+    //this.addGeneralPalette(true);
 	/*this.addMiscPalette(false);
 	this.addAdvancedPalette(false);
 	this.addStencilPalette('basic', mxResources.get('basic'), dir + '/basic.xml',
@@ -561,10 +680,10 @@ Sidebar.prototype.cloneCell = function(cell, value)
 /**
  * Adds shape search UI.
  */
-Sidebar.prototype.addSearchPalette = function(expand)
+Sidebar.prototype.addSearchPalette = function(expand, container)
 {
 	var elt = document.createElement('div');
-	this.container.appendChild(elt);
+    container.appendChild(elt);
 	
 	// Workaround for important padding in Atlas UI
 	elt.style.cssText = 'padding:0px !important;';
@@ -675,7 +794,7 @@ Sidebar.prototype.addSearchPalette = function(expand)
 	find = mxUtils.bind(this, function()
 	{
 		// Shows 4 rows (minimum 4 results)
-		count = 4 * Math.max(1, Math.floor(this.container.clientWidth / (this.thumbWidth + 10)));
+		count = 4 * Math.max(1, Math.floor(container.clientWidth / (this.thumbWidth + 10)));
 		this.hideTooltip();
 		
 		if (input.value != '')
@@ -848,7 +967,7 @@ Sidebar.prototype.addSearchPalette = function(expand)
 
 	var outer = document.createElement('div');
     outer.appendChild(div);
-    this.container.appendChild(outer);
+    container.appendChild(outer);
 	
     // Keeps references to the DOM nodes
 	this.palettes['search'] = [elt, outer];
@@ -872,25 +991,25 @@ Sidebar.prototype.getConnectionTitle = function(code, baseValue){
 /**
  * Adds the general palette to the sidebar.
  */
-Sidebar.prototype.addGeneralPalette = function(expand)
+Sidebar.prototype.addGeneralPalette = function(expand, container)
 {
     var sb = this;
 
     //TODO: move names to resources files
     var stencils = {
-        pool: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;startSize=20;', 320, 240, 'Пул', 'Пул', null, null, 'bpmn pool', {metaClass: 'pool', type:'pool'}),
+        participant: this.createVertexTemplateEntry('shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;', 320, 240, 'Участник', 'Участник', null, null, 'bpmn pool', {metaClass: 'ae$participant', type:'participant'}),
         swimlane: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}),
 
         startEvent: this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000', 80, 80, '', 'Начальное событие', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'startEvent'}),
-        startMsgEvent: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_start_msg;', 80, 80, '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep',type:'startMsgEvent'}),
+        startEventWithMessage: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_start_msg;', 80, 80, '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep',type:'startEventWithMessage'}),
 
-        endEvent: this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 60, 60, '', 'Конечное событие', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'endEvent'}),
-        endMsgEvent: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_end_msg;fillColor=#000000;', 80, 80, '', 'Конечное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'endMsgEvent'}),
+        endEvent: this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9', 80, 80, '', 'Конечное событие', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'endEvent'}),
+        endEventWithMessage: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_end_msg;fillColor=#000000;', 80, 80, '', 'Конечное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'endEventWithMessage'}),
 
         intermediateEvent: this.createVertexTemplateEntry('shape=doubleEllipse;whiteSpace=wrap;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', {metaClass: 'ae$bpstep', type: 'intermediateEvent'}),
-        intermediateSendEvent: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mailfill;fillColor=#000000;', 80, 80, '', 'Промежуточное событие с сообщением (отправление)', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateSendEvent'}),
-        intermediateReceiveEvent: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mail;', 80, 80, '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateReceiveEvent'}),
-        intermediateTimerEvent: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_timer;', 80, 80, '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateTimerEvent'}),
+        intermediateEventWithMessageThrow: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mailfill;fillColor=#000000;', 80, 80, '', 'Промежуточное событие с сообщением (отправление)', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateEventWithMessageThrow'}),
+        intermediateEventWithMessageCatch: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mail;', 80, 80, '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateEventWithMessageCatch'}),
+        intermediateEventWithTimer: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_timer;', 80, 80, '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateEventWithTimer'}),
         intermediateLink1Event: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateLink1Event'}),
         intermediateLink2Event: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow_fill;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateLink2Event'}),
 
@@ -958,6 +1077,7 @@ Sidebar.prototype.addGeneralPalette = function(expand)
         parallelGateway: this.createVertexTemplateEntry('shape=gatewayParallel;', 40, 40, '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker',{metaClass:'ae$bpstep', type: 'parallelGateway'}),
 
         registry: this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;', 80, 100, '', 'Объект данных', null, null, null,{metaClass:'ae$registry', type: 'registry'}),
+        document: this.createVertexTemplateEntry('dataObject;strokeColor=#CCCC00;', 80, 100, '', 'Нормативный документ', null, null, null,{metaClass:'nd&nd', type: 'document'}),
         rule: this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', {metaClass:'req$high', type: 'rule'}),
 
         solidLine: this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', sb.getConnectionTitle('controlFlow', 'Поток управления'), null, null, null, {metaClass: "controlFlow", type: 'controlFlow'}),
@@ -973,8 +1093,9 @@ Sidebar.prototype.addGeneralPalette = function(expand)
 
     var fns = [].concat(objectTypesItems.getTemplatesByStencils(stencils));
     fns = fns.concat(connectionTypesItems.getTemplatesByStencils(stencils));
+    fns.push(this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
 
-    this.addPaletteFunctions('general', mxResources.get('general'), (expand != null) ? expand : true, fns);
+    this.addPaletteFunctions('general', mxResources.get('general'), (expand != null) ? expand : true, fns, container);
 
 	/*var fns = [
         //area of responsibility
@@ -3240,7 +3361,7 @@ Sidebar.prototype.createEdgeTemplateFromCells = function(cells, width, height, t
 /**
  * Adds the given palette.
  */
-Sidebar.prototype.addPaletteFunctions = function(id, title, expanded, fns)
+Sidebar.prototype.addPaletteFunctions = function(id, title, expanded, fns, container)
 {
 	this.addPalette(id, title, expanded, mxUtils.bind(this, function(content)
 	{
@@ -3248,16 +3369,16 @@ Sidebar.prototype.addPaletteFunctions = function(id, title, expanded, fns)
 		{
 			content.appendChild(fns[i](content));
 		}
-	}));
+	}), container);
 };
 
 /**
  * Adds the given palette.
  */
-Sidebar.prototype.addPalette = function(id, title, expanded, onInit)
+Sidebar.prototype.addPalette = function(id, title, expanded, onInit, container)
 {
 	var elt = this.createTitle(title);
-	this.container.appendChild(elt);
+    container.appendChild(elt);
 	
 	var div = document.createElement('div');
 	div.className = 'geSidebar';
@@ -3289,7 +3410,7 @@ Sidebar.prototype.addPalette = function(id, title, expanded, onInit)
 	
 	var outer = document.createElement('div');
     outer.appendChild(div);
-    this.container.appendChild(outer);
+    container.appendChild(outer);
     
     // Keeps references to the DOM nodes
     if (id != null)
@@ -3531,8 +3652,12 @@ Sidebar.prototype.destroy = function()
 Sidebar.prototype.addCustomAttrs = function(cell, attrs) {
 
     //console.log("metaClass", metaClass);
-    var metaClass = attrs.metaClass;
-    var type = attrs.type;
+    var type;
+
+    if (attrs){
+        var metaClass = attrs.metaClass;
+        type = attrs.type;
+    }
 
     if (metaClass){
         

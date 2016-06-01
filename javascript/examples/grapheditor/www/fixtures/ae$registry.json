@@ -1,0 +1,1375 @@
+[
+  {
+    "folders": [],
+    "code": "0434-BPL-ЭФ-0001",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Справка об изменении сводной бюджетной росписи федерального бюджета и лимитов бюджетных обязательств на финансовый год и на плановый период по предложению главного распорядителя средств федерального бюджета (главного администратора источников финансирования дефицита федерального бюджета)",
+    "title": "Приложение № 5 к приказу 159н",
+    "stateStartTime": "2016.04.07 17:27:22",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$65231",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65253",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65258",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65261",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65272",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65285",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65602",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "registered",
+    "UUID": "ae$64308",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.07 17:27:22",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "0434-BPL-ЭФ-0002",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Решение об изменении сводной бюджетной росписи федерального бюджета и лимитов бюджетных обязательств на финансовый год и на плановый период.",
+    "title": "Приложение № 15 к приказу 159н",
+    "stateStartTime": "2016.04.07 17:27:22",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$65297",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65611",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "registered",
+    "UUID": "ae$64309",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.07 17:27:22",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "0434-BPL-ЭФ-0003",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Расчет объемов (изменения объемов) бюджетных ассигнований на исполнение действующих расходных обязательств плановым методом",
+    "title": "Приложение № 9 к 47н",
+    "stateStartTime": "2016.04.07 17:27:22",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$65230",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65252",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$65286",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "registered",
+    "UUID": "ae$64310",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.07 17:27:22",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "0434-BPL-ЭФ-0004",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Электронный документ, предназначенный для утверждения и согласования документа направленного на согласование внутри одного ведомства",
+    "title": "Внутриведомственный лист согласования",
+    "stateStartTime": "2016.04.07 17:27:22",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$64311",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.07 17:27:22",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "0434-BPL-ЭФ-0005",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Электронный документ, предназначенный для утверждения и согласования документа направленного на согласование в иное ведомство (организацию)",
+    "title": "Межведомственный лист согласования",
+    "stateStartTime": "2016.04.07 17:27:23",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$64312",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.07 17:27:23",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Справка об изменении сводной бюджетной росписи федерального бюджета и лимитов бюджетных обязательств на финансовый год и на плановый период в связи с принятием федерального закона о федеральном бюджете на очередной финансовый год и на плановый период или федерального закона о внесении изменений \nв федеральный закон о федеральном бюджете на текущий финансовый год и на плановый период",
+    "title": "Справка об изменении сводной бюджетной росписи федерального бюджета и лимитов бюджетных обязательств на финансовый год и на плановый период в связи с принятием федерального закона о федеральном бюджете на очередной финансовый год и на плановый период или федерального закона о внесении изменений \nв федеральный закон о федеральном бюджете на текущий финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$66994",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Показатели бюджетной росписи и лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "title": "Показатели бюджетной росписи и лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$66995",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Бюджетная роспись на финансовый год и на плановый период",
+    "title": "Бюджетная роспись на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$66996",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "title": "Лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$66997",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Утвержденные показатели бюджетной росписи и лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "title": "Утвержденные показатели бюджетной росписи и лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$66998",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Утвержденные показатели бюджетной росписи по расходам федерального бюджета на финансовый год и на плановый период",
+    "title": "Утвержденные показатели бюджетной росписи по расходам федерального бюджета на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$66999",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Утвержденные показатели бюджетной росписи по источникам финансирования дефицита федерального бюджета на финансовый год и на плановый период",
+    "title": "Утвержденные показатели бюджетной росписи по источникам финансирования дефицита федерального бюджета на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67000",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Изменения утвержденных лимитов бюджетных обязательств на финансовый год и на плановый период",
+    "title": "Изменения утвержденных лимитов бюджетных обязательств на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67801",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Утвержденные лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "title": "Утвержденные лимиты бюджетных обязательств на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67802",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Об изменении бюджетной росписи и лимитов бюджетных обязательств на текущий финансовый год и плановые периоды",
+    "title": "Об изменении бюджетной росписи и лимитов бюджетных обязательств на текущий финансовый год и плановые периоды",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67803",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Изменения утвержденных лимитов бюджетных обязательств на финансовый год и на плановый период",
+    "title": "Изменения утвержденных лимитов бюджетных обязательств на финансовый год и на плановый период",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67804",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Докладная записка",
+    "title": "Докладная записка",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67805",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Казначейское уведомление",
+    "title": "Казначейское уведомление",
+    "stateStartTime": "2016.04.08 04:18:24",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67806",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:24",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": null,
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Расходное расписание",
+    "title": "Расходное расписание",
+    "stateStartTime": "2016.04.08 04:18:25",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [],
+    "state": "registered",
+    "UUID": "ae$67807",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.08 04:46:23",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [],
+    "creationDate": "2016.04.08 04:18:25",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "ЭФ-001-03-001",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Справка об изменении сводной бюджетной росписи федерального бюджета и лимитов бюджетных обязательств на финансовый год и на плановый период (ф. 0501051)",
+    "title": "Приложение 2",
+    "stateStartTime": "2016.04.19 00:09:36",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$78803",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78813",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78817",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "active",
+    "UUID": "ae$77001",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.19 00:09:36",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [
+      {
+        "UUID": "archLink$77201",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "creationDate": "2016.04.17 11:14:46",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "ЭФ-001-03-002",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Уведомления о бюджетных ассигнованиях на исполнение публичных нормативных обязательств, бюджетных ассигнованиях, лимиты по которым не утверждены, лимитах бюджетных обязательств и бюджетных ассигнованиях по источникам финансирования дефицита федерального бюджета, подлежащих блокировке на финансовый год и на плановый период (ф. 0501059)",
+    "title": "Приложение 9",
+    "stateStartTime": "2016.04.19 00:09:46",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$78821",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78827",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78832",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78843",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78848",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "active",
+    "UUID": "ae$77002",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.19 00:09:46",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [
+      {
+        "UUID": "archLink$77202",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "creationDate": "2016.04.17 11:15:22",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "ЭФ-001-03-003",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Предложения по внесению изменений в распределение бюджетных ассигнований на текущий финансовый год и на плановый период (ф. 0501065)",
+    "title": "Приложение 14",
+    "stateStartTime": "2016.04.19 00:09:28",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$78828",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$78849",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84775",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84776",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84778",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84780",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "active",
+    "UUID": "ae$77003",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.19 00:09:28",
+    "author": null,
+    "updResp": null,
+    "infosys": {
+      "UUID": "ae$63801",
+      "title": "Подсистема \"Бюджетное планирование\" ГИИС \"Электронный бюджет\"",
+      "metaClass": "ae$infosys"
+    },
+    "outgoingLinks": [
+      {
+        "UUID": "archLink$77203",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "creationDate": "2016.04.17 11:16:27",
+    "version": null,
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "ЭФ-001-03-010",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Обоснования бюджетных ассигнований на предоставление субсидий на софинансирование капитальных вложений в объекты государственной (муниципальной) собственности на очередной финансовый год и плановый период",
+    "title": "Приложение 37",
+    "stateStartTime": "2016.04.19 00:09:58",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$84774",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "registered",
+    "UUID": "ae$84902",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.19 00:09:58",
+    "author": null,
+    "updResp": null,
+    "infosys": null,
+    "outgoingLinks": [],
+    "creationDate": "2016.04.19 00:08:57",
+    "version": "1",
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  },
+  {
+    "folders": [],
+    "code": "ЭФ-001-03-002",
+    "signature": false,
+    "metaClass": "ae$registry",
+    "description": "Уведомления о бюджетных ассигнованиях на исполнение публичных нормативных обязательств, бюджетных ассигнованиях, лимиты по которым не утверждены, лимитах бюджетных обязательств и бюджетных ассигнованиях по источникам финансирования дефицита федерального бюджета, подлежащих блокировке на финансовый год и на плановый период (ф. 0501059)",
+    "title": "Приложение 9",
+    "stateStartTime": "2016.04.19 00:12:03",
+    "type": {
+      "UUID": "regTypes$14203",
+      "title": "Электронный документ",
+      "metaClass": "regTypes",
+      "code": "rt3"
+    },
+    "updResp_te": null,
+    "br": [],
+    "number": null,
+    "updResp_ou": null,
+    "updResp_em": null,
+    "responsible": null,
+    "incomingLinks": [
+      {
+        "UUID": "archLink$84773",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84777",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84779",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      },
+      {
+        "UUID": "archLink$84781",
+        "title": "связан с",
+        "metaClass": "archLink$archLink"
+      }
+    ],
+    "state": "closed",
+    "UUID": "ae$84903",
+    "requirements": [],
+    "lastModifiedDate": "2016.04.19 00:12:03",
+    "author": null,
+    "updResp": null,
+    "infosys": null,
+    "outgoingLinks": [],
+    "creationDate": "2016.04.19 00:11:46",
+    "version": "2",
+    "system_icon": {
+      "UUID": "system_icons$66316",
+      "title": "Электронный формуляр",
+      "metaClass": "system_icons",
+      "code": "registry"
+    },
+    "responsibleTeam": null,
+    "removalDate": null,
+    "removed": false,
+    "periodicity": null,
+    "files": [],
+    "nds": [],
+    "responsibleStartTime": null,
+    "responsibleEmployee": null
+  }
+]

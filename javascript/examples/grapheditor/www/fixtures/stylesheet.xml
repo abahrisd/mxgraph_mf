@@ -1,9 +1,4 @@
 <mxStylesheet>
-    <add as="custom">
-        <add value="rectangle" as="shape"/>
-        <add value="1" as="rounded"/>
-        <add value="red" as="fillColor"/>
-    </add>
     <add as="step">
         <add value="ext" as="shape"/>
         <add value="1" as="rounded"/>
@@ -25,23 +20,23 @@
         <add value="#000000" as="strokeColor"/>
         <add value="2" as="strokeWidth"/>
     </add>
-    <add as="startMsgEvent">
+    <add as="startEventWithMessage">
         <add value="mxgraph.bpmn.event_start_msg" as="shape"/>
     </add>
     <add as="intermediateEvent">
         <add value="doubleEllipse" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
-    <add as="intermediateSendEvent">
+    <add as="intermediateEventWithMessageThrow">
         <add value="mxgraph.bpmn.event_mailfill" as="shape"/>
         <add value="#000000" as="fillColor"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
-    <add as="intermediateReceiveEvent">
+    <add as="intermediateEventWithMessageCatch">
         <add value="mxgraph.bpmn.event_mail" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
-    <add as="intermediateTimerEvent">
+    <add as="intermediateEventWithTimer">
         <add value="mxgraph.bpmn.event_timer" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
     </add>
@@ -60,7 +55,7 @@
         <add value="#000000" as="strokeColor"/>
         <add value="9" as="strokeWidth"/>
     </add>
-    <add as="endMsgEvent">
+    <add as="endEventWithMessage">
         <add value="mxgraph.bpmn.event_end_msg" as="shape"/>
         <add value="#000000" as="fillColor"/>
     </add>
@@ -92,13 +87,8 @@
     <add as="pool">
         <add value="swimlane" as="shape"/>
         <add value="0" as="horizontal"/>
-        <add value="20" as="startSize"/>
-    </add>
-    <add as="swimlane">
-        <add value="swimlane" as="shape"/>
-        <add value="0" as="horizontal"/>
         <add value="white" as="swimlaneFillColor"/>
-        <add value="0" as="swimlaneLine"/>
+        <add value="20" as="startSize"/>
     </add>
     <add as="swimlane">
         <add value="swimlane" as="shape"/>

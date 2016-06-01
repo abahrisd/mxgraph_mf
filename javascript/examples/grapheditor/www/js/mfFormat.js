@@ -426,7 +426,12 @@ Format.prototype.refresh = function()
 		label3.style.backgroundColor = '#d7d7d7';
         label4.style.backgroundColor = '#d7d7d7';
 
-        if (graph.getSelectionCells().length === 1 && graph.getSelectionCell().vertex) {
+        //show attributes only for vertices with metaclass
+        if (graph.getSelectionCells().length === 1
+            && graph.getSelectionCell().vertex
+            && graph.getSelectionCell().getValue()
+            && graph.getSelectionCell().getValue().getAttribute
+            && graph.getSelectionCell().getValue().getAttribute('metaClass')) {
 
             label.style.width = (containsLabel) ? '50%' : '25%';
             label.style.width = (containsLabel) ? '50%' : '25%';

@@ -108,7 +108,6 @@ RelValidator.prototype.addEdgeValidation = function() {
                     }
                 }
 
-
                 if (error){
                     //mxConstants.HIGHLIGHT_COLOR = '#ff0000';
                     //mxConstants.CONNECT_TARGET_COLOR = '#ff0000';

@@ -23,28 +23,7 @@ function DataLoader(editorUi) {
     this.funcPath = '/sd/services/rest/exec';
 
     //parsing url and get params
-    this.queryStr = function () {
-        // This function is anonymous, is executed immediately and
-        // the return value is assigned to QueryString!
-        var query_string = {};
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i=0;i<vars.length;i++) {
-            var pair = vars[i].split("=");
-            // If first entry with this name
-            if (typeof query_string[pair[0]] === "undefined") {
-                query_string[pair[0]] = decodeURIComponent(pair[1]);
-                // If second entry with this name
-            } else if (typeof query_string[pair[0]] === "string") {
-                var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
-                query_string[pair[0]] = arr;
-                // If third or later entry with this name
-            } else {
-                query_string[pair[0]].push(decodeURIComponent(pair[1]));
-            }
-        }
-        return query_string;
-    }();
+    this.queryStr = globalQueryString;
 
     //this.init(this.queryStr);
 };
@@ -106,6 +85,14 @@ DataLoader.prototype.setConnectionTypes = function(objectTypes) {
  */
 DataLoader.prototype.setForbiddenConnections = function(objectTypes) {
     this.editorUi.forbiddenConnections = objectTypes;
+    //this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
+};
+
+/**
+ * Create store for forbiddenConnections
+ */
+DataLoader.prototype.setImpliedContainment = function(objectTypes) {
+    this.editorUi.impliedContainment = new UserStore(null, objectTypes, 'type');
     //this.editorUi.forbiddenConnections = new UserStore(null, objectTypes, 'connectionType');
 };
 
@@ -237,6 +224,16 @@ DataLoader.prototype.loadXMLData = function(){
                                     console.log("Unable to set forbiddenConnections");
                                 }
                             }
+
+                            if (spec.impliedContainment){
+                                //var objectTypes = JSON.parse(res.objectTypes);
+                                //console.log("impliedContainment", spec.impliedContainment);
+                                _this.setImpliedContainment(spec.impliedContainment);
+                            } else {
+                                if (DEBUG){
+                                    console.log("Unable to set impliedContainment");
+                                }
+                            }
                         }
 
 
@@ -317,29 +314,77 @@ DataLoader.prototype.sync = function() {
             console.log("responseData", responseData);
             if (responseData !== undefined){
 
+                /*var linkParents = {};
+
+                if (responseData.links){
+                    responseData.links.forEach(function(el){
+                        if (el.typeCode === 'participant2step'){
+                            linkParents[el.target] = el.source;
+                        }
+                    });
+                }*/
+
+                /*
+                * Как будем размещать объекты:
+                * У нас есть объекты и линки - связи между объектами
+                * Сначало берём все линки с типом participant2step - вложения (родители и дети)
+                * Для каждого объекта определяем родителя.
+                * TODO Если появится вложение больше 1 уровня - для каждого объекта определяем количество детей, сортируем все объекты от наибольшего к наименьшему, что бы определить последовательность доабвления обхектов на диаграмму
+                * Сначало добавляем на диаграмму объекты у которых есть дети, потом все остальные.
+                * source = parent
+                * Дальше, для каждого объекта у которого есть дети - создаём группу из детей и располагаем их красиво - применяем к ним layout.execute()
+                * */
+
+                /*var setParent = function(target, source){
+                    responseData.objects.some(function(obj){
+                        if (obj.UUID === source){
+                            obj.parent = target;
+                            return true;
+                        }
+                        return false;
+                    })
+                }*/
+
+                var parents = [];
+                //var childs = [];
+                /*if (responseData.links){
+                    responseData.links.forEach(function(el){
+
+                        if (el.typeCode === 'participant2step'){
+                            if (el.target && el.source){
+                                //parents.push(el.source);
+                                //ищем цел с таким uuid= el.source и добавляем ему атрибут parent = el.parent
+                                //setParent(el.target, el.source);
+                            }
+                        }
+                    });
+                }*/
+
+                //parents = uniq(parents);
+
                 //insert objects
                 if (responseData.objects){
+                    //_this.createCellsFromObject(responseData.objects, linkParents);
                     responseData.objects.forEach(function(el){
                         _this.createCellFromUserObject(el);
                     });
-                    graph.refresh();
                 }
 
                 //insert links
                 if (responseData.links){
+                    var targetsToDel = [];
+
+                    //insert participant links (child-parent)
                     responseData.links.forEach(function(el){
 
                         //TODO create structure for fast search cell by _metaClass
                         var source, target;
 
                         graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
-
                             if (cell && cell.getValue()){
-
                                 if (cell.getValue().getAttribute('UUID') == el.source) {
                                     source = cell;
                                 }
-
                                 if (cell.getValue().getAttribute('UUID') == el.target) {
                                     target = cell;
                                 }
@@ -347,34 +392,121 @@ DataLoader.prototype.sync = function() {
                         });
 
                         if (source && target){
-                            var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+                            if (el.typeCode === 'participant2step'){
+                                var newTarget = graph.cloneCells([target])[0];
+                                targetsToDel.push(target);
+                                graph.groupCells(source, 10, [newTarget]);
+                                parents.push(source);
 
-                            //TODO move in separate func
-                            //add custom attrs
-                            var val = graph.getModel().getValue(newEdge);
-
-                            // Converts the value to an XML node
-                            if (!mxUtils.isNode(val)) {
-                                var doc = mxUtils.createXmlDocument();
-                                var obj = doc.createElement('object');
-                                obj.setAttribute('label', val || '');
-                                val = obj;
+                                //EditUI.editor.graph.getModel().getCell(35).setParent(EditUI.editor.graph.getModel().getCell(34));
+                                //EditUI.editor.graph.groupCells(EditUI.editor.graph.getModel().getCell(35), 0, null);
+                                //EditUI.editor.graph.updateCellSize(EditUI.editor.graph.getSelectionCell(), false);
                             }
-
-                            val.setAttribute("source", el.source);
-                            val.setAttribute("target", el.target);
-                            val.setAttribute("typeCode", el.typeCode);
-
-                            graph.getModel().setValue(newEdge, val);
-
                         }
+                    });
+
+
+                    //insert connection links (arrows)
+                    responseData.links.forEach(function(el){
+
+                        //TODO create structure for fast search cell by _metaClass
+                        var source, target;
+
+                        graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
+                            if (cell && cell.getValue()){
+                                if (cell.getValue().getAttribute('UUID') == el.source) {
+                                    source = cell;
+                                }
+                                if (cell.getValue().getAttribute('UUID') == el.target) {
+                                    target = cell;
+                                }
+                            }
+                        });
+
+                        if (source && target){
+
+                            if (el.typeCode !== 'participant2step'){
+                                var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
+
+                                //TODO move in separate func
+                                //add custom attrs
+                                var val = graph.getModel().getValue(newEdge);
+
+                                // Converts the value to an XML node
+                                if (!mxUtils.isNode(val)) {
+                                    var doc = mxUtils.createXmlDocument();
+                                    var obj = doc.createElement('object');
+                                    obj.setAttribute('label', val || '');
+                                    val = obj;
+                                }
+
+                                val.setAttribute("source", el.source);
+                                val.setAttribute("target", el.target);
+                                val.setAttribute("typeCode", el.typeCode);
+
+                                graph.getModel().setValue(newEdge, val);
+                            }
+                        }
+                    });
+
+                    targetsToDel.forEach(function(trg){
+                       graph.getModel().remove(trg);
                     });
                 }
 
-                _this.arrangeHorizontal();
-                //_this.arrangeOrganic();
+                if (parents.length > 0){
+                    //arrange obj inside pools
+                    parents.forEach(function(parentCell){
+                        var childs = graph.getModel().getChildVertices(parentCell);
+
+                        var newGroup = graph.groupCells(parentCell, 10, childs);
+
+                        var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+                        //var layout = new mxStackLayout(graph);
+                        layout.border = 10;
+                        layout.resizeParent = true;
+                        layout.execute(newGroup);
+                    });
+
+                    //arrange pools vertical
+                    var newGroup = graph.groupCells(graph.getDefaultParent(), 10, parents);
+                    //var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+                    var layout = new mxStackLayout(graph, false, 10);
+                    layout.border = 10;
+                    layout.resizeParent = true;
+
+                    layout.execute(newGroup);
+
+                    /*_this.editorUi.executeLayout(function()
+                     {
+                     var selectionCells = graph.getSelectionCells();
+                     layout.execute(newGroup, selectionCells.length == 0 ? null : selectionCells);
+                     }, true);*/
+
+                    //arrange all horizontal
+                    /*var cellsNoParent = graph.getModel().getChildVertices(graph.getDefaultParent());
+                    newGroup = graph.groupCells(graph.getDefaultParent(), 10, cellsNoParent);
+                    layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+                    //var layout = new mxStackLayout(graph);
+                    layout.border = 10;
+                    layout.resizeParent = true;
+                    layout.execute(newGroup);*/
+
+                    //_this.arrangeHorizontal();
+                    //_this.arrangeOrganic();
+
+                    //push arrow on first plan to see connections betwen pool and outer world
+                    graph.setSelectionCells(graph.getModel().getChildEdges(graph.getDefaultParent()));
+                    graph.orderCells(false);
+                    graph.clearSelection()
+                } else {
+                    _this.arrangeHorizontal();
+                }
+
+
 
                 editor.setModified(false);
+                //graph.refresh();
             }
         } catch (e){
             if (DEBUG) {
@@ -397,7 +529,7 @@ DataLoader.prototype.sync = function() {
  * obj decoded from JSON
  * return void
  */
-DataLoader.prototype.createCellFromUserObject = function(obj){
+DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
 
     var doc = mxUtils.createXmlDocument();
     var node = doc.createElement('UserNode');
@@ -405,6 +537,8 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
     var editor = this.editorUi;
     var graph = editor.editor.graph;
     var parent = this.parent;
+    //var baseParent = this.parent;
+    //var parent;
 
     var width = '';
     var height = '';
@@ -473,6 +607,13 @@ DataLoader.prototype.createCellFromUserObject = function(obj){
         var group = editor.objectTypes.getGroup(metaClass, newValue);
         style = editor.objectTypes.getElementStyle(metaClass, newValue);
     }
+
+    //set parent cell, there cell may not exists yet...(
+    /*if (linkParents[obj['UUID']]){
+        parent = linkParents[obj['UUID']];
+    } else {
+        parent = baseParent;
+    }*/
 
     //if it's group = action, get cell from stencilsStore
     if (group === 'action'){
@@ -609,6 +750,25 @@ DataLoader.prototype.exportXMLNode = function(){
     //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
 
 };
+
+/**
+ * Export xml node
+ */
+DataLoader.prototype.setMxGraphModel = function(){
+    try{
+        var editor = this.editorUi.editor;
+        var xml = this.mxGraphModelData;
+        var doc = mxUtils.parseXml(xml);
+
+        editor.setGraphXml(doc.documentElement);
+        editor.setModified(false);
+    } catch(e){
+        if(DEBUG){
+            console.log("Error while setting mxGraphModel", e.stack);
+        }
+    }
+};
+
 
 /**
  * Export xml node
