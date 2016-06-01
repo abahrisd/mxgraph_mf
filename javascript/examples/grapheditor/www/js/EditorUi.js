@@ -3421,6 +3421,7 @@ EditorUi.prototype.saveXML = function() {
  * Get all cells from graph and create output object
  */
 EditorUi.prototype.getSystemState = function() {
+    var _this = this;
     var graph = this.editor.graph;
     var output = {
         objects:[],
@@ -3430,6 +3431,9 @@ EditorUi.prototype.getSystemState = function() {
     //EditUI.editor.graph.getModel().getDescendants(EditUI.editor.graph.getDefaultParent())
     var allCells = graph.getModel().getDescendants(graph.getDefaultParent());
 
+
+    //вот теперь нужна рекурсия
+
     allCells.forEach(function(el){
         if (el.vertex && el.getValue().attributes){
             output.objects.push(createCellObject(el));
@@ -3437,6 +3441,52 @@ EditorUi.prototype.getSystemState = function() {
             output.links.push(createCellObject(el));
         }
     });
+
+
+    allCells.forEach(function(el){
+        createPartitionLink(el);
+    });
+
+    function createPartitionLink(cell){
+        var childCells = graph.getModel().getChildVertices(cell);
+        if (childCells.length > 0){
+            childCells.forEach(function(el){
+                var links = _this.linkTypes.getAll();
+                for (var link in links){
+                    if (links[link].behaviour && links[link].behaviour === 'containment'){
+
+                        var parentMetaClass;
+                        var childMetaClass;
+
+                        if (cell.getValue() && cell.getValue().getAttribute('metaClass')){
+                            parentMetaClass = cell.getValue().getAttribute('metaClass');
+                        }
+
+                        if (el.getValue() && el.getValue().getAttribute('metaClass')){
+                            childMetaClass = el.getValue().getAttribute('metaClass');
+                        }
+
+                        if (parentMetaClass && childMetaClass &&
+                            links[link].sourceType && links[link].sourceType === parentMetaClass
+                            && links[link].targetType && links[link].targetType === childMetaClass) {
+                            //TODO may be conflicts with createCellObject format, need uniq format
+                            output.links.push({
+                                source: cell.getValue().getAttribute('UUID'),
+                                target: el.getValue().getAttribute('UUID'),
+                                typeCode: links[link].code
+                            })
+                        }
+                    }
+                }
+                /*.forEach(function(link){
+
+                });*/
+
+                //and for child's childs
+                createPartitionLink(el);
+            });
+        }
+    }
 
     function createCellObject(cell){
 

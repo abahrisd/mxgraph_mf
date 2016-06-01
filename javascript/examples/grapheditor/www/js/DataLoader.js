@@ -458,9 +458,7 @@ DataLoader.prototype.sync = function() {
                     //arrange obj inside pools
                     parents.forEach(function(parentCell){
                         var childs = graph.getModel().getChildVertices(parentCell);
-
                         var newGroup = graph.groupCells(parentCell, 10, childs);
-
                         var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
                         //var layout = new mxStackLayout(graph);
                         layout.border = 10;
@@ -498,7 +496,7 @@ DataLoader.prototype.sync = function() {
                     //push arrow on first plan to see connections betwen pool and outer world
                     graph.setSelectionCells(graph.getModel().getChildEdges(graph.getDefaultParent()));
                     graph.orderCells(false);
-                    graph.clearSelection()
+                    graph.clearSelection();
                 } else {
                     _this.arrangeHorizontal();
                 }
