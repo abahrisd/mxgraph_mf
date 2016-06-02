@@ -57766,11 +57766,6 @@ mxGraph.prototype.cellSizeUpdated = function(cell, ignoreChildren)
 						var tr = this.view.translate;
 						var scale = this.view.scale;
 
-                        console.log("bounds",bounds);
-                        console.log("scale",scale);
-                        console.log("geo",geo);
-                        console.log("tr",tr);
-
 						var width = (bounds.x + bounds.width) / scale - geo.x - tr.x;
 						var height = (bounds.y + bounds.height) / scale - geo.y - tr.y;
 

@@ -3,15 +3,13 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="57055" mnemonic="5" />
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" line="3543" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="62774" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="57837" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="62769" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="57832" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.078504674">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1027" column="30" selection-start-line="1027" selection-start-column="30" selection-end-line="1027" selection-end-column="30" />
               <folding>
                 <marker date="1464876309453" expanded="true" signature="49210:49258" placeholder="..." />
@@ -78,20 +76,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57701" column="1" selection-start-line="57701" selection-start-column="1" selection-end-line="57701" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.36448598">
+              <caret line="57767" column="0" selection-start-line="57767" selection-start-column="0" selection-end-line="57767" selection-end-column="0" />
               <folding>
-                <marker date="1464878420701" expanded="true" signature="133022:133033" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="133115:133186" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="133200:133253" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="133947:133958" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="443999:444063" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="615253:615290" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="621011:621148" placeholder="..." />
-                <marker date="1464878420701" expanded="true" signature="1318573:1318587" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="133200:133253" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="133947:133958" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="443999:444063" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="615253:615290" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="621011:621148" placeholder="..." />
+                <marker date="1464878783890" expanded="true" signature="1318573:1318587" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -215,8 +213,8 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
       </list>
     </option>
   </component>
@@ -557,12 +555,6 @@
       <option name="number" value="Default" />
       <updated>1461577810014</updated>
     </task>
-    <task id="LOCAL-00005" summary="Added loading on start, sync func, stancils menu, atributes menu. Sad commit">
-      <created>1463417803268</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1463417803268</updated>
-    </task>
     <task id="LOCAL-00006" summary="correct mxBasePath">
       <created>1463418961349</created>
       <option name="number" value="00006" />
@@ -851,7 +843,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464871282076</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="add adjust action cell for label">
+      <created>1464878761585</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1464878761585</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
@@ -924,7 +922,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix not able to add dotted line, change styles for dotted and dashed lines" />
     <MESSAGE value="increase length of dash in dashed line" />
     <MESSAGE value="remove clipart pallete" />
     <MESSAGE value="assign lable change to nameAttribute's change" />
@@ -949,7 +946,8 @@
     <MESSAGE value="edit produstion index" />
     <MESSAGE value="add whitespace=wrap for stencils, change events size, enable text adjust for actions" />
     <MESSAGE value=" whitespace=wrap for startEventWithMessage" />
-    <option name="LAST_COMMIT_MESSAGE" value=" whitespace=wrap for startEventWithMessage" />
+    <MESSAGE value="add adjust action cell for label" />
+    <option name="LAST_COMMIT_MESSAGE" value="add adjust action cell for label" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1354,26 +1352,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57701" column="1" selection-start-line="57701" selection-start-column="1" selection-end-line="57701" selection-end-column="1" />
-          <folding>
-            <marker date="1464878420701" expanded="true" signature="133022:133033" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="133115:133186" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="133200:133253" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="133947:133958" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="443999:444063" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="615253:615290" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="621011:621148" placeholder="..." />
-            <marker date="1464878420701" expanded="true" signature="1318573:1318587" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.078504674">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1027" column="30" selection-start-line="1027" selection-start-column="30" selection-end-line="1027" selection-end-column="30" />
           <folding>
             <marker date="1464876309453" expanded="true" signature="49210:49258" placeholder="..." />
@@ -1391,6 +1372,23 @@
             <marker date="1464876309453" expanded="true" signature="69084:69111" placeholder="..." />
             <marker date="1464876309453" expanded="true" signature="69335:69399" placeholder="..." />
             <marker date="1464876309453" expanded="true" signature="69438:69463" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36448598">
+          <caret line="57767" column="0" selection-start-line="57767" selection-start-column="0" selection-end-line="57767" selection-end-column="0" />
+          <folding>
+            <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="443999:444063" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="615253:615290" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="621011:621148" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="1318573:1318587" placeholder="..." />
           </folding>
         </state>
       </provider>
