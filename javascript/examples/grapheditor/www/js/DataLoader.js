@@ -679,8 +679,8 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
     //var baseParent = this.parent;
     //var parent;
 
-    var width = '';
-    var height = '';
+    var width = 140;
+    var height = 80;
     var style = 'whiteSpace=wrap;';
     var titleLength = obj.title?obj.title.length:0;
     var newValue = null;
@@ -729,9 +729,9 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
     }
 
     //adjust cell size by label length
-    var widthHeight = this.getWidthHeight(titleLength);
-    width = widthHeight.width;
-    height = widthHeight.height;
+    //var widthHeight = this.getWidthHeight(titleLength);
+    //width = widthHeight.width;
+    //height = widthHeight.height;
 
     var templateAttribute = editor.objectTypes.getTemplateAttribute(metaClass);
 
@@ -747,12 +747,11 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
         style = editor.objectTypes.getElementStyle(metaClass, newValue);
     }
 
-    //set parent cell, there cell may not exists yet...(
-    /*if (linkParents[obj['UUID']]){
-        parent = linkParents[obj['UUID']];
-    } else {
-        parent = baseParent;
-    }*/
+    var code = editor.objectTypes.getElementCode(metaClass, newValue);
+    if (code){
+        width = editor.stencilsData.getWidth(code);
+        height = editor.stencilsData.getHeight(code);
+    }
 
     //if it's group = action, get cell from stencilsStore
     if (group === 'action'){
@@ -765,10 +764,11 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
             var newProtoCell = graph.moveCells(protoCell, null, null, true, parent)[0];
 
             newProtoCell.setValue(node);
-            newProtoCell.getGeometry().width = width;
-            newProtoCell.getGeometry().height = height;
+            //newProtoCell.getGeometry().width = width;
+            //newProtoCell.getGeometry().height = height;
         }
     } else {
+        //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
         graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, width, height, style);
     }
 

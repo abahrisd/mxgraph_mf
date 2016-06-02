@@ -8,10 +8,18 @@
     <add as="event">
         <add value="message" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="directionEvent">
         <add value="message" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="startEvent">
         <add value="mxgraph.flowchart.on-page_reference" as="shape"/>
@@ -19,34 +27,66 @@
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
         <add value="2" as="strokeWidth"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="startEventWithMessage">
         <add value="mxgraph.bpmn.event_start_msg" as="shape"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="intermediateEvent">
         <add value="doubleEllipse" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="intermediateEventWithMessageThrow">
         <add value="mxgraph.bpmn.event_mailfill" as="shape"/>
         <add value="#000000" as="fillColor"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="intermediateEventWithMessageCatch">
         <add value="mxgraph.bpmn.event_mail" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="intermediateEventWithTimer">
         <add value="mxgraph.bpmn.event_timer" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="intermediateLink1Event">
         <add value="mxgraph.bpmn.event_arrow" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="intermediateLink2Event">
         <add value="mxgraph.bpmn.event_arrow_fill" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="endEvent">
         <add value="mxgraph.flowchart.on-page_reference" as="shape"/>
@@ -54,18 +94,34 @@
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
         <add value="9" as="strokeWidth"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="endEventWithMessage">
         <add value="mxgraph.bpmn.event_end_msg" as="shape"/>
         <add value="#000000" as="fillColor"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="parallelGateway">
         <add value="gatewayParallel" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="excludingGateway">
         <add value="gatewayExclude" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="rule">
         <add value="mxgraph.flowchart.document" as="shape"/>
@@ -73,16 +129,28 @@
         <add value="#FFCCE6" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
         <add value="1" as="strokeWidth"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="registry">
         <add value="card" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="dataObject">
         <add value="note" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="16" as="size"/>
         <add value="2" as="strokeWidth"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="top" as="verticalAlign"/>
     </add>
     <add as="pool">
         <add value="swimlane" as="shape"/>

@@ -93,17 +93,17 @@ console.log('newCell',newCell);
 
 // Overrides method to provide a cell label in the display
 //FIXME fix label value after past formated text
-/*graph.convertValueToString = function(cell) {
- var tmp = mxGraph.prototype.convertValueToString;
+graph.convertValueToString = function(cell) {
+    var tmp = mxGraph.prototype.convertValueToString;
 
- if (mxUtils.isNode(cell.value) && cell.getAttribute('label', '') && cell.getAttribute('title', '')) {
- //return unescapeHTML(cell.getAttribute('label', '').replace(/<(?:.|\n)*?>/gm, ''));
- return cell.getAttribute('label', '').replace(/\r?\n|\r/gm, '');
- }
+    if (mxUtils.isNode(cell.value) && cell.getAttribute('label', '') && cell.getAttribute('title', '')) {
+    //return unescapeHTML(cell.getAttribute('label', '').replace(/<(?:.|\n)*?>/gm, ''));
+    return cell.getAttribute('label', '').replace(/\r?\n|\r/gm, '');
+    }
 
- return tmp.apply(this, arguments);
- //convertValueToString.apply(this, arguments);
- };*/
+    return tmp.apply(this, arguments);
+    //convertValueToString.apply(this, arguments);
+};
 
 /*function unescapeHTML(escapedHTML) {
  //return decodeURIComponent(escapedHTML);

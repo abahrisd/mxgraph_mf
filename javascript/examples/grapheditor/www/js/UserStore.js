@@ -245,6 +245,34 @@ UserStore.prototype.getElementStyle = function(metaClass, value) {
     return style;
 };
 
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getElementCode = function(metaClass, value) {
+
+    var code = '';
+    var item = this.getById(metaClass);
+
+    if (item.templates){
+
+        if (item.templates.length === 1){
+
+            return item.templates[0].code;
+        }
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue && el.templateAttributeValue === value && el.code){
+                code = el.code;
+                return true;
+            }
+            return false;
+        });
+    }
+
+    return code;
+};
+
 /**
  * Return templates fom store, which exists in stencils object
  */
@@ -311,7 +339,9 @@ UserStore.prototype.getCellTmp = function(cell) {
     var item = this.getById(metaClass);
     var tempAttr = item.templateAttribute;
     var tempAttrValue = cell.getValue().getAttribute(tempAttr);
-    var tmp = '';
+
+    return this.getElementCode(metaClass, tempAttrValue);
+    /*var tmp = '';
 
     if (item && item.templates){
 
@@ -324,6 +354,6 @@ UserStore.prototype.getCellTmp = function(cell) {
         });
     }
 
-    return tmp;
+    return tmp;*/
 
 };

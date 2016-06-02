@@ -5,31 +5,31 @@
  * Construcs a new sidebar for the given editor.
  * Create left panel. This one should be user for minfin prj.
  */
-function Sidebar(editorUi, container)
-{
-	this.editorUi = editorUi;
-	this.container = container;
-	this.palettes = new Object();
-	this.taglist = new Object();
-	this.showTooltips = true;
-	this.graph = new Graph(document.createElement('div'), null, null, this.editorUi.editor.graph.getStylesheet());
-	this.graph.cellRenderer.antiAlias = false;
-	this.graph.resetViewOnRootChange = false;
-	this.graph.foldingEnabled = false;
-	this.graph.setConnectable(false);
-	this.graph.autoScroll = false;
-	this.graph.setTooltips(false);
-	this.graph.setEnabled(false);
+function Sidebar(editorUi, container) {
+    this.editorUi = editorUi;
+    this.container = container;
+    this.palettes = {};
+    this.taglist = {};
+    this.showTooltips = true;
+    this.graph = new Graph(document.createElement('div'), null, null, this.editorUi.editor.graph.getStylesheet());
+    this.graph.cellRenderer.antiAlias = false;
+    this.graph.resetViewOnRootChange = false;
+    this.graph.foldingEnabled = false;
+    this.graph.setConnectable(false);
+    this.graph.autoScroll = false;
+    this.graph.setTooltips(false);
+    this.graph.setEnabled(false);
 
+    //create empty store to save complex cells, like action's
     editorUi.stencilsStore = new UserStore(null, null, 'metaClass');
 
     this.note = '';
 
-	// Container must be in the DOM for correct HTML rendering
-	this.graph.container.style.visibility = 'hidden';
-	this.graph.container.style.position = 'absolute';
-	document.body.appendChild(this.graph.container);
-	
+    // Container must be in the DOM for correct HTML rendering
+    this.graph.container.style.visibility = 'hidden';
+    this.graph.container.style.position = 'absolute';
+    document.body.appendChild(this.graph.container);
+
 	this.pointerUpHandler = mxUtils.bind(this, function()
 	{
 		this.showTooltips = true;
@@ -991,27 +991,28 @@ Sidebar.prototype.getConnectionTitle = function(code, baseValue){
 /**
  * Adds the general palette to the sidebar.
  */
-Sidebar.prototype.addGeneralPalette = function(expand, container)
-{
+Sidebar.prototype.getStencils = function() {
+
     var sb = this;
 
-    //TODO: move names to resources files
-    var stencils = {
-        participant: this.createVertexTemplateEntry('shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;', 320, 240, 'Участник', 'Участник', null, null, 'bpmn pool', {metaClass: 'ae$participant', type:'participant'}),
-        swimlane: this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}),
+    var stencilsData = this.editorUi.stencilsData;
 
-        startEvent: this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Начальное событие', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'startEvent'}),
-        startEventWithMessage: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_start_msg;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep',type:'startEventWithMessage'}),
+    return {
+        participant: this.createVertexTemplateEntry(stencilsData.getStyle('participant'), stencilsData.getWidth('participant'), stencilsData.getHeight('participant'), 'Участник', 'Участник', null, null, 'bpmn pool', {metaClass: stencilsData.getMetaClass('participant'), type:'participant'}),
+        swimlane: this.createVertexTemplateEntry(stencilsData.getStyle('swimlane'), stencilsData.getWidth('swimlane'), stencilsData.getHeight('swimlane'), 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: stencilsData.getMetaClass('swimlane'), type:'swimlane'}),
 
-        endEvent: this.createVertexTemplateEntry('shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Конечное событие', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'endEvent'}),
-        endEventWithMessage: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_end_msg;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Конечное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type:'endEventWithMessage'}),
+        startEvent: this.createVertexTemplateEntry(stencilsData.getStyle('startEvent'), stencilsData.getWidth('startEvent'), stencilsData.getHeight('startEvent'), '', 'Начальное событие', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('startEvent'), type:'startEvent'}),
+        startEventWithMessage: this.createVertexTemplateEntry(stencilsData.getStyle('startEventWithMessage'), stencilsData.getWidth('startEventWithMessage'), stencilsData.getHeight('startEventWithMessage'), '', 'Начальное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('startEventWithMessage'),type:'startEventWithMessage'}),
 
-        intermediateEvent: this.createVertexTemplateEntry('shape=doubleEllipse;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', {metaClass: 'ae$bpstep', type: 'intermediateEvent'}),
-        intermediateEventWithMessageThrow: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mailfill;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Промежуточное событие с сообщением (отправление)', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateEventWithMessageThrow'}),
-        intermediateEventWithMessageCatch: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_mail;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateEventWithMessageCatch'}),
-        intermediateEventWithTimer: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_timer;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateEventWithTimer'}),
-        intermediateLink1Event: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateLink1Event'}),
-        intermediateLink2Event: this.createVertexTemplateEntry('shape=mxgraph.bpmn.event_arrow_fill;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 80, '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: 'ae$bpstep', type: 'intermediateLink2Event'}),
+        endEvent: this.createVertexTemplateEntry(stencilsData.getStyle('endEvent'), stencilsData.getWidth('endEvent'), stencilsData.getHeight('endEvent'), '', 'Конечное событие', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('endEvent'), type:'endEvent'}),
+        endEventWithMessage: this.createVertexTemplateEntry(stencilsData.getStyle('endEventWithMessage'), stencilsData.getWidth('endEventWithMessage'), stencilsData.getHeight('endEventWithMessage'), '', 'Конечное событие с сообщением', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('endEventWithMessage'), type:'endEventWithMessage'}),
+
+        intermediateEvent: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEvent'), stencilsData.getWidth('intermediateEvent'), stencilsData.getHeight('intermediateEvent'), '', 'Промежуточное событие', null, null, 'circle oval ellipse start end state double', {metaClass: stencilsData.getMetaClass('intermediateEvent'), type: 'intermediateEvent'}),
+        intermediateEventWithMessageThrow: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithMessageThrow'), stencilsData.getWidth('intermediateEventWithMessageThrow'), stencilsData.getHeight('intermediateEventWithMessageThrow'), '', 'Промежуточное событие с сообщением (отправление)', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithMessageThrow'), type: 'intermediateEventWithMessageThrow'}),
+        intermediateEventWithMessageCatch: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithMessageCatch'), stencilsData.getWidth('intermediateEventWithMessageCatch'), stencilsData.getHeight('intermediateEventWithMessageCatch'), '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithMessageCatch'), type: 'intermediateEventWithMessageCatch'}),
+        intermediateEventWithTimer: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithTimer'), stencilsData.getWidth('intermediateEventWithTimer'), stencilsData.getHeight('intermediateEventWithTimer'), '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithTimer'), type: 'intermediateEventWithTimer'}),
+        intermediateLink1Event: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateLink1Event'), stencilsData.getWidth('intermediateLink1Event'), stencilsData.getHeight('intermediateLink1Event'), '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateLink1Event'), type: 'intermediateLink1Event'}),
+        intermediateLink2Event: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateLink2Event'), stencilsData.getWidth('intermediateLink2Event'), stencilsData.getHeight('intermediateLink2Event'), '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateLink2Event'), type: 'intermediateLink2Event'}),
 
         automatedAction: this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
         {
@@ -1073,19 +1074,30 @@ Sidebar.prototype.addGeneralPalette = function(expand, container)
             return sb.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Ручное действие');
         }),
 
-        excludingGateway: this.createVertexTemplateEntry('shape=gatewayExclude;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 50, 50, '', 'Исключающий шлюз', null, null, 'bpmn subprocess sub process sub-process marker',{metaClass:'ae$bpstep', type: 'excludingGateway'}),
-        parallelGateway: this.createVertexTemplateEntry('shape=gatewayParallel;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 50, 50, '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker',{metaClass:'ae$bpstep', type: 'parallelGateway'}),
+        excludingGateway: this.createVertexTemplateEntry(stencilsData.getStyle('excludingGateway'), stencilsData.getWidth('excludingGateway'), stencilsData.getHeight('excludingGateway'), '', 'Исключающий шлюз', null, null, 'bpmn subprocess sub process sub-process marker',{metaClass:stencilsData.getMetaClass('excludingGateway'), type: 'excludingGateway'}),
+        parallelGateway: this.createVertexTemplateEntry(stencilsData.getStyle('parallelGateway'), stencilsData.getWidth('parallelGateway'), stencilsData.getHeight('parallelGateway'), '', 'Параллельный шлюз', null, null, 'bpmn subprocess sub process sub-process marker',{metaClass: stencilsData.getMetaClass('parallelGateway'), type: 'parallelGateway'}),
 
-        registry: this.createVertexTemplateEntry('shape=card;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 100, '', 'Объект данных', null, null, null,{metaClass:'ae$registry', type: 'registry'}),
-        document: this.createVertexTemplateEntry('dataObject;strokeColor=#CCCC00;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;', 80, 100, '', 'Нормативный документ', null, null, null,{metaClass:'nd&nd', type: 'document'}),
-        rule: this.createVertexTemplateEntry('shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2', 105, 36, '', 'Бизнес-правило', null, null, 'rule', {metaClass:'req$high', type: 'rule'}),
+        registry: this.createVertexTemplateEntry(stencilsData.getStyle('registry'), stencilsData.getWidth('registry'), stencilsData.getHeight('registry'), '', 'Объект данных', null, null, null,{metaClass: stencilsData.getMetaClass('registry'), type: 'registry'}),
+        document: this.createVertexTemplateEntry(stencilsData.getStyle('document'), stencilsData.getWidth('document'), stencilsData.getHeight('document'), '', 'Нормативный документ', null, null, null,{metaClass:stencilsData.getMetaClass('document'), type: 'document'}),
+        rule: this.createVertexTemplateEntry(stencilsData.getStyle('rule'), stencilsData.getWidth('rule'), stencilsData.getHeight('rule'), '', 'Бизнес-правило', null, null, 'rule', {metaClass:stencilsData.getMetaClass('rule'), type: 'rule'}),
 
-        solidLine: this.createEdgeTemplateEntry('endArrow=classic;', 50, 50, '', sb.getConnectionTitle('controlFlow', 'Поток управления'), null, null, null, {metaClass: "controlFlow", type: 'controlFlow'}),
-        dashedLine: this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=8 8;', 50, 50, '', sb.getConnectionTitle('messageFlow','Поток сообщений'), null, null, null, {metaClass: "messageFlow", type: 'messageFlow'}),
-        dottedLine: this.createEdgeTemplateEntry('endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;', 50, 50, '', sb.getConnectionTitle('associationFlow','Поток ассоциация'), null, null, null, {metaClass:"associationFlow", type: 'associationFlow'}),
+        solidLine: this.createEdgeTemplateEntry(stencilsData.getStyle('solidLine'), stencilsData.getWidth('solidLine'), stencilsData.getHeight('solidLine'), '', sb.getConnectionTitle('controlFlow', 'Поток управления'), null, null, null, {metaClass: stencilsData.getMetaClass('solidLine'), type: 'controlFlow'}),
+        dashedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dashedLine'), stencilsData.getWidth('dashedLine'), stencilsData.getHeight('dashedLine'), '', sb.getConnectionTitle('messageFlow','Поток сообщений'), null, null, null, {metaClass: stencilsData.getMetaClass('dashedLine'), type: 'messageFlow'}),
+        dottedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dottedLine'), stencilsData.getWidth('dottedLine'), stencilsData.getHeight('dottedLine'), '', sb.getConnectionTitle('associationFlow','Поток ассоциация'), null, null, null, {metaClass:stencilsData.getMetaClass('dottedLine'), type: 'associationFlow'}),
 
-        text: this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;', 40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
+        text: this.createVertexTemplateEntry(stencilsData.getStyle('text'), stencilsData.getWidth('text'), stencilsData.getHeight('text'), 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
     };
+};
+
+/**
+ * Adds the general palette to the sidebar.
+ */
+Sidebar.prototype.addGeneralPalette = function(expand, container)
+{
+    var sb = this;
+
+    //TODO: move names to resources files
+    var stencils = this.getStencils();
 
     //add templates
     var objectTypesItems = this.editorUi.objectTypes;

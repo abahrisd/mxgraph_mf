@@ -15,7 +15,10 @@ EditorUi = function(editor, container)
 
     this.loadMask = new LoadMask(this);
 
-    //Create dataLoader, we need it in Sedebar and Format
+    //invoke base stats of ctencils, need in Sidebar
+    this.stencilsData = new Stencils();
+
+    //Create dataLoader, we need it in Sidebar and Format
     this.dataLoader = new DataLoader(this);
     this.dataLoader.setAttributes();
     this.restricteddAttributeList = ['metaClass', 'UUID', 'templateCode', 'group'];
