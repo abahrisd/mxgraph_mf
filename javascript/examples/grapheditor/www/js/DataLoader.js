@@ -292,6 +292,212 @@ DataLoader.prototype.loadTypeData = function(url) {
 };
 
 /**
+ * Arrange entries in given cell
+ * @parentCell <mxCell>
+ */
+DataLoader.prototype.arrangeEntrys = function(parentCell) {
+    var graph = this.graph;
+
+    var childs = graph.getModel().getChildVertices(parentCell);
+    var newGroup = graph.groupCells(parentCell, 0, childs);
+    var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+    //var layout = new mxStackLayout(graph);
+
+    layout.border = 0;
+    layout.resizeParent = true;
+    layout.execute(newGroup);
+}
+
+/**
+ * Search cells in which we should put clone of given cell.
+ * Search going according linkChain
+ * @cell <mxCell>
+ * @linkChain <object>
+ */
+DataLoader.prototype.getCellTargets = function(cell, linkChain) {
+    var cellTargets = [];
+    var _this = this;
+    var graph = this.graph;
+
+    //var linkChain = impliedContainment[cont].linkChain;
+
+    linkChain.forEach(function(link){
+        var reverse = link['reverse'];
+        var tmpCellTargets = [];
+        var edges = [];
+        var linkBehaviour;
+
+        if (_this.editorUi.linkTypes && _this.editorUi.linkTypes.getById(link.linkType) && _this.editorUi.linkTypes.getById(link.linkType).behaviour){
+            linkBehaviour = _this.editorUi.linkTypes.getById(link.linkType).behaviour;
+        }
+
+        switch(linkBehaviour){
+            case 'connection':
+                if (cellTargets.length > 0){
+                    cellTargets.forEach(function(cellTrg){
+                        edges = graph.getModel().getEdges(cellTrg, reverse, !reverse, false);
+
+                        //get targets
+                        edges.forEach(function(edge){
+                            tmpCellTargets.push(edge.getTerminal(reverse));
+                        });
+                    });
+                } else {
+                    edges = graph.getModel().getEdges(cell, reverse, !reverse, false);
+
+                    //get targets
+                    edges.forEach(function(edge){
+                        tmpCellTargets.push(edge.getTerminal(reverse));
+                    });
+                }
+
+                cellTargets = tmpCellTargets;
+                tmpCellTargets = [];
+
+                break;
+            case 'containment':
+                var parent;
+                if (cellTargets.length > 0){
+                    cellTargets.forEach(function(cellTrg){
+                        if (reverse){
+                            parent = cellTrg.getParent();
+                            tmpCellTargets.push(parent);
+                        } else {
+                            if (DEBUG){
+                                console.log("Not realized content");
+                            }
+                        }
+                    });
+                } else {
+                    if (DEBUG){
+                        console.log("Containment shouldn't be first item in chain");
+                    }
+                }
+                if (parent){
+                    cellTargets = tmpCellTargets;
+                    tmpCellTargets = [];
+                }
+                break;
+            default:
+                if (DEBUG){
+                    console.log("Found unwaited linkBehaviour - " + linkBehaviour);
+                }
+        }
+    });
+
+    return cellTargets;
+}
+
+/**
+ * Add new edge for given source and target with attrs from el object
+ * source mxCell
+ * target mxCell
+ * el object
+ */
+DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
+
+    var _this = this;
+    var graph = this.graph;
+
+    if (cellTargets.length > 0){
+
+        cellTargets = uniq(cellTargets);
+        cellTargets.forEach(function(cellTrg){
+
+            var newCell = graph.cloneCells([cell])[0];
+
+            //var cellEdges = graph.getModel().getEdges(cell, incoming, outgoing, false);
+            var incomingEdges = graph.getModel().getEdges(cell, true, false, false);
+            var outcomingEdges = graph.getModel().getEdges(cell, false, true, false);
+
+            var addEdges = [];
+
+            incomingEdges.forEach(function(edge){
+
+                var el = {};
+                if (edge.getValue() && edge.getValue().getAttribute){
+                    el.source = edge.getValue().getAttribute('source');
+                    el.target = edge.getValue().getAttribute('target');
+                    el.typeCode = edge.getValue().getAttribute('typeCode');
+                }
+
+                if  (edge.source && edge.source.getParent().id === cellTrg.id){
+                    addEdges.push({
+                        target: newCell,
+                        source: edge.source,
+                        el: el
+                    })
+                }
+            });
+
+            outcomingEdges.forEach(function(edge){
+
+                var el = {};
+                if (edge.getValue() && edge.getValue().getAttribute){
+                    el.source = edge.getValue().getAttribute('source');
+                    el.target = edge.getValue().getAttribute('target');
+                    el.typeCode = edge.getValue().getAttribute('typeCode');
+                }
+
+                //console.log("edge.target", edge.target);
+                //console.log("edge.target.getParent().id", edge.target.getParent().id);
+                //console.log("cellTrg.id", cellTrg.id);
+                if (edge.target && edge.target.getParent().id === cellTrg.id){
+                    addEdges.push({
+                        target: edge.target,
+                        source: newCell,
+                        el: el
+                    });
+                }
+            });
+
+            //EditUI.editor.graph.graph.getModel().getEdges(EditUI.editor.graph.getSelectionCell(), true, true, false);
+            //put cell to cellTrg
+            //console.log("addEdges", addEdges);
+            graph.groupCells(cellTrg, 10, [newCell]);
+
+            addEdges.forEach(function(edge){
+                //debugger;
+                _this.addEdgeWithAttrs(edge.el, edge.source, edge.target, cellTrg)
+            });
+
+        });
+
+        graph.getModel().remove(cell);
+    }
+};
+
+
+/**
+ * Add new edge for given source and target with attrs from el object
+ * source mxCell
+ * target mxCell
+ * el object
+ */
+DataLoader.prototype.addEdgeWithAttrs = function(el, source, target, parent) {
+    var graph = this.graph;
+    var newEdge = graph.insertEdge(parent, null, null, source, target);
+
+    //TODO move in separate func
+    //add custom attrs
+    var val = graph.getModel().getValue(newEdge);
+
+    // Converts the value to an XML node
+    if (!mxUtils.isNode(val)) {
+        var doc = mxUtils.createXmlDocument();
+        var obj = doc.createElement('object');
+        obj.setAttribute('label', val || '');
+        val = obj;
+    }
+
+    val.setAttribute("source", el.source);
+    val.setAttribute("target", el.target);
+    val.setAttribute("typeCode", el.typeCode);
+
+    graph.getModel().setValue(newEdge, val);
+};
+
+/**
  * Load object type data, like stylesheet, linkTypes, objectTypes and store it in local variables
  */
 DataLoader.prototype.sync = function() {
@@ -313,57 +519,8 @@ DataLoader.prototype.sync = function() {
             console.log("responseData", responseData);
             if (responseData !== undefined){
 
-                /*var linkParents = {};
-
-                if (responseData.links){
-                    responseData.links.forEach(function(el){
-                        if (el.typeCode === 'participant2step'){
-                            linkParents[el.target] = el.source;
-                        }
-                    });
-                }*/
-
-                /*
-                * Как будем размещать объекты:
-                * У нас есть объекты и линки - связи между объектами
-                * Сначало берём все линки с типом participant2step - вложения (родители и дети)
-                * Для каждого объекта определяем родителя.
-                * TODO Если появится вложение больше 1 уровня - для каждого объекта определяем количество детей, сортируем все объекты от наибольшего к наименьшему, что бы определить последовательность доабвления обхектов на диаграмму
-                * Сначало добавляем на диаграмму объекты у которых есть дети, потом все остальные.
-                * source = parent
-                * Дальше, для каждого объекта у которого есть дети - создаём группу из детей и располагаем их красиво - применяем к ним layout.execute()
-                * */
-
-                /*var setParent = function(target, source){
-                    responseData.objects.some(function(obj){
-                        if (obj.UUID === source){
-                            obj.parent = target;
-                            return true;
-                        }
-                        return false;
-                    })
-                }*/
-
-                var parents = [];
-                //var childs = [];
-                /*if (responseData.links){
-                    responseData.links.forEach(function(el){
-
-                        if (el.typeCode === 'participant2step'){
-                            if (el.target && el.source){
-                                //parents.push(el.source);
-                                //ищем цел с таким uuid= el.source и добавляем ему атрибут parent = el.parent
-                                //setParent(el.target, el.source);
-                            }
-                        }
-                    });
-                }*/
-
-                //parents = uniq(parents);
-
                 //insert objects
                 if (responseData.objects){
-                    //_this.createCellsFromObject(responseData.objects, linkParents);
                     responseData.objects.forEach(function(el){
                         _this.createCellFromUserObject(el);
                     });
@@ -372,6 +529,7 @@ DataLoader.prototype.sync = function() {
                 //insert links
                 if (responseData.links){
                     var targetsToDel = [];
+                    var parents = [];
 
                     //insert participant links (child-parent)
                     responseData.links.forEach(function(el){
@@ -393,19 +551,20 @@ DataLoader.prototype.sync = function() {
 
                             if (source && target){
                                 var newTarget = graph.cloneCells([target])[0];
-                                targetsToDel.push(target);
                                 graph.groupCells(source, 10, [newTarget]);
+                                targetsToDel.push(target);
                                 parents.push(source);
-
-                                //EditUI.editor.graph.getModel().getCell(35).setParent(EditUI.editor.graph.getModel().getCell(34));
-                                //EditUI.editor.graph.groupCells(EditUI.editor.graph.getModel().getCell(35), 0, null);
-                                //EditUI.editor.graph.updateCellSize(EditUI.editor.graph.getSelectionCell(), false);
                             }
                         }
+                    });
+
+                    //remove cells, which we copy
+                    targetsToDel.forEach(function(trg){
+                        graph.getModel().remove(trg);
                     });
 
                     //insert connection links (arrows)
-                    /*responseData.links.forEach(function(el){
+                    responseData.links.forEach(function(el){
 
                         //TODO create structure for fast search cell by _metaClass
                         var source, target;
@@ -422,128 +581,59 @@ DataLoader.prototype.sync = function() {
                         });
 
                         if (source && target){
-
-                            /!*if (el.source === 'ae$78454'){
-                                debugger;
-                                console.log("el", el);
-                                _this.editorUi.ne = newEdge;
-                            }*!/
-
                             if (el.typeCode !== 'participant2step'){
-                                var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
-
-                                //TODO move in separate func
-                                //add custom attrs
-                                var val = graph.getModel().getValue(newEdge);
-
-                                // Converts the value to an XML node
-                                if (!mxUtils.isNode(val)) {
-                                    var doc = mxUtils.createXmlDocument();
-                                    var obj = doc.createElement('object');
-                                    obj.setAttribute('label', val || '');
-                                    val = obj;
-                                }
-
-                                val.setAttribute("source", el.source);
-                                val.setAttribute("target", el.target);
-                                val.setAttribute("typeCode", el.typeCode);
-
-                                graph.getModel().setValue(newEdge, val);
+                                _this.addEdgeWithAttrs(el, source, target, graph.getDefaultParent());
                             }
                         }
-                    });*/
-
-                    targetsToDel.forEach(function(trg){
-                       graph.getModel().remove(trg);
                     });
                 }
 
-                responseData.links.forEach(function(el){
+                /*
+                * Ищем все ячейки с metaClass = impliedContainment item
+                * Нашли ячейку - смотрим, есть ли у неё связи, соответствующие linkChain.
+                * Если у ячейки есть связи соответствующие linkChain, то
+                *   Нужно скопировать все edge до родителя. Указать кем является эта ячейка для связи, в зависимости от reverse
+                *   Клонируем ячейку, переносим её в нового родителя, проставляем ей связи.
+                *   EZ.
+                **/
 
-                    if (el.typeCode !== 'participant2step'){
-                        //TODO create structure for fast search cell by _metaClass
-                        var source, target;
+                var impliedContainmentObj = _this.editorUi.impliedContainment;
 
+                if (impliedContainmentObj.getCount() > 0){
+
+                    var impliedContainment = impliedContainmentObj.getAll();
+
+                    for (var cont in impliedContainment){
+                        //cont = type
                         graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
-                            if (cell && cell.getValue()){
-                                if (cell.getValue().getAttribute('UUID') === el.source) {
-                                    source = cell;
-                                }
-                                if (cell.getValue().getAttribute('UUID') === el.target) {
-                                    target = cell;
+
+                            //get cells with metaClass = cont
+                            if (cell && cell.getValue() && cell.getValue().getAttribute('metaClass') === cont){
+                                if (impliedContainment[cont].linkChain && impliedContainment[cont].linkChain.length > 0){
+
+                                    var cellTargets = _this.getCellTargets(cell, impliedContainment[cont].linkChain);
+
+                                    //array for target cells on each itteration
+                                    _this.cloneCellInTargets(cell, cellTargets);
                                 }
                             }
                         });
-
-                        if (source && target){
-
-                            /*if (el.source === 'ae$78454'){
-                             debugger;
-                             console.log("el", el);
-                             _this.editorUi.ne = newEdge;
-                             }*/
-
-                            var newEdge = graph.insertEdge(graph.getDefaultParent(), null, null, source, target);
-
-                            //TODO move in separate func
-                            //add custom attrs
-                            var val = graph.getModel().getValue(newEdge);
-
-                            // Converts the value to an XML node
-                            if (!mxUtils.isNode(val)) {
-                                var doc = mxUtils.createXmlDocument();
-                                var obj = doc.createElement('object');
-                                obj.setAttribute('label', val || '');
-                                val = obj;
-                            }
-
-                            val.setAttribute("source", el.source);
-                            val.setAttribute("target", el.target);
-                            val.setAttribute("typeCode", el.typeCode);
-
-                            graph.getModel().setValue(newEdge, val);
-                        }
                     }
-                });
+                }
 
                 if (parents.length > 0){
+
                     //arrange obj inside pools
                     parents.forEach(function(parentCell){
-                        var childs = graph.getModel().getChildVertices(parentCell);
-                        var newGroup = graph.groupCells(parentCell, 10, childs);
-                        var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
-                        //var layout = new mxStackLayout(graph);
-                        layout.border = 10;
-                        layout.resizeParent = true;
-                        layout.execute(newGroup);
+                        _this.arrangeEntrys(parentCell);
                     });
 
                     //arrange pools vertical
-                    var newGroup = graph.groupCells(graph.getDefaultParent(), 10, parents);
-                    //var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+                    var newGroup = graph.groupCells(graph.getDefaultParent(), 0, parents);
                     var layout = new mxStackLayout(graph, false, 10);
-                    layout.border = 10;
+                    layout.border = 0;
                     layout.resizeParent = true;
-
                     layout.execute(newGroup);
-
-                    /*_this.editorUi.executeLayout(function()
-                     {
-                     var selectionCells = graph.getSelectionCells();
-                     layout.execute(newGroup, selectionCells.length == 0 ? null : selectionCells);
-                     }, true);*/
-
-                    //arrange all horizontal
-                    /*var cellsNoParent = graph.getModel().getChildVertices(graph.getDefaultParent());
-                    newGroup = graph.groupCells(graph.getDefaultParent(), 10, cellsNoParent);
-                    layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
-                    //var layout = new mxStackLayout(graph);
-                    layout.border = 10;
-                    layout.resizeParent = true;
-                    layout.execute(newGroup);*/
-
-                    //_this.arrangeHorizontal();
-                    //_this.arrangeOrganic();
 
                     //push arrow on first plan to see connections betwen pool and outer world
                     graph.setSelectionCells(graph.getModel().getChildEdges(graph.getDefaultParent()));
@@ -551,8 +641,8 @@ DataLoader.prototype.sync = function() {
                     graph.clearSelection();
                 } else {
                     _this.arrangeHorizontal();
+                    //_this.arrangeOrganic();
                 }
-
 
                 editor.setModified(false);
                 //graph.refresh();

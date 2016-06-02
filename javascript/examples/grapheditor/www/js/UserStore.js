@@ -29,51 +29,51 @@ UserStore.prototype.findPath = '/sd/services/rest/find/';
 /**
  * Init setting privilege
  */
-UserStore.prototype.init = function(url, data) {
+UserStore.prototype.init = function (url, data) {
     var _this = this;
     var responseData;
 
-    if (url && data){
+    if (url && data) {
         console.log("Нельзя указать url и data одновременно");
         return;
     }
 
-    if (url){
+    if (url) {
         responseData = this.loadData(url);
-    } else if (data){
+    } else if (data) {
         responseData = data;
     }
 
-    if (responseData){
-        responseData.forEach(function(el){
-            if (el.imported && el.code){
+    if (responseData) {
+        responseData.forEach(function (el) {
+            if (el.imported && el.code) {
 
                 var importUrl = _this.origin + _this.findPath + el.code + '?accessKey=' + _this.queryStr.accessKey;
                 var req = mxUtils.load(importUrl);
                 var importResponse = JSON.parse(req.getText());
                 el.importedObjects = [];
 
-                importResponse.forEach(function(item){
+                importResponse.forEach(function (item) {
                     var importItem = {};
 
-                    if (item.code){
-                        importItem.code = item.code
+                    if (item.code) {
+                        importItem.code = item.code;
                     }
 
-                    if (item.metaClass){
-                        importItem.metaClass = item.metaClass
+                    if (item.metaClass) {
+                        importItem.metaClass = item.metaClass;
                     }
 
-                    if (item.description){
-                        importItem.description = item.description
+                    if (item.description) {
+                        importItem.description = item.description;
                     }
 
-                    if (item.title){
-                        importItem.title = item.title
+                    if (item.title) {
+                        importItem.title = item.title;
                     }
 
-                    if (item.UUID){
-                        importItem.UUID = item.UUID
+                    if (item.UUID) {
+                        importItem.UUID = item.UUID;
                     }
 
                     el.importedObjects.push(importItem);
@@ -92,36 +92,43 @@ UserStore.prototype.init = function(url, data) {
 /**
  * Synchronously load file from server and add it to store
  */
-UserStore.prototype.loadData = function(url){
+UserStore.prototype.loadData = function (url) {
 
     var _this = this;
-    try{
+    try {
         var req = mxUtils.load(url);
         return JSON.parse(req.getText());
-    } catch (e){
-        console.log('Error on load store',e.stack);
+    } catch (e) {
+        console.log('Error on load store', e.stack);
     }
 };
 
 /**
  * Add attribute object in store
  */
-UserStore.prototype._add = function(item) {
+UserStore.prototype._add = function (item) {
     this._items[item[this.idValue]] = item;
 };
 
 /**
  * Add attribute object in store
  */
-UserStore.prototype.getById = function(id) {
-    return this._items[id]
+UserStore.prototype.getById = function (id) {
+    return this._items[id];
 };
 
 /**
  * Return all items
  */
-UserStore.prototype.getAll = function() {
-    return this._items
+UserStore.prototype.getAll = function () {
+    return this._items;
+};
+
+/**
+ * Return all items
+ */
+UserStore.prototype.getCount = function () {
+    return Object.keys(this._items).length;
 };
 
 /**

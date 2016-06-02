@@ -3424,7 +3424,7 @@ EditorUi.prototype.getSystemState = function() {
     var _this = this;
     var graph = this.editor.graph;
     var output = {
-        objects:[],
+        objects: [],
         links: []
     };
 
@@ -3494,6 +3494,10 @@ EditorUi.prototype.getSystemState = function() {
         }
         return cellObj;
     }
+
+    //remove duplicates
+    output.objects = uniq(output.objects);
+    output.links = uniq(output.links);
 
     return output;
 };
