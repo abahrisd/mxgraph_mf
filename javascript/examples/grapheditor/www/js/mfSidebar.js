@@ -1016,7 +1016,7 @@ Sidebar.prototype.getStencils = function() {
 
         automatedAction: this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
         {
-            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#33ff33;rounded=1;');
+            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#33ff33;rounded=1;autosize=1;');
             cell.vertex = true;
 
             var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=mxgraph.bpmn.user_task;fillColor=#33ff33;');
@@ -1037,7 +1037,7 @@ Sidebar.prototype.getStencils = function() {
         }),
         automaticAction: this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
         {
-            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#3399ff;rounded=1;');
+            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#3399ff;rounded=1;autosize=1;');
             cell.vertex = true;
 
             var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=mxgraph.bpmn.service_task;fillColor=#3399ff;');
@@ -1056,7 +1056,7 @@ Sidebar.prototype.getStencils = function() {
         }),
         manualAction: this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
         {
-            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#ffff00;rounded=1;');
+            var cell = new mxCell('Текст', new mxGeometry(0, 0, 120, 80), 'whiteSpace=wrap;fillColor=#ffff00;rounded=1;autosize=1;');
             cell.vertex = true;
 
             var cell1 = new mxCell('', new mxGeometry(0, 0, 14, 14), 'shape=mxgraph.bpmn.manual_task;fillColor=#ffff00;');

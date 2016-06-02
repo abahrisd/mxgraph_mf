@@ -20,6 +20,7 @@ EditorUi = function(editor, container)
 
     //Create dataLoader, we need it in Sidebar and Format
     this.dataLoader = new DataLoader(this);
+    this.override();
     this.dataLoader.setAttributes();
     this.restricteddAttributeList = ['metaClass', 'UUID', 'templateCode', 'group'];
     this.dataLoader.loadXMLData();
@@ -3534,3 +3535,52 @@ EditorUi.prototype.cleanClipboardAndShowError = function(msg) {
         ui.unableCopyWarn = mxUtils.error(msg, 200, true);
     }
 };
+
+/**
+ * Sets the enabled state of the action and fires a stateChanged event.
+ */
+EditorUi.prototype.override = function() {
+
+    var graph = this.editor.graph;
+    var dataloader = this.dataLoader;
+
+    //workaround for bug with change label for imported actions which childs of pool
+    mxGraph.prototype.cellLabelChanged = function(cell, value, autoSize)
+    {
+        this.model.beginUpdate();
+        try
+        {
+            this.model.setValue(cell, value);
+
+            var ignoreChildren = cell.getValue() && cell.getValue().getAttribute && cell.getValue().getAttribute('metaClass') === 'ae$bpstep';
+
+            if (autoSize)
+            {
+                this.cellSizeUpdated(cell, ignoreChildren);
+            }
+        }
+        finally
+        {
+            this.model.endUpdate();
+        }
+    };
+
+    //change prefered size for cell
+    var graphGetPreferredSizeForCell = graph.getPreferredSizeForCell;
+    graph.getPreferredSizeForCell = function(cell) {
+        var result = graphGetPreferredSizeForCell.apply(this, arguments);
+        var style = this.getCellStyle(cell);
+
+        //get our own rules to unify cell sizes whatever load from server or add by user
+        var label = cell.getValue() && cell.getValue().getAttribute && cell.getValue().getAttribute('label');
+
+        if (label){
+            var widthHeight = dataloader.getWidthHeight(label.length);
+            result.width = widthHeight.width;
+            result.height = widthHeight.height;
+        }
+
+        return result;
+    };
+};
+
