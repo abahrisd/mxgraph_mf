@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3682243">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1100" column="0" selection-start-line="1100" selection-start-column="0" selection-end-line="1100" selection-end-column="0" />
               <folding>
                 <marker date="1464867788831" expanded="true" signature="49177:49225" placeholder="..." />
@@ -97,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stencils.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Stencils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.317757">
+              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -120,8 +117,8 @@
       <file leaf-file-name="stylesheet.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.461538">
-              <caret line="175" column="43" selection-start-line="175" selection-start-column="43" selection-end-line="175" selection-end-column="43" />
+            <state vertical-scroll-proportion="-7.923077">
+              <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -192,8 +189,8 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
       </list>
     </option>
   </component>
@@ -564,12 +561,6 @@
       <option name="number" value="Default" />
       <updated>1461577810014</updated>
     </task>
-    <task id="LOCAL-00003" summary="start project, not atomic but... just not atomic\&#10;Add loading, equal attr's by param, import from json, import stylesheet classes.&#10; Add right panel attrs tab.&#10; Modify stencils palettes.">
-      <created>1462541445634</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1462541445634</updated>
-    </task>
     <task id="LOCAL-00004" summary="add rus i18n">
       <created>1462541500714</created>
       <option name="number" value="00004" />
@@ -858,7 +849,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464867770908</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="add whitespace=wrap for stencils, change events size, enable text adjust for actions">
+      <created>1464870392988</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1464870392988</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView">
@@ -931,7 +928,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add global loadmask for save/load operations" />
     <MESSAGE value="add loadMask on start app" />
     <MESSAGE value="fix not able to add dotted line, change styles for dotted and dashed lines" />
     <MESSAGE value="increase length of dash in dashed line" />
@@ -956,7 +952,8 @@
     <MESSAGE value="create Stencils.js, moved there stencils data" />
     <MESSAGE value="fix empty text label and registry stencil style" />
     <MESSAGE value="edit produstion index" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit produstion index" />
+    <MESSAGE value="add whitespace=wrap for stencils, change events size, enable text adjust for actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="add whitespace=wrap for stencils, change events size, enable text adjust for actions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1354,14 +1351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.461538">
-          <caret line="175" column="43" selection-start-line="175" selection-start-column="43" selection-end-line="175" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1370,17 +1359,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3682243">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1100" column="0" selection-start-line="1100" selection-start-column="0" selection-end-line="1100" selection-end-column="0" />
           <folding>
             <marker date="1464867788831" expanded="true" signature="49177:49225" placeholder="..." />
@@ -1399,6 +1380,22 @@
             <marker date="1464867788831" expanded="true" signature="69302:69366" placeholder="..." />
             <marker date="1464867788831" expanded="true" signature="69405:69430" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.923077">
+          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.317757">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

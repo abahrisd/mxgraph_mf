@@ -48,7 +48,7 @@ Stencils.prototype.init = function () {
             metaClass: 'ae$bpstep'
         }, {
             code: 'startEventWithMessage',
-            style: 'shape=mxgraph.bpmn.event_start_msg;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'shape=mxgraph.bpmn.event_start_msg;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
