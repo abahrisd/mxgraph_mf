@@ -679,8 +679,9 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
     //var baseParent = this.parent;
     //var parent;
 
-    var width = 140;
-    var height = 80;
+    var width = 160;
+    var height = 100;
+
     var style = 'whiteSpace=wrap;';
     var titleLength = obj.title?obj.title.length:0;
     var newValue = null;
@@ -764,8 +765,14 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
             var newProtoCell = graph.moveCells(protoCell, null, null, true, parent)[0];
 
             newProtoCell.setValue(node);
-            //newProtoCell.getGeometry().width = width;
-            //newProtoCell.getGeometry().height = height;
+
+
+            var widthHeight = this.getWidthHeight(titleLength);
+            width = widthHeight.width;
+            height = widthHeight.height;
+
+            newProtoCell.getGeometry().width = width;
+            newProtoCell.getGeometry().height = height;
         }
     } else {
         //graph.insertVertex(parent, null, node, globalUsersCellX, globalUsersCellY, null, null, style);
@@ -774,7 +781,7 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
 
     this.globalUsersCellX += 10;
     this.globalUsersCellY += 10;
-}
+};
 
 /**
  * Load stylesheet from server and set it to graph, from server shold came XML!

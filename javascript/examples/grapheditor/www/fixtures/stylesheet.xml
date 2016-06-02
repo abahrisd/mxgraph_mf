@@ -34,6 +34,7 @@
     </add>
     <add as="startEventWithMessage">
         <add value="mxgraph.bpmn.event_start_msg" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
         <add value="center" as="align"/>
@@ -101,6 +102,7 @@
     </add>
     <add as="endEventWithMessage">
         <add value="mxgraph.bpmn.event_end_msg" as="shape"/>
+        <add value="wrap" as="whiteSpace"/>
         <add value="#000000" as="fillColor"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -166,15 +168,18 @@
     </add>
     <add as="solidLine">
         <add value="0" as="dashed"/>
+        <add value="wrap" as="whiteSpace"/>
         <add value="classic" as="endArrow"/>
     </add>
     <add as="dashedLine">
         <add value="1" as="dashed"/>
+        <add value="wrap" as="whiteSpace"/>
         <add value="8 8" as="dashPattern"/>
         <add value="classic" as="endArrow"/>
     </add>
     <add as="dottedLine">
         <add value="1" as="dashed"/>
+        <add value="wrap" as="whiteSpace"/>
         <add value="1 4" as="dashPattern"/>
         <add value="2" as="strokeWidth"/>
         <add value="classic" as="endArrow"/>

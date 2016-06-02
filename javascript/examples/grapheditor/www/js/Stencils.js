@@ -43,85 +43,85 @@ Stencils.prototype.init = function () {
         }, {
             code: 'startEvent',
             style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'startEventWithMessage',
             style: 'shape=mxgraph.bpmn.event_start_msg;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'endEvent',
-            style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=9;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=5;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'endEventWithMessage',
-            style: 'shape=mxgraph.bpmn.event_end_msg;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.bpmn.event_end_msg;whiteSpace=wrap;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEvent',
             style: 'shape=doubleEllipse;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithMessageThrow',
-            style: 'shape=mxgraph.bpmn.event_mailfill;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.bpmn.event_mailfill;whiteSpace=wrap;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithMessageCatch',
-            style: 'shape=mxgraph.bpmn.event_mail;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.bpmn.event_mail;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithTimer',
-            style: 'shape=mxgraph.bpmn.event_timer;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.bpmn.event_timer;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateLink1Event',
-            style: 'shape=mxgraph.bpmn.event_arrow;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.bpmn.event_arrow;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateLink2Event',
-            style: 'shape=mxgraph.bpmn.event_arrow_fill;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 80,
+            style: 'shape=mxgraph.bpmn.event_arrow_fill;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            width: 50,
+            height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'excludingGateway',
-            style: 'shape=gatewayExclude;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'shape=gatewayExclude;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'parallelGateway',
-            style: 'shape=gatewayParallel;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'shape=gatewayParallel;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'registry',
-            style: 'dataObject',
+            style: 'dataObject;',
             //style: 'shape=card;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=16;',
             width: 50,
             height: 70,
             metaClass: 'ae$registry'
         }, {
             code: 'document',
-            style: 'dataObject;strokeColor=#CCCC00;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'dataObject;strokeColor=#CCCC00;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 80,
             height: 100,
             metaClass: 'nd&nd'
@@ -133,19 +133,19 @@ Stencils.prototype.init = function () {
             metaClass: 'req$high'
         }, {
             code: 'solidLine',
-            style: 'endArrow=classic;',
+            style: 'endArrow=classic;whiteSpace=wrap;',
             width: 50,
             height: 50,
             metaClass: "controlFlow"
         }, {
             code: 'dashedLine',
-            style: 'endArrow=classic;dashed=1;dashPattern=8 8;',
+            style: 'endArrow=classic;dashed=1;dashPattern=8 8;whiteSpace=wrap;',
             width: 50,
             height: 50,
             metaClass: "messageFlow"
         }, {
             code: 'dottedLine',
-            style: 'endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;',
+            style: 'endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;whiteSpace=wrap;',
             width: 50,
             height: 50,
             metaClass: "associationFlow"
