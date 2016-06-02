@@ -512,17 +512,23 @@
 	// Gateway exclude shape
     function GatewayExclude()
     {
-        mxRectangleShape.call(this);
-        this.rotation = 45;
+        mxRhombus.call(this);
     };
-    mxUtils.extend(GatewayExclude, mxRectangleShape);
+    mxUtils.extend(GatewayExclude, mxRhombus);
     GatewayExclude.prototype.isHtmlAllowed = function()
     {
         return false;
     };
+    GatewayExclude.prototype.paintVertexShape = function(c, x, y, w, h) {
+
+        c.setStrokeWidth(2);
+        mxRhombus.prototype.paintVertexShape.apply(this, arguments);
+        this.paintForeground(c, x, y, w, h);
+    };
+
     GatewayExclude.prototype.paintForeground = function(c, x, y, w, h)
     {
-        var border = Math.min(w / 7, h / 7) + 1;
+        var border = Math.min(w / 5, h / 5) + 1;
 
         c.setStrokeWidth(3);
         c.begin();
@@ -532,7 +538,6 @@
         c.lineTo(x + w - border, y + h / 2);
         c.end();
         c.stroke();
-        mxRectangleShape.prototype.paintForeground.apply(this, arguments);
     };
 
 	mxCellRenderer.prototype.defaultShapes['gatewayExclude'] = GatewayExclude;
@@ -540,17 +545,23 @@
     // Gateway parallel shape
     function GatewayParallel()
     {
-        mxRectangleShape.call(this);
-        this.rotation = 45;
+        mxRhombus.call(this);
+        //this.rotation = 45;
     };
-    mxUtils.extend(GatewayParallel, mxRectangleShape);
+    mxUtils.extend(GatewayParallel, mxRhombus);
     GatewayParallel.prototype.isHtmlAllowed = function()
     {
         return false;
     };
+    GatewayParallel.prototype.paintVertexShape = function(c, x, y, w, h) {
+
+        c.setStrokeWidth(2);
+        mxRhombus.prototype.paintVertexShape.apply(this, arguments);
+        this.paintForeground(c, x, y, w, h);
+    };
     GatewayParallel.prototype.paintForeground = function(c, x, y, w, h)
     {
-        var s2 = 0.27;
+        var s2 = 0.32;
 
         c.setShadow(false);
         c.setStrokeWidth(3);
@@ -566,7 +577,7 @@
         c.end();
         c.stroke();
 
-        mxRectangleShape.prototype.paintForeground.apply(this, arguments);
+        mxRhombus.prototype.paintForeground.apply(this, arguments);
     };
 
 	mxCellRenderer.prototype.defaultShapes['gatewayParallel'] = GatewayParallel;
