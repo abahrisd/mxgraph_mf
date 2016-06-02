@@ -114,7 +114,8 @@ Stencils.prototype.init = function () {
             metaClass: 'ae$bpstep'
         }, {
             code: 'registry',
-            style: 'shape=card;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'dataObject',
+            //style: 'shape=card;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=16;',
             width: 50,
             height: 70,
             metaClass: 'ae$registry'

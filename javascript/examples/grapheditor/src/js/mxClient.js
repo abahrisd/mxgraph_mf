@@ -45627,7 +45627,7 @@ mxCellEditor.prototype.selectText = true;
  * value is only displayed before the first keystroke and is never used as the
  * actual editing value.
  */
-//mxCellEditor.prototype.emptyLabelText = (mxClient.IS_FF) ? '<br>' : '';
+mxCellEditor.prototype.emptyLabelText = (mxClient.IS_FF) ? '<br>' : '';
 
 /**
  * Variable: textNode
