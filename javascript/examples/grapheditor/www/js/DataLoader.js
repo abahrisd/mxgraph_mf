@@ -401,7 +401,7 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
 
     if (cellTargets.length > 0){
 
-        cellTargets = uniq(cellTargets);
+        cellTargets = tcpUtils.uniq(cellTargets);
         cellTargets.forEach(function(cellTrg){
 
             var newCell = graph.cloneCells([cell])[0];
