@@ -194,7 +194,7 @@ UserStore.prototype.getAllowedValues = function(metaClass, value) {
  */
 UserStore.prototype.getLabel = function(metaClass, value) {
 
-    //Берём итам по метаклассу, берём группу по value и собираем все темплейты с такой группой. название делаем по templateGroups.name
+    //Берём итем по метаклассу, берём группу по value и собираем все темплейты с такой группой. название делаем по templateGroups.name
     var label = '';
     var group = '';
     var item = this.getById(metaClass);
@@ -221,6 +221,29 @@ UserStore.prototype.getLabel = function(metaClass, value) {
     }
 
     return label;
+};
+
+
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getName = function(metaClass, value) {
+
+    var name = '';
+    var item = this.getById(metaClass);
+
+    if (item.templates){
+
+        item.templates.some(function(el){
+            if (el.templateAttributeValue && el.templateAttributeValue === value && el.name){
+                name = el.name;
+                return true;
+            }
+            return false;
+        });
+    }
+
+    return name;
 };
 
 /**
@@ -303,7 +326,7 @@ UserStore.prototype.getGroup = function(metaClass, value) {
 };
 
 /**
- * Return templates fom store, which exists in stencils object
+ * Return templates from store, which exists in stencils object
  */
 UserStore.prototype.getTemplateAttribute = function(metaClass) {
 

@@ -1082,7 +1082,7 @@ Sidebar.prototype.getStencils = function() {
 
         solidLine: this.createEdgeTemplateEntry(stencilsData.getStyle('solidLine'), stencilsData.getWidth('solidLine'), stencilsData.getHeight('solidLine'), '', sb.getConnectionTitle('controlFlow', 'Поток управления'), null, null, null, {metaClass: stencilsData.getMetaClass('solidLine'), type: 'controlFlow'}),
         dashedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dashedLine'), stencilsData.getWidth('dashedLine'), stencilsData.getHeight('dashedLine'), '', sb.getConnectionTitle('messageFlow','Поток сообщений'), null, null, null, {metaClass: stencilsData.getMetaClass('dashedLine'), type: 'messageFlow'}),
-        dottedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dottedLine'), stencilsData.getWidth('dottedLine'), stencilsData.getHeight('dottedLine'), '', sb.getConnectionTitle('associationFlow','Поток ассоциация'), null, null, null, {metaClass:stencilsData.getMetaClass('dottedLine'), type: 'associationFlow'}),
+        dottedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dottedLine'), stencilsData.getWidth('dottedLine'), stencilsData.getHeight('dottedLine'), '', sb.getConnectionTitle('association','Поток ассоциация'), null, null, null, {metaClass:stencilsData.getMetaClass('dottedLine'), type: 'association'}),
 
         text: this.createVertexTemplateEntry(stencilsData.getStyle('text'), stencilsData.getWidth('text'), stencilsData.getHeight('text'), 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
     };
@@ -1104,7 +1104,7 @@ Sidebar.prototype.addGeneralPalette = function(expand, container)
 
     var fns = [].concat(objectTypesItems.getTemplatesByStencils(stencils));
     fns = fns.concat(connectionTypesItems.getTemplatesByStencils(stencils));
-    fns.push(this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
+    //fns.push(this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
 
     this.addPaletteFunctions('general', mxResources.get('general'), (expand != null) ? expand : true, fns, container);
 
@@ -1243,15 +1243,10 @@ Sidebar.prototype.generateCopyPanel = function(expand, container) {
                 });
             }
 
-            _this.addPaletteFunctions(paletteName, paletteName, (expand != null) ? expand : true, fns, container);
+            _this.addPaletteFunctions(el.code, paletteName, (expand != null) ? expand : true, fns, container);
 
         });
     }
-
-    //get palette by id - EditUI.sidebar.palettes['Электронный формуляр'][1]
-
-    //
-
 };
 
 /**
@@ -2296,17 +2291,55 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
 					{
 
                         //if obj not multiple, show it in stencils if object was deleted from graph
-                        if (elt.getAttribute('checkMultiple') === 'true'){
-                            this.editorUi.editor.graph.addListener(mxEvent.CELLS_REMOVED, function(sender, evt){
-                                var cells = evt.getProperty('cells'); // cell may be null
+                        if (elt.getAttribute('checkMultiple')){
+                            if (elt.getAttribute('checkMultiple') === 'true'){
+                                this.editorUi.editor.graph.addListener(mxEvent.CELLS_REMOVED, function(sender, evt){
+                                    var dropedCells = evt.getProperty('cells'); // cell may be null
 
-                                cells.forEach(function(cell){
-                                    if (cell.id === select[0].id){
-                                        elt.style.display = 'inline-block';
-                                    }
+                                    dropedCells.forEach(function(cell){
+                                        if (cell.id === select[0].id){
+                                            elt.style.display = 'inline-block';
+                                        }
+                                    });
                                 });
-                            });
-                        }
+                            }
+                        }/* else {
+                            //add new stencil of this object and track changes
+                            //console.log("cells", cells);
+
+                            //if this cell is multiple
+                            if (select[0].getValue() && select[0].getValue().getAttribute) {
+                                var cellMetaClass = select[0].getValue().getAttribute('metaClass');
+                                var objectTypes = this.editorUi.objectTypes;
+
+                                if (cellMetaClass && objectTypes.isMultiple(cellMetaClass)) {
+
+                                    var newStencil = graph.cloneCells(select);
+                                    console.log("newStencil", newStencil);
+                                    //create copy of this cell as stencil in palette
+                                    var width = newStencil[0].geometry.width;
+                                    var height = newStencil[0].geometry.height;
+                                    var title = newStencil[0].getValue().getAttribute('title');
+
+                                    var tmpAttr = objectTypes.getTemplateAttribute(cellMetaClass);
+                                    var tmpAttrValue = newStencil[0].getValue().getAttribute(tmpAttr);
+                                    var showTitle = objectTypes.getName(cellMetaClass, tmpAttrValue);
+
+                                    var showLabel = newStencil[0].getValue().getAttribute('label');
+
+                                    console.log("title", title);
+                                    console.log("showLabel", showLabel);
+                                    console.log("showTitle", showTitle);
+
+                                    var newElt = this.createVertexTemplateFromCells(newStencil, width, height, 'title', true, true, allowCellsInserted);
+
+                                    if (this.palettes[cellMetaClass]){
+                                        var palette = tcpUtils.findClass(this.palettes[cellMetaClass][1], 'geSidebar');
+                                        palette.appendChild(newElt);
+                                    }
+                                }
+                            }
+                        }*/
 
 						graph.model.endUpdate();
 					}

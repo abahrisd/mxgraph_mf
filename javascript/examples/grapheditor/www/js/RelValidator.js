@@ -76,7 +76,7 @@ RelValidator.prototype.addEdgeValidation = function() {
                 //TODO Refactor this block about errors
                 var error = false;
 
-                //смотрим forbiddenConnections, если нашли наш случай - то выбрасываем ошибк
+                //смотрим forbiddenConnections, если нашли наш случай - то выбрасываем ошибку
                 //если не нашли ограничений, смотрим разрешения
                 //если не нашлиразрешения - то выбрасываем ошибку
                 if (edge && (source || target)){
@@ -92,7 +92,7 @@ RelValidator.prototype.addEdgeValidation = function() {
 
                 error = true;
                 for (var i in linkTypes){
-                    if (i){
+                    if (Object.prototype.hasOwnProperty.call(linkTypes, i)){
                         if ( (sourceCode === undefined || (linkTypes[i].sourceType && linkTypes[i].sourceType === sourceCode)) &&
                             (targetCode === undefined || (linkTypes[i].targetType && linkTypes[i].targetType === targetCode)) &&
                                 //TODO refactor ifelse
@@ -109,12 +109,6 @@ RelValidator.prototype.addEdgeValidation = function() {
                 }
 
                 if (error){
-                    //mxConstants.HIGHLIGHT_COLOR = '#ff0000';
-                    //mxConstants.CONNECT_TARGET_COLOR = '#ff0000';
-                    //var graph = _this.graph;
-                    //var highlight = new mxCellHighlight(graph, '#ff0000', 2);
-                    //highlight.highlight(graph.view.getState(target));
-
                     if (DEBUG){
                         console.log(mxResources.get('errorBound'));
                     }

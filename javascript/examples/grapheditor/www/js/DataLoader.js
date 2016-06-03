@@ -480,7 +480,7 @@ DataLoader.prototype.addEdgeWithAttrs = function(el, source, target, parent) {
 
     if (el.typeCode) {
         var connectionType = this.editorUi.linkTypes.getConnectionStyle(el.typeCode);
-        var connectionStencil = this.editorUi.stencilsData.getByMetaClass(connectionType)
+        var connectionStencil = this.editorUi.stencilsData.getByMetaClass(connectionType);
         style = connectionStencil && connectionStencil.code;
     }
 

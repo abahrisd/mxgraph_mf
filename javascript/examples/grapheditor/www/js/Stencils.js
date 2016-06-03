@@ -131,9 +131,9 @@ Stencils.prototype.init = function () {
         }, {
             code: 'document',
             style: 'dataObject;strokeColor=#CCCC00;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
-            width: 80,
-            height: 100,
-            metaClass: 'nd&nd'
+            width: 50,
+            height: 70,
+            metaClass: 'nd$nd'
         }, {
             code: 'rule',
             style: 'shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2',
