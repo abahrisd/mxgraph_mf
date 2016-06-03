@@ -207,6 +207,7 @@ Sidebar.prototype.init = function()
 
     var copyPanel = document.createElement('div');
     copyPanel.style.display = 'none';
+    this.generateCopyPanel(false, copyPanel);
     this.container.appendChild(copyPanel);
 
     addClickHandler(label, createPanel, idx++);
@@ -214,8 +215,6 @@ Sidebar.prototype.init = function()
 
     //coz we rendering sidebar after adding click events
     this.clickPanel(label);
-
-    this.addPaletteFunctions('Copy', mxResources.get('copy'), true, [this.createVertexTemplateEntry('text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;', 40, 20, 'Текст', 'Текст', null, null, 'text textbox textarea label', null/*{metaClass: ''}*/)], copyPanel);
 
     //this.addGeneralPalette(true);
 	/*this.addMiscPalette(false);
@@ -1214,6 +1213,50 @@ Sidebar.prototype.addGeneralPalette = function(expand, container)
 /**
  * Adds the general palette to the sidebar.
  */
+Sidebar.prototype.generateCopyPanel = function(expand, container) {
+    
+    var _this = this;
+    var objectTypesItems = this.editorUi.objectTypes;
+    var stencilsData = this.editorUi.stencilsData;
+    var stencilsToAdd = objectTypesItems.getImportedObjects();
+
+    if (stencilsToAdd.length > 0) {
+        stencilsToAdd.forEach(function(el){
+
+            var paletteName = el.name || 'Объекты';
+
+            //code in stencilsData, to get stencils parameters
+            var code;
+
+            //stencil from store
+            var stencil = stencilsData.getByMetaClass(el.code);
+
+            if (stencil){
+                code = stencil.code;
+            }
+
+            var fns = [];
+
+            if (el.items){
+                el.items.forEach(function(item){
+                    fns.push(_this.createVertexTemplateEntry(stencilsData.getStyle(code), stencilsData.getWidth(code), stencilsData.getHeight(code), item.title, '' /*description*/, null, null, null, item, true));
+                });
+            }
+
+            _this.addPaletteFunctions(paletteName, paletteName, (expand != null) ? expand : true, fns, container);
+
+        });
+    }
+
+    //get palette by id - EditUI.sidebar.palettes['Электронный формуляр'][1]
+
+    //
+
+};
+
+/**
+ * Adds the general palette to the sidebar.
+ */
 Sidebar.prototype.addMiscPalette = function(expand)
 {
 	var fns = [
@@ -2047,7 +2090,7 @@ Sidebar.prototype.createThumb = function(cells, width, height, parent, title, sh
 /**
  * Creates and returns a new palette item for the given image.
  */
-Sidebar.prototype.createItem = function(cells, title, showLabel, showTitle, width, height, allowCellsInserted)
+Sidebar.prototype.createItem = function(cells, title, showLabel, showTitle, width, height, allowCellsInserted, checkMultiple)
 {
 	var elt = document.createElement('a');
 	elt.setAttribute('href', 'javascript:void(0);');
@@ -2057,6 +2100,10 @@ Sidebar.prototype.createItem = function(cells, title, showLabel, showTitle, widt
 	elt.style.width = (this.thumbWidth + border) + 'px';
 	elt.style.height = (this.thumbHeight + border) + 'px';
 	elt.style.padding = this.thumbPadding + 'px';
+
+    if (checkMultiple){
+        elt.setAttribute('checkMultiple', 'true');
+    }
 	
 	// Blocks default click action
 	mxEvent.addListener(elt, 'click', function(evt)
@@ -2070,7 +2117,7 @@ Sidebar.prototype.createItem = function(cells, title, showLabel, showTitle, widt
 	if (cells.length > 1 || cells[0].vertex)
 	{
 		var ds = this.createDragSource(elt, this.createDropHandler(cells, true, allowCellsInserted,
-			bounds), this.createDragPreview(width, height), cells, bounds);
+			bounds, elt), this.createDragPreview(width, height), cells, bounds);
 		this.addClickHandler(elt, ds, cells);
 	
 		// Uses guides for vertices only if enabled in graph
@@ -2082,7 +2129,7 @@ Sidebar.prototype.createItem = function(cells, title, showLabel, showTitle, widt
 	else if (cells[0] != null && cells[0].edge)
 	{
 		var ds = this.createDragSource(elt, this.createDropHandler(cells, false, allowCellsInserted,
-			bounds), this.createDragPreview(width, height), cells, bounds);
+			bounds, elt), this.createDragPreview(width, height), cells, bounds);
 		this.addClickHandler(elt, ds, cells);
 	}
 	
@@ -2178,7 +2225,7 @@ Sidebar.prototype.updateShapes = function(source, targets)
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInserted, bounds)
+Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInserted, bounds, elt)
 {
 	allowCellsInserted = (allowCellsInserted != null) ? allowCellsInserted : true;
 	
@@ -2247,6 +2294,20 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
 					}
 					finally
 					{
+
+                        //if obj not multiple, show it in stencils if object was deleted from graph
+                        if (elt.getAttribute('checkMultiple') === 'true'){
+                            this.editorUi.editor.graph.addListener(mxEvent.CELLS_REMOVED, function(sender, evt){
+                                var cells = evt.getProperty('cells'); // cell may be null
+
+                                cells.forEach(function(cell){
+                                    if (cell.id === select[0].id){
+                                        elt.style.display = 'inline-block';
+                                    }
+                                });
+                            });
+                        }
+
 						graph.model.endUpdate();
 					}
 	
@@ -2605,6 +2666,17 @@ Sidebar.prototype.createDragSource = function(elt, dropHandler, preview, cells, 
 		{
 			this.editorUi.hoverIcons.update(graph.view.getState(graph.getSelectionCell()));
 		}
+
+        if (elt.getAttribute('checkMultiple') === 'true'){
+            if (cells !== null && cells.length > 0 && cells[0].getValue() && cells[0].getValue().getAttribute) {
+
+                var isMultiple = ui.objectTypes.isMultiple(cells[0].getValue().getAttribute('metaClass'));
+
+                if (!isMultiple) {
+                    elt.style.display = 'none';
+                }
+            }
+        }
 	}),
 	preview, 0, 0, this.editorUi.editor.graph.autoscroll, true, true);
 	
@@ -3300,20 +3372,20 @@ Sidebar.prototype.addClickHandler = function(elt, ds, cells)
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplateEntry = function(style, width, height, value, title, showLabel, showTitle, tags, metaClass)
+Sidebar.prototype.createVertexTemplateEntry = function(style, width, height, value, title, showLabel, showTitle, tags, metaClass, checkMultiple)
 {
 	tags = (tags != null && tags.length > 0) ? tags : title.toLowerCase();
 	
 	return this.addEntry(tags, mxUtils.bind(this, function()
  	{
- 		return this.createVertexTemplate(style, width, height, value, title, showLabel, showTitle, null, metaClass);
+ 		return this.createVertexTemplate(style, width, height, value, title, showLabel, showTitle, null, metaClass, checkMultiple);
  	}));
 }
 
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted, metaClass)
+Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted, metaClass, checkMultiple)
 {
 	var cells = [new mxCell((value != null) ? value : '', new mxGeometry(0, 0, width, height), style)];
 	cells[0].vertex = true;
@@ -3321,15 +3393,15 @@ Sidebar.prototype.createVertexTemplate = function(style, width, height, value, t
     //add custom attrs
     this.addCustomAttrs(cells[0], metaClass);
 
-	return this.createVertexTemplateFromCells(cells, width, height, title, showLabel, showTitle, allowCellsInserted);
+	return this.createVertexTemplateFromCells(cells, width, height, title, showLabel, showTitle, allowCellsInserted, checkMultiple);
 };
 
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplateFromCells = function(cells, width, height, title, showLabel, showTitle, allowCellsInserted)
+Sidebar.prototype.createVertexTemplateFromCells = function(cells, width, height, title, showLabel, showTitle, allowCellsInserted, checkMultiple)
 {
-	return this.createItem(cells, title, showLabel, showTitle, width, height, allowCellsInserted);
+	return this.createItem(cells, title, showLabel, showTitle, width, height, allowCellsInserted,checkMultiple);
 };
 
 /**
@@ -3686,9 +3758,31 @@ Sidebar.prototype.addCustomAttrs = function(cell, attrs) {
         }
 
         val.setAttribute('metaClass', metaClass);
+
+        //set base attributes
+        if (_this.editorUi.atributesDirectory && _this.editorUi.atributesDirectory.getById(metaClass)){
+            var attributes = _this.editorUi.atributesDirectory.getById(metaClass).attributes;
+            for (var i in attributes){
+                if (Object.prototype.hasOwnProperty.call(attributes, i)) {
+                    if (attrs[i]){
+                        val.setAttribute(i, attrs[i]);
+                    } else {
+                        val.setAttribute(i, '');
+                    }
+                }
+            }
+        }
+
+        //set given attributes
+        /*for (var i in attrs){
+            if (Object.prototype.hasOwnProperty.call(attrs, i)){
+                val.setAttribute(i, attrs[i]);
+            }
+        }*/
+
         //val.setAttribute('templateCode', type);
 
-        switch(metaClass){
+        /*switch(metaClass){
 
             //vertices
             case 'ae$bpstep':
@@ -3697,41 +3791,17 @@ Sidebar.prototype.addCustomAttrs = function(cell, attrs) {
                 if (_this.editorUi.atributesDirectory && _this.editorUi.atributesDirectory.getById(metaClass)){
                     var attributes = _this.editorUi.atributesDirectory.getById(metaClass).attributes;
                     for (var i in attributes){
-                        if (i) {
+                        if (Object.prototype.hasOwnProperty.call(attributes, i)) {
                             val.setAttribute(i, '');
                         }
                     }
                 }
                 break;
-
-            //connections
-            //we got only two links that transform on bind, so we dont need this... for now
-            /*case 'step2step':
-            case 'event2gateway':
-            case 'gateway2step':
-            case 'step2event':
-            case 'dataObject2step':
-            case 'event2step':
-            case 'gateway2gateway':
-            case 'gateway2event':
-            case 'rule2step':
-                if (_this.editorUi.linkTypes){
-                    var linkType = _this.editorUi.linkTypes.getById(metaClass.metaClass);
-
-                    if (linkType.sourceType){
-                        val.setAttribute('sourceType', linkType.sourceType);
-                    }
-
-                    if (linkType.targetType){
-                        val.setAttribute('targetType', linkType.targetType);
-                    }
-                }
-                break;*/
             default:
                 if (DEBUG){
-                    console.log("Error while setting attrs to stencil");
+                    console.log("Error while setting standart attrs to stencil");
                 }
-        }
+        }*/
 
         //Если у объекта есть атрибут templateAttribute, то проставляем ему значение из template.templateAttributeValue для template.code = type
         var objectItem = this.editorUi.objectTypes.getById(metaClass);

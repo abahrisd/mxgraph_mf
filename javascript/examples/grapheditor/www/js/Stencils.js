@@ -19,6 +19,15 @@ function Stencils() {
     this.init();
 };
 
+/**
+ * Base width for stancils without style
+ */
+Stencils.prototype.baseWidth = 160;
+
+/**
+ * Base height for stancils without style
+ */
+Stencils.prototype.baseHeight = 100;
 
 /**
  * Init store
@@ -187,6 +196,21 @@ Stencils.prototype.getById = function (id) {
     return this._items[id];
 }
 
+
+/**
+ * get first item with given metaClass
+ */
+Stencils.prototype.getByMetaClass = function (metaClass) {
+
+    for (var i in this._items){
+        if (this._items.hasOwnProperty(i)){
+            if (this._items[i].metaClass === metaClass){
+                return this._items[i];
+            }
+        }
+    }
+};
+
 /**
  * Init store
  */
@@ -194,7 +218,7 @@ Stencils.prototype.getWidth = function (id) {
     if (this._items[id]){
         return this._items[id].width
     }
-    return 0;
+    return this.baseWidth;
 }
 
 /**
@@ -204,7 +228,7 @@ Stencils.prototype.getHeight = function (id) {
     if (this._items[id]){
         return this._items[id].height
     }
-    return 0;
+    return this.baseHeight;
 }
 
 /**

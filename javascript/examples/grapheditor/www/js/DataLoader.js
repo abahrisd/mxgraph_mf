@@ -676,11 +676,13 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
     var editor = this.editorUi;
     var graph = editor.editor.graph;
     var parent = this.parent;
+    var stencilsData = editor.stencilsData;
     //var baseParent = this.parent;
     //var parent;
 
-    var width = 160;
-    var height = 100;
+    //base width and height for stencils without style
+    var width = stencilsData.baseWidth;
+    var height = stencilsData.baseHeight;
 
     var style = 'whiteSpace=wrap;';
     var titleLength = obj.title?obj.title.length:0;
@@ -896,25 +898,6 @@ DataLoader.prototype.exportXMLNode = function(){
     //console.log(new mxCodec().encode(mxCodecRegistry.getCodec('mxStylesheet'),EditUI.editor.graph.getStylesheet()))
 
 };
-
-/**
- * Export xml node
- */
-DataLoader.prototype.setMxGraphModel = function(){
-    try{
-        var editor = this.editorUi.editor;
-        var xml = this.mxGraphModelData;
-        var doc = mxUtils.parseXml(xml);
-
-        editor.setGraphXml(doc.documentElement);
-        editor.setModified(false);
-    } catch(e){
-        if(DEBUG){
-            console.log("Error while setting mxGraphModel", e.stack);
-        }
-    }
-};
-
 
 /**
  * Export xml node

@@ -2471,9 +2471,7 @@ TextFormatPanel.prototype.addFont = function(container)
 			{
 				input.value = currentFontSize + ' pt';
 			}, 0);
-			
-			//console.log('replaceSize', graph.cellEditor.textarea.innerHTML, found);
-			
+
 			return found;
 		});
 		
@@ -4793,7 +4791,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
         }
     }
 
-    //console.log("labelDir", labelDir);
     // Converts the value to an XML node
     if (!mxUtils.isNode(value))
     {
@@ -4817,25 +4814,18 @@ AttributePanel.prototype.addCellAttributes = function(container)
     var addTextInput = function(index, name, value, directory) {
         names[index] = name;
 
-        //console.log("directory", directory);
-        //console.log("names[count]", names[count]);
-        //console.log("directory[names[count]]", directory[names[count]]);
-
         //rus attrs name, stored in title
-        var labelName = directory[names[count]].title || names[count];
+        var labelName = directory[names[count]]?directory[names[count]].title:names[count];
         var filter = ui.objectTypes.getById(metaClass).templateAttribute === name/* && value*/;
 
+        //add options to combo
         var filterCombo = function(newValue){
-            //console.log("metaClass", metaClass);
-            //console.log("value", value);
 
             if (newValue){
                 value = newValue;
             }
 
             var allowVals = ui.objectTypes.getAllowedValues(metaClass, value);
-
-            //console.log("allowVals", allowVals);
 
             if (directory[name].values){
                 var values = directory[name].values;
@@ -4850,7 +4840,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
                         form.addOption(texts[index], values[i], i);
                     }
                 }
-                //console.log("texts[index]", texts[index]);
             }
         };
 
@@ -4864,9 +4853,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
             var group = ui.objectTypes.getGroup(metaClass, newValue);
 
             if (group === 'action'){
-                //console.log("ACTION!!!!");
-                //console.log("metaClass", metaClass);
-                //console.log("newStyle", newStyle);
 
                 var geometry = graph.getModel().getGeometry(cell);
                 var incomeConnect = graph.getModel().getIncomingEdges(cell);
@@ -4948,8 +4934,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
                         });
 
                         mxEvent.addListener(texts[index], 'keydown', function (evt){
-                            //console.log("evt", evt);
-                            //console.log("evt.keyCode", evt.keyCode);
                             if (!(evt.keyCode >= 48 && evt.keyCode <= 57) && !(evt.keyCode >= 96 && evt.keyCode <= 105)
                                     //end, home, esc/tab/left/right/del/backspace
                                 && ![35, 36, 27, 9, 8, 39, 37, 46].contains(evt.keyCode)
@@ -5001,7 +4985,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
         }
 
         //for checkboxes different listeners
-        if (directory[name].type === 'bool') {
+        if (directory[name] && directory[name].type === 'bool') {
             if ("onpropertychange" in texts[index]) {
                 // старый IE
                 texts[index].onpropertychange = function() {
@@ -5030,7 +5014,7 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 mxEvent.addListener(texts[index], 'blur', applyHandler);
             }
 
-            if (directory[name].type === 'list'){
+            if (directory[name] && directory[name].type === 'list'){
                 mxEvent.addListener(texts[index], 'input', applyHandler);
             }
         }
@@ -5053,7 +5037,6 @@ AttributePanel.prototype.addCellAttributes = function(container)
     for (var i = 0; i < attrs.length; i++) {
         if (attrs[i].nodeName != 'label' && attrs[i].nodeName != 'placeholders' && isAttrAvailable(attrs[i].nodeName)/*&& attrs[i].nodeName.substring(0, 1) !== '_'*/)
         {
-            //console.log("attrs[i]", attrs[i]);
             addTextInput(count, attrs[i].nodeName, attrs[i].nodeValue, labelDir);
             count++;
         }

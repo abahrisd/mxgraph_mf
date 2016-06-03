@@ -79,7 +79,7 @@ UserStore.prototype.init = function (url, data) {
                     el.importedObjects.push(importItem);
 
                 });
-             }
+            }
 
             _this._add(el);
         });
@@ -341,19 +341,34 @@ UserStore.prototype.getCellTmp = function(cell) {
     var tempAttrValue = cell.getValue().getAttribute(tempAttr);
 
     return this.getElementCode(metaClass, tempAttrValue);
-    /*var tmp = '';
 
-    if (item && item.templates){
+};
 
-        item.templates.some(function(el){
-            if (el.templateAttributeValue && el.templateAttributeValue === tempAttrValue && el.code){
-                tmp = el.code;
-                return true;
-            }
-            return false;
-        });
+/**
+ * Get style, when templateAttribute is null
+ */
+UserStore.prototype.getImportedObjects = function() {
+
+    var importedObjects = [];
+
+    for (var i in this._items) {
+        if (this._items.hasOwnProperty(i) && this._items[i].importedObjects){
+            importedObjects.push({
+                code: i,
+                name: this._items[i].name,
+                multiple: this._items[i].multiple,
+                items:this._items[i].importedObjects
+            });
+        }
     }
 
-    return tmp;*/
+    return importedObjects;
+};
 
+
+/**
+ * Get style, when templateAttribute is null
+ */
+UserStore.prototype.isMultiple = function(metaClass) {
+    return this.getById(metaClass).multiple;
 };
