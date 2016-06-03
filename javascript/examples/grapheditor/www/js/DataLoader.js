@@ -476,9 +476,16 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
  */
 DataLoader.prototype.addEdgeWithAttrs = function(el, source, target, parent) {
     var graph = this.graph;
-    var newEdge = graph.insertEdge(parent, null, null, source, target);
+    var style = null;
 
-    //TODO move in separate func
+    if (el.typeCode) {
+        var connectionType = this.editorUi.linkTypes.getConnectionStyle(el.typeCode);
+        var connectionStencil = this.editorUi.stencilsData.getByMetaClass(connectionType)
+        style = connectionStencil && connectionStencil.code;
+    }
+
+    var newEdge = graph.insertEdge(parent, null, null, source, target, style);
+
     //add custom attrs
     var val = graph.getModel().getValue(newEdge);
 

@@ -197,7 +197,7 @@ Sidebar.prototype.init = function()
     mxUtils.write(label, mxResources.get('create'));
     div.appendChild(label);
 
-    mxUtils.write(label2, mxResources.get('copy'));
+    mxUtils.write(label2, mxResources.get('objects'));
     div.appendChild(label2);
 
     var createPanel = document.createElement('div');

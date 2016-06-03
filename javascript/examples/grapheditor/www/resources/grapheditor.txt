@@ -201,6 +201,7 @@ noResultsFor=No results for '{1}'
 normal=Normal
 north=North
 numberedList=Numbered List
+objects=Objects
 opacity=Opacity
 open=Open
 openArrow=Open Arrow

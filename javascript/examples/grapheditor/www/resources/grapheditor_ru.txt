@@ -191,6 +191,7 @@ noResultsFor=Нет результатов для '{1}'
 normal=Обычный
 north=Север
 numberedList=Нумерованный список
+objects=Объекты
 opacity=Непрозрачность
 open=Открыть
 openArrow=Открытая стрелка

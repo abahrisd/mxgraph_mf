@@ -245,6 +245,13 @@ UserStore.prototype.getElementStyle = function(metaClass, value) {
     return style;
 };
 
+/**
+ * Return templates fom store, which exists in stencils object
+ */
+UserStore.prototype.getConnectionStyle = function(code) {
+    return this.getById(code) && this.getById(code).connectionType;
+};
+
 
 /**
  * Return templates fom store, which exists in stencils object

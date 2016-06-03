@@ -94,7 +94,7 @@
         <add value="wrap" as="whiteSpace"/>
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
-        <add value="9" as="strokeWidth"/>
+        <add value="5" as="strokeWidth"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
         <add value="center" as="align"/>
