@@ -54,6 +54,12 @@ Toolbar.prototype.staticElements = null;
  */
 Toolbar.prototype.init = function()
 {
+    var acts = this.addItems(['downloadFromRepo', 'uploadInRepo', 'saveDiag']);
+    acts[0].setAttribute('title', mxResources.get('downloadFromRepo'));
+    acts[1].setAttribute('title', mxResources.get('uploadInRepo'));
+    acts[2].setAttribute('title', mxResources.get('saveDiag'));
+    this.addSeparator();
+
 	var formatMenu = this.addMenu('', mxResources.get('view') + ' (' + mxResources.get('panTooltip') + ')', true, 'viewPanels', null, true);
 	this.addDropDownArrow(formatMenu, 'geSprite-formatpanel', 38, 50, -4, -3, 36, -8);
 	this.addSeparator();

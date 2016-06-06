@@ -39,9 +39,9 @@ Stencils.prototype.init = function () {
     var stencilsObject = [
         {
             code: 'participant',
-            //style: 'shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;',
             style: 'pool',
-            width: 2000,
+            //style: 'shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;',
+            width: 2200,
             height: 240,
             metaClass: 'ae$participant'
         }, {

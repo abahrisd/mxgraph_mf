@@ -216,6 +216,68 @@ Sidebar.prototype.init = function()
     //coz we rendering sidebar after adding click events
     this.clickPanel(label);
 
+    //not CELLS_ADDED but CELLS_RESIZED and CELLS_MOVED
+    /*ui.editor.graph.addListener(mxEvent.CELLS_ADDED, function(sender, evt){
+        console.log("CELLS_ADDED");
+    });*/
+
+    /*ui.editor.graph.addListener(mxEvent.CELLS_RESIZED, function(sender, evt){
+        //console.log("CELLS_RESIZED");
+    });
+
+    function editSwimlaneConnection(sender, evt){
+        console.log("CELLS_MOVED");
+
+        var cells = evt.getProperty('cells');
+        var cell = cells[0];
+        var model = ui.editor.graph.getModel()
+        var style =  model.getStyle(cells[0]);
+
+        console.log("style", style);
+
+        //TODO need to correct statement
+        if (style === 'swimlane'){
+            var parent = model.getParent(cell);
+            var parentStyle =  model.getStyle(parent);
+
+            if (parentStyle && parentStyle === 'pool'){
+                console.log("parent pool1" );
+
+                //EditUI.editor.graph.view.getState(EditUI.editor.graph.getSelectionCell()).style.startSize
+
+            }
+        }
+    }*/
+
+    //ui.editor.graph.addListener(mxEvent.CELLS_MOVED, editSwimlaneConnection);
+    //ui.editor.graph.addListener(mxEvent.CELLS_ADDED, editSwimlaneConnection);
+    /*ui.editor.graph.addListener(mxEvent.CELLS_MOVED, function(sender, evt){
+        console.log("CELLS_MOVED");
+
+        var cells = evt.getProperty('cells');
+        var cell = cells[0];
+        var model = ui.editor.graph.getModel()
+        var style =  model.getStyle(cells[0]);
+
+        console.log("style", style);
+
+        //TODO need to correct statement
+        if (style === 'swimlane'){
+            var parent = model.getParent(cell);
+            var parentStyle =  model.getStyle(parent);
+
+            if (parentStyle && parentStyle === 'pool'){
+                console.log("parent pool1" );
+            }
+        }
+
+        //if (state.constructor.name === 'mxSwimlane'){
+        //    return true;
+        //    //gogo!
+        //}
+        //return true;
+    });*/
+
     //this.addGeneralPalette(true);
 	/*this.addMiscPalette(false);
 	this.addAdvancedPalette(false);
@@ -1147,7 +1209,7 @@ Sidebar.prototype.addGeneralPalette = function(expand, container)
 
     var fns = [].concat(objectTypesItems.getTemplatesByStencils(stencils));
     fns = fns.concat(connectionTypesItems.getTemplatesByStencils(stencils));
-    //fns.push(this.createVertexTemplateEntry('shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
+    fns.push(this.createVertexTemplateEntry('swimlane', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
 
     this.addPaletteFunctions('general', mxResources.get('general'), (expand != null) ? expand : true, fns, container);
 

@@ -13,6 +13,8 @@ function DataLoader(editorUi) {
     this.stylesheet = '';
     this.linkTypes = '';
     this.objectTypes = '';
+    this.maxDiagPoolWidth = null;
+    this.pools = [];
 
     //TODO check is this declaration is correct
     //this.origin = window.location.origin;
@@ -295,13 +297,17 @@ DataLoader.prototype.arrangeEntrys = function(parentCell) {
     //var layout = new mxStackLayout(graph);
 
     layout.parentBorder = 40;
+    layout.border = 40;
     layout.resizeParent = true;
 	layout.disableEdgeStyle = false;
     layout.execute(newGroup);
 
-	//temp make pools 2000 in width
+	//save pools and maxDiagPoolWidth to set al pools width equal
 	if ( parentCell.getValue() && parentCell.getValue().getAttribute('metaClass') === 'ae$participant' ) {
-		parentCell.geometry.width = 2000;
+        this.pools.push(parentCell);
+        if ( parentCell.geometry.width > this.maxDiagPoolWidth ){
+            this.maxDiagPoolWidth = parentCell.geometry.width;
+        }
 	}
 }
 
@@ -636,6 +642,12 @@ DataLoader.prototype.sync = function() {
                     parents.forEach(function(parentCell){
                         _this.arrangeEntrys(parentCell);
                     });
+
+                    if (_this.maxDiagPoolWidth && _this.pools.length > 0){
+                        _this.pools.forEach(function(pool){
+                            pool.geometry.width = _this.maxDiagPoolWidth;
+                        });
+                    }
 
                     //arrange pools vertical
                     var newGroup = graph.groupCells(graph.getDefaultParent(), 0, parents);

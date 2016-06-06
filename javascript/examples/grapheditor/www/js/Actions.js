@@ -732,6 +732,19 @@ Actions.prototype.init = function()
 			ui.setBackgroundColor(color);
 		});
 	}));
+
+	this.put('downloadFromRepo', new Action(mxResources.get('downloadFromRepo') + '...', function() {
+        console.log("downloadFromRepo");
+	}));
+
+	this.put('uploadInRepo', new Action(mxResources.get('uploadInRepo') + '...', function() {
+        console.log("uploadInRepo");
+	}));
+
+	this.put('saveDiag', new Action(mxResources.get('saveDiag') + '...', function() {
+        console.log("saveDiag");
+	})).isEnabled = isGraphEnabled;
+
 	action = this.addAction('connectionArrows', function()
 	{
 		graph.connectionArrowsEnabled = !graph.connectionArrowsEnabled;
