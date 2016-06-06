@@ -273,6 +273,7 @@ style=Стиль
 subscript=Нижний индекс
 superscript=Верхний индекс
 sync=Синхронизовать
+success=Успех
 table=Таблица
 targetSpacing=Расстояние до цели
 text=Текст

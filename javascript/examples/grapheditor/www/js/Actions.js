@@ -741,7 +741,7 @@ Actions.prototype.init = function()
 	}));
 
 	this.put('uploadInRepo', new Action(mxResources.get('uploadInRepo') + '...', function() {
-        console.log("uploadInRepo");
+        ui.uploadInRepo();
 	}));
 
 	this.put('saveDiag', new Action(mxResources.get('saveDiag') + '...', function() {

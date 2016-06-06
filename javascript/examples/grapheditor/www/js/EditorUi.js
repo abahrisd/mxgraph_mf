@@ -3584,3 +3584,58 @@ EditorUi.prototype.override = function() {
     };
 };
 
+
+/**
+ * Sets the enabled state of the action and fires a stateChanged event.
+ */
+EditorUi.prototype.uploadInRepo = function(){
+
+    var uploadData = JSON.stringify(this.getSystemState());
+    var dataLoader = this.dataLoader;
+    var loadMask = this.loadMask;
+    loadMask.setLoadText('Выгрузка в репозиторий...');
+
+    var url = (dataLoader.origin + dataLoader.postPath + '?func=modules.mxGraph.setData' + '&accessKey='+ dataLoader.queryStr.accessKey + '&params=requestContent');
+
+    var onload = function (req) {
+        loadMask.hide();
+        mxUtils.error('Данные успешно выгружены', 300, true, mxClient.imageBasePath + '/success.png', null, mxUtils.successResource);
+        try {
+            var responseData = JSON.parse(req.getText());
+            console.log("responseData", responseData);
+        } catch (e) {
+            if (DEBUG) {
+                console.log('Error while parsing JSON ', e.stack);
+            }
+        }
+    }
+
+    var onerror = function(req){
+        loadMask.hide();
+        mxUtils.alert('Ошибка при выгрузке в репозиторий');
+        if (DEBUG) {
+            console.log("req", e.stack);
+        }
+    };
+
+    var req = new mxXmlRequest(url, uploadData, 'POST', false);
+
+    req.setRequestHeaders = function(request, params){
+        if (params != null) {
+            request.setRequestHeader('Content-Type','application/json');
+        }
+    };
+
+    loadMask.show();
+
+    //to avoid error in send and infinite loading
+    try{
+        req.send(onload, onerror);
+    } catch(e){
+        loadMask.hide();
+        if (DEBUG) {
+            console.log("req", e.stack);
+        }
+    }
+}
+

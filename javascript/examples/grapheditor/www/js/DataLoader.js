@@ -23,6 +23,7 @@ function DataLoader(editorUi) {
     this.origin = 'http://217.74.43.104:8080';
     this.getPath = '/sd/services/rest/get/';
     this.funcPath = '/sd/services/rest/exec';
+    this.postPath = '/sd/services/rest/exec-post';
 
     //parsing url and get params
     this.queryStr = globalQueryString;
