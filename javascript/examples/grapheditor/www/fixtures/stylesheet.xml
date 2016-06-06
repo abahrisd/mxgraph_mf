@@ -137,18 +137,29 @@
         <add value="top" as="verticalAlign"/>
     </add>
     <add as="registry">
-        <add value="card" as="shape"/>
+        <add value="note" as="shape"/>
+        <add value="16" as="size"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
         <add value="center" as="align"/>
         <add value="top" as="verticalAlign"/>
     </add>
+    <add as="document">
+        <add value="note" as="shape"/>
+        <add value="16" as="size"/>
+        <add value="wrap" as="whiteSpace"/>
+        <add value="center" as="labelPosition"/>
+        <add value="bottom" as="verticalLabelPosition"/>
+        <add value="center" as="align"/>
+        <add value="#CCCC00" as="strokeColor"/>
+        <add value="top" as="verticalAlign"/>
+    </add>
     <add as="dataObject">
         <add value="note" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="16" as="size"/>
-        <add value="2" as="strokeWidth"/>
+        <add value="1" as="strokeWidth"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
         <add value="center" as="align"/>

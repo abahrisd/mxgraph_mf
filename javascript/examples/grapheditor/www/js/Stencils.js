@@ -39,138 +39,157 @@ Stencils.prototype.init = function () {
     var stencilsObject = [
         {
             code: 'participant',
-            style: 'shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;',
+            //style: 'shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;',
+            style: 'pool',
             width: 2000,
             height: 240,
             metaClass: 'ae$participant'
         }, {
             code: 'swimlane',
-            style: 'shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;',
+            style: 'swimlane',
+            //style: 'shape=swimlane;horizontal=0;swimlaneFillColor=white;swimlaneLine=0;',
             width: 300,
             height: 120,
             metaClass: 'swinline'
         }, {
             code: 'startEvent',
-            style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'startEvent',
+            //style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'startEventWithMessage',
-            style: 'shape=mxgraph.bpmn.event_start_msg;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'startEventWithMessage',
+            //style: 'shape=mxgraph.bpmn.event_start_msg;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'endEvent',
-            style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=5;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'endEvent',
+            //style: 'shape=mxgraph.flowchart.on-page_reference;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#000000;strokeWidth=5;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'endEventWithMessage',
-            style: 'shape=mxgraph.bpmn.event_end_msg;whiteSpace=wrap;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'endEventWithMessage',
+            //style: 'shape=mxgraph.bpmn.event_end_msg;whiteSpace=wrap;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEvent',
-            style: 'shape=doubleEllipse;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'intermediateEvent',
+            //style: 'shape=doubleEllipse;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithMessageThrow',
-            style: 'shape=mxgraph.bpmn.event_mailfill;whiteSpace=wrap;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'intermediateEventWithMessageThrow',
+            //style: 'shape=mxgraph.bpmn.event_mailfill;whiteSpace=wrap;fillColor=#000000;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithMessageCatch',
-            style: 'shape=mxgraph.bpmn.event_mail;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'intermediateEventWithMessageCatch',
+            //style: 'shape=mxgraph.bpmn.event_mail;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithTimer',
-            style: 'shape=mxgraph.bpmn.event_timer;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'intermediateEventWithTimer',
+            //style: 'shape=mxgraph.bpmn.event_timer;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'intermediateEventWithLinkCatch',
-            style: 'shape=mxgraph.bpmn.event_arrow;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'intermediateEventWithLinkCatch',
+            //style: 'shape=mxgraph.bpmn.event_arrow;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
 			code: 'intermediateEventWithLinkThrow',
-            style: 'shape=mxgraph.bpmn.event_arrow_fill;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'intermediateEventWithLinkThrow',
+            //style: 'shape=mxgraph.bpmn.event_arrow_fill;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'excludingGateway',
-            style: 'shape=gatewayExclude;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'excludingGateway',
+            //style: 'shape=gatewayExclude;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'parallelGateway',
-            style: 'shape=gatewayParallel;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'parallelGateway',
+            //style: 'shape=gatewayParallel;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
             code: 'registry',
-            style: 'dataObject;',
+            style: 'dataObject',
+            //style: 'dataObject;',
             //style: 'shape=card;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=16;',
             width: 50,
             height: 70,
             metaClass: 'ae$registry'
         }, {
             code: 'document',
-            style: 'dataObject;strokeColor=#CCCC00;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+            style: 'document',
+            //style: 'dataObject;strokeColor=#CCCC00;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 70,
             metaClass: 'nd$nd'
         }, {
             code: 'rule',
-            style: 'shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2',
+            style: 'rule',
+            //style: 'shape=mxgraph.flowchart.document;whiteSpace=wrap;fillColor=#FFCCE6;strokeColor=#000000;strokeWidth=2',
             width: 105,
             height: 36,
             metaClass: 'req$high'
         }, {
             code: 'solidLine',
-            style: 'endArrow=classic;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
+            style: 'solidLine',
+            //style: 'endArrow=classic;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
             width: 50,
             height: 50,
             metaClass: "controlFlow"
         }, {
             code: 'dashedLine',
-            style: 'endArrow=classic;dashed=1;dashPattern=8 8;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
+            style: 'dashedLine',
+            //style: 'endArrow=classic;dashed=1;dashPattern=8 8;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
             width: 50,
             height: 50,
             metaClass: "messageFlow"
         }, {
             code: 'dottedLine',
-            style: 'endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
+            style: 'dottedLine',
+            //style: 'endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
             width: 50,
             height: 50,
             metaClass: "associationFlow"
         }, {
             code: 'text',
-            style: 'text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;',
+            style: 'text',
+            //style: 'text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;',
             width: 50,
             height: 50,
             metaClass: null
         }
-
-
     ];
 
     stencilsObject.forEach(function(el){
-        _this._add(el)
+        _this._add(el);
     });
     //stencilsObject.forEach(_this._add);
 

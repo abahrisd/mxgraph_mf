@@ -178,6 +178,7 @@ DataLoader.prototype.loadXMLData = function () {
                         if (res.stylesheet){
                             _this.setStylesheet(res.stylesheet);
                         } else {
+                            _this.loadStylesheetDoc('./fixtures/stylesheet.xml');
                             if (DEBUG){
                                 console.log("Unable to set stylesheet");
                             }

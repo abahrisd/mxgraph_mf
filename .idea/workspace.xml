@@ -2,15 +2,17 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" line="57055" mnemonic="5" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" line="1308" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" line="2459" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" line="2156" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" line="2433" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" line="2819" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" line="680" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6289398">
-              <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.5172415">
+              <caret line="757" column="47" selection-start-line="757" selection-start-column="47" selection-end-line="757" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -45,34 +47,83 @@
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="229" column="58" selection-start-line="229" selection-start-column="58" selection-end-line="229" selection-end-column="58" />
+              <caret line="345" column="0" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
+      <file leaf-file-name="stylesheet.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.423077">
+              <caret line="151" column="48" selection-start-line="151" selection-start-column="48" selection-end-line="151" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stencils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="204" column="46" selection-start-line="204" selection-start-column="46" selection-end-line="204" selection-end-column="46" />
+              <caret line="139" column="30" selection-start-line="139" selection-start-column="30" selection-end-line="139" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mfSidebar.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16189112">
+              <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1465193477967" expanded="true" signature="52233:52281" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="52303:52367" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="52481:52506" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="52581:52631" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="52706:52731" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="52806:52856" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="53087:53135" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="53624:53672" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="54177:54225" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="70645:70689" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="70735:70762" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="71990:72060" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="72107:72134" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="72358:72422" placeholder="..." />
-                <marker date="1465193477967" expanded="true" signature="72461:72486" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="52237:52285" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="52307:52371" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="52485:52510" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="52585:52635" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="52710:52735" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="52810:52860" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="53091:53139" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="53628:53676" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="54181:54229" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="70649:70693" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="70739:70766" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="71994:72064" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="72111:72138" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="72362:72426" placeholder="..." />
+                <marker date="1465203748266" expanded="true" signature="72465:72490" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Actions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="883" column="9" selection-start-line="883" selection-start-column="9" selection-end-line="883" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="13.413794">
+              <caret line="52988" column="29" selection-start-line="52988" selection-start-column="18" selection-end-line="52988" selection-end-column="29" />
+              <folding>
+                <marker date="1465199785566" expanded="true" signature="133022:133033" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="133115:133186" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="133200:133253" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="133947:133958" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="443999:444063" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="615253:615290" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="621011:621148" placeholder="..." />
+                <marker date="1465199785566" expanded="true" signature="1318573:1318587" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -86,82 +137,6 @@
               <folding>
                 <marker date="1465194827398" expanded="true" signature="24012:24214" placeholder="..." />
                 <marker date="1465194827398" expanded="false" signature="28491:28509" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.961538">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56266" column="61" selection-start-line="56266" selection-start-column="61" selection-end-line="56266" selection-end-column="61" />
-              <folding>
-                <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="133200:133253" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="133947:133958" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="443999:444063" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="615253:615290" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="621011:621148" placeholder="..." />
-                <marker date="1464878783890" expanded="true" signature="1318573:1318587" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RelValidator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stencils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
-              <folding>
-                <marker date="1465114873658" expanded="true" signature="747:6967" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="879:6848" placeholder="[...]" />
-                <marker date="1465114873658" expanded="true" signature="6890:6920" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="6971:6992" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7035:7082" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7084:7105" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7146:7173" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7175:7196" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7240:7271" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7274:7320" placeholder="/** get first item with given metaClass ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7378:7584" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7411:7582" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7455:7576" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7512:7566" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7587:7608" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7653:7752" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7679:7723" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7754:7775" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7821:7922" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7847:7892" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="7924:7945" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="7990:8093" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="8016:8060" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="8095:8116" placeholder="/** Init store ...*/" />
-                <marker date="1465114873658" expanded="true" signature="8165:8257" placeholder="{...}" />
-                <marker date="1465114873658" expanded="true" signature="8191:8240" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -231,19 +206,19 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/tmp.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Utils.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_ru.txt" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
         <option value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
       </list>
     </option>
   </component>
@@ -445,6 +420,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mxgraph_mf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grapheditor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fixtures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -557,12 +562,6 @@
       <created>1461577810014</created>
       <option name="number" value="Default" />
       <updated>1461577810014</updated>
-    </task>
-    <task id="LOCAL-00011" summary="add encodinag and unescaping on title change">
-      <created>1463564617901</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1463564617901</updated>
     </task>
     <task id="LOCAL-00012" summary="escape &lt; &gt; &amp; on attr title edit">
       <created>1463573160997</created>
@@ -852,7 +851,13 @@
       <option name="project" value="LOCAL" />
       <updated>1465194065733</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="when parsing impliedConnections add child objects as many connections it have">
+      <created>1465196498633</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1465196498633</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView">
@@ -925,7 +930,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix validation condition" />
     <MESSAGE value="add change object on the fly" />
     <MESSAGE value="fix setting style for templates[].length === 1" />
     <MESSAGE value="add dinamic arrorw nameing" />
@@ -950,7 +954,8 @@
     <MESSAGE value="add style to imported connections" />
     <MESSAGE value="fiz association connection" />
     <MESSAGE value="hide few elements, make pool 2000 width, change arrow to orthogonal" />
-    <option name="LAST_COMMIT_MESSAGE" value="hide few elements, make pool 2000 width, change arrow to orthogonal" />
+    <MESSAGE value="when parsing impliedConnections add child objects as many connections it have" />
+    <option name="LAST_COMMIT_MESSAGE" value="when parsing impliedConnections add child objects as many connections it have" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1217,22 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/bpmn.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.73077">
-          <caret line="1368" column="32" selection-start-line="1368" selection-start-column="32" selection-end-line="1368" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/flowchart.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9615383">
-          <caret line="535" column="62" selection-start-line="535" selection-start-column="62" selection-end-line="535" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/production index/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95079595">
@@ -1244,22 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34492755">
-          <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1279,62 +1252,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="164" column="46" selection-start-line="164" selection-start-column="46" selection-end-line="164" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="229" column="58" selection-start-line="229" selection-start-column="58" selection-end-line="229" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
-          <folding>
-            <marker date="1465114873658" expanded="true" signature="747:6967" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="879:6848" placeholder="[...]" />
-            <marker date="1465114873658" expanded="true" signature="6890:6920" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="6971:6992" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7035:7082" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7084:7105" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7146:7173" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7175:7196" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7240:7271" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7274:7320" placeholder="/** get first item with given metaClass ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7378:7584" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7411:7582" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7455:7576" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7512:7566" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7587:7608" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7653:7752" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7679:7723" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7754:7775" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7821:7922" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7847:7892" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="7924:7945" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="7990:8093" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="8016:8060" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="8095:8116" placeholder="/** Init store ...*/" />
-            <marker date="1465114873658" expanded="true" signature="8165:8257" placeholder="{...}" />
-            <marker date="1465114873658" expanded="true" signature="8191:8240" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1351,48 +1273,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="3478" column="25" selection-start-line="3478" selection-start-column="25" selection-end-line="3478" selection-end-column="25" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="204" column="46" selection-start-line="204" selection-start-column="46" selection-end-line="204" selection-end-column="46" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1465193477967" expanded="true" signature="52233:52281" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="52303:52367" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="52481:52506" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="52581:52631" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="52706:52731" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="52806:52856" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="53087:53135" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="53624:53672" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="54177:54225" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="70645:70689" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="70735:70762" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="71990:72060" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="72107:72134" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="72358:72422" placeholder="..." />
-            <marker date="1465193477967" expanded="true" signature="72461:72486" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56266" column="61" selection-start-line="56266" selection-start-column="61" selection-end-line="56266" selection-end-column="61" />
-          <folding>
-            <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="133200:133253" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="133947:133958" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="443999:444063" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="615253:615290" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="621011:621148" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="1318573:1318587" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1415,11 +1295,109 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6551723">
+          <caret line="163" column="5" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/bpmn.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36160713">
+          <caret line="230" column="42" selection-start-line="230" selection-start-column="42" selection-end-line="230" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/flowchart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33281493">
+          <caret line="545" column="14" selection-start-line="545" selection-start-column="13" selection-end-line="545" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.413794">
+          <caret line="52988" column="29" selection-start-line="52988" selection-start-column="18" selection-end-line="52988" selection-end-column="29" />
+          <folding>
+            <marker date="1465199785566" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="443999:444063" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="615253:615290" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="621011:621148" placeholder="..." />
+            <marker date="1465199785566" expanded="true" signature="1318573:1318587" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="883" column="9" selection-start-line="883" selection-start-column="9" selection-end-line="883" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6289398">
-          <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.5172415">
+          <caret line="757" column="47" selection-start-line="757" selection-start-column="47" selection-end-line="757" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="345" column="0" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.423077">
+          <caret line="151" column="48" selection-start-line="151" selection-start-column="48" selection-end-line="151" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="139" column="30" selection-start-line="139" selection-start-column="30" selection-end-line="139" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16189112">
+          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1465203748266" expanded="true" signature="52237:52285" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="52307:52371" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="52485:52510" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="52585:52635" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="52710:52735" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="52810:52860" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="53091:53139" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="53628:53676" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="54181:54229" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="70649:70693" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="70739:70766" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="71994:72064" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="72111:72138" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="72362:72426" placeholder="..." />
+            <marker date="1465203748266" expanded="true" signature="72465:72490" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

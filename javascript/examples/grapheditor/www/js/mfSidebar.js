@@ -88,7 +88,7 @@ function Sidebar(editorUi, container) {
 	{
 		new Image().src = IMAGE_PATH + '/tooltip.png';
 	}
-};
+}
 
 /**
  * Clicking on first panel
@@ -139,7 +139,7 @@ Sidebar.prototype.init = function()
     {
         var clickHandler = mxUtils.bind(this, function(evt)
         {
-            if (currentLabel != elt)
+            if (currentLabel !== elt)
             {
                 if (containsLabel)
                 {
@@ -150,7 +150,7 @@ Sidebar.prototype.init = function()
                     this.currentIndex = index;
                 }
 
-                if (currentLabel != null)
+                if (currentLabel !== null)
                 {
                     currentLabel.style.backgroundColor = '#d7d7d7';
                     currentLabel.style.borderBottomWidth = '1px';
@@ -160,9 +160,9 @@ Sidebar.prototype.init = function()
                 currentLabel.style.backgroundColor = '';
                 currentLabel.style.borderBottomWidth = '0px';
 
-                if (currentPanel != panel)
+                if (currentPanel !== panel)
                 {
-                    if (currentPanel != null)
+                    if (currentPanel !== null)
                     {
                         currentPanel.style.display = 'none';
                     }
@@ -175,7 +175,7 @@ Sidebar.prototype.init = function()
 
         mxEvent.addListener(elt, 'click', clickHandler);
 
-        if (index == ((containsLabel) ? this.labelIndex : this.currentIndex))
+        if (index === ((containsLabel) ? this.labelIndex : this.currentIndex))
         {
             // Invokes handler directly as a workaround for no click on DIV in KHTML.
             clickHandler();
