@@ -1209,7 +1209,7 @@ Sidebar.prototype.addGeneralPalette = function(expand, container)
 
     var fns = [].concat(objectTypesItems.getTemplatesByStencils(stencils));
     fns = fns.concat(connectionTypesItems.getTemplatesByStencils(stencils));
-    fns.push(this.createVertexTemplateEntry('swimlane', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
+    //fns.push(this.createVertexTemplateEntry('swimlane', 300, 120, 'Дорожка', 'Дорожка', null, null, 'bpmn lane', {metaClass: 'swinline', type:'swimlane'}));
 
     this.addPaletteFunctions('general', mxResources.get('general'), (expand != null) ? expand : true, fns, container);
 

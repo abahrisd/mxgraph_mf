@@ -647,8 +647,8 @@ div.mxWindow .geButton {
 .geSprite-endcross { background-position: 0 -5719px; }
 .geSprite-endopenthin { background-position: 0 -5765px; }
 .geSprite-endopenasync { background-position: 0 -5811px; }
-.geSprite-downloadfromrepo { background-position: 0 -5861px; }
-.geSprite-uploadinrepo { background-position: 0 -5907px; }
+.geSprite-uploadinrepo { background-position: 0 -5861px; }
+.geSprite-downloadfromrepo { background-position: 0 -5907px; }
 .geSprite-savediag { background-position: 0 -5953px; }
 html div.mxRubberband {
 	border-color:#0000DD;

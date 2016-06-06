@@ -734,7 +734,10 @@ Actions.prototype.init = function()
 	}));
 
 	this.put('downloadFromRepo', new Action(mxResources.get('downloadFromRepo') + '...', function() {
-        console.log("downloadFromRepo");
+        //workaround, coz if delete cells inside method new cells don't appear
+        graph.selectAll();
+        deleteCells(true);
+        ui.sync();
 	}));
 
 	this.put('uploadInRepo', new Action(mxResources.get('uploadInRepo') + '...', function() {
@@ -742,7 +745,7 @@ Actions.prototype.init = function()
 	}));
 
 	this.put('saveDiag', new Action(mxResources.get('saveDiag') + '...', function() {
-        console.log("saveDiag");
+        ui.saveXML();
 	})).isEnabled = isGraphEnabled;
 
 	action = this.addAction('connectionArrows', function()
