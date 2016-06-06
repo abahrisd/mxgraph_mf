@@ -40,7 +40,7 @@ Stencils.prototype.init = function () {
         {
             code: 'participant',
             style: 'shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;',
-            width: 320,
+            width: 2000,
             height: 240,
             metaClass: 'ae$participant'
         }, {
@@ -98,13 +98,13 @@ Stencils.prototype.init = function () {
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
-            code: 'intermediateLink1Event',
+            code: 'intermediateEventWithLinkCatch',
             style: 'shape=mxgraph.bpmn.event_arrow;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
             metaClass: 'ae$bpstep'
         }, {
-            code: 'intermediateLink2Event',
+			code: 'intermediateEventWithLinkThrow',
             style: 'shape=mxgraph.bpmn.event_arrow_fill;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
             width: 50,
             height: 50,
@@ -142,19 +142,19 @@ Stencils.prototype.init = function () {
             metaClass: 'req$high'
         }, {
             code: 'solidLine',
-            style: 'endArrow=classic;whiteSpace=wrap;',
+            style: 'endArrow=classic;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
             width: 50,
             height: 50,
             metaClass: "controlFlow"
         }, {
             code: 'dashedLine',
-            style: 'endArrow=classic;dashed=1;dashPattern=8 8;whiteSpace=wrap;',
+            style: 'endArrow=classic;dashed=1;dashPattern=8 8;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
             width: 50,
             height: 50,
             metaClass: "messageFlow"
         }, {
             code: 'dottedLine',
-            style: 'endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;whiteSpace=wrap;',
+            style: 'endArrow=classic;dashed=1;dashPattern=1 4;strokeWidth=2;whiteSpace=wrap;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;',
             width: 50,
             height: 50,
             metaClass: "associationFlow"
@@ -165,6 +165,8 @@ Stencils.prototype.init = function () {
             height: 50,
             metaClass: null
         }
+
+
     ];
 
     stencilsObject.forEach(function(el){

@@ -73,7 +73,7 @@
         <add value="center" as="align"/>
         <add value="top" as="verticalAlign"/>
     </add>
-    <add as="intermediateLink1Event">
+    <add as="intermediateEventWithLinkCatch">
         <add value="mxgraph.bpmn.event_arrow" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
@@ -81,7 +81,7 @@
         <add value="center" as="align"/>
         <add value="top" as="verticalAlign"/>
     </add>
-    <add as="intermediateLink2Event">
+    <add as="intermediateEventWithLinkThrow">
         <add value="mxgraph.bpmn.event_arrow_fill" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
@@ -167,17 +167,20 @@
         <add value="0" as="swimlaneLine"/>
     </add>
     <add as="solidLine">
+        <add value="orthogonalEdgeStyle" as="edgeStyle"/>
         <add value="0" as="dashed"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="classic" as="endArrow"/>
     </add>
     <add as="dashedLine">
+        <add value="orthogonalEdgeStyle" as="edgeStyle"/>
         <add value="1" as="dashed"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="8 8" as="dashPattern"/>
         <add value="classic" as="endArrow"/>
     </add>
     <add as="dottedLine">
+        <add value="orthogonalEdgeStyle" as="edgeStyle"/>
         <add value="1" as="dashed"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="1 4" as="dashPattern"/>

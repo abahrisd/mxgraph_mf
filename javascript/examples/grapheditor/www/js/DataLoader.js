@@ -242,7 +242,6 @@ DataLoader.prototype.loadXMLData = function () {
                         }
                     }
                 }
-//debugger;
             }
 
         } catch (e){
@@ -278,17 +277,8 @@ DataLoader.prototype.loadTypeData = function(url) {
     if (responseData.specification){
         res.specification = responseData.specification;
     }
-/*
-    if (responseData.linkTypes){
-        res.linkTypes = responseData.linkTypes;
-    }
-
-    if (responseData.objectTypes){
-        res.objectTypes = responseData.objectTypes;
-    }*/
 
     return res;
-
 };
 
 /**
@@ -298,14 +288,21 @@ DataLoader.prototype.loadTypeData = function(url) {
 DataLoader.prototype.arrangeEntrys = function(parentCell) {
     var graph = this.graph;
 
+
     var childs = graph.getModel().getChildVertices(parentCell);
     var newGroup = graph.groupCells(parentCell, 0, childs);
     var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
     //var layout = new mxStackLayout(graph);
 
-    layout.border = 0;
+    layout.parentBorder = 40;
     layout.resizeParent = true;
+	layout.disableEdgeStyle = false;
     layout.execute(newGroup);
+
+	//temp make pools 2000 in width
+	if ( parentCell.getValue() && parentCell.getValue().getAttribute('metaClass') === 'ae$participant' ) {
+		parentCell.geometry.width = 2000;
+	}
 }
 
 /**
@@ -457,7 +454,6 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
             graph.groupCells(cellTrg, 10, [newCell]);
 
             addEdges.forEach(function(edge){
-                //debugger;
                 _this.addEdgeWithAttrs(edge.el, edge.source, edge.target, cellTrg)
             });
 
@@ -715,8 +711,13 @@ DataLoader.prototype.createCellFromUserObject = function(obj, linkParents){
             }
         }
 
-        node.setAttribute('label', obj[attrToShow]);
-        titleLength = obj[attrToShow].length;
+        node.setAttribute('label', obj[attrToShow] || '');
+
+		if (obj[attrToShow]){
+			titleLength = obj[attrToShow].length;
+			//console.log("obj", obj);
+			//console.log("attrToShow", attrToShow);
+		}
 
         //var attrs = this.editorUi.atributesDirectory.getById(metaClass);
 

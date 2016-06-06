@@ -3500,8 +3500,8 @@ EditorUi.prototype.getSystemState = function() {
     }
 
     //remove duplicates
-    output.objects = uniq(output.objects);
-    output.links = uniq(output.links);
+    output.objects = tcpUtils.uniq(output.objects);
+    output.links = tcpUtils.uniq(output.links);
 
     return output;
 };

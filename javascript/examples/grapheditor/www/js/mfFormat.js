@@ -454,7 +454,7 @@ Format.prototype.refresh = function()
         }
 
 		// Style
-		if (containsLabel)
+		/*if (containsLabel)
 		{
 			label2.style.borderLeftWidth = '0px';
 		}
@@ -491,7 +491,7 @@ Format.prototype.refresh = function()
 		this.container.appendChild(arrangePanel);
 		
 		addClickHandler(label2, textPanel, idx++);
-		addClickHandler(label3, arrangePanel, idx++);
+		addClickHandler(label3, arrangePanel, idx++);*/
 
 	}
 };

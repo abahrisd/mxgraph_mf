@@ -201,13 +201,13 @@ Sidebar.prototype.init = function()
     div.appendChild(label2);
 
     var createPanel = document.createElement('div');
-    this.addSearchPalette(true, createPanel);
+    //this.addSearchPalette(true, createPanel);
     this.addGeneralPalette(true, createPanel);
     this.container.appendChild(createPanel);
 
     var copyPanel = document.createElement('div');
     copyPanel.style.display = 'none';
-    this.generateCopyPanel(false, copyPanel);
+    this.generateCopyPanel(true, copyPanel);
     this.container.appendChild(copyPanel);
 
     addClickHandler(label, createPanel, idx++);
@@ -339,7 +339,7 @@ Sidebar.prototype.addStencilsToIndex = true;
 /**
  * Adds all palettes to the sidebar.
  */
-Sidebar.prototype.showTooltip = function(elt, cells, w, h, title, showLabel)
+Sidebar.prototype.showTooltip = function(elt, cells, w, h, title, showLabel, showAttributes)
 {
 	if (this.enableTooltips && this.showTooltips)
 	{
@@ -416,7 +416,7 @@ Sidebar.prototype.showTooltip = function(elt, cells, w, h, title, showLabel)
 				this.tooltip.style.width = width + 'px';
 				
 				// Adds title for entry
-				if (this.tooltipTitles && title != null && title.length > 0)
+				if (this.tooltipTitles && ((title != null && title.length > 0) || showAttributes))
 				{
 					if (this.tooltipTitle == null)
 					{
@@ -446,7 +446,45 @@ Sidebar.prototype.showTooltip = function(elt, cells, w, h, title, showLabel)
 					}
 					
 					this.tooltipTitle.style.display = '';
-					mxUtils.write(this.tooltipTitle, title);
+
+					if (showAttributes){
+
+						this.graph2.labelsVisible = false;
+						this.tooltip.style.width = w + 'px';
+
+						//change x to translate in center below
+						bounds.x = -(w - bounds.width - this.tooltipBorder*4)/2;
+
+						var attrsTitle = document.createElement('div');
+						var metaClass = cells[0].getValue().getAttribute('metaClass');
+
+						attrsTitle.style.textAlign = 'left';
+						attrsTitle.style.margin = '0 0 0 5px';
+
+						//get associated attributes
+						var associatedAttributes = this.editorUi.atributesDirectory.getById(metaClass) && this.editorUi.atributesDirectory.getById(metaClass).attributes;
+
+						for (var i in associatedAttributes){
+							if (Object.prototype.hasOwnProperty.call(associatedAttributes, i)){
+
+								var attrName = associatedAttributes[i].title;
+								var attrValue = cells[0].getValue().getAttribute(i);
+								var liString = attrName + ': ' + attrValue;
+								mxUtils.writeln(attrsTitle, liString);
+							}
+						}
+
+						while (this.tooltipTitle.firstChild) {
+							this.tooltipTitle.removeChild(this.tooltipTitle.firstChild);
+						}
+
+						this.tooltipTitle.appendChild(attrsTitle);
+					} else {
+						mxUtils.write(this.tooltipTitle, title);
+					}
+
+
+					//mxUtils.write(this.tooltipTitle, title);
 					
 					var ddy = this.tooltipTitle.offsetHeight + 10;
 					height += ddy;
@@ -496,6 +534,11 @@ Sidebar.prototype.showTooltip = function(elt, cells, w, h, title, showLabel)
 				this.tooltip.style.left = left + 'px';
 				this.tooltip.style.top = top + 'px';
 				this.tooltipImage.style.left = (left - 13) + 'px';
+
+				if ((top + height + 2*this.tooltipBorder) > window.innerHeight) {
+					this.tooltip.style.top = window.innerHeight - height - 10 - this.tooltipBorder + 'px';
+				}
+
 				this.tooltipImage.style.top = (top + height / 2 - 13) + 'px';
 			});
 
@@ -1010,8 +1053,8 @@ Sidebar.prototype.getStencils = function() {
         intermediateEventWithMessageThrow: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithMessageThrow'), stencilsData.getWidth('intermediateEventWithMessageThrow'), stencilsData.getHeight('intermediateEventWithMessageThrow'), '', 'Промежуточное событие с сообщением (отправление)', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithMessageThrow'), type: 'intermediateEventWithMessageThrow'}),
         intermediateEventWithMessageCatch: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithMessageCatch'), stencilsData.getWidth('intermediateEventWithMessageCatch'), stencilsData.getHeight('intermediateEventWithMessageCatch'), '', 'Промежуточное событие с сообщением (получение)', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithMessageCatch'), type: 'intermediateEventWithMessageCatch'}),
         intermediateEventWithTimer: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithTimer'), stencilsData.getWidth('intermediateEventWithTimer'), stencilsData.getHeight('intermediateEventWithTimer'), '', 'Промежуточное событие с таймером', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithTimer'), type: 'intermediateEventWithTimer'}),
-        intermediateLink1Event: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateLink1Event'), stencilsData.getWidth('intermediateLink1Event'), stencilsData.getHeight('intermediateLink1Event'), '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateLink1Event'), type: 'intermediateLink1Event'}),
-        intermediateLink2Event: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateLink2Event'), stencilsData.getWidth('intermediateLink2Event'), stencilsData.getHeight('intermediateLink2Event'), '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateLink2Event'), type: 'intermediateLink2Event'}),
+        intermediateEventWithLinkCatch: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithLinkCatch'), stencilsData.getWidth('intermediateEventWithLinkCatch'), stencilsData.getHeight('intermediateEventWithLinkCatch'), '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithLinkCatch'), type: 'intermediateEventWithLinkCatch'}),
+		intermediateEventWithLinkThrow: this.createVertexTemplateEntry(stencilsData.getStyle('intermediateEventWithLinkThrow'), stencilsData.getWidth('intermediateEventWithLinkThrow'), stencilsData.getHeight('intermediateEventWithLinkThrow'), '', 'Промежуточное событие с ссылкой', null, null, 'circle oval ellipse state', {metaClass: stencilsData.getMetaClass('intermediateEventWithLinkThrow'), type: 'intermediateEventWithLinkThrow'}),
 
         automatedAction: this.addEntry(this.getTagsForStencil('mxgraph.bpmn', 'user_task').join(' '), function()
         {
@@ -1239,7 +1282,29 @@ Sidebar.prototype.generateCopyPanel = function(expand, container) {
 
             if (el.items){
                 el.items.forEach(function(item){
-                    fns.push(_this.createVertexTemplateEntry(stencilsData.getStyle(code), stencilsData.getWidth(code), stencilsData.getHeight(code), item.title, '' /*description*/, null, null, null, item, true));
+                    fns.push(
+						mxUtils.bind(_this, function(){
+							var style = stencilsData.getStyle(code);
+							var width = stencilsData.getWidth(code);
+							var height = stencilsData.getHeight(code);
+							var value = item.title;
+							var title = true;
+							var showLabel = false;
+							var showTitle = null;
+							var allowCellsInserted = null;
+							var checkMultiple = true;
+							var attributesToAdd = item;
+
+							var cells = [new mxCell((value != null) ? value : '', new mxGeometry(0, 0, width, height), style)];
+							cells[0].vertex = true;
+
+							//add custom attrs
+							this.addCustomAttrs(cells[0], attributesToAdd);
+
+							return this.createListItem(cells, title, showLabel, showTitle, width, height, allowCellsInserted, checkMultiple);
+
+						})
+					);
                 });
             }
 
@@ -2143,6 +2208,78 @@ Sidebar.prototype.createItem = function(cells, title, showLabel, showTitle, widt
 	return elt;
 };
 
+
+/**
+ * Creates and returns a new palette item for the given image.
+ */
+Sidebar.prototype.createListItem = function(cells, title, showLabel, showTitle, width, height, allowCellsInserted, checkMultiple)
+{
+	var elt = document.createElement('a');
+	elt.setAttribute('href', 'javascript:void(0);');
+	elt.className = 'geItem';
+	elt.style.overflow = 'hidden';
+	var border = (mxClient.IS_QUIRKS) ? 8 + 2 * this.thumbPadding : 2 * this.thumbBorder;
+
+	elt.style.width = '100%';
+	elt.style.height = (11 + border) + 'px';
+	//elt.style.width = (this.thumbWidth + border) + 'px';
+	//elt.style.height = (this.thumbHeight + border) + 'px';
+
+	elt.style.padding = this.thumbPadding + 'px';
+
+    if (checkMultiple){
+        elt.setAttribute('checkMultiple', 'true');
+    }
+
+	var innerText = cells[0].getValue().getAttribute('label');
+	mxUtils.write(elt, innerText);
+
+	// Blocks default click action
+	mxEvent.addListener(elt, 'click', function(evt)
+	{
+		mxEvent.consume(evt);
+	});
+
+	//this.createThumb(cells, this.thumbWidth, this.thumbHeight, elt, title, showLabel, showTitle);
+
+	var bounds = new mxRectangle(0, 0, width, height);
+
+	if (cells.length > 1 || cells[0].vertex)
+	{
+		var ds = this.createDragSource(elt, this.createDropHandler(cells, true, allowCellsInserted,
+			bounds, elt), this.createDragPreview(width, height), cells, bounds);
+		this.addClickHandler(elt, ds, cells);
+
+		// Uses guides for vertices only if enabled in graph
+		ds.isGuidesEnabled = mxUtils.bind(this, function()
+		{
+			return this.editorUi.editor.graph.graphHandler.guidesEnabled;
+		});
+	}
+	else if (cells[0] != null && cells[0].edge)
+	{
+		var ds = this.createDragSource(elt, this.createDropHandler(cells, false, allowCellsInserted,
+			bounds, elt), this.createDragPreview(width, height), cells, bounds);
+		this.addClickHandler(elt, ds, cells);
+	}
+
+	var ttpWidth = 410;//( width > 300 ) ? width : ( width + 100 );
+
+	// Shows a tooltip with the rendered cell
+	if (!mxClient.IS_IOS)
+	{
+		mxEvent.addGestureListeners(elt, null, mxUtils.bind(this, function(evt)
+		{
+			if (mxEvent.isMouseEvent(evt))
+			{
+				this.showTooltip(elt, cells, ttpWidth/*bounds.width*/, bounds.height, title, showLabel, true);
+			}
+		}));
+	}
+
+	return elt;
+};
+
 /**
  * Creates a drop handler for inserting the given cells.
  */
@@ -2289,7 +2426,6 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
 					}
 					finally
 					{
-
                         //if obj not multiple, show it in stencils if object was deleted from graph
                         if (elt.getAttribute('checkMultiple')){
                             if (elt.getAttribute('checkMultiple') === 'true'){
@@ -2303,7 +2439,15 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
                                     });
                                 });
                             }
-                        }/* else {
+                        }
+
+						select.forEach(function(sel){
+							if (!sel.getValue().getAttribute('UUID')){
+								sel.getValue().setAttribute('UUID', sel.id)
+							}
+						});
+
+						/* else {
                             //add new stencil of this object and track changes
                             //console.log("cells", cells);
 
@@ -3768,7 +3912,6 @@ Sidebar.prototype.destroy = function()
  */
 Sidebar.prototype.addCustomAttrs = function(cell, attrs) {
 
-    //console.log("metaClass", metaClass);
     var type;
 
     if (attrs){
@@ -3791,6 +3934,11 @@ Sidebar.prototype.addCustomAttrs = function(cell, attrs) {
         }
 
         val.setAttribute('metaClass', metaClass);
+
+		if (attrs.UUID){
+			val.setAttribute('UUID', attrs.UUID);
+		}
+
 
         //set base attributes
         if (_this.editorUi.atributesDirectory && _this.editorUi.atributesDirectory.getById(metaClass)){
