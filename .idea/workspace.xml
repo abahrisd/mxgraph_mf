@@ -8,42 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3df7600a-a3db-4808-90a7-2e50eb04c052" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/attributes.json" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/attributes.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Actions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Dialogs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Editor.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EditorUi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Graph.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Graph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Menus.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Menus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Shapes.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Shapes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Sidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Sidebar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Stencils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Toolbar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Toolbar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/jscolor.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/jscolor/jscolor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/open.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/open.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_de.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_de.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_ru.txt" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor_ru.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/help.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/help.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/help_de.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/help_de.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/sanitizer/sanitizer.min.js" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/sanitizer/sanitizer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/arrows.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/arrows.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/basic.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/basic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/bpmn.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/bpmn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/customs.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/customs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/flowchart.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/stencils/flowchart.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/default.xml" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/grapheditor-ie6.css" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/grapheditor-ie6.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/grapheditor.css" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/grapheditor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/help.css" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/styles/help.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/examples/grapheditor/www/viewer.html" afterPath="$PROJECT_DIR$/javascript/examples/grapheditor/www/viewer.html" />
     </list>
     <ignored path="mxgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,53 +31,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataLoader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="469" column="16" selection-start-line="469" selection-start-column="16" selection-end-line="469" selection-end-column="16" />
-              <folding>
-                <marker date="1465115649654" expanded="true" signature="783:816" placeholder="/** Init setting privilege ...*/" />
-                <marker date="1465115649654" expanded="true" signature="1081:1126" placeholder="/** Set styleseet from this.stylesheet ...*/" />
-                <marker date="1465115649654" expanded="true" signature="1388:1425" placeholder="/** Create store for linkTypes ...*/" />
-                <marker date="1465115649654" expanded="true" signature="1624:1663" placeholder="/** Create store for objectTypes ...*/" />
-                <marker date="1465115649654" expanded="true" signature="1805:1848" placeholder="/** Create store for connectionTypes ...*/" />
-                <marker date="1465115649654" expanded="true" signature="1998:2046" placeholder="/** Create store for forbiddenConnections ...*/" />
-                <marker date="1465115649654" expanded="true" signature="2272:2320" placeholder="/** Create store for forbiddenConnections ...*/" />
-                <marker date="1465115649654" expanded="true" signature="2571:2610" placeholder="/** Create store for objectTypes ...*/" />
-                <marker date="1465115649654" expanded="true" signature="2958:2997" placeholder="/** Create store for objectTypes ...*/" />
-                <marker date="1465115649654" expanded="true" signature="3825:3887" placeholder="/** Load stylesheet.xml from server and set it to graph ...*/" />
-                <marker date="1465115649654" expanded="true" signature="3935:8301" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="4153:8301" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="4192:8301" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="4297:8301" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="4406:4479" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="4803:8300" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="4852:8073" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5221:5313" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5319:5489" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5359:5463" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5588:8049" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5765:5941" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5947:6133" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="5992:6103" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="6184:6368" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="6374:6562" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="6419:6532" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="6617:6809" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="6860:6977" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="7067:7269" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="7275:7472" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="7320:7442" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="7530:7822" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="7564:7706" placeholder="//..." />
-                <marker date="1465115649654" expanded="true" signature="7828:8023" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="7873:7993" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="8079:8282" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="8116:8260" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="24814:25435" placeholder="{...}" />
-                <marker date="1465115649654" expanded="true" signature="24814:27252" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="0.6289398">
+              <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,14 +78,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mfFormat.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mfFormat.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3653295">
-              <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="443" column="49" selection-start-line="443" selection-start-column="49" selection-end-line="443" selection-end-column="49" />
               <folding>
-                <marker date="1465193953159" expanded="true" signature="23948:24150" placeholder="..." />
-                <marker date="1465193953159" expanded="false" signature="28427:28445" placeholder="..." />
+                <marker date="1465194827398" expanded="true" signature="24012:24214" placeholder="..." />
+                <marker date="1465194827398" expanded="false" signature="28491:28509" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -175,21 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="164" column="46" selection-start-line="164" selection-start-column="46" selection-end-line="164" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="mxClient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49764" column="0" selection-start-line="49764" selection-start-column="0" selection-end-line="49764" selection-end-column="0" />
+              <caret line="56266" column="61" selection-start-line="56266" selection-start-column="61" selection-end-line="56266" selection-end-column="61" />
               <folding>
                 <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
                 <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
@@ -219,7 +135,34 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
-              <folding />
+              <folding>
+                <marker date="1465114873658" expanded="true" signature="747:6967" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="879:6848" placeholder="[...]" />
+                <marker date="1465114873658" expanded="true" signature="6890:6920" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="6971:6992" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7035:7082" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7084:7105" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7146:7173" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7175:7196" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7240:7271" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7274:7320" placeholder="/** get first item with given metaClass ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7378:7584" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7411:7582" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7455:7576" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7512:7566" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7587:7608" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7653:7752" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7679:7723" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7754:7775" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7821:7922" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7847:7892" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="7924:7945" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="7990:8093" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="8016:8060" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="8095:8116" placeholder="/** Init store ...*/" />
+                <marker date="1465114873658" expanded="true" signature="8165:8257" placeholder="{...}" />
+                <marker date="1465114873658" expanded="true" signature="8191:8240" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -250,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/EdgeValidator.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/linkTypes.json" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/testnode.xml" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/presentation.json" />
@@ -292,7 +234,6 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/resources/grapheditor.txt" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/stylesheet.xml" />
-        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/RelValidator.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/Utils.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/UserStore.js" />
@@ -301,6 +242,8 @@
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/index.html" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfSidebar.js" />
         <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js" />
+        <option value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js" />
+        <option value="$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js" />
       </list>
     </option>
   </component>
@@ -615,12 +558,6 @@
       <option name="number" value="Default" />
       <updated>1461577810014</updated>
     </task>
-    <task id="LOCAL-00010" summary="disallow key enter while label formating on dblclick">
-      <created>1463563534352</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1463563534352</updated>
-    </task>
     <task id="LOCAL-00011" summary="add encodinag and unescaping on title change">
       <created>1463564617901</created>
       <option name="number" value="00011" />
@@ -909,7 +846,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464964204262</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="hide few elements, make pool 2000 width, change arrow to orthogonal">
+      <created>1465194065732</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1465194065733</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -928,21 +871,21 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22714078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24327958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -982,7 +925,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="change background color for stencils from transparent to wight" />
     <MESSAGE value="fix validation condition" />
     <MESSAGE value="add change object on the fly" />
     <MESSAGE value="fix setting style for templates[].length === 1" />
@@ -1007,7 +949,8 @@
     <MESSAGE value="add new tab on stencils panel with importedObjects" />
     <MESSAGE value="add style to imported connections" />
     <MESSAGE value="fiz association connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="fiz association connection" />
+    <MESSAGE value="hide few elements, make pool 2000 width, change arrow to orthogonal" />
+    <option name="LAST_COMMIT_MESSAGE" value="hide few elements, make pool 2000 width, change arrow to orthogonal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1016,13 +959,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/fixtures/new_attrs.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28695652">
-          <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/wamp/www/extjs-master/version.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1169,6 +1105,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.023743017">
           <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1205,6 +1142,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.307692">
           <caret line="167" column="30" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,6 +1205,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
           <caret line="235" column="21" selection-start-line="235" selection-start-column="21" selection-end-line="235" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1274,6 +1213,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
           <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,6 +1221,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.73077">
           <caret line="1368" column="32" selection-start-line="1368" selection-start-column="32" selection-end-line="1368" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,6 +1229,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.9615383">
           <caret line="535" column="62" selection-start-line="535" selection-start-column="62" selection-end-line="535" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,6 +1259,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34492755">
           <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1324,6 +1267,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38268158">
           <caret line="258" column="17" selection-start-line="258" selection-start-column="17" selection-end-line="258" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,23 +1275,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="271" column="103" selection-start-line="271" selection-start-column="15" selection-end-line="271" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49764" column="0" selection-start-line="49764" selection-start-column="0" selection-end-line="49764" selection-end-column="0" />
-          <folding>
-            <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="133200:133253" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="133947:133958" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="443999:444063" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="615253:615290" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="621011:621148" placeholder="..." />
-            <marker date="1464878783890" expanded="true" signature="1318573:1318587" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,55 +1307,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="469" column="16" selection-start-line="469" selection-start-column="16" selection-end-line="469" selection-end-column="16" />
           <folding>
-            <marker date="1465115649654" expanded="true" signature="783:816" placeholder="/** Init setting privilege ...*/" />
-            <marker date="1465115649654" expanded="true" signature="1081:1126" placeholder="/** Set styleseet from this.stylesheet ...*/" />
-            <marker date="1465115649654" expanded="true" signature="1388:1425" placeholder="/** Create store for linkTypes ...*/" />
-            <marker date="1465115649654" expanded="true" signature="1624:1663" placeholder="/** Create store for objectTypes ...*/" />
-            <marker date="1465115649654" expanded="true" signature="1805:1848" placeholder="/** Create store for connectionTypes ...*/" />
-            <marker date="1465115649654" expanded="true" signature="1998:2046" placeholder="/** Create store for forbiddenConnections ...*/" />
-            <marker date="1465115649654" expanded="true" signature="2272:2320" placeholder="/** Create store for forbiddenConnections ...*/" />
-            <marker date="1465115649654" expanded="true" signature="2571:2610" placeholder="/** Create store for objectTypes ...*/" />
-            <marker date="1465115649654" expanded="true" signature="2958:2997" placeholder="/** Create store for objectTypes ...*/" />
-            <marker date="1465115649654" expanded="true" signature="3825:3887" placeholder="/** Load stylesheet.xml from server and set it to graph ...*/" />
-            <marker date="1465115649654" expanded="true" signature="3935:8301" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="4153:8301" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="4192:8301" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="4297:8301" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="4406:4479" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="4803:8300" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="4852:8073" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5221:5313" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5319:5489" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5359:5463" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5588:8049" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5765:5941" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5947:6133" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="5992:6103" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="6184:6368" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="6374:6562" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="6419:6532" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="6617:6809" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="6860:6977" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="7067:7269" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="7275:7472" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="7320:7442" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="7530:7822" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="7564:7706" placeholder="//..." />
-            <marker date="1465115649654" expanded="true" signature="7828:8023" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="7873:7993" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="8079:8282" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="8116:8260" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="24814:25435" placeholder="{...}" />
-            <marker date="1465115649654" expanded="true" signature="24814:27252" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="747:6967" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="879:6848" placeholder="[...]" />
+            <marker date="1465114873658" expanded="true" signature="6890:6920" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="6971:6992" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7035:7082" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7084:7105" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7146:7173" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7175:7196" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7240:7271" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7274:7320" placeholder="/** get first item with given metaClass ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7378:7584" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7411:7582" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7455:7576" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7512:7566" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7587:7608" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7653:7752" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7679:7723" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7754:7775" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7821:7922" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7847:7892" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="7924:7945" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="7990:8093" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="8016:8060" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="8095:8116" placeholder="/** Init store ...*/" />
+            <marker date="1465114873658" expanded="true" signature="8165:8257" placeholder="{...}" />
+            <marker date="1465114873658" expanded="true" signature="8191:8240" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1473,14 +1379,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/src/js/mxClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56266" column="61" selection-start-line="56266" selection-start-column="61" selection-end-line="56266" selection-end-column="61" />
+          <folding>
+            <marker date="1464878783890" expanded="true" signature="133022:133033" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="133115:133186" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="133200:133253" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="133947:133958" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="443999:444063" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="615253:615290" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="621011:621148" placeholder="..." />
+            <marker date="1464878783890" expanded="true" signature="1318573:1318587" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/mfFormat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3653295">
-          <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="443" column="49" selection-start-line="443" selection-start-column="49" selection-end-line="443" selection-end-column="49" />
           <folding>
-            <marker date="1465193953159" expanded="true" signature="23948:24150" placeholder="..." />
-            <marker date="1465193953159" expanded="false" signature="28427:28445" placeholder="..." />
+            <marker date="1465194827398" expanded="true" signature="24012:24214" placeholder="..." />
+            <marker date="1465194827398" expanded="false" signature="28491:28509" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323782">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/examples/grapheditor/www/js/DataLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6289398">
+          <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

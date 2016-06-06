@@ -453,6 +453,7 @@ Format.prototype.refresh = function()
             addClickHandler(label4, attributesPanel, idx++);
         }
 
+        //Don't delet this code, it may be useful for dev purps
 		// Style
 		/*if (containsLabel)
 		{

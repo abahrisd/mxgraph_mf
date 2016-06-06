@@ -26,7 +26,7 @@ function DataLoader(editorUi) {
     this.queryStr = globalQueryString;
 
     //this.init(this.queryStr);
-};
+}
 
 /**
  * Init setting privilege
@@ -288,7 +288,6 @@ DataLoader.prototype.loadTypeData = function(url) {
 DataLoader.prototype.arrangeEntrys = function(parentCell) {
     var graph = this.graph;
 
-
     var childs = graph.getModel().getChildVertices(parentCell);
     var newGroup = graph.groupCells(parentCell, 0, childs);
     var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
@@ -383,7 +382,7 @@ DataLoader.prototype.getCellTargets = function(cell, linkChain) {
     });
 
     return cellTargets;
-}
+};
 
 /**
  * Add new edge for given source and target with attrs from el object
@@ -401,7 +400,8 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
         cellTargets = tcpUtils.uniq(cellTargets);
         cellTargets.forEach(function(cellTrg){
 
-            var newCell = graph.cloneCells([cell])[0];
+            //var newCell = graph.cloneCells([cell])[0];
+            var newCells = [];
 
             //var cellEdges = graph.getModel().getEdges(cell, incoming, outgoing, false);
             var incomingEdges = graph.getModel().getEdges(cell, true, false, false);
@@ -419,11 +419,15 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
                 }
 
                 if  (edge.source && edge.source.getParent().id === cellTrg.id){
+
+                    var newCell = graph.cloneCells([cell])[0];
+                    newCells.push(newCell);
+
                     addEdges.push({
                         target: newCell,
                         source: edge.source,
                         el: el
-                    })
+                    });
                 }
             });
 
@@ -436,10 +440,11 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
                     el.typeCode = edge.getValue().getAttribute('typeCode');
                 }
 
-                //console.log("edge.target", edge.target);
-                //console.log("edge.target.getParent().id", edge.target.getParent().id);
-                //console.log("cellTrg.id", cellTrg.id);
                 if (edge.target && edge.target.getParent().id === cellTrg.id){
+
+                    var newCell = graph.cloneCells([cell])[0];
+                    newCells.push(newCell);
+
                     addEdges.push({
                         target: edge.target,
                         source: newCell,
@@ -448,13 +453,10 @@ DataLoader.prototype.cloneCellInTargets = function(cell, cellTargets) {
                 }
             });
 
-            //EditUI.editor.graph.graph.getModel().getEdges(EditUI.editor.graph.getSelectionCell(), true, true, false);
-            //put cell to cellTrg
-            //console.log("addEdges", addEdges);
-            graph.groupCells(cellTrg, 10, [newCell]);
+            graph.groupCells(cellTrg, 10, newCells);
 
             addEdges.forEach(function(edge){
-                _this.addEdgeWithAttrs(edge.el, edge.source, edge.target, cellTrg)
+                _this.addEdgeWithAttrs(edge.el, edge.source, edge.target, cellTrg);
             });
 
         });
@@ -506,9 +508,9 @@ DataLoader.prototype.addEdgeWithAttrs = function(el, source, target, parent) {
 DataLoader.prototype.sync = function() {
 
     var _this = this;
-    var view_id = this.queryStr.view.split('$')[1];
+    var viewId = this.queryStr.view.split('$')[1];
 
-    var url = (this.origin + this.funcPath + '?accessKey='+this.queryStr.accessKey + '&func=modules.mxGraph.relevantData&params=' + view_id);
+    var url = (this.origin + this.funcPath + '?accessKey='+this.queryStr.accessKey + '&func=modules.mxGraph.relevantData&params=' + viewId);
 
     var graph = this.graph;
     var editor = this.editorUi.editor;
@@ -529,10 +531,11 @@ DataLoader.prototype.sync = function() {
                     });
                 }
 
+                var parents = [];
+
                 //insert links
                 if (responseData.links){
                     var targetsToDel = [];
-                    var parents = [];
 
                     //insert participant links (child-parent)
                     responseData.links.forEach(function(el){
@@ -543,10 +546,10 @@ DataLoader.prototype.sync = function() {
 
                             graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
                                 if (cell && cell.getValue()){
-                                    if (cell.getValue().getAttribute('UUID') == el.source) {
+                                    if (cell.getValue().getAttribute('UUID') === el.source) {
                                         source = cell;
                                     }
-                                    if (cell.getValue().getAttribute('UUID') == el.target) {
+                                    if (cell.getValue().getAttribute('UUID') === el.target) {
                                         target = cell;
                                     }
                                 }
@@ -607,20 +610,22 @@ DataLoader.prototype.sync = function() {
                     var impliedContainment = impliedContainmentObj.getAll();
 
                     for (var cont in impliedContainment){
-                        //cont = type
-                        graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
+                        if (Object.prototype.hasOwnProperty.call(impliedContainment, cont)){
+                            //cont = type
+                            graph.getModel().getDescendants(graph.getDefaultParent()).forEach(function(cell){
 
-                            //get cells with metaClass = cont
-                            if (cell && cell.getValue() && cell.getValue().getAttribute('metaClass') === cont){
-                                if (impliedContainment[cont].linkChain && impliedContainment[cont].linkChain.length > 0){
+                                //get cells with metaClass = cont
+                                if (cell && cell.getValue() && cell.getValue().getAttribute('metaClass') === cont){
+                                    if (impliedContainment[cont].linkChain && impliedContainment[cont].linkChain.length > 0){
 
-                                    var cellTargets = _this.getCellTargets(cell, impliedContainment[cont].linkChain);
+                                        var cellTargets = _this.getCellTargets(cell, impliedContainment[cont].linkChain);
 
-                                    //array for target cells on each itteration
-                                    _this.cloneCellInTargets(cell, cellTargets);
+                                        //array for target cells on each itteration
+                                        _this.cloneCellInTargets(cell, cellTargets);
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
 
