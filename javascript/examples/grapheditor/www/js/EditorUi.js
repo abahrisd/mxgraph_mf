@@ -3599,7 +3599,6 @@ EditorUi.prototype.uploadInRepo = function(){
 
     var onload = function (req) {
         loadMask.hide();
-
         try {
             if (req.request && req.request.status === 200){
                 mxUtils.error('Данные успешно выгружены', 300, true, mxClient.imageBasePath + '/success.png', null, mxUtils.successResource);

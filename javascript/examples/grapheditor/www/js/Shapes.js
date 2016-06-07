@@ -528,7 +528,26 @@
 
     GatewayExclude.prototype.paintForeground = function(c, x, y, w, h)
     {
-        var border = Math.min(w / 5, h / 5) + 1;
+
+        var s2 = 0.32;
+
+        c.setShadow(false);
+        c.setStrokeWidth(3);
+        c.begin();
+        c.moveTo(x + w * s2, y + h * s2);
+        c.lineTo(x + w * (1 - s2), y + h * (1 - s2));
+        c.end();
+        c.stroke();
+
+        c.begin();
+        c.moveTo(x + w * (1 - s2), y + h * s2);
+        c.lineTo(x + w * s2, y + h * (1 - s2));
+        c.end();
+        c.stroke();
+
+        mxRhombus.prototype.paintForeground.apply(this, arguments);
+
+        /*var border = Math.min(w / 5, h / 5) + 1;
 
         c.setStrokeWidth(3);
         c.begin();
@@ -537,7 +556,7 @@
         c.moveTo(x + border, y + h / 2);
         c.lineTo(x + w - border, y + h / 2);
         c.end();
-        c.stroke();
+        c.stroke();*/
     };
 
 	mxCellRenderer.prototype.defaultShapes['gatewayExclude'] = GatewayExclude;
@@ -561,7 +580,18 @@
     };
     GatewayParallel.prototype.paintForeground = function(c, x, y, w, h)
     {
-        var s2 = 0.32;
+        var border = Math.min(w / 5, h / 5) + 1;
+
+        c.setStrokeWidth(3);
+        c.begin();
+        c.moveTo(x + w / 2, y + border);
+        c.lineTo(x + w / 2, y + h - border);
+        c.moveTo(x + border, y + h / 2);
+        c.lineTo(x + w - border, y + h / 2);
+        c.end();
+        c.stroke();
+
+        /*var s2 = 0.32;
 
         c.setShadow(false);
         c.setStrokeWidth(3);
@@ -577,7 +607,7 @@
         c.end();
         c.stroke();
 
-        mxRhombus.prototype.paintForeground.apply(this, arguments);
+        mxRhombus.prototype.paintForeground.apply(this, arguments);*/
     };
 
 	mxCellRenderer.prototype.defaultShapes['gatewayParallel'] = GatewayParallel;
