@@ -17,7 +17,7 @@ function Stencils() {
     this._items = {};
     this.idValue = 'code';
     this.init();
-};
+}
 
 /**
  * Base width for stancils without style
@@ -201,21 +201,21 @@ Stencils.prototype.init = function () {
  */
 Stencils.prototype._add = function (item) {
     this._items[item[this.idValue]] = item;
-}
+};
 
 /**
  * Init store
  */
 Stencils.prototype.getAll = function () {
     return this._items;
-}
+};
 
 /**
  * Init store
  */
 Stencils.prototype.getById = function (id) {
     return this._items[id];
-}
+};
 
 
 /**
@@ -237,30 +237,30 @@ Stencils.prototype.getByMetaClass = function (metaClass) {
  */
 Stencils.prototype.getWidth = function (id) {
     if (this._items[id]){
-        return this._items[id].width
+        return this._items[id].width;
     }
     return this.baseWidth;
-}
+};
 
 /**
  * Init store
  */
 Stencils.prototype.getHeight = function (id) {
     if (this._items[id]){
-        return this._items[id].height
+        return this._items[id].height;
     }
     return this.baseHeight;
-}
+};
 
 /**
  * Init store
  */
 Stencils.prototype.getStyle = function (id) {
     if (this._items[id]){
-        return this._items[id].style
+        return this._items[id].style;
     }
     return 'whiteSpace=wrap;';
-}
+};
 
 /**
  * Init store
@@ -270,4 +270,4 @@ Stencils.prototype.getMetaClass = function (id) {
         return this._items[id].metaClass;
     }
     return '';
-}
+};

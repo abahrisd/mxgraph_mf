@@ -1185,9 +1185,9 @@ Sidebar.prototype.getStencils = function() {
         document: this.createVertexTemplateEntry(stencilsData.getStyle('document'), stencilsData.getWidth('document'), stencilsData.getHeight('document'), '', 'Нормативный документ', null, null, null,{metaClass:stencilsData.getMetaClass('document'), type: 'document'}),
         rule: this.createVertexTemplateEntry(stencilsData.getStyle('rule'), stencilsData.getWidth('rule'), stencilsData.getHeight('rule'), '', 'Бизнес-правило', null, null, 'rule', {metaClass:stencilsData.getMetaClass('rule'), type: 'rule'}),
 
-        solidLine: this.createEdgeTemplateEntry(stencilsData.getStyle('solidLine'), stencilsData.getWidth('solidLine'), stencilsData.getHeight('solidLine'), '', sb.getConnectionTitle('controlFlow', 'Поток управления'), null, null, null, {metaClass: stencilsData.getMetaClass('solidLine'), type: 'controlFlow'}),
-        dashedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dashedLine'), stencilsData.getWidth('dashedLine'), stencilsData.getHeight('dashedLine'), '', sb.getConnectionTitle('messageFlow','Поток сообщений'), null, null, null, {metaClass: stencilsData.getMetaClass('dashedLine'), type: 'messageFlow'}),
-        dottedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dottedLine'), stencilsData.getWidth('dottedLine'), stencilsData.getHeight('dottedLine'), '', sb.getConnectionTitle('association','Поток ассоциация'), null, null, null, {metaClass:stencilsData.getMetaClass('dottedLine'), type: 'association'}),
+        solidLine: this.createEdgeTemplateEntry(stencilsData.getStyle('solidLine'), stencilsData.getWidth('solidLine'), stencilsData.getHeight('solidLine'), '', sb.getConnectionTitle('controlFlow', 'Поток управления'), '', null, null, {metaClass: stencilsData.getMetaClass('solidLine'), type: 'controlFlow'}),
+        dashedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dashedLine'), stencilsData.getWidth('dashedLine'), stencilsData.getHeight('dashedLine'), '', sb.getConnectionTitle('messageFlow','Поток сообщений'), '', null, null, {metaClass: stencilsData.getMetaClass('dashedLine'), type: 'messageFlow'}),
+        dottedLine: this.createEdgeTemplateEntry(stencilsData.getStyle('dottedLine'), stencilsData.getWidth('dottedLine'), stencilsData.getHeight('dottedLine'), '', sb.getConnectionTitle('association','Поток ассоциация'), '', null, null, {metaClass:stencilsData.getMetaClass('dottedLine'), type: 'association'}),
 
         text: this.createVertexTemplateEntry(stencilsData.getStyle('text'), stencilsData.getWidth('text'), stencilsData.getHeight('text'), 'Текст', 'Текст', null, null, 'text textbox textarea label', null)
     };
@@ -2520,7 +2520,7 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
                             var metaClass = select[0].getValue().getAttribute('metaClass');
                             var nameAttribute = this.editorUi.atributesDirectory.getNameAttribute(metaClass);
                             var label = select[0].getValue().getAttribute(nameAttribute);
-                            select[0].getValue().setAttribute('label', label);
+                            select[0].getValue().setAttribute('label', label || '');
                         }
 
 						/* else {

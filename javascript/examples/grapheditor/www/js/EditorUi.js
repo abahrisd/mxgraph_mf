@@ -3583,8 +3583,6 @@ EditorUi.prototype.override = function() {
         return result;
     };
 
-
-
     //CELLS_FOLDED
 
 };
