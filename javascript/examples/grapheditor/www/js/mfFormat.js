@@ -4837,10 +4837,12 @@ AttributePanel.prototype.addCellAttributes = function(container)
                 }
 
                 for(var i in values){
-                    if (values.hasOwnProperty(i) && (allowVals.length === 0 || (allowVals.contains(i) || !filter))){
+                    if (Object.prototype.hasOwnProperty.call(values, i) && (allowVals.length === 0 || (allowVals.contains(i) || !filter))){
                         form.addOption(texts[index], values[i], i);
                     }
                 }
+
+                texts[index].value = value;
             }
         };
 
