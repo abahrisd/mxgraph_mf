@@ -3599,11 +3599,17 @@ EditorUi.prototype.uploadInRepo = function(){
 
     var onload = function (req) {
         loadMask.hide();
-        mxUtils.error('Данные успешно выгружены', 300, true, mxClient.imageBasePath + '/success.png', null, mxUtils.successResource);
+
         try {
-            var responseData = JSON.parse(req.getText());
-            console.log("responseData", responseData);
+            if (req.request && req.request.status === 200){
+                mxUtils.error('Данные успешно выгружены', 300, true, mxClient.imageBasePath + '/success.png', null, mxUtils.successResource);
+            } else if (req.request && req.request.status === 500 && req.request.response && typeof req.request.response === 'string'){
+                mxUtils.error(req.request.response, 300, true);
+            } else {
+                mxUtils.error('Ошибка при выгрузке в репозиторий', 300, true);
+            }
         } catch (e) {
+            mxUtils.error('Ошибка при выгрузке в репозиторий [1]', 300, true);
             if (DEBUG) {
                 console.log('Error while parsing JSON ', e.stack);
             }
@@ -3611,11 +3617,9 @@ EditorUi.prototype.uploadInRepo = function(){
     }
 
     var onerror = function(req){
+        console.log("onerror" );
         loadMask.hide();
         mxUtils.alert('Ошибка при выгрузке в репозиторий');
-        if (DEBUG) {
-            console.log("req", e.stack);
-        }
     };
 
     var req = new mxXmlRequest(url, uploadData, 'POST', false);
