@@ -2509,6 +2509,11 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
 							}
 						});
 
+                        //set width 2200 for pools
+                        if (select[0].getValue() && select[0].getValue().getAttribute('metaClass') === 'ae$participant'){
+                            select[0].geometry.width = 2200;
+                        }
+
 						/* else {
                             //add new stencil of this object and track changes
                             //console.log("cells", cells);

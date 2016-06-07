@@ -3545,7 +3545,7 @@ EditorUi.prototype.override = function() {
     var dataloader = this.dataLoader;
 
     //workaround for bug with change label for imported actions which childs of pool
-    mxGraph.prototype.cellLabelChanged = function(cell, value, autoSize)
+    /*mxGraph.prototype.cellLabelChanged = function(cell, value, autoSize)
     {
         this.model.beginUpdate();
         try
@@ -3563,7 +3563,7 @@ EditorUi.prototype.override = function() {
         {
             this.model.endUpdate();
         }
-    };
+    };*/
 
     //change prefered size for cell
     var graphGetPreferredSizeForCell = graph.getPreferredSizeForCell;
@@ -3582,6 +3582,9 @@ EditorUi.prototype.override = function() {
 
         return result;
     };
+
+    //CELLS_FOLDED
+
 };
 
 

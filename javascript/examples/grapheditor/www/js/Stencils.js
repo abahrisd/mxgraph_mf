@@ -41,7 +41,7 @@ Stencils.prototype.init = function () {
             code: 'participant',
             style: 'pool',
             //style: 'shape=swimlane;swimlaneFillColor=white;horizontal=0;startSize=20;',
-            width: 2200,
+            width: 370,
             height: 240,
             metaClass: 'ae$participant'
         }, {
