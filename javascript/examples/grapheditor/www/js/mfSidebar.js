@@ -2505,7 +2505,7 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
 
                         //if cell gaven't UUID (new object) then set UUID = id
 						select.forEach(function(sel){
-							if (!sel.getValue().getAttribute('UUID')){
+							if (!sel.getValue().getAttribute('UUID') && !sel.edge){
 								sel.getValue().setAttribute('UUID', sel.id);
 							}
 						});
