@@ -2503,15 +2503,24 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
                             }
                         }
 
+                        //if cell gaven't UUID (new object) then set UUID = id
 						select.forEach(function(sel){
 							if (!sel.getValue().getAttribute('UUID')){
-								sel.getValue().setAttribute('UUID', sel.id)
+								sel.getValue().setAttribute('UUID', sel.id);
 							}
 						});
 
                         //set width 2200 for pools
                         if (select[0].getValue() && select[0].getValue().getAttribute('metaClass') === 'ae$participant'){
                             select[0].geometry.width = 2200;
+                        }
+
+                        //set label
+                        if (select[0].getValue() && select[0].getValue().getAttribute('metaClass')){
+                            var metaClass = select[0].getValue().getAttribute('metaClass');
+                            var nameAttribute = this.editorUi.atributesDirectory.getNameAttribute(metaClass);
+                            var label = select[0].getValue().getAttribute(nameAttribute);
+                            select[0].getValue().setAttribute('label', label);
                         }
 
 						/* else {

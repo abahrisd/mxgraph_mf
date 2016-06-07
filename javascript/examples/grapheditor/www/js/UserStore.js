@@ -225,7 +225,7 @@ UserStore.prototype.getLabel = function(metaClass, value) {
 
 
 /**
- * Return templates fom store, which exists in stencils object
+ * Return templates from store, which exists in stencils object
  */
 UserStore.prototype.getName = function(metaClass, value) {
 
@@ -244,6 +244,14 @@ UserStore.prototype.getName = function(metaClass, value) {
     }
 
     return name;
+};
+
+
+/**
+ * Return templates from store, which exists in stencils object
+ */
+UserStore.prototype.getNameAttribute = function(metaClass) {
+    return this.getById(metaClass) && this.getById(metaClass).nameAttribute;
 };
 
 /**
