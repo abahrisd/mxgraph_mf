@@ -113,6 +113,7 @@
 })();
 
 var globalQueryString = function () {
+
     // This function is anonymous, is executed immediately and
     // the return value is assigned to QueryString!
     var query_string = {};
@@ -136,32 +137,6 @@ var globalQueryString = function () {
 }();
 
 var tcpUtils = {
-    uniq: function uniq(a) {
-        var prims = {"boolean":{}, "number":{}, "string":{}}, objs = [];
-
-        return a.filter(function(item) {
-            var type = typeof item;
-            if(type in prims)
-                return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
-            else
-                return objs.indexOf(item) >= 0 ? false : objs.push(item);
-        });
-    },
-    //arrays only, superfast
-    array_uniq: function(a) {
-        var seen = {};
-        var out = [];
-        var len = a.length;
-        var j = 0;
-        for(var i = 0; i < len; i++) {
-            var item = a[i];
-            if(seen[item] !== 1) {
-                seen[item] = 1;
-                out[j++] = item;
-            }
-        }
-        return out;
-    },
     findClass: function (element, className) {
         var foundElement = null, found;
         function recurse(element, className, found) {

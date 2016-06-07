@@ -86,6 +86,7 @@
 	<script type="text/javascript" src="sanitizer/sanitizer.min.js"></script>
 	<script type="text/javascript" src="../src/js/mxClient.js"></script>
 	<script type="text/javascript" src="../src/js/pikaday.js"></script>
+    <script type="text/javascript" src="../src/js/lodash-min.js"></script>
 	<script type="text/javascript" src="js/EditorUi.js"></script>
 	<script type="text/javascript" src="js/Editor.js"></script>
 	<!--<script type="text/javascript" src="js/Sidebar.js"></script>-->
@@ -136,30 +137,6 @@
 					}));
 				}
 			};
-		})();
-        
-		(function(){
-
-            //disallow key enter while label formating on dblclick    
-            mxCellEditor.prototype.init = function () {
-
-                var _this = this;
-                this.textarea = document.createElement('div');
-                this.textarea.className = 'mxCellEditor mxPlainTextEditor';
-                this.textarea.contentEditable = true;
-                var textarea = this.textarea;
-
-                mxEvent.addListener(textarea, 'keydown', function (evt){
-
-                    //workaround, for text comments enter should work properly, e.g. multilining.
-                    if (evt.keyCode === 13 && typeof _this.editingCell.getValue() !== 'string'){
-                        mxEvent.consume(evt);
-                    }
-                });
-
-                this.installListeners(this.textarea);
-            };
-
 		})();
 
 //        var picker = new Pikaday({ field: document.getElementById('datepicker') });

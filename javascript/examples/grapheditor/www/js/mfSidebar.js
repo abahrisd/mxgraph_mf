@@ -2564,8 +2564,7 @@ Sidebar.prototype.createDropHandler = function(cells, allowSplit, allowCellsInse
 						graph.model.endUpdate();
 					}
 	
-					if (select != null && select.length > 0)
-					{
+					if (select != null && select.length > 0) {
 						graph.scrollCellToVisible(select[0]);
 						graph.setSelectionCells(select);
 					}

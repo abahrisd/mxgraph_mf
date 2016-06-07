@@ -3437,9 +3437,9 @@ EditorUi.prototype.getSystemState = function() {
 
     allCells.forEach(function(el){
         if (el.vertex && el.getValue().attributes){
-            output.objects.push(createCellObject(el));
+            output.objects.push(createVertexObject(el));
         } else if (el.edge && el.getValue().attributes){
-            output.links.push(createCellObject(el));
+            output.links.push(createEdgeObject(el));
         }
     });
 
@@ -3486,7 +3486,8 @@ EditorUi.prototype.getSystemState = function() {
         }
     }
 
-    function createCellObject(cell){
+
+    function createVertexObject(cell){
 
         var attrs = cell.getValue().attributes;
         var cellObj = {};
@@ -3496,12 +3497,37 @@ EditorUi.prototype.getSystemState = function() {
                 cellObj[attrs[i].nodeName] = attrs[i].nodeValue;
             }
         }
+
         return cellObj;
     }
 
+    function createEdgeObject(cell){
+
+        var edgeObj = {};
+        var source = cell.getTerminal(true);
+        var target = cell.getTerminal(false);
+        var links = _this.linkTypes.getAll();
+        var sourceMetaClass = source.getValue() && source.getValue().getAttribute('metaClass');
+        var targetMetaClass = target.getValue() && target.getValue().getAttribute('metaClass');
+
+
+        for (var link in links){
+            if (sourceMetaClass && targetMetaClass &&
+                links[link].sourceType && links[link].sourceType === sourceMetaClass
+                && links[link].targetType && links[link].targetType === targetMetaClass) {
+
+                edgeObj.source = source.getValue().getAttribute('UUID');
+                edgeObj.target = target.getValue().getAttribute('UUID');
+                edgeObj.typeCode = links[link].code;
+            }
+        }
+
+        return edgeObj;
+    }
+
     //remove duplicates
-    output.objects = tcpUtils.uniq(output.objects);
-    output.links = tcpUtils.uniq(output.links);
+    output.objects = _.uniqBy(output.objects, function(obj) {return JSON.stringify(obj);});
+    output.links = _.uniqBy(output.links, function(obj) {return JSON.stringify(obj);});
 
     return output;
 };
@@ -3582,6 +3608,29 @@ EditorUi.prototype.override = function() {
 
         return result;
     };
+
+    (function(){
+
+        //disallow key enter while label formating on dblclick
+        mxCellEditor.prototype.init = function () {
+            var _this = this;
+            this.textarea = document.createElement('div');
+            this.textarea.className = 'mxCellEditor mxPlainTextEditor';
+            this.textarea.contentEditable = true;
+            var textarea = this.textarea;
+
+            mxEvent.addListener(textarea, 'keydown', function (evt){
+
+                //workaround, for text comments enter should work properly, e.g. multilining.
+                if (evt.keyCode === 13 && typeof _this.editingCell.getValue() !== 'string'){
+                    mxEvent.consume(evt);
+                }
+            });
+
+            this.installListeners(this.textarea);
+        };
+
+    })();
 
     //CELLS_FOLDED
 

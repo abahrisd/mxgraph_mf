@@ -545,18 +545,7 @@
         c.end();
         c.stroke();
 
-        mxRhombus.prototype.paintForeground.apply(this, arguments);
-
-        /*var border = Math.min(w / 5, h / 5) + 1;
-
-        c.setStrokeWidth(3);
-        c.begin();
-        c.moveTo(x + w / 2, y + border);
-        c.lineTo(x + w / 2, y + h - border);
-        c.moveTo(x + border, y + h / 2);
-        c.lineTo(x + w - border, y + h / 2);
-        c.end();
-        c.stroke();*/
+        //mxRhombus.prototype.paintForeground.apply(this, arguments);
     };
 
 	mxCellRenderer.prototype.defaultShapes['gatewayExclude'] = GatewayExclude;

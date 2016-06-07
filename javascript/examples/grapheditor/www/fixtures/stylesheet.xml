@@ -23,6 +23,7 @@
     </add>
     <add as="startEvent">
         <add value="mxgraph.flowchart.on-page_reference" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
@@ -35,6 +36,7 @@
     <add as="startEventWithMessage">
         <add value="mxgraph.bpmn.event_start_msg" as="shape"/>
         <add value="wrap" as="whiteSpace"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
         <add value="center" as="align"/>
@@ -42,6 +44,7 @@
     </add>
     <add as="intermediateEvent">
         <add value="doubleEllipse" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -50,6 +53,7 @@
     </add>
     <add as="intermediateEventWithMessageThrow">
         <add value="mxgraph.bpmn.event_mailfill" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="#000000" as="fillColor"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
@@ -59,6 +63,7 @@
     </add>
     <add as="intermediateEventWithMessageCatch">
         <add value="mxgraph.bpmn.event_mail" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -67,6 +72,7 @@
     </add>
     <add as="intermediateEventWithTimer">
         <add value="mxgraph.bpmn.event_timer" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -75,6 +81,7 @@
     </add>
     <add as="intermediateEventWithLinkCatch">
         <add value="mxgraph.bpmn.event_arrow" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -83,6 +90,7 @@
     </add>
     <add as="intermediateEventWithLinkThrow">
         <add value="mxgraph.bpmn.event_arrow_fill" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -91,6 +99,7 @@
     </add>
     <add as="endEvent">
         <add value="mxgraph.flowchart.on-page_reference" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#ffffff" as="fillColor"/>
         <add value="#000000" as="strokeColor"/>
@@ -102,6 +111,7 @@
     </add>
     <add as="endEventWithMessage">
         <add value="mxgraph.bpmn.event_end_msg" as="shape"/>
+        <add value="ellipsePerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="#000000" as="fillColor"/>
         <add value="center" as="labelPosition"/>
@@ -111,6 +121,7 @@
     </add>
     <add as="parallelGateway">
         <add value="gatewayParallel" as="shape"/>
+        <add value="rhombusPerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
@@ -119,6 +130,7 @@
     </add>
     <add as="excludingGateway">
         <add value="gatewayExclude" as="shape"/>
+        <add value="rhombusPerimeter" as="perimeter"/>
         <add value="wrap" as="whiteSpace"/>
         <add value="center" as="labelPosition"/>
         <add value="bottom" as="verticalLabelPosition"/>
